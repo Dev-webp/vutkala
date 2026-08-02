@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 600"
+     width="1200"
+     height="600">
+
+  <defs>
+
+    <pattern
+      id="dots"
+      x="0"
+      y="0"
+      width="16"
+      height="16"
+      patternUnits="userSpaceOnUse">
+
+      <circle
+        cx="8"
+        cy="8"
+        r="2"
+        fill="#60A5FA"
+        opacity=".35"/>
+
+    </pattern>
+
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+
+  </defs>
+
+  <rect
+      width="1200"
+      height="600"
+      fill="url(#dots)" />
+
+  <!-- North America -->
+
+  <ellipse
+      cx="220"
+      cy="180"
+      rx="150"
+      ry="90"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- South America -->
+
+  <ellipse
+      cx="310"
+      cy="380"
+      rx="70"
+      ry="120"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- Europe -->
+
+  <ellipse
+      cx="600"
+      cy="160"
+      rx="80"
+      ry="50"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- Africa -->
+
+  <ellipse
+      cx="620"
+      cy="320"
+      rx="90"
+      ry="130"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- Asia -->
+
+  <ellipse
+      cx="850"
+      cy="190"
+      rx="220"
+      ry="120"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- Australia -->
+
+  <ellipse
+      cx="980"
+      cy="430"
+      rx="90"
+      ry="55"
+      fill="#60A5FA"
+      opacity=".15"/>
+
+  <!-- Glow -->
+
+  <ellipse
+      cx="620"
+      cy="300"
+      rx="520"
+      ry="240"
+      fill="#3B82F6"
+      opacity=".05"
+      filter="url(#blur)"/>
+
+</svg>

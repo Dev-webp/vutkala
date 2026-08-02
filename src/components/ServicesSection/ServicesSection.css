@@ -1,0 +1,299 @@
+/* =======================================================
+   SERVICES SECTION
+======================================================= */
+
+.services-section{
+    padding:110px 7%;
+    background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+}
+
+.services-container{
+    max-width:1320px;
+    margin:auto;
+}
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+.section-header{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-tag{
+    display:inline-flex;
+    align-items:center;
+    padding:10px 22px;
+    border-radius:40px;
+    background:#eef5ff;
+    color:#2563eb;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:22px;
+}
+
+.section-header h2{
+    margin:0;
+    font-size:clamp(38px,5vw,56px);
+    font-weight:800;
+    line-height:1.15;
+    color:#071b36;
+}
+
+.section-header p{
+    max-width:760px;
+    margin:24px auto 0;
+    color:#64748b;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* =======================================================
+   GRID
+======================================================= */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+}
+
+/* =======================================================
+   CARD
+======================================================= */
+
+.service-card{
+    display:flex;
+    flex-direction:column;
+    background:#fff;
+    border:1px solid #e7edf7;
+    border-radius:26px;
+    overflow:hidden;
+    transition:.35s;
+    box-shadow:0 15px 45px rgba(15,23,42,.05);
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+    border-color:#2563eb;
+    box-shadow:0 25px 70px rgba(37,99,235,.12);
+}
+
+/* =======================================================
+   IMAGE
+======================================================= */
+
+.service-image{
+    overflow:hidden;
+    height:250px;
+}
+
+.service-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.service-card:hover .service-image img{
+    transform:scale(1.08);
+}
+
+/* =======================================================
+   CONTENT
+======================================================= */
+
+.service-badge{
+    display:inline-block;
+    margin:28px 30px 15px;
+    padding:7px 18px;
+    border-radius:40px;
+    background:#eef5ff;
+    color:#2563eb;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    width:max-content;
+}
+
+.service-card h3{
+    margin:0 30px;
+    color:#071b36;
+    font-size:30px;
+    font-weight:800;
+    line-height:1.25;
+}
+
+.service-description{
+    margin:18px 30px 28px;
+    color:#64748b;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* =======================================================
+   FEATURES
+======================================================= */
+
+.service-features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    padding:0 30px;
+}
+
+.feature-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    border-radius:14px;
+    background:#f8fbff;
+    transition:.3s;
+}
+
+.feature-item:hover{
+    background:#eef5ff;
+    transform:translateY(-3px);
+}
+
+.feature-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#2563eb;
+    font-size:18px;
+    box-shadow:0 5px 15px rgba(37,99,235,.12);
+    flex-shrink:0;
+}
+
+.feature-item span{
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+    line-height:1.4;
+}
+
+/* =======================================================
+   BUTTON
+======================================================= */
+
+.service-button{
+    margin:35px 30px 30px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:#2563eb;
+    font-weight:700;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.service-button svg{
+    transition:.3s;
+}
+
+.service-button:hover{
+    gap:16px;
+}
+
+.service-button:hover svg{
+    transform:translateX(5px);
+}
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media(max-width:992px){
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.section-header{
+
+margin-bottom:50px;
+
+}
+
+.section-header h2{
+
+font-size:42px;
+
+}
+
+.service-image{
+
+height:280px;
+
+}
+
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:768px){
+
+.services-section{
+
+padding:80px 20px;
+
+}
+
+.section-header h2{
+
+font-size:34px;
+
+}
+
+.section-header p{
+
+font-size:16px;
+
+}
+
+.service-card h3{
+
+font-size:26px;
+
+}
+
+.service-image{
+
+height:220px;
+
+}
+
+.service-features{
+
+grid-template-columns:1fr;
+
+}
+
+.feature-item{
+
+padding:12px;
+
+}
+
+.service-button{
+
+margin-top:28px;
+
+}
+
+}
