@@ -16,6 +16,7 @@ function NavigationMenu({isMenuOpen }) {
           </NavLink>
         </li>
       ))}
+      
     </ul>
   );
 }

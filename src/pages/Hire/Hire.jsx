@@ -1,8 +1,10 @@
-function Hire(){
+import "./Hire.css";
 
-    return (<div>
-        <h2> Hire new talent</h2>
-    </div>)
 
+function Hire() {
+  return (
+<h2> hire page</h2>
+  );
 }
+
 export default Hire;

@@ -1,351 +1,203 @@
- 
-/* ===================================================
-   SERVICE SECTION
-=================================================== */
+/* =============================== */
+/* SECTION */
+/* =============================== */
 
 .service-section{
     padding:60px 7%;
+    background:#ffffff;
+}
+
+.service-section:nth-child(even){
     background:#f8fbff;
 }
 
-.service-section:nth-child(odd){
-    background:#ffffff;
-}
-
-/* ===================================================
-   CARD
-=================================================== */
+/* =============================== */
 
 .service-card{
-
-    max-width:1380px;
-
+    max-width:1320px;
     margin:auto;
-
     background:#fff;
-
     border-radius:28px;
-
-    padding:65px;
-
-    box-shadow:
-    0 15px 45px rgba(15,23,42,.06);
-
+    padding:55px;
+    border:1px solid #e8edf5;
+    box-shadow:0 15px 45px rgba(15,23,42,.06);
 }
 
-/* ===================================================
-   GRID
-=================================================== */
+/* =============================== */
 
 .service-container{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:70px;
-
     align-items:center;
-
 }
 
 .service-container.reverse .service-content{
-
     order:2;
-
 }
 
 .service-container.reverse .service-image{
-
     order:1;
-
 }
 
-/* ===================================================
-   CONTENT
-=================================================== */
+/* =============================== */
 
 .service-content{
-
     max-width:620px;
-
 }
 
 .service-tag{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:10px 18px;
-
-    border-radius:50px;
-
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:30px;
     background:#eef5ff;
-
     color:#2563eb;
-
     font-size:13px;
-
     font-weight:700;
-
     letter-spacing:1px;
-
-    margin-bottom:24px;
-
+    margin-bottom:20px;
 }
 
 .service-tag::after{
-
     content:"";
-
-    width:55px;
-
+    display:block;
+    width:60px;
     height:3px;
-
-    border-radius:50px;
-
     background:#2563eb;
-
+    border-radius:20px;
+    margin-top:10px;
 }
 
 .service-content h2{
-
-    font-size:52px;
-
+    margin:0 0 22px;
+    font-size:48px;
     line-height:1.15;
-
-    font-weight:800;
-
     color:#071b36;
-
-    margin-bottom:24px;
-
 }
 
 .service-content h2 span{
-
-    display:block;
-
     color:#2563eb;
-
 }
 
 .service-content p{
-
-    color:#64748b;
-
     font-size:18px;
-
-    line-height:1.9;
-
-    margin-bottom:38px;
-
+    line-height:1.8;
+    color:#64748b;
+    margin-bottom:35px;
 }
 
-/* ===================================================
-   FEATURES
-=================================================== */
+/* =============================== */
 
 .service-features{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:16px;
-
-    margin-bottom:40px;
-
+    margin-bottom:35px;
 }
 
 .feature-card{
-
     display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
     align-items:center;
-
-    text-align:center;
-
     gap:12px;
-
-    min-height:115px;
-
-    border-radius:16px;
-
-    background:#ffffff;
-
-    border:1px solid #e7edf6;
-
-    transition:.35s;
-
+    padding:18px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    transition:.3s;
 }
 
 .feature-card:hover{
-
+    transform:translateY(-4px);
     border-color:#2563eb;
-
-    transform:translateY(-6px);
-
-    box-shadow:
-
-    0 15px 35px rgba(37,99,235,.12);
-
+    box-shadow:0 10px 30px rgba(37,99,235,.12);
 }
 
 .feature-card svg{
-
-    font-size:28px;
-
+    font-size:22px;
     color:#2563eb;
-
+    flex-shrink:0;
 }
 
 .feature-card span{
-
-    font-size:14px;
-
+    font-size:15px;
     font-weight:600;
-
     color:#334155;
-
-    line-height:1.4;
-
 }
 
-/* ===================================================
-   BUTTON
-=================================================== */
+/* =============================== */
 
 .service-btn{
-
     display:inline-flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:16px 30px;
-
-    background:#2563eb;
-
-    color:#fff;
-
     border-radius:50px;
-
+    background:#2563eb;
+    color:#fff;
     text-decoration:none;
-
     font-weight:700;
-
     transition:.35s;
-
 }
 
 .service-btn:hover{
-
     transform:translateY(-4px);
-
-    box-shadow:
-
-    0 20px 45px rgba(37,99,235,.25);
-
+    box-shadow:0 18px 45px rgba(37,99,235,.25);
 }
 
 .service-btn:hover svg{
-
-    transform:translateX(6px);
-
+    transform:translateX(5px);
 }
 
-/* ===================================================
-   IMAGE
-=================================================== */
+/* =============================== */
 
 .service-image{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 }
 
 .service-image img{
-
     width:100%;
-
-    max-width:700px;
-
+    max-width:650px;
     aspect-ratio:16/10;
-
     object-fit:cover;
-
     border-radius:22px;
-
-    display:block;
-
-    box-shadow:
-
-    0 25px 60px rgba(15,23,42,.15);
-
-    transition:.45s;
-
+    box-shadow:0 20px 60px rgba(15,23,42,.12);
+    transition:.4s;
 }
 
 .service-image img:hover{
-
-    transform:scale(1.02);
-
+    transform:scale(1.03);
 }
 
-/* ===================================================
-   RESPONSIVE
-=================================================== */
+/* =============================== */
 
 @media(max-width:992px){
 
 .service-card{
-
-padding:40px;
-
+padding:35px;
 }
 
 .service-container{
-
 grid-template-columns:1fr;
-
+gap:45px;
 }
 
 .service-container.reverse .service-content,
 .service-container.reverse .service-image{
-
 order:initial;
-
 }
 
 .service-image{
-
 order:-1;
-
 }
 
 .service-content{
-
 max-width:100%;
-
 }
 
 .service-features{
-
 grid-template-columns:repeat(2,1fr);
-
 }
 
 }
@@ -353,41 +205,28 @@ grid-template-columns:repeat(2,1fr);
 @media(max-width:768px){
 
 .service-section{
-
-padding:35px 20px;
-
+padding:40px 20px;
 }
 
 .service-card{
-
 padding:25px;
-
 }
 
 .service-content h2{
-
-font-size:38px;
-
+font-size:34px;
 }
 
 .service-content p{
-
 font-size:16px;
-
 }
 
 .service-features{
-
 grid-template-columns:1fr;
-
 }
 
 .service-btn{
-
 width:100%;
-
 justify-content:center;
-
 }
 
 }

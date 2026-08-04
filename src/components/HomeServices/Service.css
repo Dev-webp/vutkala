@@ -1,0 +1,664 @@
+/*=========================================================
+                    GOOGLE FONT
+=========================================================*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/*=========================================================
+                    ROOT VARIABLES
+=========================================================*/
+.services{
+    --primary:#2563eb;
+    --secondary:#ff7a00;
+
+    --blue:#2563eb;
+    --green:#22c55e;
+    --purple:#8b5cf6;
+    --orange:#f97316;
+
+    --heading:#081226;
+    --text:#64748b;
+    --border:#e9eef5;
+    --white:#ffffff;
+
+    --gradient: linear-gradient(90deg,#ec1b4b,#ff7a00);
+
+    --shadow: 0 20px 50px rgba(15,23,42,.06);
+    --radius:28px;
+    --transition:.35s ease;
+}
+
+/*=========================================================
+                    RESET (scoped to this section only)
+=========================================================*/
+.services,
+.services *{ box-sizing:border-box; }
+.services *{ font-family:"Inter",sans-serif; margin:0; padding:0; }
+.services img{ display:block; max-width:100%; }
+
+/*=========================================================
+                    SECTION
+=========================================================*/
+.services{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%);
+
+    padding:40px 0;
+
+  
+
+    z-index:1;
+}
+
+.services::before{
+    content:"";
+    position:absolute;
+    width:550px; height:550px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(37,99,235,.05),transparent 70%);
+    top:-180px; right:-180px;
+    filter:blur(70px);
+}
+
+.services::after{
+    content:"";
+    position:absolute;
+    width:480px; height:480px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(255,122,0,.05),transparent 70%);
+    bottom:-180px; left:-180px;
+    filter:blur(70px);
+}
+
+/*=========================================================
+                    HEADER
+=========================================================*/
+.services .services-header{
+    width:min(820px,92%);
+    margin:auto;
+    text-align:center;
+    margin-bottom:40px;
+    position:relative;
+    z-index:5;
+}
+
+.services .services-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    color:var(--secondary);
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.services .services-badge svg{ font-size:16px; }
+
+.services .services-badge .dash{
+    width:32px;
+    height:1px;
+    background:var(--secondary);
+    display:inline-block;
+}
+
+.services .services-header h2{
+    margin-top:20px;
+    font-size:clamp(2.7rem,5vw,4.7rem) !important;
+    line-height:1.08;
+    font-weight:800;
+    color:var(--heading);
+}
+
+.services .services-header h2 .text-orange{
+    color:var(--secondary);
+}
+
+.services .services-header h2 .text-gradient{
+    display:block;
+    margin-top:10px;
+    background:var(--gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.services .services-header p{
+    width:min(720px,95%);
+    margin:26px auto 0;
+    font-size:1.05rem;
+    line-height:1.9;
+    color:var(--text);
+}
+
+.services .services-header p .hl-red{
+    color:#ec1b4b;
+    font-weight:700;
+}
+
+.services .services-header p .hl-orange{
+    color:var(--secondary);
+    font-weight:700;
+}
+
+/*=========================================================
+                    SWIPER
+=========================================================*/
+.services .services-slider{
+    width:min(1650px,96%);
+    margin:auto;
+    padding:10px 0 70px;
+    position:relative;
+}
+
+.services .services-slider .swiper{ overflow:visible; }
+.services .services-slider .swiper-wrapper{ align-items:stretch; }
+.services .services-slider .swiper-slide{ display:flex; height:auto; }
+
+/*=========================================================
+                    SERVICE CARD
+=========================================================*/
+.services .service-card{
+    position: relative;
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .35s ease;
+    box-shadow: var(--shadow);
+}
+
+.services .service-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 28px 60px rgba(15,23,42,.10);
+    border-color:#d9e5f5;
+}
+
+
+/*=========================================================
+                3D IMAGE
+=========================================================*/
+.services .service-image{
+    width:100%;
+    height:360px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+.services .service-image img{
+    width:500px;
+    object-fit:contain;
+    transition:all .45s ease;
+    filter:drop-shadow(0 25px 35px rgba(0,0,0,.15));
+}
+
+.services .service-card:hover .service-image img{
+    transform:translateY(-8px) scale(1.05);
+}
+
+/*=========================================================
+                BADGE (solid) — forced visible, high specificity
+=========================================================*/
+.services .service-card .service-badge{
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    align-items:center;
+    justify-content:center;
+    padding:7px 20px;
+    border-radius:999px;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    color:#ffffff !important;
+    line-height:normal;
+}
+
+.services .service-card .service-badge.blue{ background:var(--blue) !important; }
+.services .service-card .service-badge.green{ background:var(--green) !important; }
+.services .service-card .service-badge.orange{ background:var(--orange) !important; }
+.services .service-card .service-badge.purple{ background:var(--purple) !important; }
+
+/*=========================================================
+                    TITLE
+=========================================================*/
+.services .service-card h3{
+    color:var(--heading);
+    font-size:1.85rem !important;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:22px;
+    transition:.3s;
+}
+
+.services .service-card:hover h3{ color:var(--primary); }
+
+/*=========================================================
+                FEATURE LIST (left aligned, round icons)
+=========================================================*/
+.services .service-features{
+    list-style:none;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:26px;
+    flex:1;
+}
+
+.services .service-features li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-align:left;
+    color:#334155;
+    font-size:.98rem;
+    font-weight:500;
+}
+
+.services .feature-icon{
+    width:20px;
+    height:20px;
+    min-width:20px;
+    border-radius:50%;
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    color:#ffffff !important;
+    font-size:12px;
+}
+
+.services .feature-icon svg{
+    width:12px;
+    height:12px;
+    display:block !important;
+    stroke:#ffffff !important;
+    color:#ffffff !important;
+}
+
+.services .feature-icon.blue{ background:var(--blue) !important; }
+.services .feature-icon.green{ background:var(--green) !important; }
+.services .feature-icon.orange{ background:var(--orange) !important; }
+.services .feature-icon.purple{ background:var(--purple) !important; }
+
+/*=========================================================
+                BUTTON (pill + circular arrow)
+=========================================================*/
+.services .service-btn{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    width:100%;
+    max-width:220px;
+    padding:6px 6px 6px 26px;
+    border-radius:999px;
+    background:#ffffff;
+    border:2px solid;
+    font-size:.95rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:var(--transition);
+}
+
+.services .service-btn .btn-arrow{
+    width:38px;
+    height:38px;
+    min-width:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffffff;
+    transition:var(--transition);
+}
+
+.services .service-btn.blue{ border-color:var(--blue); color:var(--blue); }
+.services .service-btn.blue .btn-arrow{ background:var(--blue); }
+
+.services .service-btn.green{ border-color:var(--green); color:var(--green); }
+.services .service-btn.green .btn-arrow{ background:var(--green); }
+
+.services .service-btn.orange{ border-color:var(--orange); color:var(--orange); }
+.services .service-btn.orange .btn-arrow{ background:var(--orange); }
+
+.services .service-btn.purple{ border-color:var(--purple); color:var(--purple); }
+.services .service-btn.purple .btn-arrow{ background:var(--purple); }
+
+.services .service-btn:hover{ transform:translateX(2px); }
+.services .service-btn:hover .btn-arrow{ transform:translateX(3px); }
+
+/*=========================================================
+                    SWIPER NAVIGATION
+=========================================================*/
+.services .services-slider .swiper-button-prev,
+.services .services-slider .swiper-button-next{
+    width:56px; height:56px;
+    border-radius:50%;
+    background:#ffffff;
+    border:1px solid #e8edf5;
+    box-shadow:0 10px 30px rgba(15,23,42,.08);
+    transition:all .35s ease;
+    top:-75px;
+}
+
+.services .services-slider .swiper-button-prev{ left:auto; right:72px; }
+.services .services-slider .swiper-button-next{ right:0; }
+
+.services .services-slider .swiper-button-prev::after,
+.services .services-slider .swiper-button-next::after{
+    font-size:18px;
+    font-weight:700;
+    color:var(--primary);
+}
+
+.services .services-slider .swiper-button-prev:hover,
+.services .services-slider .swiper-button-next:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+    transform:translateY(-4px);
+}
+
+.services .services-slider .swiper-button-prev:hover::after,
+.services .services-slider .swiper-button-next:hover::after{
+    color:#ffffff;
+}
+
+/*=========================================================
+                    MARQUEE
+=========================================================*/
+.services .services-marquee{
+    margin-top:40px;
+    overflow:hidden;
+    border-top:1px solid #edf2f7;
+    border-bottom:1px solid #edf2f7;
+    background:#ffffff;
+    padding:20px 0;
+}
+
+.services .marquee-track{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    width:max-content;
+    animation:marqueeScroll 26s linear infinite;
+}
+
+.services .marquee-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    white-space:nowrap;
+    color:#475569;
+    font-size:1rem;
+    font-weight:600;
+}
+
+.services .dot{ width:10px; height:10px; border-radius:50%; }
+.services .dot.blue{ background:#2563eb; }
+.services .dot.green{ background:#22c55e; }
+.services .dot.orange{ background:#f97316; }
+.services .dot.purple{ background:#8b5cf6; }
+
+@keyframes marqueeScroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+}
+
+/*=========================================================
+                    TRUST BAR
+=========================================================*/
+.services .trust-bar{
+    width:min(1400px,94%);
+    margin:70px auto 0;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+    position:relative;
+    z-index:5;
+}
+
+.services .trust-item{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:24px;
+    background:#ffffff;
+    border:1px solid #edf2f7;
+    border-radius:20px;
+    transition:.35s ease;
+    box-shadow:0 12px 30px rgba(15,23,42,.05);
+}
+
+.services .trust-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 45px rgba(15,23,42,.10);
+}
+
+.services .trust-item svg{ font-size:32px; color:var(--primary); transition:.35s; }
+.services .trust-item:hover svg{ transform:scale(1.12); }
+.services .trust-item h4{ margin:0; color:var(--heading); font-size:1rem; font-weight:700; }
+.services .trust-item p{ margin-top:5px; color:var(--text); font-size:.9rem; }
+
+/*=========================================================
+        SCROLL-REVEAL ANIMATION
+=========================================================*/
+.services .reveal{
+    opacity:0;
+    transform:translateY(45px);
+    transition:opacity .8s cubic-bezier(.16,.84,.44,1),
+               transform .8s cubic-bezier(.16,.84,.44,1);
+}
+
+.services .reveal-visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/*=========================================================
+                    DESKTOP
+=========================================================*/
+@media (min-width:1400px){
+.services{ padding:140px 0; }
+.services .services-header{ margin-bottom:40px; }
+.services .services-header h2{ font-size:4.5rem !important; }
+.services .service-card{ min-height:620px; padding:24px 28px 34px; }
+.services .service-image{ height:200px; }
+.services .service-image img{ width:600px; }
+.services .service-card h3{ font-size:2rem !important; }
+.services .service-btn{ max-width:200px; }
+}
+
+/*=========================================================
+                    LAPTOP
+=========================================================*/
+@media (max-width:1200px){
+.services{ padding:100px 0; }
+.services .services-header{ margin-bottom:40px; }
+.services .service-card{ min-height:580px; }
+.services .service-image{ height:240px; }
+.services .service-image img{ width:220px; }
+.services .service-card h3{ font-size:1.6rem !important; }
+.services .trust-bar{ grid-template-columns:repeat(2,1fr); }
+.services .services-slider .swiper-button-prev,
+.services .services-slider .swiper-button-next{ display:none; }
+}
+
+/*=========================================================
+                    TABLET
+=========================================================*/
+@media (max-width:992px){
+
+.services .service-card{
+
+    aspect-ratio:auto;
+    min-height:520px;
+
+}
+
+.services .service-image{
+
+    height:240px;
+
+}
+
+.services .service-image img{
+
+    width:220px;
+
+}
+
+.services .service-card h3{
+
+    font-size:1.6rem;
+
+}
+
+}
+
+/*=========================================================
+                    MOBILE
+=========================================================*/
+@media (max-width:768px){
+
+.services .service-card{
+
+    aspect-ratio:auto;
+    min-height:auto;
+
+    padding:24px;
+
+}
+
+.services .service-image{
+
+    height:220px;
+
+}
+
+.services .service-image img{
+
+    width:200px;
+
+}
+
+.services .service-card h3{
+
+    font-size:24px;
+
+}
+
+.services .service-features{
+
+    gap:12px;
+
+}
+
+}
+
+/*=========================================================
+                    SMALL MOBILE
+=========================================================*/
+@media (max-width:480px){
+
+.services .service-card{
+
+    aspect-ratio:auto;
+    min-height:auto;
+
+}
+
+.services .service-image{
+
+    height:180px;
+
+}
+
+.services .service-image img{
+
+    width:170px;
+
+}
+
+}
+/*=========================================================
+                    PERFORMANCE
+=========================================================*/
+.services .service-card, .services .service-image img, .services .service-btn, .services .trust-item{ will-change:transform; }
+.services img{ user-select:none; -webkit-user-drag:none; }
+
+/*=========================================================
+                REDUCED MOTION
+=========================================================*/
+@media (prefers-reduced-motion:reduce){
+.services *{ animation:none!important; transition:none!important; }
+.services .reveal{ opacity:1!important; transform:none!important; }
+}
+
+
+
+
+.journey-title{
+
+    margin-top:34px;
+
+    text-align:center;
+
+    font-size:60px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    letter-spacing:-2px;
+}
+
+.journey-title span{
+
+    background:
+    linear-gradient(
+    90deg,
+    #ff8a00,
+    #ff5d2d,
+    #ff2d6d);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+
+
+.Orange{
+    color:#ff8a00;
+     font-weight:800;
+     border-radius:10px ;
+     border:#ff8a00;
+}
+
+.serviceh2{
+       color:#ff8a00;
+        font-weight:800;
+        padding:10px 10px ;
+         border-radius:20px;
+         border:#ff8a00;
+
+
+}

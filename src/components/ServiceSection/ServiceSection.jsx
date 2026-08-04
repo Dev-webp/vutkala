@@ -1,5 +1,5 @@
 import "./ServiceSection.css";
-import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function ServiceSection({
@@ -15,63 +15,101 @@ function ServiceSection({
   return (
     <section className="service-section">
 
-      <div
-        className={`service-container ${
-          reverse ? "reverse" : ""
-        }`}
-      >
+      <div className="service-card">
 
-        {/* LEFT CONTENT */}
+        <div
+          className={`service-container ${
+            reverse ? "reverse" : ""
+          }`}
+        >
 
-        <div className="service-content">
+          {/* CONTENT */}
 
-          <span className="service-tag">
-            {tag}
-          </span>
+          <div className="service-content">
 
-          <h2>
-            {title}
-            <br />
-            <span>{highlight}</span>
-          </h2>
+            <span className="service-tag">
+              {tag}
+            </span>
 
-          <p>{description}</p>
+            <h2>
+              {title}
+              <span> {highlight}</span>
+            </h2>
 
-          <div className="service-features">
+            <p>{description}</p>
 
-            {features.map((feature, index) => (
+            {/* Statistics */}
 
-              <div key={index}>
+            <div className="service-stats">
 
-                <FaCheckCircle />
-
-                <span>{feature}</span>
-
+              <div>
+                <h3>500+</h3>
+                <span>Clients</span>
               </div>
 
-            ))}
+              <div>
+                <h3>15+</h3>
+                <span>Years</span>
+              </div>
+
+              <div>
+                <h3>25+</h3>
+                <span>Countries</span>
+              </div>
+
+            </div>
+
+            {/* Features */}
+
+            <div className="service-features">
+
+              {features.map((feature, index) => {
+
+                const Icon = feature.icon;
+
+                return (
+
+                  <div
+                    className="feature-card"
+                    key={index}
+                  >
+
+                    <Icon />
+
+                    <span>{feature.text}</span>
+
+                  </div>
+
+                );
+
+              })}
+
+            </div>
+
+            <Link
+              to="/contact"
+              className="service-btn"
+            >
+
+              {button}
+
+              <FaArrowRight />
+
+            </Link>
 
           </div>
 
-          <Link
-            to="/contact"
-            className="service-btn"
-          >
-            {button}
+          {/* IMAGE */}
 
-            <FaArrowRight />
-          </Link>
+          <div className="service-image">
 
-        </div>
+            <img
+              src={image}
+              alt={title}
+              loading="lazy"
+            />
 
-        {/* IMAGE */}
-
-        <div className="service-image">
-
-          <img
-            src={image}
-            alt={title}
-          />
+          </div>
 
         </div>
 

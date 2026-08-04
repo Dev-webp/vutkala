@@ -1,0 +1,127 @@
+/* ==========================
+   WHY CONTACT
+========================== */
+
+.why-contact {
+  background: #ffffff;
+  padding: 100px 8%;
+}
+
+.wc-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 56px;
+}
+
+.wc-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+}
+
+.wc-header h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #061b49;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+
+.wc-header p {
+  font-size: 16px;
+  color: #64748b;
+}
+
+.wc-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.wc-card {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  border: 1px solid #e5edfb;
+  border-radius: 22px;
+  padding: 38px 28px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s ease;
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.wc-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 55px rgba(37, 99, 235, 0.15);
+  border-color: #bfdbfe;
+}
+
+.wc-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 24px;
+  transition: transform 0.35s ease;
+}
+
+.wc-card:hover .wc-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.wc-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #061b49;
+  margin-bottom: 12px;
+}
+
+.wc-card p {
+  font-size: 14.5px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .wc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-contact {
+    padding: 70px 6%;
+  }
+
+  .wc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wc-header h2 {
+    font-size: 28px;
+  }
+}

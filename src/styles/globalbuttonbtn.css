@@ -1,0 +1,35 @@
+.globalbuttonbtn{
+
+    padding:13px 30px;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    background:linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff2d55
+    );
+
+    box-shadow:
+        0 15px 35px rgba(255,45,85,.28);
+
+    transition:.35s;
+
+}
+
+.globalbuttonbtn:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 45px rgba(255,45,85,.35);
+
+}

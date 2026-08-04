@@ -1,0 +1,1312 @@
+/* =========================================================
+   JOURNEY SECTION
+   PART 1 - Layout, Heading & Grid
+========================================================= */
+
+:root{
+    --primary:#ff7a00;
+    --primary-dark:#ff5f00;
+    --secondary:#ff2d6d;
+
+    --blue:#2f6bff;
+    --green:#13b26b;
+    --purple:#7c3aed;
+
+    --text:#0f172a;
+    --muted:#64748b;
+
+    --border:#e8edf6;
+
+    --bg:#fbfcff;
+}
+
+/* ========================================================= */
+
+.journey-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:40px 0;
+
+    background:
+    linear-gradient(180deg,#ffffff 0%,#fafcff 100%);
+}
+
+/* ========================================================= */
+
+.journey-container{
+    width:min(1700px,96%);
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+
+.journey-container{
+    max-width:1800px;
+    width:98%;
+}
+
+.journey-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+/* ========================================================= */
+/* BACKGROUND GLOW */
+/* ========================================================= */
+
+.journey-glow{
+
+    position:absolute;
+
+    width:520px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    pointer-events:none;
+
+    opacity:.55;
+}
+
+.glow-left{
+
+    left:-180px;
+
+    top:80px;
+
+    background:
+    rgba(255,122,0,.18);
+}
+
+.glow-right{
+
+    right:-150px;
+
+    top:60px;
+
+    background:
+    rgba(255,45,109,.16);
+}
+
+/* ========================================================= */
+/* TOP BADGE */
+/* ========================================================= */
+
+.journey-badge{
+
+    width:max-content;
+
+    margin:auto;
+
+    padding:12px 28px;
+
+    border-radius:60px;
+
+    background:#fff;
+
+    border:1px solid rgba(255,122,0,.15);
+
+    color:var(--primary);
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.05);
+}
+
+/* ========================================================= */
+/* TITLE */
+/* ========================================================= */
+
+.journey-title{
+
+    margin-top:34px;
+
+    text-align:center;
+
+    font-size:60px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    letter-spacing:-2px;
+}
+
+.journey-title span{
+
+    background:
+    linear-gradient(
+    90deg,
+    #ff8a00,
+    #ff5d2d,
+    #ff2d6d);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* ========================================================= */
+
+.journey-description{
+
+    width:min(760px,100%);
+
+    margin:28px auto 0;
+
+    text-align:center;
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:var(--muted);
+}
+
+.journey-description strong{
+
+    color:var(--secondary);
+}
+
+/* ========================================================= */
+/* GRID */
+/* ========================================================= */
+
+.journey-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0,1fr));
+    gap:20px;
+    align-items:stretch;
+}
+
+/* ========================================================= */
+/* CARD */
+/* ========================================================= */
+
+.journey-card{
+    position:relative;
+    background:#fff;
+    border-radius:28px;
+    padding:40px 34px;
+    border:1px solid var(--border);
+    overflow:hidden;
+    transition:.45s ease;
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    /* adjust as needed */
+    box-shadow:0 15px 40px rgba(15,23,42,.05);
+}
+/* decorative circles */
+
+.journey-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    top:-180px;
+
+    right:-160px;
+
+    background:
+    radial-gradient(
+    rgba(255,255,255,.9),
+    transparent 70%);
+}
+
+.journey-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+
+    height:110px;
+
+    right:18px;
+
+    top:18px;
+
+    opacity:.08;
+
+    background-image:
+    radial-gradient(circle,#000 1px,transparent 1px);
+
+    background-size:12px 12px;
+}
+
+/* ========================================================= */
+/* CARD BORDER COLORS */
+/* ========================================================= */
+
+.journey-card.blue{
+
+    border-top:4px solid var(--blue);
+}
+
+.journey-card.green{
+
+    border-top:4px solid var(--green);
+}
+
+.journey-card.purple{
+
+    border-top:4px solid var(--purple);
+}
+
+.journey-card.gradient{
+
+    border-top:4px solid var(--primary);
+}
+
+
+/* =========================================================
+   PART 2 - CARD CONTENT, BUTTONS & HOVER EFFECTS
+========================================================= */
+
+/* ========================================================= */
+/* ICON */
+/* ========================================================= */
+
+.card-icon{
+
+    width:110px;
+
+    height:110px;
+
+    margin:0 auto 32px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:46px;
+
+    position:relative;
+
+    transition:.45s;
+
+    box-shadow:
+    0 20px 45px rgba(15,23,42,.08);
+
+    z-index:2;
+}
+
+.blue .card-icon{
+
+    color:var(--blue);
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #edf4ff);
+}
+
+.green .card-icon{
+
+    color:var(--green);
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #eefdf6);
+}
+
+.purple .card-icon{
+
+    color:var(--purple);
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #f5efff);
+}
+
+.gradient .card-icon{
+
+    color:var(--primary);
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #fff3ea);
+}
+
+/* ========================================================= */
+/* TITLE */
+/* ========================================================= */
+
+.journey-card h3{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--text);
+
+    margin-bottom:18px;
+
+    line-height:1.2;
+
+    text-align:center;
+}
+
+/* ========================================================= */
+
+.journey-card p{
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    text-align:center;
+
+    margin-bottom:34px;
+}
+
+/* ========================================================= */
+/* LIST */
+/* ========================================================= */
+
+.journey-card ul{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    flex:1;
+}
+
+.journey-card li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    font-size:16px;
+
+    color:#334155;
+
+    font-weight:500;
+}
+
+.journey-card li svg{
+
+    flex-shrink:0;
+
+    font-size:18px;
+}
+
+.blue li svg{
+
+    color:var(--blue);
+}
+
+.green li svg{
+
+    color:var(--green);
+}
+
+.purple li svg{
+
+    color:var(--purple);
+}
+
+.gradient li svg{
+
+    color:var(--primary);
+}
+
+/* ========================================================= */
+/* BUTTON */
+/* ========================================================= */
+
+.journey-btn{
+
+    margin-top:40px;
+
+    width:100%;
+
+    height:62px;
+
+    border-radius:18px;
+
+    border:none;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.blue .journey-btn{
+
+     color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff2d6d);
+}
+
+.green .journey-btn{
+
+     color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff2d6d);
+}
+
+.purple .journey-btn{
+  color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff2d6d);
+}
+
+.gradient .journey-btn{
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff2d6d);
+}
+
+/* arrow */
+
+.journey-btn svg{
+
+    transition:.35s;
+}
+
+/* ========================================================= */
+/* HOVER */
+/* ========================================================= */
+
+.journey-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    box-shadow:
+    0 35px 70px rgba(15,23,42,.14);
+}
+
+.journey-card:hover .card-icon{
+
+    transform:
+    scale(1.12)
+    rotate(6deg);
+}
+
+.journey-card:hover .journey-btn svg{
+
+    transform:translateX(8px);
+}
+
+.journey-card:hover .journey-btn{
+
+    transform:translateY(-2px);
+}
+
+/* ========================================================= */
+/* GLOW EFFECT */
+/* ========================================================= */
+
+.blue:hover{
+
+    border-color:#2f6bff;
+
+    box-shadow:
+    0 30px 80px rgba(47,107,255,.18);
+}
+
+.green:hover{
+
+    border-color:#13b26b;
+
+    box-shadow:
+    0 30px 80px rgba(19,178,107,.18);
+}
+
+.purple:hover{
+
+    border-color:#7c3aed;
+
+    box-shadow:
+    0 30px 80px rgba(124,58,237,.18);
+}
+
+.gradient:hover{
+
+    border-color:#ff7a00;
+
+    box-shadow:
+    0 30px 80px rgba(255,122,0,.22);
+}
+
+/* ========================================================= */
+/* SHIMMER */
+/* ========================================================= */
+
+.journey-card::before{
+
+    transition:.6s;
+}
+
+.journey-card:hover::before{
+
+    transform:
+    scale(1.3);
+
+    opacity:.9;
+}
+
+
+/* =========================================================
+   PART 3 - TRUST BAR, RESPONSIVE & FINAL POLISH
+========================================================= */
+
+/* =========================================================
+   TRUST BAR
+========================================================= */
+
+.trust-bar{
+
+    margin-top:90px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+}
+
+.trust-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:#fff;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    border:1px solid #edf1f7;
+
+    transition:.35s;
+
+    box-shadow:
+    0 15px 35px rgba(15,23,42,.05);
+}
+
+.trust-item:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 25px 50px rgba(15,23,42,.10);
+}
+
+.trust-icon{
+
+    width:68px;
+
+    height:68px;
+
+    min-width:68px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px;
+
+    font-size:26px;
+
+    color:white;
+}
+
+.trust-icon.orange{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff8a00,
+    #ff5c2d);
+}
+
+.trust-icon.pink{
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4f87,
+    #ff2d6d);
+}
+
+.trust-item h4{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+.trust-item p{
+
+    margin-top:6px;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#64748b;
+}
+
+/* =========================================================
+   FADE IN ANIMATION
+========================================================= */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+
+}
+
+.journey-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:40px 34px;
+
+    border:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:700px;
+
+    box-shadow:0 15px 40px rgba(15,23,42,.05);
+
+    transform-style:preserve-3d;
+
+    opacity:0;
+
+    transform:
+        translateY(80px)
+        scale(.95);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,1,.36,1);
+
+}
+
+.journey-card:nth-child(1){
+
+    animation-delay:.10s;
+}
+
+.journey-card:nth-child(2){
+
+    animation-delay:.20s;
+}
+
+.journey-card:nth-child(3){
+
+    animation-delay:.30s;
+}
+
+.journey-card:nth-child(4){
+
+    animation-delay:.40s;
+}
+
+.trust-item:nth-child(1){
+
+    animation-delay:.50s;
+}
+
+.trust-item:nth-child(2){
+
+    animation-delay:.60s;
+}
+
+.trust-item:nth-child(3){
+
+    animation-delay:.70s;
+}
+
+.trust-item:nth-child(4){
+
+    animation-delay:.80s;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width:1400px){
+
+.journey-title{
+
+    font-size:62px;
+}
+
+.journey-grid{
+
+    gap:22px;
+}
+
+}
+
+@media (max-width:1200px){
+
+.journey-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+}
+
+.trust-bar{
+
+    grid-template-columns:
+    repeat(2,1fr);
+}
+
+}
+
+@media (max-width:900px){
+
+.journey-section{
+
+    padding:40px 0;
+}
+
+.journey-title{
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.journey-description{
+
+    font-size:18px;
+}
+
+.journey-card{
+
+    padding:34px 28px;
+}
+
+.card-icon{
+
+    width:90px;
+
+    height:90px;
+
+    font-size:38px;
+}
+
+.journey-card h3{
+
+    font-size:28px;
+}
+
+}
+
+@media (max-width:768px){
+
+.journey-grid{
+
+    grid-template-columns:1fr;
+}
+
+.trust-bar{
+
+    grid-template-columns:1fr;
+}
+
+.journey-title{
+
+    font-size:40px;
+}
+
+.journey-description{
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+.journey-badge{
+
+    font-size:12px;
+
+    padding:10px 18px;
+}
+
+.journey-card{
+
+    border-radius:22px;
+}
+
+}
+
+@media (max-width:480px){
+
+.journey-section{
+
+    padding:40px 0;
+}
+
+.journey-title{
+
+    font-size:34px;
+
+    letter-spacing:-1px;
+}
+
+.journey-card{
+
+    padding:28px 22px;
+}
+
+.card-icon{
+
+    width:78px;
+
+    height:78px;
+
+    font-size:32px;
+}
+
+.journey-btn{
+
+    height:54px;
+
+    font-size:16px;
+}
+
+.trust-item{
+
+    padding:22px;
+}
+
+.trust-icon{
+
+    width:56px;
+
+    height:56px;
+
+    min-width:56px;
+
+    font-size:22px;
+}
+
+}
+
+/* =========================================================
+   PREMIUM HOVER BACKGROUND
+========================================================= */
+
+.journey-card{
+
+    background-image:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,1),
+        rgba(255,255,255,1));
+}
+
+.journey-card:hover{
+
+    background-image:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,1),
+        rgba(255,248,243,.9));
+}
+
+/* =========================================================
+   BUTTON RIPPLE
+========================================================= */
+
+.journey-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-100%;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent);
+
+    transition:.7s;
+}
+
+.journey-card:hover .journey-btn::before{
+
+    left:120%;
+}
+
+/* =========================================================
+   ICON FLOAT
+========================================================= */
+
+.card-icon{
+
+    animation:
+    floatIcon 5s ease-in-out infinite;
+}
+
+@keyframes floatIcon{
+
+    0%,100%{
+
+        transform:
+        translateY(0);
+    }
+
+    50%{
+
+        transform:
+        translateY(-8px);
+    }
+
+}
+
+
+
+.journey-glow{
+    animation: glowMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    100%{
+        transform:translate(50px,-30px) scale(1.2);
+    }
+
+}
+
+
+
+.journey-title span{
+
+    background:linear-gradient(
+        90deg,
+        #ff8a00,
+        #ff2d6d,
+        #ff8a00
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:gradientMove 8s linear infinite;
+
+}
+
+@keyframes gradientMove{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:300%;
+    }
+
+}
+
+.journey-card:hover{
+
+    transform:translateY(-12px);
+
+
+}
+
+
+.journey-card{
+
+    transform-style:preserve-3d;
+
+}
+
+.journey-card:hover{
+
+    transform:
+        translateY(-15px)
+        rotateX(4deg)
+        rotateY(-4deg)
+        scale(1.02);
+
+}
+
+
+.card-icon{
+
+    animation:
+        floatIcon 5s ease-in-out infinite,
+        pulse 3s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%,100%{
+
+        box-shadow:
+            0 0 0 0 rgba(255,122,0,.15);
+
+    }
+
+    70%{
+
+        box-shadow:
+            0 0 0 18px rgba(255,122,0,0);
+
+    }
+
+}
+
+.journey-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-140%;
+
+    top:0;
+
+    width:60%;
+
+    height:100%;
+
+    transform:skewX(-20deg);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.7),
+
+            transparent
+
+        );
+
+}
+
+.journey-card:hover::after{
+
+    animation:shine .9s forwards;
+
+}
+
+@keyframes shine{
+
+    to{
+
+        left:160%;
+
+    }
+
+}
+
+.journey-btn:hover{
+
+    box-shadow:
+
+        0 20px 45px rgba(255,122,0,.35);
+
+}
+
+.journey-card:hover li{
+
+    transform:translateX(10px);
+
+}
+
+.journey-card li{
+
+    transition:.35s;
+
+}
+
+.journey-card li:nth-child(1){transition-delay:.05s;}
+.journey-card li:nth-child(2){transition-delay:.10s;}
+.journey-card li:nth-child(3){transition-delay:.15s;}
+.journey-card li:nth-child(4){transition-delay:.20s;}
+
+
+.journey-badge{
+
+    animation:badgeFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes badgeFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+.journey-badge{
+
+    animation:badgeFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes badgeFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+.journey-card{
+    opacity:1 !important;
+    transform:none !important;
+}

@@ -18,10 +18,18 @@ function ServicesSection() {
             OUR SERVICES
           </span>
 
-          <h2>
-            Comprehensive Technology &
-            <br />
-            Workforce Solutions
+                  <h2>
+
+          Comprehensive Technology
+
+          <br/>
+
+          <span>
+
+          & Workforce Solutions
+
+          </span>
+
           </h2>
 
           <p>

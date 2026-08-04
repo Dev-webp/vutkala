@@ -1,0 +1,122 @@
+.journey-section {
+  background: #f8fbff;
+  padding: 90px 8%;
+  text-align: center;
+}
+
+.journey-section h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #061b49;
+  letter-spacing: -0.8px;
+  margin: 0 0 60px;
+}
+
+.journey-timeline {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.journey-line-track {
+  position: absolute;
+  top: 34px;
+  left: 6%;
+  right: 6%;
+  height: 3px;
+  background: #dbe7f3;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.journey-line-fill {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  background: linear-gradient(90deg, #2563eb, #4f9dff);
+  border-radius: 4px;
+}
+
+.journey-nodes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.journey-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.journey-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #4f9dff);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.3);
+  margin-bottom: 22px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.journey-icon:hover {
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.45);
+}
+
+.journey-year {
+  font-size: 20px;
+  font-weight: 800;
+  color: #061b49;
+  margin-bottom: 6px;
+}
+
+.journey-node h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px;
+}
+
+.journey-node p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+  max-width: 200px;
+}
+
+@media (max-width: 992px) {
+  .journey-line-track {
+    display: none;
+  }
+
+  .journey-nodes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 60px 6%;
+  }
+
+  .journey-section h2 {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .journey-nodes {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

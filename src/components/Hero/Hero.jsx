@@ -1,105 +1,113 @@
 import "./Hero.css";
-import logo from "../../assets/hero-world.png"
+import "../../styles/globalbuttonbtn.css";
+
+import {
+  FiSearch,
+  FiUsers,
+  FiShield,
+} from "react-icons/fi";
+
+import {
+  FaBrain,
+  FaGlobeAmericas,
+} from "react-icons/fa";
+
 function Hero() {
   return (
-    <section className="hero">
+    <>
+      <section className="hero">
 
-      <div className="blob blob1"></div>
-<div className="blob blob2"></div>
-<div className="blob blob3"></div>
+        {/* Background Overlay */}
+        <div className="hero-overlay"></div>
 
-    <div className="hero-left">
+        {/* Background Glow */}
+        <div className="glow glow-orange"></div>
+        <div className="glow glow-pink"></div>
 
-  <span className="hero-badge">
-    🌍 USA ↔ INDIA Workforce Solutions
-  </span>
+        {/* SVG Connection Animation */}
+        <svg
+          className="connection-svg"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
 
-  <h2>
-    Connecting <br /><span>USA & India.</span>
-    <br />
-    Enterprises with <span>
-Exceptional Talent.
-    </span>
-  </h2>
+     
 
-  <p>
-    VUTKAL Global Technologies helps USA & India enterprises
-    build high-performing teams and accelerate digital
-    transformation through staffing, executive search,
-    and technology consulting services.
-  </p>
+        
 
-  <div className="hero-buttons">
+          <circle className="travel-dot" r="1.3">
+            <animateMotion
+              dur="4s"
+              repeatCount="indefinite"
+            >
+              <mpath href="#flightPath" />
+            </animateMotion>
+          </circle>
 
-    <button className="primary-btn">
-      Hire Talent
-    </button>
+        </svg>
 
-    <button className="secondary-btn">
-      Search Jobs
-    </button>
+        <div className="hero-container">
 
-    <button className="outline-btn">
-      Explore Services
-    </button>
+          <div className="hero-left">
 
-  </div>
+            <div className="hero-badge">
+              🌍 USA ↔ INDIA WORKFORCE SOLUTIONS
+            </div>
 
+            <h1>
+              Connecting
+              <br />
 
+              <span className="orange">
+                USA & India
+              </span>
 
+              <br />
+
+              Enterprises
+              <br />
+
+              with
+
+              <span className="pink">
+                {" "}Talent &
+                <br />
+                Technology
+              </span>
+
+            </h1>
+
+            <p>
+              Helping businesses hire exceptional talent,
+              build digital products,
+              and scale confidently across
+              the USA and India.
+            </p>
+
+            <div className="hero-buttons">
+
+              <button className="globalbuttonbtn">
+                <FiUsers />
+                Hire Talent
+              </button>
+
+              <button className="secondary-btn">
+                <FiSearch />
+                Search Jobs
+              </button>
+
+            </div>
+<div className="scroll-indicator">
+    Scroll
 </div>
+      
 
+          </div>
 
-<div className="hero-right">
+        </div>
 
-  <div className="hero-glow glow-one"></div>
-  <div className="hero-glow glow-two"></div>
-
-  <img
-    src={logo}
-    alt="VUTKAL Hero"
-    className="hero-image"
-  />
-
-  <div className="floating-card top-left">
-    <div className="card-icon">☁️</div>
-
-    <div>
-      <h4>Cloud Solutions</h4>
-      <p>AWS • Azure • GCP</p>
-    </div>
-  </div>
-
-  <div className="floating-card top-right">
-    <div className="card-icon">👨‍💻</div>
-
-    <div>
-      <h4>Hire Talent</h4>
-      <p>Global Workforce</p>
-    </div>
-  </div>
-
-  <div className="floating-card bottom-left">
-    <div className="card-icon">🚀</div>
-
-    <div>
-      <h4>Digital Services</h4>
-      <p>Transformation</p>
-    </div>
-  </div>
-
-  <div className="floating-card bottom-right">
-    <div className="card-icon">🌎</div>
-
-    <div>
-      <h4>US ↔ India</h4>
-      <p>Enterprise Network</p>
-    </div>
-  </div>
-
-</div>
-
-    </section>
+      </section>
+    </>
   );
 }
 

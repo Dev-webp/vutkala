@@ -1,0 +1,264 @@
+.delivery-model {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #061b49 0%, #0a2559 55%, #0d2e6b 100%);
+  padding: 90px 8%;
+}
+
+.dm-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(79, 157, 255, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.dm-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dm-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4f9dff;
+  box-shadow: 0 0 10px rgba(79, 157, 255, 0.8);
+  animation: dmFloat 5s ease-in-out infinite;
+}
+
+.dp-1 { top: 12%; left: 8%; animation-delay: 0s; }
+.dp-2 { top: 22%; left: 92%; animation-delay: 0.6s; }
+.dp-3 { top: 68%; left: 4%; animation-delay: 1.2s; }
+.dp-4 { top: 80%; left: 88%; animation-delay: 1.8s; }
+.dp-5 { top: 40%; left: 50%; animation-delay: 2.4s; }
+.dp-6 { top: 90%; left: 40%; animation-delay: 3s; }
+
+@keyframes dmFloat {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-14px);
+  }
+}
+
+.dm-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.dm-intro {
+  margin-bottom: 60px;
+}
+
+.dm-intro h2 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.8px;
+  margin: 0 0 14px;
+}
+
+.dm-intro p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #b7c4e0;
+  margin: 0;
+}
+
+.dm-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1.1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.dm-glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 28px 24px;
+}
+
+.dm-card-label {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.dm-usa .dm-card-label {
+  color: #93c5fd;
+}
+
+.dm-india .dm-card-label {
+  color: #fbbf24;
+}
+
+.dm-card-sub {
+  display: block;
+  font-size: 12.5px;
+  color: #9fb3d9;
+  margin-bottom: 18px;
+}
+
+.dm-glass-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dm-glass-card li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.dm-glass-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4f9dff;
+}
+
+.dm-connector {
+  height: 2px;
+  overflow: hidden;
+}
+
+.dm-connector-line {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  background: repeating-linear-gradient(
+    90deg,
+    #4f9dff 0 8px,
+    transparent 8px 16px
+  );
+}
+
+.dm-core {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dm-core-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(79, 157, 255, 0.5);
+}
+
+.dm-core-content {
+  position: relative;
+  width: 178px;
+  height: 178px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #123a7a, #061b49 75%);
+  box-shadow: 0 0 60px rgba(79, 157, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 14px;
+}
+
+.dm-core-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dm-core-sub {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #93c5fd;
+  margin-bottom: 10px;
+}
+
+.dm-core-quads {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 10px;
+}
+
+.dm-core-quads span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.dm-core-quads svg {
+  font-size: 11px;
+  color: #4f9dff;
+}
+
+.dm-core-support {
+  margin-top: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #9fb3d9;
+}
+
+@media (max-width: 992px) {
+  .dm-diagram {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 30px;
+  }
+
+  .dm-connector {
+    width: 2px;
+    height: 40px;
+  }
+
+  .dm-connector-line {
+    height: 100%;
+    background: repeating-linear-gradient(180deg, #4f9dff 0 8px, transparent 8px 16px);
+  }
+
+  .dm-glass-card {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .delivery-model {
+    padding: 60px 6%;
+  }
+
+  .dm-intro h2 {
+    font-size: 24px;
+  }
+}

@@ -3,12 +3,12 @@
 ======================================================= */
 
 .services-section{
-    padding:110px 7%;
+    padding:70px 7%;
     background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
 }
 
 .services-container{
-    max-width:1320px;
+    max-width:1280px;
     margin:auto;
 }
 
@@ -18,37 +18,37 @@
 
 .section-header{
     text-align:center;
-    margin-bottom:70px;
+    margin-bottom:40px;
 }
 
 .section-tag{
     display:inline-flex;
     align-items:center;
-    padding:10px 22px;
-    border-radius:40px;
+    padding:8px 18px;
+    border-radius:30px;
     background:#eef5ff;
     color:#2563eb;
-    font-size:13px;
+    font-size:12px;
     font-weight:700;
     letter-spacing:1px;
     text-transform:uppercase;
-    margin-bottom:22px;
+    margin-bottom:18px;
 }
 
 .section-header h2{
     margin:0;
-    font-size:clamp(38px,5vw,56px);
+    font-size:46px;
     font-weight:800;
     line-height:1.15;
     color:#071b36;
 }
 
 .section-header p{
-    max-width:760px;
-    margin:24px auto 0;
+    max-width:700px;
+    margin:16px auto 0;
     color:#64748b;
-    font-size:18px;
-    line-height:1.8;
+    font-size:16px;
+    line-height:1.7;
 }
 
 /* =======================================================
@@ -58,7 +58,7 @@
 .services-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:35px;
+    gap:22px;
 }
 
 /* =======================================================
@@ -69,17 +69,17 @@
     display:flex;
     flex-direction:column;
     background:#fff;
-    border:1px solid #e7edf7;
-    border-radius:26px;
+    border:1px solid #e8edf5;
+    border-radius:20px;
     overflow:hidden;
-    transition:.35s;
-    box-shadow:0 15px 45px rgba(15,23,42,.05);
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
 }
 
 .service-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
     border-color:#2563eb;
-    box-shadow:0 25px 70px rgba(37,99,235,.12);
+    box-shadow:0 20px 45px rgba(37,99,235,.10);
 }
 
 /* =======================================================
@@ -87,8 +87,8 @@
 ======================================================= */
 
 .service-image{
+    height:190px;
     overflow:hidden;
-    height:250px;
 }
 
 .service-image img{
@@ -96,11 +96,11 @@
     height:100%;
     object-fit:cover;
     display:block;
-    transition:.5s;
+    transition:.45s;
 }
 
 .service-card:hover .service-image img{
-    transform:scale(1.08);
+    transform:scale(1.05);
 }
 
 /* =======================================================
@@ -109,32 +109,36 @@
 
 .service-badge{
     display:inline-block;
-    margin:28px 30px 15px;
-    padding:7px 18px;
-    border-radius:40px;
+    margin:16px 20px 10px;
+    padding:5px 14px;
+    border-radius:20px;
     background:#eef5ff;
     color:#2563eb;
-    font-size:12px;
+    font-size:11px;
     font-weight:700;
-    letter-spacing:.8px;
+    letter-spacing:.7px;
     text-transform:uppercase;
     width:max-content;
 }
 
 .service-card h3{
-    margin:0 30px;
+    margin:0 20px;
     color:#071b36;
-    font-size:30px;
+    font-size:24px;
     font-weight:800;
-    line-height:1.25;
+    line-height:1.2;
 }
 
 .service-description{
-    margin:18px 30px 28px;
+    margin:12px 20px 18px;
     color:#64748b;
-    line-height:1.8;
-    font-size:16px;
+    line-height:1.65;
+    font-size:15px;
 }
+
+/* =======================================================
+   FEATURES
+======================================================= */
 
 /* =======================================================
    FEATURES
@@ -143,44 +147,64 @@
 .service-features{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    padding:0 30px;
+    gap:10px;
+    padding:0 20px;
 }
 
 .feature-item{
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:14px;
-    border-radius:14px;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:10px;
     background:#f8fbff;
     transition:.3s;
 }
 
 .feature-item:hover{
     background:#eef5ff;
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 }
 
+.feature-icon svg{
+    width:12px;
+    height:12px;
+}
+
+
 .feature-icon{
-    width:42px;
-    height:42px;
-    border-radius:12px;
+
+    width:26px;
+    height:26px;
+
+    min-width:26px;
+
+    border-radius:8px;
+
     background:#ffffff;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     color:#2563eb;
-    font-size:18px;
-    box-shadow:0 5px 15px rgba(37,99,235,.12);
-    flex-shrink:0;
+
+    font-size:12px;
+
+    box-shadow:0 2px 8px rgba(37,99,235,.08);
+
 }
 
 .feature-item span{
-    font-size:14px;
+
+    font-size:13px;
+
     font-weight:600;
+
     color:#334155;
-    line-height:1.4;
+
+    line-height:1.2;
+
 }
 
 /* =======================================================
@@ -188,11 +212,12 @@
 ======================================================= */
 
 .service-button{
-    margin:35px 30px 30px;
+    margin:18px 20px 20px;
     display:inline-flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
     color:#2563eb;
+    font-size:15px;
     font-weight:700;
     text-decoration:none;
     transition:.3s;
@@ -203,11 +228,11 @@
 }
 
 .service-button:hover{
-    gap:16px;
+    gap:14px;
 }
 
 .service-button:hover svg{
-    transform:translateX(5px);
+    transform:translateX(4px);
 }
 
 /* =======================================================
@@ -217,27 +242,20 @@
 @media(max-width:992px){
 
 .services-grid{
-
-grid-template-columns:1fr;
-
+    grid-template-columns:1fr;
+    gap:20px;
 }
 
 .section-header{
-
-margin-bottom:50px;
-
+    margin-bottom:35px;
 }
 
 .section-header h2{
-
-font-size:42px;
-
+    font-size:40px;
 }
 
 .service-image{
-
-height:280px;
-
+    height:200px;
 }
 
 }
@@ -249,51 +267,35 @@ height:280px;
 @media(max-width:768px){
 
 .services-section{
-
-padding:80px 20px;
-
+    padding:55px 20px;
 }
 
 .section-header h2{
-
-font-size:34px;
-
+    font-size:32px;
 }
 
 .section-header p{
-
-font-size:16px;
-
+    font-size:15px;
 }
 
 .service-card h3{
-
-font-size:26px;
-
+    font-size:22px;
 }
 
 .service-image{
-
-height:220px;
-
+    height:180px;
 }
 
 .service-features{
-
-grid-template-columns:1fr;
-
+    grid-template-columns:1fr;
 }
 
 .feature-item{
-
-padding:12px;
-
+    padding:10px;
 }
 
 .service-button{
-
-margin-top:28px;
-
+    margin:18px 20px 20px;
 }
 
 }
