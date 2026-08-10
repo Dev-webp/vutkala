@@ -1,52 +1,75 @@
-import { motion } from "framer-motion";
-import { FiCloud, FiMonitor, FiCode, FiCpu, FiRefreshCw, FiBarChart2 } from "react-icons/fi";
 import "./TechExpertise.css";
 
 function TechExpertise() {
-  const techs = [
-    { icon: <FiCloud />, title: "Cloud", desc: "AWS · Azure · GCP" },
-    { icon: <FiMonitor />, title: "Frontend", desc: "React · Next.js · Angular" },
-    { icon: <FiCode />, title: "Backend", desc: "Node.js · Java · Python" },
-    { icon: <FiCpu />, title: "AI / ML", desc: "OpenAI · TensorFlow · PyTorch" },
-    { icon: <FiRefreshCw />, title: "DevOps", desc: "Docker · Kubernetes · Jenkins" },
-    { icon: <FiBarChart2 />, title: "Data", desc: "Engineering · Big Data" },
+
+  const technologies = [
+    { name: "AWS", icon: "devicon-amazonwebservices-original colored" },
+  
+    { name: "Google Cloud", icon: "devicon-googlecloud-plain colored" },
+    { name: "React", icon: "devicon-react-original colored" },
+   
+    { name: "Angular", icon: "devicon-angularjs-plain colored" },
+    { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+    { name: "Python", icon: "devicon-python-plain colored" },
+    { name: "Java", icon: "devicon-java-plain colored" },
+    { name: "Spring", icon: "devicon-spring-plain colored" },
+    { name: "Docker", icon: "devicon-docker-plain colored" },
+    { name: "Kubernetes", icon: "devicon-kubernetes-plain colored" },
+    { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+    { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
+    { name: "Redis", icon: "devicon-redis-plain colored" },
+    { name: "TensorFlow", icon: "devicon-tensorflow-original colored" },
+    { name: "GitHub", icon: "devicon-github-original" },
+    { name: "Figma", icon: "devicon-figma-plain colored" },
+    { name: "Flutter", icon: "devicon-flutter-plain colored" }
   ];
 
-  return (
-    <section className="tech-expertise" aria-label="Technology and Talent Expertise">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.6 }}
-      >
-        Technology &amp; Talent Expertise
-      </motion.h2>
-      <motion.span
-        className="te-underline"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      ></motion.span>
+  const logos = [...technologies, ...technologies];
 
-      <div className="te-grid">
-        {techs.map((t, i) => (
-          <motion.div
-            className="te-card"
-            key={i}
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            whileHover={{ y: -8 }}
-          >
-            <div className="te-icon">{t.icon}</div>
-            <h4>{t.title}</h4>
-            <p>{t.desc}</p>
-          </motion.div>
-        ))}
+  return (
+    <section className="tech-stack">
+
+      <div className="tech-header">
+
+        <span>TECHNOLOGY EXPERTISE</span>
+
+        <h2>
+          Modern Technologies
+          <br />
+          <span>Driving Innovation</span>
+        </h2>
+
+        <p>
+          We build enterprise-grade applications using globally trusted
+          technologies across Cloud, AI, Data, DevOps and Software Engineering.
+        </p>
+
       </div>
+
+      <div className="logo-slider">
+
+        <div className="logo-track">
+
+          {logos.map((tech, index) => (
+
+            <div className="logo-item" key={index}>
+
+              <div className="logo-icon">
+
+                <i className={tech.icon}></i>
+
+              </div>
+
+              <span>{tech.name}</span>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
     </section>
   );
 }

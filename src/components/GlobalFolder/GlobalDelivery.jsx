@@ -1,4 +1,4 @@
-import "./GlobalDelivery.css";
+ import "./GlobalDelivery.css";
 import globalBridge from "../../assets/homeservices/globalBridge.png";
 
 import {
@@ -118,9 +118,9 @@ function GlobalDelivery() {
         </span>
 
         <h2>
-          Bridging <span>USA & India</span>
+          Bridging USA & India
           <br />
-          Delivering Excellence Together
+          Delivering<span>Excellence Together </span>
         </h2>
 
         <p>
@@ -255,4 +255,5 @@ function GlobalDelivery() {
   );
 }
 
-export default GlobalDelivery;
+export default GlobalDelivery; 
+

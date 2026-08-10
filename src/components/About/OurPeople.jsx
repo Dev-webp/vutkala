@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import teamMeeting from "../../assets/people/team-meeting.jpg";
+
 import teamCoding from "../../assets/people/team-coding.jpg";
 import teamCollab from "../../assets/people/team-collab.jpg";
 import teamGroup from "../../assets/people/team-group.jpg";
@@ -12,7 +12,7 @@ function OurPeople() {
   const trackRef = useRef(null);
 
   const images = [
-    { src: teamMeeting, alt: "VUTKAL team collaborating in a meeting" },
+
     { src: teamCoding, alt: "VUTKAL engineers working at their desks" },
     { src: teamCollab, alt: "VUTKAL colleagues discussing a project" },
     { src: teamGroup, alt: "VUTKAL India delivery team group photo" },

@@ -2,9 +2,11 @@ import AboutHero from "../../components/About/AboutHero";
 import AboutValues from "../../components/About/AboutValues";
 import JourneyTimeline from "../../components/About/JourneyTimeline";
 import TechExpertise from "../../components/About/TechExpertise";
-import DeliveryModel from "../../components/About/DeliveryModel";
+
 import OurPeople from "../../components/About/OurPeople";
 import AboutCTA from "../../components/About/AboutCTA";
+import OurStory from "../../components/ABout/OurStory/OurStory";
+import OurApproach from "../../components/About/OurApproach"
 
 import "./About.css";
 
@@ -12,10 +14,17 @@ function About() {
   return (
     <main className="about-page">
       <AboutHero />
-      <AboutValues />
-      <JourneyTimeline />
+       <AboutValues />
+         <JourneyTimeline />
+      <OurStory />
+       <OurApproach/>
+    
+     
+      
+      
+     
+    
       <TechExpertise />
-      <DeliveryModel />
       <OurPeople />
       <AboutCTA />
    

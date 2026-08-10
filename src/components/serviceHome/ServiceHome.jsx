@@ -1,5 +1,5 @@
 import "./ServiceHome.css";
-import heroImage from "../../assets/services/servicehome.png";
+import heroImage from "../../assets/servicehome.png";
 
 function ServiceHome() {
 
@@ -45,25 +45,41 @@ function ServiceHome() {
           and achieve sustainable growth.
         </p>
 
+
         <div className="services-hero-buttons">
 
-          <button onClick={() => scrollToSection("technology")}>
-            Technology Services
-          </button>
+  <button
+    className="primary-btn"
+    onClick={() => scrollToSection("technology")}
+  >
+    Technology Services
+  </button>
 
-          <button onClick={() => scrollToSection("workforce")}>
-            Workforce Solutions
-          </button>
+  <button
+    className="secondary-btn"
+    onClick={() => scrollToSection("workforce")}
+  >
+    Workforce Solutions
+  </button>
 
-          <button onClick={() => scrollToSection("consulting")}>
-            Consulting Services
-          </button>
+  <button
+    className="secondary-btn"
+    onClick={() => scrollToSection("consulting")}
+  >
+    Consulting Services
+  </button>
 
-          <button onClick={() => scrollToSection("digital")}>
-            Digital Transformation
-          </button>
+  <button
+    className="secondary-btn"
+    onClick={() => scrollToSection("digital")}
+  >
+    Digital Transformation
+  </button>
 
-        </div>
+</div>
+
+
+
 
       </div>
 

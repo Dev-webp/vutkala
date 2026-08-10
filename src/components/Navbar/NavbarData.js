@@ -20,6 +20,11 @@ const menuItems = [
         title:"About",
         path:"/about",
     },
+
+     {
+        title:"industries",
+        path:"/industry",
+    },
     {
         title:"Contact",
         path:"/contact",

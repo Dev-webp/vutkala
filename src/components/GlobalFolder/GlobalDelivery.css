@@ -93,11 +93,11 @@
 
 .network-header h2{
 
-    font-size:clamp(2.8rem,5vw,5rem);
+    font-size:clamp(2.8rem,5vw,4rem);
 
     line-height:1.08;
 
-    color:#081B44;
+    color:#02050e;
 
     font-weight:800;
 
@@ -108,8 +108,7 @@
 
     background:linear-gradient(
         90deg,
-        #3067ff,
-        #7b5cff,
+    
         #ff4f7f,
         #ff8a00
     );
@@ -640,4 +639,3 @@
         padding:24px 18px;
     }
 }
-

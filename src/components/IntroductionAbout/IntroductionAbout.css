@@ -1,0 +1,408 @@
+/* =========================================
+   SERVICE SECTION — COMPACT PREMIUM
+========================================= */
+
+.service-section {
+    position: relative;
+
+    padding: 55px 5%;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+/* Alternate background */
+
+.service-section:nth-child(even) {
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8fbff 100%
+    );
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.service-container {
+    max-width: 1240px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.9fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   REVERSE
+========================================= */
+
+.service-container.reverse .service-content {
+    order: 2;
+}
+
+.service-container.reverse .service-image {
+    order: 1;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.service-content {
+    max-width: 580px;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.service-number {
+    font-size: 64px;
+
+    font-weight: 900;
+
+    color: #edf3ff;
+
+    line-height: 0.9;
+
+    margin-bottom: 8px;
+
+    user-select: none;
+
+    letter-spacing: -3px;
+}
+
+
+/* =========================================
+   TAG
+========================================= */
+
+.service-tag {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 30px;
+
+    background: #eef5ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.9px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.service-content h2 {
+    margin: 0 0 16px;
+
+    font-size: clamp(32px, 3.5vw, 46px);
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: #071b36;
+}
+
+.service-content h2 span {
+    color: #2563eb;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.service-content p {
+    margin: 0 0 22px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.service-features {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+
+    gap: 12px 22px;
+
+    margin-bottom: 25px;
+}
+
+.service-features div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.service-features svg {
+    color: #2563eb;
+
+    font-size: 16px;
+
+    flex-shrink: 0;
+}
+
+.service-features span {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.service-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 24px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #0f62fe
+    );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.22);
+}
+
+.service-btn svg {
+    transition: 0.3s;
+}
+
+.service-btn:hover svg {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.service-image {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.service-image img {
+    width: 100%;
+
+    max-width: 500px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.10);
+
+    transition: 0.4s ease;
+}
+
+.service-image img:hover {
+    transform:
+        translateY(-5px)
+        scale(1.015);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .service-section {
+        padding: 45px 6%;
+    }
+
+    .service-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .service-container.reverse .service-content,
+    .service-container.reverse .service-image {
+        order: initial;
+    }
+
+    .service-image {
+        order: -1;
+    }
+
+    .service-content {
+        max-width: 100%;
+    }
+
+    .service-number {
+        font-size: 55px;
+    }
+
+    .service-image img {
+        max-width: 550px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .service-section {
+        padding: 40px 20px;
+    }
+
+    .service-container {
+        gap: 25px;
+    }
+
+    .service-number {
+        font-size: 48px;
+
+        margin-bottom: 6px;
+    }
+
+    .service-tag {
+        padding: 6px 13px;
+
+        margin-bottom: 12px;
+
+        font-size: 10px;
+    }
+
+    .service-content h2 {
+        font-size: 32px;
+
+        line-height: 1.1;
+
+        margin-bottom: 14px;
+    }
+
+    .service-content p {
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 18px;
+    }
+
+    .service-features {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .service-features span {
+        font-size: 13px;
+    }
+
+    .service-btn {
+        width: 100%;
+
+        justify-content: center;
+
+        padding: 12px 20px;
+    }
+
+    .service-image img {
+        max-width: 100%;
+
+        border-radius: 15px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .service-section {
+        padding: 35px 16px;
+    }
+
+    .service-container {
+        gap: 22px;
+    }
+
+    .service-number {
+        font-size: 42px;
+    }
+
+    .service-content h2 {
+        font-size: 28px;
+    }
+
+    .service-content p {
+        font-size: 14px;
+    }
+
+    .service-image img {
+        border-radius: 13px;
+    }
+}

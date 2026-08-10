@@ -1,0 +1,350 @@
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+.register-container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 100px 20px 50px;
+
+  background: #ffffff;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND DECORATION
+========================================= */
+
+.register-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  top: -220px;
+  right: -150px;
+
+  background: rgba(249, 157, 2, 0.08);
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   REGISTER CARD
+========================================= */
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 42px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 50px rgba(7, 26, 61, 0.10);
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.register-card h1 {
+  margin: 0;
+
+  color: #071a3d;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+
+  text-align: center;
+}
+
+
+.register-card > p {
+  margin: 10px 0 30px;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.register-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.register-card input[type="text"],
+.register-card input[type="email"],
+.register-card input[type="password"] {
+  width: 100%;
+
+  height: 52px;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+
+  color: #071a3d;
+
+  background: #ffffff;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.register-card input::placeholder {
+  color: #94a3b8;
+}
+
+
+.register-card input[type="text"]:focus,
+.register-card input[type="email"]:focus,
+.register-card input[type="password"]:focus {
+  border-color: #071a3d;
+
+  box-shadow:
+    0 0 0 3px rgba(7, 26, 61, 0.08);
+}
+
+
+/* =========================================
+   ROLE SECTION
+========================================= */
+
+.role-section {
+  display: flex;
+
+  gap: 14px;
+
+  margin-top: 4px;
+}
+
+
+.role-section label {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  min-height: 48px;
+
+  color: #334155;
+
+  background: #f8fafc;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.role-section label:hover {
+  border-color: #071a3d;
+
+  background: #f1f5f9;
+
+  color: #071a3d;
+}
+
+
+/* =========================================
+   RADIO BUTTONS
+========================================= */
+
+.role-section input[type="radio"] {
+  width: 16px;
+  height: 16px;
+
+  accent-color: #071a3d;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.error {
+  margin: 0;
+
+  padding: 12px 14px;
+
+  color: #b91c1c;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   SUCCESS MESSAGE
+========================================= */
+
+.success {
+  margin: 0;
+
+  padding: 12px 14px;
+
+  color: #166534;
+
+  background: #f0fdf4;
+
+  border: 1px solid #bbf7d0;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+========================================= */
+
+.register-card button[type="submit"] {
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 6px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #071a3d;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(7, 26, 61, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.register-card button[type="submit"]:hover {
+  background: #0b2555;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(7, 26, 61, 0.25);
+}
+
+
+.register-card button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .register-container {
+    padding: 90px 15px 30px;
+  }
+
+  .register-card {
+    padding: 30px 22px;
+
+    border-radius: 16px;
+  }
+
+  .register-card h1 {
+    font-size: 27px;
+  }
+
+  .role-section {
+    flex-direction: column;
+  }
+
+  .role-section label {
+    min-height: 50px;
+  }
+}
