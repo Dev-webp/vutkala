@@ -22,7 +22,7 @@
   position: absolute;
   inset: 0;
   z-index: -3;
-  background-image: url("/images/About/about-hero.png");
+  background-image: url("../../assets/About/about-hero.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
