@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./AboutHero.css";
 
-import heroImage from "../../assets/about/about-hero.png";
+import heroImage from "../../assets/About/about-hero.png";
 
 export default function AboutHero() {
   const sectionRef = useRef(null);
