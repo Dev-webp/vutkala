@@ -1,0 +1,4412 @@
+
+:root {
+  --vg-find-navy: #06101d;
+  --vg-find-dark: #071522;
+  --vg-find-blue: #0b2850;
+  --vg-find-accent: #ff6b00;
+  --vg-find-pink: #ef2456;
+  --vg-find-orange: #ff7612;
+  --vg-find-text: #101828;
+  --vg-find-muted: #667085;
+  --vg-find-light: #f6f8fb;
+  --vg-find-border: #d8dee7;
+  --vg-find-white: #ffffff;
+  --vg-find-shadow: 0 24px 70px rgba(4, 16, 30, 0.16);
+
+  /*
+    CHANGE ONLY THIS PATH if your existing hero
+    image has another filename.
+  */
+  --vg-find-hero-image:
+    url("../../assets//FindJobs/hero.png");
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.vg-find-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    var(--vg-find-white);
+
+  color:
+    var(--vg-find-text);
+
+  font-family: var(--vg-font-primary);
+
+  overflow-x: hidden;
+}
+
+.vg-find-page *,
+.vg-find-page *::before,
+.vg-find-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.vg-find-header {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 20;
+
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+
+  padding:
+    0 clamp(28px, 4vw, 54px);
+
+  gap: 30px;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.vg-find-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+.vg-find-logo-mark {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  font-style: italic;
+
+  color: #ff6b00;
+
+  border-bottom:
+    5px solid #ed214f;
+
+  transform:
+    skewX(-10deg);
+}
+
+.vg-find-logo-text {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1;
+}
+
+.vg-find-logo-text strong {
+  font-size: 19px;
+
+  letter-spacing:
+    -0.6px;
+
+  font-weight: 850;
+}
+
+.vg-find-logo-text small {
+  margin-top: 4px;
+
+  font-size: 7px;
+
+  letter-spacing:
+    2.4px;
+
+  font-weight: 700;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   HEADER NAV
+   ========================================================= */
+
+.vg-find-header-nav {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: clamp(20px, 2.2vw, 38px);
+}
+
+.vg-find-header-nav a {
+  position: relative;
+
+  color:
+    rgba(255, 255, 255, 0.9);
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease;
+}
+
+.vg-find-header-nav a:hover,
+.vg-find-header-nav a.is-active {
+  color: #ffffff;
+}
+
+.vg-find-header-nav a.is-active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -12px;
+
+  width: 34px;
+  height: 2px;
+
+  margin: auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--vg-find-orange),
+      var(--vg-find-pink)
+    );
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.vg-find-header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  flex-shrink: 0;
+}
+
+.vg-find-login {
+  height: 38px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 21px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.55);
+
+  border-radius: 7px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vg-find-login:hover {
+  background:
+    rgba(255, 255, 255, 0.1);
+
+  border-color:
+    #ffffff;
+}
+
+.vg-find-get-started {
+  height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 20px;
+
+  border-radius: 7px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      100deg,
+      #ff7211,
+      #ef1f59
+    );
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 750;
+
+  box-shadow:
+    0 9px 22px
+    rgba(239, 31, 89, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vg-find-get-started:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 13px 28px
+    rgba(239, 31, 89, 0.28);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.vg-find-mobile-menu {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  margin-left: auto;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+
+  border-radius: 7px;
+
+  background:
+    rgba(0, 0, 0, 0.18);
+}
+
+.vg-find-mobile-menu span {
+  display: block;
+
+  width: 19px;
+  height: 2px;
+
+  margin: 4px auto;
+
+  background:
+    #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.vg-find-hero {
+  position: relative;
+
+  min-height:
+    min(900px, 100vh);
+
+  height:
+    min(900px, 100vh);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background-color:
+    var(--vg-find-navy);
+
+  background-image:
+    var(--vg-find-hero-image);
+
+  background-size: cover;
+
+  background-position:
+    center center;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
+
+.vg-find-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 12, 22, 0.98) 0%,
+      rgba(3, 13, 24, 0.94) 28%,
+      rgba(3, 13, 24, 0.65) 48%,
+      rgba(3, 13, 24, 0.18) 74%,
+      rgba(3, 13, 24, 0.1) 100%
+    );
+
+  z-index: 1;
+}
+
+.vg-find-hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.35),
+      transparent 25%,
+      rgba(0, 0, 0, 0.15)
+    );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.vg-find-hero-content {
+  position: relative;
+
+  z-index: 4;
+
+  width: min(
+    680px,
+    48vw
+  );
+
+  margin-left:
+    clamp(45px, 7vw, 92px);
+
+  padding-top: 65px;
+}
+
+.vg-find-eyebrow {
+  display: block;
+
+  color:
+    #ff7612;
+
+  font-size:
+    clamp(12px, 1vw, 15px);
+
+  font-weight: 800;
+
+  letter-spacing:
+    2.4px;
+}
+
+.vg-find-eyebrow-line {
+  display: block;
+
+  width: 49px;
+  height: 3px;
+
+  margin:
+    12px 0 25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff7612,
+      #ef2456
+    );
+}
+
+.vg-find-hero-content h1 {
+  margin: 0;
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(48px, 5vw, 78px);
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -2.8px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-hero-content h1 span {
+  display: inline-block;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff7612,
+      #f32a4f
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.vg-find-hero-content > p {
+  width:
+    min(530px, 100%);
+
+  margin:
+    25px 0 28px;
+
+  color:
+    rgba(255, 255, 255, 0.84);
+
+  font-size:
+    clamp(15px, 1.2vw, 18px);
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.vg-find-hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.vg-find-primary-button {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding:
+    0 25px;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #ff7211,
+      #ef1f59
+    );
+
+  color:
+    #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing:
+    0.2px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vg-find-primary-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 30px
+    rgba(239, 31, 89, 0.28);
+}
+
+.vg-find-how-button {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  padding:
+    0 22px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.5);
+
+  border-radius: 7px;
+
+  background:
+    transparent;
+
+  color:
+    #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vg-find-how-button:hover {
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border-color:
+    #ffffff;
+}
+
+.vg-find-play {
+  width: 24px;
+  height: 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.75);
+
+  border-radius: 50%;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   HERO BENEFITS
+   ========================================================= */
+
+.vg-find-benefits {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  width:
+    min(660px, 100%);
+
+  margin-top: 38px;
+}
+
+.vg-find-benefit {
+  display: flex;
+
+  gap: 13px;
+
+  min-width: 0;
+
+  padding:
+    0 20px;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+}
+
+.vg-find-benefit:first-child {
+  padding-left: 0;
+}
+
+.vg-find-benefit:last-child {
+  border-right: 0;
+}
+
+.vg-find-benefit-icon {
+  flex-shrink: 0;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color:
+    #ff6415;
+
+  font-size: 27px;
+}
+
+.vg-find-benefit strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    #ffffff;
+
+  font-size: 13px;
+}
+
+.vg-find-benefit p {
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.63);
+
+  font-size: 11px;
+
+  line-height:
+    1.55;
+}
+
+
+/* =========================================================
+   HERO STAT STRIP
+   ========================================================= */
+
+.vg-find-stat-strip {
+  position: absolute;
+
+  z-index: 5;
+
+  left:
+    clamp(55px, 7vw, 92px);
+
+  bottom:
+    38px;
+
+  width:
+    min(1000px, calc(100% - 140px));
+
+  min-height: 96px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  padding:
+    0 20px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  border-radius: 13px;
+
+  background:
+    rgba(5, 18, 31, 0.72);
+
+  backdrop-filter:
+    blur(13px);
+
+  -webkit-backdrop-filter:
+    blur(13px);
+}
+
+.vg-find-stat {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 18px;
+
+  border-right:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+}
+
+.vg-find-stat:last-child {
+  border-right: 0;
+}
+
+.vg-find-stat-icon {
+  color:
+    #ff6b0b;
+
+  font-size:
+    32px;
+}
+
+.vg-find-stat strong {
+  display: block;
+
+  color:
+    #ff6b0b;
+
+  font-size:
+    28px;
+
+  line-height:
+    1;
+}
+
+.vg-find-stat div span {
+  display: block;
+
+  margin-top: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.8);
+
+  font-size:
+    11px;
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.vg-find-form-section {
+  position: relative;
+
+  min-height: 100vh;
+
+  padding:
+    45px
+    clamp(30px, 5vw, 80px);
+
+  display: flex;
+  align-items: center;
+
+  background:
+    #071522;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4, 14, 24, 0.94),
+      rgba(4, 14, 24, 0.68)
+    ),
+    var(--vg-find-hero-image);
+
+  background-size:
+    cover;
+
+  background-position:
+    center;
+}
+
+
+/* =========================================================
+   FORM LAYOUT
+   ========================================================= */
+
+.vg-find-form-layout {
+  width:
+    min(1420px, 100%);
+
+  min-height:
+    790px;
+
+  margin:
+    0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.65fr)
+    minmax(620px, 1.35fr);
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   FORM CONTEXT
+   ========================================================= */
+
+.vg-find-form-context {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding:
+    clamp(30px, 4vw, 70px);
+
+  color:
+    #ffffff;
+}
+
+.vg-find-context-eyebrow {
+  color:
+    #ff7612;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    2px;
+}
+
+.vg-find-context-line {
+  width: 48px;
+  height: 3px;
+
+  margin:
+    12px 0 24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff7612,
+      #ef2456
+    );
+}
+
+.vg-find-form-context h2 {
+  margin: 0;
+
+  font-size:
+    clamp(38px, 4vw, 61px);
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -2px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-form-context h2 span {
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff7612,
+      #ef2456
+    );
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+}
+
+.vg-find-form-context > p {
+  max-width:
+    410px;
+
+  margin:
+    25px 0;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  line-height:
+    1.65;
+
+  font-size:
+    15px;
+}
+
+.vg-find-context-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px 18px;
+
+  margin-top:
+    20px;
+}
+
+.vg-find-context-meta span {
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    1.5px;
+
+  font-weight:
+    700;
+}
+
+
+/* =========================================================
+   WHITE FORM PANEL
+   ========================================================= */
+
+.vg-find-form-panel {
+  position: relative;
+
+  min-height:
+    760px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    rgba(255, 255, 255, 0.98);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    var(--vg-find-shadow);
+}
+
+
+/* =========================================================
+   STEP CONTAINER
+   ========================================================= */
+
+.vg-find-step-container {
+  flex: 1;
+
+  min-height: 0;
+
+  padding:
+    clamp(30px, 3.3vw, 53px)
+    clamp(30px, 4vw, 58px)
+    20px;
+
+  overflow-y: auto;
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    #ccd3dc
+    transparent;
+
+  animation:
+    vgFindStepForward
+    0.32s
+    ease both;
+}
+
+.vg-find-step-container.backward {
+  animation-name:
+    vgFindStepBackward;
+}
+
+@keyframes vgFindStepForward {
+  from {
+    opacity: 0;
+    transform:
+      translateX(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
+}
+
+@keyframes vgFindStepBackward {
+  from {
+    opacity: 0;
+    transform:
+      translateX(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
+}
+
+
+/* =========================================================
+   STEP HEADING
+   ========================================================= */
+
+.vg-find-step-heading {
+  margin-bottom:
+    28px;
+}
+
+.vg-find-step-number {
+  display: block;
+
+  color:
+    #ff6610;
+
+  font-size:
+    28px;
+
+  line-height:
+    1;
+
+  font-weight:
+    800;
+}
+
+.vg-find-step-heading-line {
+  display: block;
+
+  width: 43px;
+  height: 2px;
+
+  margin:
+    9px 0 17px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff6610,
+      #ef2456
+    );
+}
+
+.vg-find-step-heading h2 {
+  margin: 0;
+
+  color:
+    #111923;
+
+  font-size:
+    clamp(28px, 2.7vw, 38px);
+
+  line-height:
+    1.08;
+
+  letter-spacing:
+    -1.1px;
+
+  font-weight:
+    700;
+}
+
+.vg-find-step-heading p {
+  margin:
+    7px 0 0;
+
+  color:
+    #667085;
+
+  font-size:
+    14px;
+
+  line-height:
+    1.55;
+}
+
+
+/* =========================================================
+   FORM SECTION TITLES
+   ========================================================= */
+
+.vg-find-form-section-title {
+  margin-bottom:
+    13px;
+
+  color:
+    #151b24;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.2px;
+}
+
+.vg-find-helper {
+  margin:
+    -5px 0 15px;
+
+  color:
+    #7a8493;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.5;
+}
+
+
+/* =========================================================
+   FIELD GRID
+   ========================================================= */
+
+.vg-find-field-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    16px 22px;
+}
+
+.vg-find-field-full {
+  grid-column:
+    1 / -1;
+}
+
+.vg-find-field {
+  position: relative;
+
+  min-width: 0;
+}
+
+.vg-find-field label {
+  display: block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    #171d26;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+}
+
+.vg-find-field label span {
+  margin-left:
+    3px;
+
+  color:
+    #ed3454;
+}
+
+.vg-find-field input,
+.vg-find-field select,
+.vg-find-field textarea {
+  width: 100%;
+
+  border:
+    1px solid
+    #d2d9e2;
+
+  border-radius:
+    8px;
+
+  outline: none;
+
+  background:
+    #ffffff;
+
+  color:
+    #17202d;
+
+  font-family:
+    inherit;
+
+  font-size:
+    13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.vg-find-field input,
+.vg-find-field select {
+  height:
+    50px;
+
+  padding:
+    0 14px;
+}
+
+.vg-find-field textarea {
+  min-height:
+    92px;
+
+  padding:
+    13px 14px;
+
+  resize:
+    vertical;
+}
+
+.vg-find-field input::placeholder,
+.vg-find-field textarea::placeholder {
+  color:
+    #9aa3af;
+}
+
+.vg-find-field input:focus,
+.vg-find-field select:focus,
+.vg-find-field textarea:focus {
+  border-color:
+    #356dff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(53, 109, 255, 0.09);
+}
+
+.vg-find-field.has-error input,
+.vg-find-field.has-error select,
+.vg-find-field.has-error textarea {
+  border-color:
+    #ef4760;
+}
+
+.vg-find-field small {
+  display: block;
+
+  margin-top:
+    5px;
+
+  color:
+    #e63d57;
+
+  font-size:
+    10px;
+}
+
+.vg-find-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin:
+    23px 0;
+
+  background:
+    #e6e9ee;
+}
+
+
+/* =========================================================
+   CHARACTER COUNT
+   ========================================================= */
+
+.vg-find-character-count {
+  margin-top:
+    5px;
+
+  text-align:
+    right;
+
+  color:
+    #98a2b3;
+
+  font-size:
+    10px;
+}
+
+
+/* =========================================================
+   CHOICES
+   ========================================================= */
+
+.vg-find-selection-row {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    8px;
+}
+
+.vg-find-choice {
+  min-height:
+    40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap:
+    6px;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    #d7dde5;
+
+  border-radius:
+    7px;
+
+  background:
+    #ffffff;
+
+  color:
+    #505b6a;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
+  font-weight:
+    500;
+
+  cursor:
+    pointer;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.vg-find-choice:hover {
+  border-color:
+    #9eacc0;
+
+  color:
+    #17202d;
+
+  transform:
+    translateY(-1px);
+}
+
+.vg-find-choice.selected {
+  border-color:
+    #326cff;
+
+  background:
+    #f0f5ff;
+
+  color:
+    #1550d4;
+}
+
+.vg-find-choice.selected span {
+  font-weight:
+    800;
+}
+
+
+/* =========================================================
+   INDUSTRIES
+   ========================================================= */
+
+.vg-find-industry-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    10px;
+}
+
+.vg-find-industry {
+  position: relative;
+
+  min-height:
+    108px;
+
+  padding:
+    15px;
+
+  text-align:
+    left;
+
+  border:
+    1px solid
+    #d8dee7;
+
+  border-radius:
+    9px;
+
+  background:
+    #ffffff;
+
+  cursor:
+    pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vg-find-industry:hover {
+  border-color:
+    #8ca8df;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(20, 49, 92, 0.06);
+}
+
+.vg-find-industry.selected {
+  border-color:
+    #326cff;
+
+  background:
+    #f3f7ff;
+
+  box-shadow:
+    0 8px 20px
+    rgba(50, 108, 255, 0.08);
+}
+
+.vg-find-industry-number {
+  display: block;
+
+  margin-bottom:
+    15px;
+
+  color:
+    #98a2b3;
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+}
+
+.vg-find-industry strong {
+  display: block;
+
+  padding-right:
+    28px;
+
+  color:
+    #18202b;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-industry small {
+  display: block;
+
+  margin-top:
+    5px;
+
+  color:
+    #7b8593;
+
+  font-size:
+    9px;
+
+  line-height:
+    1.4;
+}
+
+.vg-find-industry-check {
+  position: absolute;
+
+  top:
+    14px;
+
+  right:
+    14px;
+
+  color:
+    #a4adba;
+
+  font-size:
+    18px;
+}
+
+.vg-find-industry.selected
+.vg-find-industry-check {
+  color:
+    #326cff;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.vg-find-skill-search {
+  height:
+    45px;
+
+  display: flex;
+  align-items: center;
+
+  gap:
+    9px;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    #d4dae3;
+
+  border-radius:
+    8px;
+
+  background:
+    #ffffff;
+}
+
+.vg-find-skill-search > span {
+  color:
+    #98a2b3;
+
+  font-size:
+    20px;
+}
+
+.vg-find-skill-search input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: 0;
+
+  outline: 0;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+
+  color:
+    #17202d;
+}
+
+.vg-find-skill-search button {
+  border: 0;
+
+  background:
+    transparent;
+
+  color:
+    #7c8796;
+
+  font-size:
+    20px;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-selected-skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    6px;
+
+  margin:
+    10px 0;
+}
+
+.vg-find-selected-chip {
+  min-height:
+    28px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap:
+    5px;
+
+  padding:
+    0 9px;
+
+  border:
+    1px solid
+    #b9cfff;
+
+  border-radius:
+    6px;
+
+  background:
+    #eef4ff;
+
+  color:
+    #1e58d8;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-selected-chip span {
+  margin-left:
+    3px;
+
+  font-size:
+    15px;
+}
+
+.vg-find-skill-scroll {
+  max-height:
+    245px;
+
+  overflow-y:
+    auto;
+
+  padding-right:
+    5px;
+}
+
+.vg-find-skill-group {
+  margin-bottom:
+    14px;
+}
+
+.vg-find-skill-group > span {
+  display: block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    #8b95a3;
+
+  font-size:
+    9px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.8px;
+}
+
+.vg-find-skill-group > div {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    6px;
+}
+
+.vg-find-skill {
+  min-height:
+    31px;
+
+  padding:
+    0 10px;
+
+  border:
+    1px solid
+    #d7dde5;
+
+  border-radius:
+    6px;
+
+  background:
+    #ffffff;
+
+  color:
+    #596474;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  font-weight:
+    500;
+
+  cursor:
+    pointer;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.vg-find-skill:hover {
+  border-color:
+    #8ca8df;
+}
+
+.vg-find-skill.selected {
+  border-color:
+    #326cff;
+
+  background:
+    #eef4ff;
+
+  color:
+    #1753d0;
+}
+
+.vg-find-other-skill {
+  margin-top:
+    13px;
+}
+
+.vg-find-other-skill label {
+  display: block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    #171d26;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-other-skill input {
+  width: 100%;
+
+  height:
+    42px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid
+    #d5dbe4;
+
+  border-radius:
+    7px;
+
+  outline: none;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+}
+
+
+/* =========================================================
+   PREFERENCES
+   ========================================================= */
+
+.vg-find-preference-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    20px 25px;
+}
+
+.vg-find-preference-block {
+  min-width: 0;
+}
+
+.vg-find-preference-block > span {
+  display: block;
+
+  margin-bottom:
+    9px;
+
+  color:
+    #161d27;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.3px;
+}
+
+.vg-find-choice-grid {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    6px;
+}
+
+.vg-find-choice-grid.compact {
+  flex-wrap:
+    nowrap;
+}
+
+.vg-find-inline-error {
+  display: block;
+
+  margin-top:
+    6px;
+
+  color:
+    #e03f59;
+
+  font-size:
+    10px;
+}
+
+.vg-find-country-block,
+.vg-find-career-block {
+  grid-column:
+    1 / -1;
+}
+
+
+/* =========================================================
+   COUNTRY SELECTOR
+   ========================================================= */
+
+.vg-find-country-selector {
+  position: relative;
+}
+
+.vg-find-country-trigger {
+  width: 100%;
+
+  height:
+    45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    #d4dae3;
+
+  border-radius:
+    8px;
+
+  background:
+    #ffffff;
+
+  color:
+    #667085;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-country-menu {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top:
+    calc(100% + 7px);
+
+  z-index:
+    30;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    #d7dde5;
+
+  border-radius:
+    9px;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0 20px 45px
+    rgba(7, 29, 59, 0.14);
+}
+
+.vg-find-country-search {
+  padding:
+    9px;
+
+  border-bottom:
+    1px solid
+    #edf0f4;
+}
+
+.vg-find-country-search input {
+  width: 100%;
+
+  height:
+    38px;
+
+  padding:
+    0 10px;
+
+  border:
+    1px solid
+    #d8dee7;
+
+  border-radius:
+    6px;
+
+  outline: none;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+}
+
+.vg-find-country-options {
+  max-height:
+    190px;
+
+  overflow-y:
+    auto;
+
+  padding:
+    5px;
+}
+
+.vg-find-country-options button {
+  width: 100%;
+
+  min-height:
+    35px;
+
+  display: flex;
+  align-items: center;
+
+  gap:
+    8px;
+
+  padding:
+    0 9px;
+
+  border: 0;
+
+  border-radius:
+    5px;
+
+  background:
+    transparent;
+
+  color:
+    #475467;
+
+  text-align:
+    left;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-country-options button:hover,
+.vg-find-country-options button.selected {
+  background:
+    #f0f5ff;
+
+  color:
+    #1753d0;
+}
+
+.vg-find-country-options button span {
+  width:
+    15px;
+}
+
+.vg-find-selected-country-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    6px;
+
+  margin-top:
+    8px;
+}
+
+.vg-find-selected-country-list button {
+  min-height:
+    28px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap:
+    7px;
+
+  padding:
+    0 9px;
+
+  border:
+    1px solid
+    #c8d6f4;
+
+  border-radius:
+    6px;
+
+  background:
+    #f1f5fd;
+
+  color:
+    #305aa9;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-selected-country-list button span {
+  font-size:
+    14px;
+}
+
+
+/* =========================================================
+   CITY
+   ========================================================= */
+
+.vg-find-city-input input {
+  width: 100%;
+
+  height:
+    45px;
+
+  padding:
+    0 13px;
+
+  border:
+    1px solid
+    #d4dae3;
+
+  border-radius:
+    8px;
+
+  outline:
+    none;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+}
+
+
+/* =========================================================
+   UPLOAD
+   ========================================================= */
+
+.vg-find-upload {
+  width: 100%;
+
+  min-height:
+    175px;
+
+  border:
+    1.5px dashed
+    #c5ceda;
+
+  border-radius:
+    9px;
+
+  background:
+    #fcfdff;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.vg-find-upload:hover {
+  border-color:
+    #7f9ee0;
+
+  background:
+    #f8fbff;
+}
+
+.vg-find-upload-inner {
+  min-height:
+    175px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-upload-inner input {
+  display:
+    none;
+}
+
+.vg-find-upload-icon {
+  width:
+    44px;
+
+  height:
+    44px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  margin-bottom:
+    9px;
+
+  border-radius:
+    50%;
+
+  color:
+    #4e80dc;
+
+  background:
+    #edf4ff;
+
+  font-size:
+    27px;
+
+  font-weight:
+    300;
+}
+
+.vg-find-upload-inner strong {
+  color:
+    #18202b;
+
+  font-size:
+    14px;
+
+  font-weight:
+    600;
+}
+
+.vg-find-upload-inner > span {
+  margin-top:
+    7px;
+
+  color:
+    #7d8795;
+
+  font-size:
+    12px;
+}
+
+.vg-find-upload-inner small {
+  display:
+    flex;
+
+  gap:
+    10px;
+
+  margin-top:
+    12px;
+
+  color:
+    #687385;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.4px;
+}
+
+.vg-find-upload-inner small b {
+  color:
+    #ff6b0b;
+}
+
+.vg-find-uploaded-file {
+  min-height:
+    175px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  padding:
+    0 28px;
+
+  gap:
+    14px;
+}
+
+.vg-find-file-icon {
+  width:
+    48px;
+
+  height:
+    55px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid
+    #d8dee7;
+
+  border-radius:
+    7px;
+
+  background:
+    #f6f8fb;
+
+  color:
+    #ef435a;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-uploaded-file > div:nth-child(2) {
+  flex:
+    1;
+
+  min-width:
+    0;
+}
+
+.vg-find-uploaded-file strong {
+  display:
+    block;
+
+  overflow:
+    hidden;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+  color:
+    #1b2430;
+
+  font-size:
+    13px;
+}
+
+.vg-find-uploaded-file span {
+  display:
+    block;
+
+  margin-top:
+    5px;
+
+  color:
+    #8a94a3;
+
+  font-size:
+    10px;
+}
+
+.vg-find-uploaded-file button {
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #e83f58;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================================
+   CONSENT
+   ========================================================= */
+
+.vg-find-consent {
+  margin-top:
+    18px;
+}
+
+.vg-find-consent label {
+  position: relative;
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  gap:
+    10px;
+
+  color:
+    #687385;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.55;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-consent input {
+  position:
+    absolute;
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+}
+
+.vg-find-custom-checkbox {
+  flex-shrink:
+    0;
+
+  width:
+    19px;
+
+  height:
+    19px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid
+    #b9c2ce;
+
+  border-radius:
+    4px;
+
+  background:
+    #ffffff;
+
+  color:
+    #ffffff;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-consent input:checked
++ .vg-find-custom-checkbox {
+  border-color:
+    #326cff;
+
+  background:
+    #326cff;
+}
+
+.vg-find-consent-links {
+  display:
+    block;
+
+  margin-top:
+    4px;
+
+  color:
+    #326cff;
+
+  font-weight:
+    700;
+}
+
+.vg-find-consent.has-error
+.vg-find-custom-checkbox {
+  border-color:
+    #ef4760;
+}
+
+.vg-find-consent > small {
+  display:
+    block;
+
+  margin-top:
+    6px;
+
+  color:
+    #e03f59;
+
+  font-size:
+    10px;
+}
+
+
+/* =========================================================
+   ERRORS
+   ========================================================= */
+
+.vg-find-error {
+  margin-top:
+    8px;
+
+  color:
+    #e03f59;
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+   ========================================================= */
+
+.vg-find-form-footer {
+  flex-shrink:
+    0;
+
+  padding:
+    0
+    clamp(30px, 4vw, 58px)
+    26px;
+
+  background:
+    #ffffff;
+
+  border-top:
+    1px solid
+    #eef0f3;
+}
+
+.vg-find-navigation {
+  min-height:
+    65px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+}
+
+.vg-find-back-button {
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #4d5968;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-back-button:hover {
+  color:
+    #071d3b;
+}
+
+.vg-find-continue-button,
+.vg-find-submit-button {
+  min-height:
+    46px;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    11px;
+
+  padding:
+    0 24px;
+
+  border:
+    0;
+
+  border-radius:
+    7px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #ff7211,
+      #ef1f59
+    );
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vg-find-continue-button:hover,
+.vg-find-submit-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 9px 22px
+    rgba(239, 31, 89, 0.22);
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.vg-find-progress {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  width:
+    100%;
+}
+
+.vg-find-progress-step {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #8b95a3;
+
+  font-family:
+    inherit;
+
+  cursor:
+    pointer;
+}
+
+.vg-find-progress-step:disabled {
+  cursor:
+    default;
+}
+
+.vg-find-progress-number {
+  width:
+    24px;
+
+  height:
+    24px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border:
+    1px solid
+    #d1d7df;
+
+  border-radius:
+    50%;
+
+  color:
+    #8b95a3;
+
+  font-size:
+    9px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-progress-step.active {
+  color:
+    #17202d;
+}
+
+.vg-find-progress-step.active
+.vg-find-progress-number {
+  border-color:
+    #ff6710;
+
+  background:
+    #ff6710;
+
+  color:
+    #ffffff;
+}
+
+.vg-find-progress-step.completed
+.vg-find-progress-number {
+  border-color:
+    #326cff;
+
+  background:
+    #326cff;
+
+  color:
+    #ffffff;
+}
+
+.vg-find-progress-label {
+  max-width:
+    150px;
+
+  font-size:
+    9px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.2px;
+
+  text-align:
+    left;
+}
+
+.vg-find-progress-line {
+  flex:
+    1;
+
+  height:
+    1px;
+
+  margin:
+    0 9px;
+
+  background:
+    #dce1e7;
+}
+
+.vg-find-progress-line.completed {
+  background:
+    #326cff;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.vg-find-footer {
+  display:
+    grid;
+
+  grid-template-columns:
+    1.5fr 0.7fr 1fr;
+
+  gap:
+    50px;
+
+  padding:
+    50px
+    clamp(30px, 7vw, 100px);
+
+  background:
+    #06101d;
+
+  color:
+    #ffffff;
+}
+
+.vg-find-footer strong {
+  display:
+    block;
+
+  font-size:
+    15px;
+
+  letter-spacing:
+    0.2px;
+}
+
+.vg-find-footer p {
+  max-width:
+    520px;
+
+  margin:
+    12px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.7;
+}
+
+.vg-find-footer-links {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    10px;
+}
+
+.vg-find-footer-links a {
+  color:
+    rgba(255, 255, 255, 0.65);
+
+  text-decoration:
+    none;
+
+  font-size:
+    11px;
+}
+
+.vg-find-footer-links a:hover {
+  color:
+    #ffffff;
+}
+
+.vg-find-footer-cta {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  gap:
+    7px;
+}
+
+.vg-find-footer-cta span {
+  color:
+    #ff6b0b;
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    1.5px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-footer-cta strong {
+  font-size:
+    15px;
+}
+
+.vg-find-footer-cta a {
+  color:
+    #ffffff;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+}
+
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+
+.vg-find-success-page {
+  min-height:
+    100vh;
+
+  background:
+    #06101d;
+}
+
+.vg-find-success {
+  min-height:
+    100vh;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    120px 25px 70px;
+
+  background:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(34, 72, 132, 0.3),
+      transparent 40%
+    ),
+    #06101d;
+}
+
+.vg-find-success-inner {
+  width:
+    min(800px, 100%);
+
+  text-align:
+    center;
+
+  color:
+    #ffffff;
+}
+
+.vg-find-success-number {
+  color:
+    #ff6b0b;
+
+  font-size:
+    30px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-success-line {
+  width:
+    48px;
+
+  height:
+    3px;
+
+  margin:
+    13px auto 30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff6b0b,
+      #ef2456
+    );
+}
+
+.vg-find-success-wordmark {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    18px;
+
+  margin-bottom:
+    24px;
+}
+
+.vg-find-success-wordmark span {
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    2px;
+
+  font-weight:
+    800;
+}
+
+.vg-find-success-inner h1 {
+  margin:
+    0;
+
+  font-size:
+    clamp(48px, 7vw, 90px);
+
+  line-height:
+    0.95;
+
+  letter-spacing:
+    -3px;
+}
+
+.vg-find-success-inner > p {
+  max-width:
+    580px;
+
+  margin:
+    22px auto 0;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-size:
+    15px;
+
+  line-height:
+    1.7;
+}
+
+.vg-find-success-actions {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    12px;
+
+  margin-top:
+    35px;
+}
+
+.vg-find-secondary-button {
+  min-height:
+    48px;
+
+  padding:
+    0 22px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.4);
+
+  border-radius:
+    7px;
+
+  background:
+    transparent;
+
+  color:
+    #ffffff;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+
+  font-weight:
+    600;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .vg-find-header-nav {
+    gap:
+      18px;
+  }
+
+  .vg-find-header-nav a {
+    font-size:
+      12px;
+  }
+
+  .vg-find-form-layout {
+    grid-template-columns:
+      0.45fr 1.55fr;
+  }
+
+  .vg-find-form-context {
+    padding:
+      30px;
+  }
+
+  .vg-find-form-context h2 {
+    font-size:
+      43px;
+  }
+
+  .vg-find-benefits {
+    width:
+      580px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET 1024
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .vg-find-header {
+    padding:
+      0 25px;
+  }
+
+  .vg-find-header-nav {
+    display:
+      none;
+  }
+
+  .vg-find-mobile-menu {
+    display:
+      block;
+  }
+
+  .vg-find-header-actions {
+    margin-left:
+      auto;
+  }
+
+  .vg-find-hero-content {
+    width:
+      57vw;
+
+    margin-left:
+      55px;
+  }
+
+  .vg-find-hero-content h1 {
+    font-size:
+      56px;
+  }
+
+  .vg-find-stat-strip {
+    left:
+      45px;
+
+    width:
+      calc(100% - 90px);
+  }
+
+  .vg-find-form-section {
+    padding:
+      35px;
+  }
+
+  .vg-find-form-layout {
+    grid-template-columns:
+      1fr;
+
+    min-height:
+      auto;
+  }
+
+  .vg-find-form-context {
+    min-height:
+      260px;
+
+    padding:
+      45px;
+
+    background:
+      rgba(5, 18, 31, 0.7);
+  }
+
+  .vg-find-form-context h2 {
+    font-size:
+      48px;
+  }
+
+  .vg-find-form-panel {
+    min-height:
+      760px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE 768
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .vg-find-header {
+    height:
+      72px;
+
+    padding:
+      0 18px;
+  }
+
+  .vg-find-logo-mark {
+    width:
+      32px;
+
+    height:
+      32px;
+
+    font-size:
+      22px;
+  }
+
+  .vg-find-logo-text strong {
+    font-size:
+      15px;
+  }
+
+  .vg-find-logo-text small {
+    font-size:
+      6px;
+
+    letter-spacing:
+      1.8px;
+  }
+
+  .vg-find-header-actions {
+    display:
+      none;
+  }
+
+  .vg-find-hero {
+    min-height:
+      850px;
+
+    height:
+      auto;
+
+    padding:
+      120px 20px 155px;
+
+    align-items:
+      flex-start;
+
+    background-position:
+      64% center;
+  }
+
+  .vg-find-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 12, 22, 0.96),
+        rgba(3, 13, 24, 0.78)
+      );
+  }
+
+  .vg-find-hero-content {
+    width:
+      100%;
+
+    margin:
+      0;
+
+    padding:
+      0;
+  }
+
+  .vg-find-hero-content h1 {
+    font-size:
+      clamp(43px, 11vw, 62px);
+
+    letter-spacing:
+      -2px;
+  }
+
+  .vg-find-hero-content > p {
+    font-size:
+      14px;
+  }
+
+  .vg-find-hero-actions {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+
+    width:
+      min(340px, 100%);
+  }
+
+  .vg-find-benefits {
+    grid-template-columns:
+      1fr;
+
+    width:
+      100%;
+
+    margin-top:
+      30px;
+
+    gap:
+      14px;
+  }
+
+  .vg-find-benefit {
+    padding:
+      0 0 14px;
+
+    border-right:
+      0;
+
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.14);
+  }
+
+  .vg-find-benefit:last-child {
+    border-bottom:
+      0;
+  }
+
+  .vg-find-stat-strip {
+    left:
+      18px;
+
+    right:
+      18px;
+
+    bottom:
+      20px;
+
+    width:
+      auto;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    min-height:
+      auto;
+
+    padding:
+      8px;
+  }
+
+  .vg-find-stat {
+    justify-content:
+      flex-start;
+
+    padding:
+      12px;
+
+    border-right:
+      0;
+  }
+
+  .vg-find-stat:nth-child(-n + 2) {
+    border-bottom:
+      1px solid
+      rgba(255, 255, 255, 0.12);
+  }
+
+  .vg-find-stat:nth-child(odd) {
+    border-right:
+      1px solid
+      rgba(255, 255, 255, 0.12);
+  }
+
+  .vg-find-stat-icon {
+    font-size:
+      23px;
+  }
+
+  .vg-find-stat strong {
+    font-size:
+      22px;
+  }
+
+  .vg-find-form-section {
+    padding:
+      25px 14px;
+  }
+
+  .vg-find-form-context {
+    min-height:
+      220px;
+
+    padding:
+      30px 24px;
+  }
+
+  .vg-find-form-context h2 {
+    font-size:
+      40px;
+  }
+
+  .vg-find-form-panel {
+    min-height:
+      auto;
+
+    border-radius:
+      11px;
+  }
+
+  .vg-find-step-container {
+    padding:
+      30px 22px 10px;
+
+    max-height:
+      none;
+
+    overflow:
+      visible;
+  }
+
+  .vg-find-field-grid,
+  .vg-find-preference-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .vg-find-industry-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .vg-find-country-block,
+  .vg-find-career-block,
+  .vg-find-field-full {
+    grid-column:
+      auto;
+  }
+
+  .vg-find-form-footer {
+    padding:
+      0 22px 22px;
+  }
+
+  .vg-find-progress-label {
+    display:
+      none;
+  }
+
+  .vg-find-progress {
+    justify-content:
+      space-between;
+  }
+
+  .vg-find-progress-line {
+    margin:
+      0 5px;
+  }
+
+  .vg-find-navigation {
+    min-height:
+      70px;
+  }
+
+  .vg-find-footer {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      30px;
+
+    padding:
+      40px 25px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE 480
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .vg-find-hero {
+    min-height:
+      890px;
+
+    padding:
+      105px 17px 160px;
+  }
+
+  .vg-find-eyebrow {
+    font-size:
+      11px;
+  }
+
+  .vg-find-hero-content h1 {
+    font-size:
+      43px;
+  }
+
+  .vg-find-hero-content > p {
+    font-size:
+      13px;
+
+    line-height:
+      1.55;
+  }
+
+  .vg-find-primary-button,
+  .vg-find-how-button {
+    width:
+      100%;
+  }
+
+  .vg-find-stat-strip {
+    left:
+      12px;
+
+    right:
+      12px;
+
+    bottom:
+      12px;
+  }
+
+  .vg-find-stat {
+    gap:
+      8px;
+
+    padding:
+      9px;
+  }
+
+  .vg-find-stat-icon {
+    display:
+      none;
+  }
+
+  .vg-find-stat strong {
+    font-size:
+      19px;
+  }
+
+  .vg-find-stat div span {
+    font-size:
+      9px;
+  }
+
+  .vg-find-form-context h2 {
+    font-size:
+      34px;
+  }
+
+  .vg-find-form-context > p {
+    font-size:
+      13px;
+  }
+
+  .vg-find-step-heading h2 {
+    font-size:
+      27px;
+  }
+
+  .vg-find-step-heading p {
+    font-size:
+      12px;
+  }
+
+  .vg-find-industry-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .vg-find-industry {
+    min-height:
+      90px;
+  }
+
+  .vg-find-selection-row {
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .vg-find-choice {
+    width:
+      100%;
+
+    padding:
+      0 8px;
+
+    font-size:
+      10px;
+  }
+
+  .vg-find-choice-grid {
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .vg-find-choice-grid.compact {
+    display:
+      flex;
+  }
+
+  .vg-find-upload,
+  .vg-find-upload-inner {
+    min-height:
+      160px;
+  }
+
+  .vg-find-upload-inner strong {
+    font-size:
+      12px;
+  }
+
+  .vg-find-uploaded-file {
+    min-height:
+      160px;
+
+    padding:
+      0 15px;
+  }
+
+  .vg-find-navigation {
+    gap:
+      12px;
+  }
+
+  .vg-find-continue-button,
+  .vg-find-submit-button {
+    flex:
+      1;
+
+    padding:
+      0 15px;
+  }
+
+  .vg-find-progress-number {
+    width:
+      22px;
+
+    height:
+      22px;
+  }
+
+  .vg-find-success-wordmark {
+    flex-wrap:
+      wrap;
+  }
+
+  .vg-find-success-actions {
+    flex-direction:
+      column;
+  }
+
+  .vg-find-success-actions button {
+    width:
+      100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE 390
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+  .vg-find-logo-text strong {
+    font-size:
+      13px;
+  }
+
+  .vg-find-logo-text small {
+    display:
+      none;
+  }
+
+  .vg-find-hero-content h1 {
+    font-size:
+      39px;
+  }
+
+  .vg-find-stat-strip {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .vg-find-stat {
+    padding:
+      7px;
+  }
+
+  .vg-find-form-context {
+    padding:
+      25px 18px;
+  }
+
+  .vg-find-step-container {
+    padding:
+      25px 17px 8px;
+  }
+
+  .vg-find-form-footer {
+    padding:
+      0 17px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .vg-find-step-container {
+    animation:
+      none;
+  }
+
+  .vg-find-primary-button,
+  .vg-find-get-started,
+  .vg-find-choice,
+  .vg-find-industry {
+    transition:
+      none;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL FIX — MOVE FORM PANEL TO RIGHT
+   DESKTOP ONLY
+========================================================= */
+
+@media (min-width: 1201px) {
+
+  .vg-find-form-section {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .vg-find-form-layout {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    grid-template-columns:
+      minmax(360px, 0.52fr)
+      minmax(720px, 1.48fr);
+
+    column-gap: 35px;
+  }
+
+  .vg-find-form-context {
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .vg-find-form-panel {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+}
+
+@media (min-width: 1201px) {
+
+  .vg-find-form-section {
+    padding-left: 25px;
+    padding-right: 18px;
+  }
+
+  .vg-find-form-layout {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    grid-template-columns:
+      minmax(390px, 0.48fr)
+      minmax(760px, 1.52fr);
+
+    column-gap: 25px;
+  }
+
+  .vg-find-form-context {
+    padding-left: 75px;
+    padding-right: 20px;
+  }
+
+  .vg-find-form-panel {
+    margin-left: 0;
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   VUTKALA FIND OPPORTUNITIES
+   GLOBAL TYPOGRAPHY + PREMIUM MOTION OVERRIDES
+   ========================================================= */
+
+.vg-find-page {
+  --vg-find-font: "Manrope", var(--vg-font-primary), sans-serif;
+
+  font-family: var(--vg-find-font);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keep every text-bearing UI element on the same font. */
+.vg-find-page,
+.vg-find-page h1,
+.vg-find-page h2,
+.vg-find-page h3,
+.vg-find-page h4,
+.vg-find-page h5,
+.vg-find-page h6,
+.vg-find-page p,
+.vg-find-page a,
+.vg-find-page button,
+.vg-find-page input,
+.vg-find-page select,
+.vg-find-page textarea,
+.vg-find-page label,
+.vg-find-page strong,
+.vg-find-page small {
+  font-family: var(--vg-find-font);
+}
+
+/* Main typography hierarchy */
+.vg-find-page h1,
+.vg-find-page h2,
+.vg-find-page h3,
+.vg-find-page h4,
+.vg-find-page h5,
+.vg-find-page h6 {
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.vg-find-page p {
+  font-weight: 400;
+}
+
+.vg-find-page strong,
+.vg-find-page h1,
+.vg-find-page h2 {
+  font-weight: 700;
+}
+
+.vg-find-page button,
+.vg-find-page nav a {
+  font-weight: 600;
+}
+
+/* Hero */
+.vg-find-hero-content h1 {
+  font-family: var(--vg-find-font);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.vg-find-hero-content > p {
+  font-family: var(--vg-find-font);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+.vg-find-eyebrow,
+.vg-find-context-eyebrow {
+  font-family: var(--vg-find-font);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.vg-find-benefit strong,
+.vg-find-stat strong {
+  font-family: var(--vg-find-font);
+  font-weight: 700;
+}
+
+.vg-find-benefit p,
+.vg-find-stat div span {
+  font-family: var(--vg-find-font);
+  font-weight: 400;
+}
+
+/* Form typography */
+.vg-find-form-context h2 {
+  font-family: var(--vg-find-font);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.vg-find-form-context > p {
+  font-family: var(--vg-find-font);
+  font-weight: 400;
+}
+
+.vg-find-step-heading h2 {
+  font-family: var(--vg-find-font);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.vg-find-step-heading p {
+  font-family: var(--vg-find-font);
+  font-weight: 400;
+}
+
+.vg-find-form-section-title,
+.vg-find-field label,
+.vg-find-preference-block > span,
+.vg-find-other-skill label {
+  font-family: var(--vg-find-font);
+  font-weight: 600;
+}
+
+.vg-find-field input,
+.vg-find-field select,
+.vg-find-field textarea,
+.vg-find-choice,
+.vg-find-skill,
+.vg-find-country-trigger,
+.vg-find-country-options button,
+.vg-find-city-input input,
+.vg-find-skill-search input,
+.vg-find-selected-chip,
+.vg-find-selected-country-list button {
+  font-family: var(--vg-find-font);
+  font-weight: 400;
+}
+
+.vg-find-choice.selected span,
+.vg-find-industry strong {
+  font-family: var(--vg-find-font);
+  font-weight: 700;
+}
+
+.vg-find-upload-inner strong,
+.vg-find-uploaded-file strong {
+  font-family: var(--vg-find-font);
+  font-weight: 600;
+}
+
+.vg-find-progress-label,
+.vg-find-progress-number,
+.vg-find-back-button,
+.vg-find-continue-button,
+.vg-find-submit-button {
+  font-family: var(--vg-find-font);
+}
+
+/* =========================================================
+   PREMIUM PAGE-ENTRY ANIMATION
+   ========================================================= */
+
+.vg-find-hero-content {
+  animation: vgFindHeroContentIn 900ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-eyebrow {
+  animation: vgFindFadeUp 650ms 80ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-eyebrow-line {
+  transform-origin: left center;
+  animation: vgFindLineReveal 700ms 180ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-hero-content h1 {
+  animation: vgFindFadeUp 800ms 220ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-hero-content > p {
+  animation: vgFindFadeUp 750ms 340ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-hero-actions {
+  animation: vgFindFadeUp 750ms 440ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-benefits {
+  animation: vgFindFadeUp 800ms 540ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-stat-strip {
+  animation: vgFindStatReveal 900ms 650ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Slow cinematic movement on the hero image without moving content. */
+.vg-find-hero {
+  background-size: 105%;
+  animation: vgFindHeroImage 14s ease-out both;
+}
+
+.vg-find-hero-overlay {
+  animation: vgFindOverlayIn 1000ms ease both;
+}
+
+/* =========================================================
+   FORM SECTION REVEAL
+   ========================================================= */
+
+.vg-find-form-context {
+  animation: vgFindFadeLeft 850ms 100ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-form-panel {
+  animation: vgFindFadeRight 850ms 180ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.vg-find-context-line,
+.vg-find-step-heading-line {
+  transform-origin: left center;
+}
+
+/* =========================================================
+   INTERACTIVE MOTION
+   ========================================================= */
+
+.vg-find-header-nav a {
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.vg-find-header-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.vg-find-login,
+.vg-find-get-started,
+.vg-find-primary-button,
+.vg-find-how-button,
+.vg-find-continue-button,
+.vg-find-submit-button {
+  transition:
+    transform 220ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+
+.vg-find-login:hover,
+.vg-find-get-started:hover,
+.vg-find-primary-button:hover,
+.vg-find-how-button:hover,
+.vg-find-continue-button:hover,
+.vg-find-submit-button:hover {
+  transform: translateY(-2px);
+}
+
+.vg-find-choice,
+.vg-find-skill,
+.vg-find-industry {
+  transition:
+    transform 220ms cubic-bezier(.22, 1, .36, 1),
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease;
+}
+
+.vg-find-choice:hover,
+.vg-find-skill:hover,
+.vg-find-industry:hover {
+  transform: translateY(-2px);
+}
+
+.vg-find-upload {
+  transition:
+    transform 280ms cubic-bezier(.22, 1, .36, 1),
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.vg-find-upload:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(20, 49, 92, 0.08);
+}
+
+.vg-find-field input,
+.vg-find-field select,
+.vg-find-field textarea,
+.vg-find-country-trigger,
+.vg-find-skill-search {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    transform 220ms ease;
+}
+
+.vg-find-field input:focus,
+.vg-find-field select:focus,
+.vg-find-field textarea:focus,
+.vg-find-country-trigger:focus,
+.vg-find-skill-search:focus-within {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+
+@keyframes vgFindFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vgFindHeroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vgFindLineReveal {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes vgFindHeroImage {
+  from {
+    background-size: 112%;
+    background-position: 52% center;
+  }
+
+  to {
+    background-size: 105%;
+    background-position: center center;
+  }
+}
+
+@keyframes vgFindOverlayIn {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vgFindStatReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes vgFindFadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes vgFindFadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   MOBILE MOTION / TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .vg-find-page h1,
+  .vg-find-page h2,
+  .vg-find-page h3 {
+    text-wrap: balance;
+  }
+
+  .vg-find-hero {
+    background-size: cover;
+    animation: vgFindMobileHeroImage 12s ease-out both;
+  }
+
+  .vg-find-form-context,
+  .vg-find-form-panel {
+    animation-duration: 700ms;
+  }
+}
+
+@keyframes vgFindMobileHeroImage {
+  from {
+    background-size: 112%;
+    background-position: 64% center;
+  }
+
+  to {
+    background-size: cover;
+    background-position: 64% center;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .vg-find-page *,
+  .vg-find-page *::before,
+  .vg-find-page *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .vg-find-hero,
+  .vg-find-hero-overlay,
+  .vg-find-hero-content,
+  .vg-find-eyebrow,
+  .vg-find-eyebrow-line,
+  .vg-find-hero-content h1,
+  .vg-find-hero-content > p,
+  .vg-find-hero-actions,
+  .vg-find-benefits,
+  .vg-find-stat-strip,
+  .vg-find-form-context,
+  .vg-find-form-panel,
+  .vg-find-step-container {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .vg-find-page *,
+  .vg-find-page *::before,
+  .vg-find-page *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

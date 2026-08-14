@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -10,7 +11,11 @@ import {
   FaMinus,
   FaChevronRight,
 } from "react-icons/fa";
+import hyderabad from "../../assets/hyderabad.png"
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
+
+import { submitContactForm } from "../../services/contactService";
+
 import "./Contact.css";
 
 /* ------------------------------------------------------------------ */
@@ -31,7 +36,7 @@ const infoCards = [
   {
     icon: <FaMapMarkerAlt />,
     title: "Our Office",
-    lines: ["Hyderabad, India", "Texas, USA"],
+    lines: ["Hyderabad, India", "St. Petersburg, USA"],
   },
   {
     icon: <FaClock />,
@@ -40,26 +45,46 @@ const infoCards = [
   },
 ];
 
-const offices = [
+
+
+  const offices = [
   {
     badge: "INDIA",
-    image:
-      "https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=800&q=80",
+    image: hyderabad,
     name: "Hyderabad",
-    address: ["Level 8, Mindspace, HITEC City,", "Hyderabad, Telangana 500081"],
+    address: [
+      "Ground Floor, Sundari Reddy Bhavan, 62/A, X' Road,",
+      "Vengal Rao Nagar, Sanjeeva Reddy Nagar,",
+      "Hyderabad, Telangana 500038",
+    ],
     phone: "+91 91000 12345",
     email: "hyderabad@vutkalaglobal.com",
+
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Ground+Floor+Sundari+Reddy+Bhavan+62%2FA+X+Road+Vengal+Rao+Nagar+Sanjeeva+Reddy+Nagar+Hyderabad+Telangana+500038",
   },
-  {
+
+    {
     badge: "USA",
     image:
       "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80",
-    name: "Texas, USA",
-    address: ["2025 Guadalupe St, Suite 260,", "Austin, TX 78705, USA"],
-    phone: "+1 (512) 123-4567",
+
+    name: "St. Petersburg, USA",
+
+    address: [
+      "7901 4th St N #8668,",
+      "St. Petersburg, FL 33702",
+    ],
+
+    phone: "+1 304-814-3494",
     email: "usa@vutkalaglobal.com",
+
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=7901+4th+St+N+%238668+St+Petersburg+FL+33702",
   },
 ];
+
+
 
 const faqLeft = [
   {
@@ -105,6 +130,29 @@ const services = [
 /* ------------------------------------------------------------------ */
 
 export default function Contact() {
+
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    }
+  );
+
+  document
+    .querySelectorAll(".contact-page .fade-up")
+    .forEach((el) => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
+
+
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -115,18 +163,70 @@ export default function Contact() {
     message: "",
   });
 
-  const [openFaq, setOpenFaq] = useState({ side: "left", index: 0 });
+const [openFaq, setOpenFaq] = useState({
+  side: "left",
+  index: 0,
+});
+
+const [submissionStatus, setSubmissionStatus] = useState(null);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Wire this up to your API / email service.
-    console.log("Contact form submitted:", form);
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    console.log("========== CONTACT SUBMISSION ==========");
+    console.log("FORM:", form);
+
+    const response = await submitContactForm(form);
+
+    console.log(
+      "Contact API response:",
+      response.data
+    );
+
+    if (response.data.success) {
+      setSubmissionStatus({
+        type: "success",
+        title: "MESSAGE SENT",
+        heading: "Thank You.",
+        message:
+          "Your message has been received. Our team will review your inquiry and get back to you shortly.",
+      });
+
+      setForm({
+        fullName: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        subject: "",
+        message: "",
+      });
+    }
+  } catch (error) {
+    console.error(
+      "Contact submission failed:",
+      error.response?.data || error.message
+    );
+
+    setSubmissionStatus({
+      type: "error",
+      title: "MESSAGE NOT SENT",
+      heading: "Something Went Wrong.",
+      message:
+        error.response?.data?.message ||
+        "We couldn't send your message right now. Please try again.",
+    });
+  }
+};
+
+
 
   const toggleFaq = (side, index) => {
     setOpenFaq((prev) =>
@@ -141,6 +241,68 @@ export default function Contact() {
       {/* ---------------------------------------------------------- */}
       {/* Hero                                                        */}
       {/* ---------------------------------------------------------- */}
+     
+     {submissionStatus && (
+  <div
+    className="contact-modal-overlay"
+    onClick={() => setSubmissionStatus(null)}
+  >
+    <div
+      className={`contact-modal contact-modal--${submissionStatus.type}`}
+      onClick={(e) => e.stopPropagation()}
+    >
+
+      <button
+        type="button"
+        className="contact-modal__close"
+        onClick={() => setSubmissionStatus(null)}
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div className="contact-modal__number">
+        01
+      </div>
+
+      <div className="contact-modal__line" />
+
+      <div className="contact-modal__icon">
+        {submissionStatus.type === "success" ? "✓" : "!"}
+      </div>
+
+      <span className="contact-modal__eyebrow">
+        {submissionStatus.title}
+      </span>
+
+      <h2>
+        {submissionStatus.heading}
+      </h2>
+
+      <p>
+        {submissionStatus.message}
+      </p>
+
+      <div className="contact-modal__meta">
+        <span>PEOPLE</span>
+        <span>TECHNOLOGY</span>
+        <span>OPPORTUNITY</span>
+      </div>
+
+      <button
+        type="button"
+        className="contact-modal__button"
+        onClick={() => setSubmissionStatus(null)}
+      >
+        CONTINUE
+        <FaArrowRight />
+      </button>
+
+    </div>
+  </div>
+)}
+     
+     
       <section className="hero">
         <div className="hero__bg" />
         <div className="hero__overlay" />
@@ -167,7 +329,7 @@ export default function Contact() {
         </div>
 
         {/* Floating info cards */}
-        <div className="info-cards">
+        <div className="info-cards ">
           {infoCards.map((card) => (
             <div className="info-card" key={card.title}>
               <div className="info-card__icon">{card.icon}</div>
@@ -185,7 +347,7 @@ export default function Contact() {
       {/* ---------------------------------------------------------- */}
       {/* Contact form + image                                       */}
       {/* ---------------------------------------------------------- */}
-      <section className="contact-section" id="contact-form">
+      <section className="contact-section fade-up" id="contact-form">
         <div className="contact-section__inner">
           <div className="contact-form-wrap">
             <h2>
@@ -280,7 +442,7 @@ export default function Contact() {
       {/* ---------------------------------------------------------- */}
       {/* Global Offices                                              */}
       {/* ---------------------------------------------------------- */}
-      <section className="offices-section">
+      <section className="offices-section fade-up">
         <div className="section-heading">
           <h2>
             Our <span className="text-accent">Global</span> Offices
@@ -314,9 +476,14 @@ export default function Contact() {
                 <p className="office-card__contact">
                   <FaEnvelope /> {office.email}
                 </p>
-                <a href="#map" className="office-card__link">
-                  Directions <FaChevronRight />
-                </a>
+                <a
+  href={office.mapUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="office-card__link"
+>
+  Directions <FaChevronRight />
+</a>
               </div>
             </div>
           ))}
@@ -326,41 +493,146 @@ export default function Contact() {
       {/* ---------------------------------------------------------- */}
       {/* Map                                                         */}
       {/* ---------------------------------------------------------- */}
-      <section className="map-section" id="map">
-        <div className="map-section__frame">
-          <img
-            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1600&q=80"
-            alt="Map showing Hyderabad and USA office locations"
-            className="map-section__image"
-          />
-          <span className="map-pin map-pin--hyderabad" title="Hyderabad, India">
-            <FaMapMarkerAlt />
-          </span>
-          <span className="map-pin map-pin--usa" title="Texas, USA">
-            <FaMapMarkerAlt />
-          </span>
+   <section className="map-section fade-up" id="map">
 
-          <div className="map-card">
-            <h4>Find Us on Map</h4>
-            <p>
-              Visit our offices or schedule a meeting with our experts.
-            </p>
-            <a
-              href="https://www.google.com/maps"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn--primary btn--sm"
-            >
-              View Larger Map
-            </a>
-          </div>
+  <div className="map-section__header">
+
+    <span className="map-section__eyebrow">
+      VUTKALA GLOBAL
+    </span>
+
+    <h2>
+      Find Us <span>Worldwide.</span>
+    </h2>
+
+    <p>
+      Visit one of our offices or connect with our team
+      wherever your business takes you.
+    </p>
+
+  </div>
+
+
+  <div className="map-section__frame">
+
+    <iframe
+      title="Vutkala Global Hyderabad Office"
+      src="https://www.google.com/maps?q=Ground+Floor+Sundari+Reddy+Bhavan+62%2FA+X+Road+Vengal+Rao+Nagar+Sanjeeva+Reddy+Nagar+Hyderabad+Telangana+500038&output=embed"
+      width="100%"
+      height="100%"
+      style={{
+        border: 0,
+        display: "block",
+      }}
+      loading="lazy"
+      allowFullScreen
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+
+
+    <div className="map-section__overlay">
+
+      <div className="map-section__card">
+
+        <div className="map-section__card-number">
+          01
         </div>
-      </section>
 
+        <div className="map-section__card-line" />
+
+        <span className="map-section__card-label">
+          INDIA OFFICE
+        </span>
+
+        <h3>
+          Hyderabad
+        </h3>
+
+        <p>
+          Ground Floor, Sundari Reddy Bhavan,
+          62/A, X' Road, Vengal Rao Nagar,
+          Sanjeeva Reddy Nagar,
+          Hyderabad, Telangana 500038
+        </p>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Ground+Floor+Sundari+Reddy+Bhavan+62%2FA+X+Road+Vengal+Rao+Nagar+Sanjeeva+Reddy+Nagar+Hyderabad+Telangana+500038"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="map-section__directions"
+        >
+          Get Directions
+          <FaChevronRight />
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div className="map-section__locations">
+
+    <div className="map-location map-location--active">
+
+      <span className="map-location__number">
+        01
+      </span>
+
+      <div>
+        <span className="map-location__country">
+          INDIA
+        </span>
+
+        <h4>
+          Hyderabad
+        </h4>
+
+        <p>
+          Telangana, India
+        </p>
+      </div>
+
+    </div>
+
+
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=7901+4th+St+N+%238668+St+Petersburg+FL+33702"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="map-location"
+    >
+
+      <span className="map-location__number">
+        02
+      </span>
+
+      <div>
+        <span className="map-location__country">
+          USA
+        </span>
+
+        <h4>
+          St. Petersburg
+        </h4>
+
+        <p>
+          Florida, USA
+        </p>
+      </div>
+
+      <FaChevronRight className="map-location__arrow" />
+
+    </a>
+
+  </div>
+
+</section>
       {/* ---------------------------------------------------------- */}
       {/* FAQ                                                         */}
       {/* ---------------------------------------------------------- */}
-      <section className="faq-section">
+      <section className="faq-section fade-up">
         <div className="section-heading">
           <h2>
             Frequently Asked <span className="text-accent">Questions</span>
@@ -422,22 +694,7 @@ export default function Contact() {
       {/* ---------------------------------------------------------- */}
       {/* Final CTA                                                   */}
       {/* ---------------------------------------------------------- */}
-      <section className="final-cta">
-        <div className="final-cta__inner">
-          <div className="final-cta__icon">
-            <FaPaperPlane />
-          </div>
-          <div className="final-cta__text">
-            <h2>
-              Ready to Start Your <span className="text-accent">Next Project?</span>
-            </h2>
-            <p>Let&rsquo;s discuss your goals and build something great together.</p>
-          </div>
-          <a href="#contact-form" className="btn btn--primary btn--lg">
-            Contact Us Now
-          </a>
-        </div>
-      </section>
+    
     </div>
   );
 }

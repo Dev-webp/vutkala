@@ -439,10 +439,7 @@
   color:
     var(--our-story-navy);
 
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
+font-family: var(--font-primary);
 
   font-size: 15px;
 
@@ -467,10 +464,7 @@
   color:
     var(--our-story-muted);
 
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
+font-family: var(--font-primary);
 
   font-size: 16px;
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./IntroductionAbout.css";
-
+import hero from "../../assets/home/about.png"
 function IntroductionAbout() {
   const sectionRef = useRef(null);
 
@@ -61,67 +61,6 @@ function IntroductionAbout() {
           INTRODUCTION
       ================================================================= */}
 
-      <section className="intro-section">
-
-        <div className="intro-container">
-
-          <div
-            className="intro-label reveal-up"
-            data-reveal
-          >
-            <span className="intro-label__line" />
-
-            <span>
-              INTRODUCTION
-            </span>
-          </div>
-
-          <div
-            className="intro-heading-wrap reveal-up reveal-delay-1"
-            data-reveal
-          >
-
-            <h2 className="intro-heading">
-
-              People
-              <span className="intro-heading__plus">
-                +
-              </span>
-
-              Technology
-              <span className="intro-heading__plus">
-                +
-              </span>
-
-              Opportunity
-
-            </h2>
-
-          </div>
-
-          <div
-            className="intro-bottom reveal-up reveal-delay-2"
-            data-reveal
-          >
-
-            <p className="intro-description">
-              Connecting exceptional people with
-              the technology and opportunities
-              that create meaningful growth.
-            </p>
-
-            <span
-              className="intro-scroll-line"
-              aria-hidden="true"
-            />
-
-          </div>
-
-        </div>
-
-      </section>
-
-
       {/* ================================================================
           ABOUT VUTKALA
       ================================================================= */}
@@ -145,7 +84,7 @@ function IntroductionAbout() {
             <div className="about-image-frame">
 
               <img
-                src="/assets/about/about-vutkala.webp"
+                src={hero}
                 alt="Vutkala Global professionals collaborating in a modern business environment"
                 className="about-image"
                 loading="lazy"

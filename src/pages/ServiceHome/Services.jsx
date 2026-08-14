@@ -6,6 +6,17 @@ import React, {
 import { Link } from "react-router-dom";
 import "./Services.css";
 
+
+
+
+
+import itStaffing from "../../assets/services/itstaff.png";
+import workforceSolutions from "../../assets/services/work.png";
+import technology from "../../assets/services/image.png";
+import digital from "../../assets/services/digital.png";
+import consulting from "../../assets/services/consulting.png";
+import hero from "../../assets/services/serviehero.png"
+
 /*
 |--------------------------------------------------------------------------
 | VUTKALA GLOBAL TECHNOLOGIES
@@ -46,8 +57,7 @@ const services = [
     detail:
       "Build stronger teams with skilled professionals aligned to your technical requirements, business goals and delivery timelines.",
 
-    image:
-      "/assets/services/it-staffing.jpg",
+    image:itStaffing,
 
     alt:
       "Technology professionals working together",
@@ -76,8 +86,7 @@ const services = [
     detail:
       "Create workforce models that adapt to changing priorities, talent requirements and organizational growth.",
 
-    image:
-      "/assets/services/workforce-solutions.jpg",
+    image:workforceSolutions,
 
     alt:
       "Professionals collaborating on workforce strategy",
@@ -106,8 +115,7 @@ const services = [
     detail:
       "Use practical, scalable technology to improve operations, solve complex challenges and create new opportunities.",
 
-    image:
-      "/assets/services/technology-solutions.jpg",
+    image:technology,
 
     alt:
       "Technology and software development environment",
@@ -136,8 +144,7 @@ const services = [
     detail:
       "Transform processes, systems and experiences to help organizations operate more efficiently and compete in a changing digital environment.",
 
-    image:
-      "/assets/services/digital-transformation.jpg",
+    image:digital,
 
     alt:
       "Digital transformation and modern technology",
@@ -166,8 +173,7 @@ const services = [
     detail:
       "Bring together industry knowledge, technology expertise and strategic thinking to address important business challenges.",
 
-    image:
-      "/assets/services/consulting.jpg",
+    image:consulting,
 
     alt:
       "Business consulting and strategic collaboration",
@@ -364,7 +370,7 @@ function HeroImage() {
   return (
     <div className="services-hero-image">
       <img
-        src="/assets/services/services-hero.jpg"
+        src={hero}
         alt="Vutkala Global Technologies workforce and technology"
       />
 
@@ -427,15 +433,15 @@ function ServicesHero() {
             <h1 className="services-hero-title">
 
               <span>
-                Workforce.
+               We Build
               </span>
 
               <span>
-                Technology.
+                What Business
               </span>
 
               <span className="services-gradient-text">
-                Growth.
+                Need Next.
               </span>
 
             </h1>
@@ -850,7 +856,7 @@ function ServiceDetail({
 function ServicesHelp() {
   const [ref, visible] =
     useReveal({
-      threshold: 0.15,
+      threshold: 0.1,
     });
 
   return (
@@ -1024,7 +1030,7 @@ function Services() {
         Put your existing Navbar component here.
 
         Example:
-        <Navbar />
+
       */}
 
 

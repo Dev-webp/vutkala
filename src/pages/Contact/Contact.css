@@ -1,30 +1,30 @@
-/* ============================================================== */
-/*  Design tokens                                                   */
-/* ============================================================== */
 
 .contact-page {
-  --navy: #061b49;
-  --navy-light: #10254f;
-  --orange-1: #ff8a00;
-  --orange-2: #ff5c2d;
-  --pink-1: #ff4f87;
-  --pink-2: #ff2d6d;
-  --blue: #2563eb;
-  --text-dark: #101828;
-  --text-muted: #64748b;
-  --bg-soft: #f8f9fb;
-  --border-soft: #e6e8ee;
-  --white: #ffffff;
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
+  --contact-font: "Manrope", var(--vg-font-primary, var(--font-primary, sans-serif));
+  --navy: var(--vg-color-navy);
+  --navy-light: var(--vg-color-navy-2);
+  --orange-1: var(--vg-color-orange);
+  --orange-2: var(--vg-color-orange);
+  --pink-1: var(--vg-color-pink);
+  --pink-2: var(--vg-color-pink);
+  --blue: var(--vg-color-navy-2);
+  --text-dark: var(--vg-color-text);
+  --text-muted: var(--vg-color-muted);
+  --bg-soft: var(--vg-color-surface);
+  --border-soft: var(--vg-color-border);
+  --white: var(--vg-color-white);
+  --radius-lg: var(--vg-radius-lg);
+  --radius-md: var(--vg-radius-md);
+  --radius-sm: var(--vg-radius-sm);
   --shadow-soft: 0 10px 30px rgba(6, 27, 73, 0.08);
   --shadow-card: 0 20px 45px rgba(6, 27, 73, 0.12);
-  --gradient-brand: linear-gradient(135deg, var(--orange-1), var(--pink-2));
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --gradient-brand: var(--vg-gradient);
+  --transition: all var(--vg-duration-base) var(--vg-ease);
 
-  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  font-family: var(--contact-font);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--text-dark);
   background: var(--bg-soft);
   overflow-x: hidden;
@@ -38,9 +38,10 @@
 .contact-page h2,
 .contact-page h3,
 .contact-page h4 {
-  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-family: var(--contact-font);
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.15;
+  text-rendering: optimizeLegibility;
 }
 
 .contact-page p {
@@ -312,7 +313,7 @@
   border: 1.5px solid var(--border-soft);
   background: var(--bg-soft);
   font-size: 0.95rem;
-  font-family: inherit;
+font-family: var(--contact-font);
   color: var(--text-dark);
   transition: var(--transition);
   outline: none;
@@ -617,7 +618,10 @@
   padding: 18px 22px;
   background: var(--bg-soft);
   border: none;
-  font-family: inherit;
+font-family: var(--contact-font);
+
+
+
   font-size: 0.95rem;
   font-weight: 600;
   text-align: left;
@@ -942,5 +946,1507 @@ transform:scale(1);
 transform:scale(1.12);
 
 }
+
+}
+
+
+
+
+/* =========================================================
+   CONTACT SUBMISSION MODAL — VUTKALA BRAND
+   PINK × ORANGE
+   ========================================================= */
+
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(14px);
+
+  animation: contactModalFade 0.25s ease forwards;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.contact-modal {
+  position: relative;
+
+  width: min(580px, 100%);
+
+  padding: 54px 54px 48px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(
+      135deg,
+      #ff4f9a,
+      #ff6a3d,
+      #ff9a3c
+    ) border-box;
+
+  border: 2px solid transparent;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.35);
+
+  animation: contactModalScale 0.35s ease forwards;
+}
+
+
+/* =========================================================
+   SUBTLE BRAND GLOW
+   ========================================================= */
+
+.contact-modal::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  top: -150px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 79, 154, 0.18),
+      rgba(255, 106, 61, 0.14)
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.contact-modal__close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e5e5e5;
+
+  background: #ffffff;
+
+  color: #222;
+
+  font-size: 24px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-modal__close:hover {
+  background: linear-gradient(
+    135deg,
+    #ff4f9a,
+    #ff6a3d
+  );
+
+  border-color: transparent;
+
+  color: #ffffff;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.contact-modal__number {
+  position: relative;
+  z-index: 1;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  color: #999;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   GRADIENT LINE
+   ========================================================= */
+
+.contact-modal__line {
+  position: relative;
+  z-index: 1;
+
+  width: 75px;
+  height: 3px;
+
+  margin-bottom: 30px;
+
+  background: linear-gradient(
+    90deg,
+    #ff4f9a,
+    #ff6a3d,
+    #ff9a3c
+  );
+}
+
+
+/* =========================================================
+   SUCCESS ICON
+   ========================================================= */
+
+.contact-modal__icon {
+  position: relative;
+  z-index: 1;
+
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4f9a,
+      #ff6a3d,
+      #ff9a3c
+    );
+
+  color: #ffffff;
+
+  font-size: 30px;
+  font-weight: 600;
+
+  box-shadow:
+    0 12px 30px rgba(255, 79, 154, 0.25);
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.contact-modal--error .contact-modal__icon {
+  background:
+    linear-gradient(
+      135deg,
+      #ff4f9a,
+      #ff6a3d
+    );
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.contact-modal__eyebrow {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  margin-bottom: 12px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff4f9a,
+      #ff6a3d,
+      #ff9a3c
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.contact-modal h2 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 18px;
+
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 0.98;
+
+  font-weight: 500;
+
+  letter-spacing: -0.045em;
+
+  color: #111;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.contact-modal p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 450px;
+
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #666;
+}
+
+
+/* =========================================================
+   BRAND META
+   ========================================================= */
+
+.contact-modal__meta {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  gap: 24px;
+
+  margin-top: 30px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #e8e8e8;
+}
+
+.contact-modal__meta span {
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  color: #999;
+}
+
+.contact-modal__meta span:first-child {
+  color: #ff4f9a;
+}
+
+.contact-modal__meta span:nth-child(2) {
+  color: #ff6a3d;
+}
+
+.contact-modal__meta span:nth-child(3) {
+  color: #ff9a3c;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+   ========================================================= */
+
+.contact-modal__button {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 34px;
+
+  padding: 16px 26px;
+
+  border: none;
+
+  background:
+    linear-gradient(
+      100deg,
+      #ff4f9a,
+      #ff6a3d,
+      #ff9a3c
+    );
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 28px rgba(255, 79, 154, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-modal__button svg {
+  font-size: 12px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.contact-modal__button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 16px 35px rgba(255, 79, 154, 0.3);
+}
+
+.contact-modal__button:hover svg {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes contactModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contactModalScale {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .contact-modal-overlay {
+    padding: 16px;
+  }
+
+  .contact-modal {
+    padding: 46px 28px 32px;
+  }
+
+  .contact-modal__icon {
+    width: 60px;
+    height: 60px;
+
+    font-size: 25px;
+  }
+
+  .contact-modal h2 {
+    font-size: 40px;
+  }
+
+  .contact-modal p {
+    font-size: 14px;
+  }
+
+  .contact-modal__meta {
+    gap: 12px;
+
+    flex-wrap: wrap;
+  }
+
+  .contact-modal__meta span {
+    font-size: 8px;
+  }
+
+  .contact-modal__button {
+    width: 100%;
+  }
+}
+
+
+
+/* =========================================================
+   VUTKALA GLOBAL CONTACT PAGE TYPOGRAPHY
+   MANROPE + PREMIUM HIERARCHY
+   ========================================================= */
+
+.contact-page,
+.contact-page button,
+.contact-page input,
+.contact-page select,
+.contact-page textarea {
+  font-family: var(--contact-font);
+}
+
+.contact-page h1,
+.contact-page h2,
+.contact-page h3,
+.contact-page h4 {
+  font-family: var(--contact-font);
+  text-rendering: optimizeLegibility;
+}
+
+.contact-page p,
+.contact-page li,
+.contact-page input,
+.contact-page select,
+.contact-page textarea {
+  font-weight: 400;
+}
+
+/* Hero */
+.contact-page .hero__heading {
+  font-family: var(--contact-font);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.contact-page .hero__description {
+  font-family: var(--contact-font);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+.contact-page .badge {
+  font-family: var(--contact-font);
+  font-weight: 700;
+}
+
+/* Buttons */
+.contact-page .btn {
+  font-family: var(--contact-font);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.contact-page .btn--sm {
+  font-weight: 700;
+}
+
+/* Floating information cards */
+.contact-page .info-card__text h4,
+.contact-page .office-card__body h3,
+.contact-page .map-card h4,
+.contact-page .final-cta__text h2,
+.contact-page .contact-form-wrap h2,
+.contact-page .section-heading h2 {
+  font-family: var(--contact-font);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.contact-page .info-card__text p,
+.contact-page .office-card__address,
+.contact-page .office-card__contact,
+.contact-page .map-card p,
+.contact-page .final-cta__text p,
+.contact-page .faq-item__answer p {
+  font-family: var(--contact-font);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.contact-page .office-card__link {
+  font-family: var(--contact-font);
+  font-weight: 700;
+}
+
+/* Form controls */
+.contact-page .contact-form input,
+.contact-page .contact-form select,
+.contact-page .contact-form textarea,
+.contact-page .faq-item__question {
+  font-family: var(--contact-font);
+}
+
+.contact-page .faq-item__question {
+  font-weight: 700;
+}
+
+/* Modal */
+.contact-page .contact-modal,
+.contact-page .contact-modal button {
+  font-family: var(--contact-font);
+}
+
+.contact-page .contact-modal h2 {
+  font-family: var(--contact-font);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.contact-page .contact-modal p {
+  font-family: var(--contact-font);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.contact-page .contact-modal__number,
+.contact-page .contact-modal__eyebrow,
+.contact-page .contact-modal__meta span,
+.contact-page .contact-modal__button {
+  font-family: var(--contact-font);
+  font-weight: 800;
+}
+
+/* =========================================================
+   PREMIUM PAGE MOTION
+   ========================================================= */
+
+/* Hero image: cinematic entrance */
+.contact-page .hero__bg {
+  will-change: transform;
+  animation:
+    contactPageHeroZoom 18s ease-in-out infinite alternate,
+    contactPageHeroFade 900ms ease both;
+}
+
+.contact-page .hero__overlay {
+  animation: contactPageOverlayIn 1000ms ease both;
+}
+
+.contact-page .hero__content {
+  animation: contactPageHeroContentIn 850ms 100ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .hero__heading {
+  animation: contactPageTitleIn 900ms 220ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .hero__description {
+  animation: contactPageFadeUp 700ms 380ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .hero__cta {
+  animation: contactPageFadeUp 700ms 500ms cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Cards */
+.contact-page .info-card {
+  transition:
+    transform 320ms cubic-bezier(.22,1,.36,1),
+    box-shadow 320ms ease,
+    border-color 260ms ease;
+}
+
+.contact-page .info-card:hover {
+  transform: translateY(-7px);
+}
+
+.contact-page .office-card {
+  transition:
+    transform 320ms cubic-bezier(.22,1,.36,1),
+    box-shadow 320ms ease;
+}
+
+.contact-page .office-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Keep existing image zoom, but make it smoother. */
+.contact-page .contact-image-wrap img,
+.contact-page .office-card__image img {
+  will-change: transform;
+}
+
+/* Modal polish */
+.contact-page .contact-modal__icon {
+  animation: contactModalIconIn 650ms 180ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .contact-modal__line {
+  transform-origin: left center;
+  animation: contactModalLineIn 600ms 260ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .contact-modal h2 {
+  animation: contactPageFadeUp 700ms 300ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .contact-modal p {
+  animation: contactPageFadeUp 700ms 400ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-page .contact-modal__button {
+  transition:
+    transform 260ms cubic-bezier(.22,1,.36,1),
+    box-shadow 260ms ease;
+}
+
+.contact-page .contact-modal__button:hover {
+  transform: translateY(-3px);
+}
+
+@keyframes contactPageHeroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes contactPageHeroFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contactPageOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contactPageHeroContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactPageTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+    clip-path: inset(100% 0 0 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes contactPageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactModalIconIn {
+  from {
+    opacity: 0;
+    transform: scale(.75) translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes contactModalLineIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================================
+   MOBILE TYPOGRAPHY
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .contact-page .hero__heading {
+    font-size: 2.1rem;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+  }
+
+  .contact-page .hero__description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .contact-page .section-heading h2,
+  .contact-page .contact-form-wrap h2,
+  .contact-page .final-cta__text h2 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .contact-page .contact-modal h2 {
+    font-size: 40px;
+    line-height: 1.02;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-page *,
+  .contact-page *::before,
+  .contact-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .contact-page .hero__bg,
+  .contact-page .hero__overlay,
+  .contact-page .hero__content,
+  .contact-page .hero__heading,
+  .contact-page .hero__description,
+  .contact-page .hero__cta,
+  .contact-page .contact-modal__icon,
+  .contact-page .contact-modal__line,
+  .contact-page .contact-modal h2,
+  .contact-page .contact-modal p {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+
+/* =========================================================
+   SCROLL FADE-UP ANIMATION
+   ========================================================= */
+
+.contact-page .fade-up {
+  opacity: 0;
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.contact-page .fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   VUTKALA GLOBAL OFFICES — BRAND MAP
+   ORANGE • PINK • NAVY
+   ========================================================= */
+
+.map-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 110px 6% 100px;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 138, 0, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 70%,
+      rgba(255, 45, 109, 0.08),
+      transparent 30%
+    ),
+    #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.map-section__header {
+  max-width: 760px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+.map-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  color: var(--orange-2);
+}
+
+.map-section__eyebrow::before {
+  content: "";
+
+  width: 32px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange-1),
+      var(--pink-1, #ff2d6d)
+    );
+
+  border-radius: 10px;
+}
+
+
+.map-section__header h2 {
+  margin: 0 0 18px;
+
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+
+  line-height: 0.98;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  color: var(--navy);
+}
+
+
+.map-section__header h2 span {
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange-1),
+      #ff2d6d,
+      var(--orange-1)
+    );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation:
+    mapTitleGradient 4s ease-in-out infinite;
+}
+
+
+.map-section__header p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: var(--text-muted);
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   MAP FRAME
+   ========================================================= */
+
+.map-section__frame {
+  position: relative;
+
+  width: 100%;
+
+  height: 560px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 138, 0, 0.12),
+      rgba(255, 45, 109, 0.10),
+      rgba(6, 27, 73, 0.08)
+    );
+
+  border: 1px solid rgba(6, 27, 73, 0.10);
+
+  box-shadow:
+    0 25px 70px rgba(6, 27, 73, 0.14),
+    0 0 0 1px rgba(255, 138, 0, 0.05);
+}
+
+
+.map-section__frame::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+
+.map-section__frame iframe {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  display: block;
+}
+
+
+/* =========================================================
+   MAP CARD
+   ========================================================= */
+
+.map-section__overlay {
+  position: absolute;
+
+  top: 28px;
+  left: 28px;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+.map-section__card {
+  position: relative;
+
+  width: 330px;
+
+  padding: 28px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(255, 248, 244, 0.96)
+    );
+
+  border: 1px solid rgba(255, 138, 0, 0.16);
+
+  box-shadow:
+    0 20px 50px rgba(6, 27, 73, 0.16);
+
+  backdrop-filter: blur(16px);
+
+  pointer-events: auto;
+}
+
+
+/* Gradient accent on card */
+
+.map-section__card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 24px;
+  right: 24px;
+
+  height: 3px;
+
+  border-radius: 0 0 8px 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange-1),
+      #ff2d6d
+    );
+}
+
+
+.map-section__card-number {
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  color: var(--orange-2);
+}
+
+
+.map-section__card-line {
+  width: 42px;
+
+  height: 2px;
+
+  margin: 12px 0 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange-1),
+      #ff2d6d
+    );
+
+  border-radius: 10px;
+}
+
+
+.map-section__card-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  color: var(--orange-2);
+}
+
+
+.map-section__card h3 {
+  margin: 0 0 12px;
+
+  font-size: 1.7rem;
+
+  color: var(--navy);
+}
+
+
+.map-section__card p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.86rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DIRECTIONS BUTTON
+   ========================================================= */
+
+.map-section__directions {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 22px;
+
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange-1),
+      #ff2d6d
+    );
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 22px rgba(255, 45, 109, 0.20);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.map-section__directions:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(255, 45, 109, 0.30);
+}
+
+
+/* =========================================================
+   LOCATION CARDS
+   ========================================================= */
+
+.map-section__locations {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  max-width: 900px;
+
+  margin: 28px auto 0;
+
+  gap: 16px;
+}
+
+
+.map-location {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 20px 22px;
+
+  border: 1px solid rgba(6, 27, 73, 0.10);
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Orange/pink hover glow */
+
+.map-location::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--orange-1),
+      #ff2d6d
+    );
+
+  transform: scaleY(0);
+
+  transform-origin: bottom;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.map-location:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(255, 138, 0, 0.28);
+
+  box-shadow:
+    0 14px 35px rgba(6, 27, 73, 0.10);
+}
+
+
+.map-location:hover::before {
+  transform: scaleY(1);
+}
+
+
+.map-location--active {
+  border-color:
+    rgba(255, 138, 0, 0.35);
+
+  box-shadow:
+    0 10px 28px rgba(255, 138, 0, 0.08);
+}
+
+
+.map-location__number {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 138, 0, 0.14),
+      rgba(255, 45, 109, 0.14)
+    );
+
+  color: var(--orange-2);
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  border: 1px solid rgba(255, 138, 0, 0.12);
+}
+
+
+.map-location__country {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  color: var(--orange-2);
+}
+
+
+.map-location h4 {
+  margin: 0;
+
+  font-size: 1rem;
+
+  color: var(--navy);
+}
+
+
+.map-location p {
+  margin: 3px 0 0;
+
+  font-size: 0.78rem;
+
+  color: var(--text-muted);
+}
+
+
+.map-location__arrow {
+  margin-left: auto;
+
+  color: #ff2d6d;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.map-location:hover .map-location__arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ANIMATED BRAND GRADIENT
+   ========================================================= */
+
+@keyframes mapTitleGradient {
+
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .map-section {
+    padding: 80px 5% 70px;
+  }
+
+
+  .map-section__frame {
+    height: 620px;
+
+    border-radius: 20px;
+  }
+
+
+  .map-section__overlay {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+
+
+  .map-section__card {
+    width: 100%;
+
+    padding: 22px;
+  }
+
+
+  .map-section__locations {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .map-section__header h2 {
+    font-size: 2.5rem;
+  }
+
+
+  .map-section__frame {
+    height: 650px;
+  }
+
+
+  .map-section__card h3 {
+    font-size: 1.45rem;
+  }
 
 }

@@ -7,19 +7,33 @@ import { useState } from "react";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <Logo />
 
-      <NavigationMenu isMenuOpen={isMenuOpen} />
+      <NavigationMenu
+        isMenuOpen={isMenuOpen}
+        onNavigate={closeMenu}
+      />
 
-      <AuthButtons />
+      <div className="nav-buttons">
+        <AuthButtons />
+      </div>
 
       <button
-        className="menu-toggle"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        type="button"
+        className={`menu-toggle ${isMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isMenuOpen}
       >
-        {isMenuOpen ? "✕" : "☰"}
+        <span />
+        <span />
+        <span />
       </button>
     </nav>
   );

@@ -1,0 +1,333 @@
+/* =====================================================
+   VUTKALA RECRUITER NAVBAR
+===================================================== */
+
+.recruiter-navbar {
+  width: 100%;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 42px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e6eaf1;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LEFT
+===================================================== */
+
+.recruiter-navbar-left {
+  display: flex;
+  align-items: center;
+
+  gap: 48px;
+
+  min-width: 0;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.recruiter-brand {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+
+.recruiter-brand img {
+  display: block;
+
+  width: 145px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.recruiter-nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+
+.recruiter-nav-link {
+  position: relative;
+
+  padding: 30px 15px;
+
+  color: #5d687b;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.recruiter-nav-link:hover {
+  color: #061b49;
+}
+
+
+.recruiter-nav-link.active {
+  color: #061b49;
+}
+
+
+/*
+   Brand-colored active indicator
+*/
+
+.recruiter-nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 15px;
+  right: 15px;
+
+  bottom: 0;
+
+  height: 3px;
+
+  border-radius: 3px 3px 0 0;
+
+  background: #061b49;
+}
+
+
+/* =====================================================
+   RIGHT
+===================================================== */
+
+.recruiter-navbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+.recruiter-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.recruiter-avatar {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #061b49;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+.recruiter-user-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.recruiter-user-name {
+  color: #17233b;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+
+.recruiter-user-role {
+  color: #8993a4;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+.recruiter-logout-btn {
+  padding: 9px 16px;
+
+  border: 1px solid #d9dfe9;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #061b49;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.recruiter-logout-btn:hover {
+  background: #061b49;
+
+  border-color: #061b49;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.recruiter-layout {
+  min-height: 100vh;
+
+  background: #f5f7fb;
+}
+
+
+.recruiter-main {
+  width: 100%;
+
+  min-height: calc(100vh - 82px);
+
+  background: #f5f7fb;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1150px) {
+
+  .recruiter-navbar {
+    padding: 0 25px;
+  }
+
+  .recruiter-navbar-left {
+    gap: 25px;
+  }
+
+  .recruiter-nav-link {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+}
+
+
+@media (max-width: 950px) {
+
+  .recruiter-user-info {
+    display: none;
+  }
+
+  .recruiter-nav-link {
+    font-size: 12px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .recruiter-navbar {
+    height: 70px;
+
+    padding: 0 18px;
+  }
+
+  .recruiter-brand img {
+    width: 120px;
+  }
+
+  .recruiter-nav-links {
+    display: none;
+  }
+
+  .recruiter-main {
+    min-height: calc(100vh - 70px);
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .recruiter-navbar {
+    padding: 0 14px;
+  }
+
+  .recruiter-brand img {
+    width: 105px;
+  }
+
+  .recruiter-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .recruiter-logout-btn {
+    padding: 8px 11px;
+  }
+
+}

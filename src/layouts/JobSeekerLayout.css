@@ -1,0 +1,59 @@
+/* =========================================================
+   JOB SEEKER APPLICATION
+   GLOBAL LAYOUT
+========================================================= */
+
+.jobseeker-layout {
+  min-height: 100vh;
+  width: 100%;
+
+  background: #f6f8fc;
+
+  color: #071d3b;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.jobseeker-main {
+  width: 100%;
+
+  min-height: calc(100vh - 78px);
+
+  box-sizing: border-box;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+.jobseeker-layout ::selection {
+  background: rgba(232, 93, 143, 0.2);
+
+  color: #071d3b;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .jobseeker-main {
+    min-height: calc(100vh - 70px);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .jobseeker-main {
+    min-height: calc(100vh - 66px);
+  }
+}

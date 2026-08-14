@@ -1,0 +1,1003 @@
+/* ==========================================================================
+   VUTKALA GLOBAL
+   HOW CAN WE HELP?
+   COMPACT / RESPONSIVE
+========================================================================== */
+
+.help-paths {
+  --help-bg: #f7f8fa;
+  --help-dark: #071426;
+  --help-muted: #687386;
+  --help-orange: #ff7a00;
+  --help-pink: #ff2d55;
+
+  position: relative;
+
+  width: 100%;
+
+  background: var(--help-bg);
+
+  color: var(--help-dark);
+
+  overflow: hidden;
+
+  padding: 78px 0 82px;
+}
+
+
+/* ==========================================================================
+   CONTAINER
+========================================================================== */
+
+.help-paths__container {
+  width: min(
+    1180px,
+    calc(100% - 64px)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   HEADER
+========================================================================== */
+
+.help-paths__header {
+  max-width: 760px;
+
+  margin: 0 auto 42px;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 700ms cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    ),
+    transform 700ms cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.help-paths--visible
+.help-paths__header {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   HEADER EYEBROW
+========================================================================== */
+
+.help-paths__header
+.help-paths__eyebrow {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin: 0 0 15px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--help-dark);
+}
+
+.help-paths__header
+.help-paths__eyebrow::before {
+  content: "";
+
+  width: 24px;
+
+  height: 1px;
+
+  margin-right: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--help-orange),
+      var(--help-pink)
+    );
+}
+
+.help-paths__header
+.help-paths__eyebrow::after {
+  content: "";
+
+  width: 24px;
+
+  height: 1px;
+
+  margin-left: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--help-pink),
+      var(--help-orange)
+    );
+}
+
+
+/* ==========================================================================
+   HEADER TITLE
+========================================================================== */
+
+.help-paths__header
+.help-paths__title {
+  margin: 0 auto;
+
+  max-width: 720px;
+
+  font-size:
+    clamp(
+      38px,
+      4.7vw,
+      60px
+    );
+
+  font-weight: 500;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.045em;
+
+  color: var(--help-dark);
+}
+
+
+/* ==========================================================================
+   CARD GRID
+========================================================================== */
+
+.help-paths__grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 16px;
+
+  align-items: stretch;
+}
+
+
+/* ==========================================================================
+   CARD
+========================================================================== */
+
+.help-path {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  /*
+     Reduced from 420px.
+  */
+
+  min-height: 335px;
+
+  /*
+     Reduced padding.
+  */
+
+  padding:
+    27px
+    27px
+    25px;
+
+  background: #ffffff;
+
+  border:
+    1px solid
+    rgba(
+      7,
+      20,
+      38,
+      0.11
+    );
+
+  border-radius: 5px;
+
+  box-shadow: none;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition:
+    opacity 700ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      )
+      var(--help-path-delay),
+
+    transform 700ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      )
+      var(--help-path-delay),
+
+    border-color 300ms ease,
+
+    box-shadow 300ms ease;
+}
+
+.help-path--visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   CARD HOVER
+========================================================================== */
+
+.help-path:hover {
+  border-color:
+    rgba(
+      7,
+      20,
+      38,
+      0.2
+    );
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 16px 35px
+    rgba(
+      7,
+      20,
+      38,
+      0.07
+    );
+}
+
+
+/* ==========================================================================
+   TOP ROW
+========================================================================== */
+
+.help-path__top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  min-height: 24px;
+
+  /*
+     Reduced from 45px.
+  */
+
+  margin-bottom: 30px;
+}
+
+
+/* ==========================================================================
+   NUMBER
+========================================================================== */
+
+.help-path__number {
+  font-size: 11px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+
+  color: #9aa4b3;
+
+  transition:
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+.help-path:hover
+.help-path__number {
+  transform: translateX(2px);
+
+  color: var(--help-dark);
+}
+
+
+/* ==========================================================================
+   ACCENT
+========================================================================== */
+
+.help-path__accent {
+  display: block;
+
+  width: 32px;
+
+  height: 3px;
+
+  border-radius: 1px;
+
+  opacity: 0.85;
+
+  transition:
+    width 350ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+    opacity 250ms ease;
+}
+
+.help-path:hover
+.help-path__accent {
+  width: 48px;
+
+  opacity: 1;
+}
+
+.help-path__accent--orange {
+  background: var(--help-orange);
+}
+
+.help-path__accent--pink {
+  background: var(--help-pink);
+}
+
+.help-path__accent--gradient {
+  background:
+    linear-gradient(
+      90deg,
+      var(--help-orange),
+      var(--help-pink)
+    );
+}
+
+
+/* ==========================================================================
+   CARD EYEBROW
+   KEEPING EXISTING FONT STYLE
+========================================================================== */
+
+.help-path__eyebrow {
+  margin: 0 0 12px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--help-muted);
+}
+
+
+/* ==========================================================================
+   CARD TITLE
+   FONT STYLE KEPT
+   ONLY COLOR UPDATED
+========================================================================== */
+
+.help-path__title {
+  margin: 0 0 16px;
+
+  /*
+     Same style as your existing cards.
+  */
+
+  font-size:
+    clamp(
+      34px,
+      3.2vw,
+      46px
+    );
+
+  font-weight: 500;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+
+  /*
+     Same dark navy used across your Vutkala sections.
+  */
+
+  color: #071426;
+
+  transition:
+    transform 350ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+.help-path:hover
+.help-path__title {
+  transform: translateX(3px);
+}
+
+
+/* ==========================================================================
+   DESCRIPTION
+   FONT STYLE KEPT
+========================================================================== */
+
+.help-path__description {
+  max-width: 330px;
+
+  margin: 0;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  color: var(--help-muted);
+}
+
+
+/* ==========================================================================
+   CTA
+========================================================================== */
+
+.help-path__cta {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  align-self: flex-start;
+
+  gap: 9px;
+
+  /*
+     Increased button height.
+  */
+
+  min-height: 50px;
+
+  margin-top: auto;
+
+  padding:
+    0
+    20px;
+
+  border:
+    1px solid
+    rgba(
+      7,
+      20,
+      38,
+      0.15
+    );
+
+  border-radius: 3px;
+
+  background: #ffffff;
+
+  color: var(--help-dark);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  transition:
+    color 250ms ease,
+    background 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+
+/* ==========================================================================
+   CTA ARROW
+========================================================================== */
+
+.help-path__cta-arrow {
+  display: inline-block;
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  transition:
+    transform 250ms
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+}
+
+
+/* ==========================================================================
+   CTA HOVER
+========================================================================== */
+
+.help-path__cta:hover {
+  color: #ffffff;
+
+  border-color: transparent;
+
+  background:
+    linear-gradient(
+      100deg,
+      var(--help-orange),
+      var(--help-pink)
+    );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      255,
+      74,
+      40,
+      0.15
+    );
+}
+
+.help-path__cta:hover
+.help-path__cta-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================================================
+   FOCUS
+========================================================================== */
+
+.help-path__cta:focus-visible {
+  outline:
+    2px solid
+    var(--help-orange);
+
+  outline-offset: 5px;
+
+  border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   TABLET
+========================================================================== */
+
+@media (max-width: 1023px) {
+
+  .help-paths {
+    padding:
+      65px
+      0
+      70px;
+  }
+
+  .help-paths__container {
+    width:
+      calc(100% - 48px);
+  }
+
+  .help-paths__header {
+    margin-bottom: 34px;
+  }
+
+  .help-paths__header
+  .help-paths__title {
+    font-size:
+      clamp(
+        36px,
+        5.5vw,
+        52px
+      );
+  }
+
+  .help-paths__grid {
+    gap: 13px;
+  }
+
+  .help-path {
+    min-height: 315px;
+
+    padding:
+      25px
+      24px
+      24px;
+  }
+
+  .help-path__top {
+    margin-bottom: 27px;
+  }
+
+  .help-path__title {
+    font-size:
+      clamp(
+        31px,
+        4vw,
+        41px
+      );
+  }
+
+  .help-path__description {
+    font-size: 13px;
+  }
+
+  .help-path__cta {
+    min-height: 49px;
+
+    padding:
+      0
+      18px;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE
+========================================================================== */
+
+@media (max-width: 767px) {
+
+  .help-paths {
+    padding:
+      52px
+      0
+      58px;
+  }
+
+  .help-paths__container {
+    width:
+      calc(100% - 30px);
+  }
+
+
+  /* HEADER */
+
+  .help-paths__header {
+    margin:
+      0
+      0
+      30px;
+
+    text-align: left;
+  }
+
+  .help-paths__header
+  .help-paths__eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.17em;
+  }
+
+  .help-paths__header
+  .help-paths__eyebrow::before {
+    width: 19px;
+
+    margin-right: 8px;
+  }
+
+  .help-paths__header
+  .help-paths__eyebrow::after {
+    display: none;
+  }
+
+  .help-paths__header
+  .help-paths__title {
+    max-width: 420px;
+
+    margin: 0;
+
+    font-size:
+      clamp(
+        31px,
+        8.5vw,
+        40px
+      );
+
+    line-height: 1.03;
+  }
+
+
+  /* GRID */
+
+  .help-paths__grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  /* CARDS */
+
+  .help-path {
+    min-height: 0;
+
+    padding:
+      22px
+      21px
+      22px;
+  }
+
+
+  /* TOP */
+
+  .help-path__top {
+    min-height: 20px;
+
+    margin-bottom: 22px;
+  }
+
+  .help-path__number {
+    font-size: 9px;
+  }
+
+  .help-path__accent {
+    width: 26px;
+
+    height: 2px;
+  }
+
+
+  /* EYEBROW */
+
+  .help-path__eyebrow {
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  /* TITLE
+     KEEP FONT STYLE
+  */
+
+  .help-path__title {
+    margin-bottom: 12px;
+
+    font-size:
+      clamp(
+        29px,
+        8.5vw,
+        37px
+      );
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+
+    color: #071426;
+  }
+
+
+  /* DESCRIPTION */
+
+  .help-path__description {
+    max-width: 100%;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+  }
+
+
+  /* CTA */
+
+  .help-path__cta {
+    min-height: 50px;
+
+    margin-top: 20px;
+
+    padding:
+      0
+      17px;
+
+    font-size: 11px;
+  }
+
+  .help-path__cta-arrow {
+    font-size: 17px;
+  }
+
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE
+========================================================================== */
+
+@media (max-width: 479px) {
+
+  .help-paths {
+    padding:
+      46px
+      0
+      52px;
+  }
+
+  .help-paths__container {
+    width:
+      calc(100% - 30px);
+  }
+
+  .help-paths__header {
+    margin-bottom: 27px;
+  }
+
+  .help-paths__header
+  .help-paths__title {
+    font-size: 31px;
+  }
+
+  .help-path {
+    padding:
+      20px
+      19px
+      21px;
+  }
+
+  .help-path__top {
+    margin-bottom: 21px;
+  }
+
+  .help-path__title {
+    font-size: 28px;
+
+    margin-bottom: 12px;
+  }
+
+  .help-path__description {
+    font-size: 12.5px;
+  }
+
+  .help-path__cta {
+    min-height: 48px;
+
+    margin-top: 18px;
+
+    padding:
+      0
+      16px;
+
+    font-size: 10.5px;
+  }
+
+}
+
+
+/* ==========================================================================
+   VERY SMALL MOBILE
+========================================================================== */
+
+@media (max-width: 389px) {
+
+  .help-paths {
+    padding:
+      42px
+      0
+      48px;
+  }
+
+  .help-paths__container {
+    width:
+      calc(100% - 26px);
+  }
+
+  .help-paths__header {
+    margin-bottom: 24px;
+  }
+
+  .help-paths__header
+  .help-paths__title {
+    font-size: 29px;
+  }
+
+  .help-path {
+    padding:
+      19px
+      18px
+      20px;
+  }
+
+  .help-path__top {
+    margin-bottom: 19px;
+  }
+
+  .help-path__title {
+    font-size: 26px;
+  }
+
+  .help-path__description {
+    font-size: 12px;
+  }
+
+  .help-path__cta {
+    min-height: 46px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* ==========================================================================
+   REDUCED MOTION
+========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .help-paths *,
+  .help-paths *::before,
+  .help-paths *::after {
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+  }
+
+  .help-paths__header,
+  .help-path {
+    opacity: 1 !important;
+
+    transform: none !important;
+  }
+}

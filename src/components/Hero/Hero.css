@@ -1,7 +1,3 @@
-/* ==========================================================================
-   VUTKALA GLOBAL
-   PREMIUM ENTERPRISE HERO
-========================================================================== */
 
 .vutkala-hero {
   --navy: #071426;
@@ -285,7 +281,7 @@
   color: #ffffff;
 
   font-size: clamp(48px, 5.25vw, 84px);
-  font-weight: 650;
+  font-weight: 700;
   line-height: 0.98;
 
   letter-spacing: -0.055em;
@@ -1529,5 +1525,236 @@
     animation: none !important;
 
     transform: scaleX(1);
+  }
+}
+
+
+/* ==========================================================================
+   VUTKALA GLOBAL HERO — CONSISTENT TYPOGRAPHY + PREMIUM MOTION
+   ========================================================================== */
+
+.vutkala-hero {
+  --vutkala-font: "Manrope", var(--vg-font-primary), sans-serif;
+
+  font-family: var(--vutkala-font);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vutkala-hero,
+.vutkala-hero h1,
+.vutkala-hero h2,
+.vutkala-hero h3,
+.vutkala-hero h4,
+.vutkala-hero h5,
+.vutkala-hero h6,
+.vutkala-hero p,
+.vutkala-hero a,
+.vutkala-hero button,
+.vutkala-hero span {
+  font-family: var(--vutkala-font);
+}
+
+/* Enterprise typography hierarchy */
+.vutkala-hero .hero-title {
+  font-family: var(--vutkala-font);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-rendering: optimizeLegibility;
+  text-wrap: balance;
+}
+
+.vutkala-hero .hero-label,
+.vutkala-hero .hero-meta,
+.vutkala-hero .hero-scroll {
+  font-family: var(--vutkala-font);
+  font-weight: 700;
+}
+
+.vutkala-hero .hero-description {
+  font-family: var(--vutkala-font);
+  font-weight: 400;
+  line-height: 1.68;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+.vutkala-hero .hero-button {
+  font-family: var(--vutkala-font);
+  font-weight: 600;
+}
+
+.vutkala-hero .hero-slide-counter,
+.vutkala-hero .hero-indicator__number {
+  font-family: var(--vutkala-font);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ENHANCED CINEMATIC HERO MOTION
+   ========================================================================== */
+
+.vutkala-hero .hero-background__image {
+  will-change: transform, filter;
+}
+
+.vutkala-hero .hero-content {
+  will-change: opacity, transform;
+}
+
+.vutkala-hero .hero-title {
+  will-change: opacity, transform, clip-path;
+}
+
+.vutkala-hero .hero-background__overlay {
+  animation: vutkalaHeroOverlayReveal 1200ms ease both;
+}
+
+.vutkala-hero .hero-content__accent {
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.12);
+}
+
+/* Make slide image movement slightly more cinematic. */
+.vutkala-hero .hero-background__slide--active .hero-background__image {
+  animation: vutkalaHeroImageDrift 8s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Subtle stagger on content */
+.vutkala-hero .hero-label {
+  animation-delay: 120ms;
+}
+
+.vutkala-hero .hero-title {
+  animation-delay: 220ms;
+}
+
+.vutkala-hero .hero-meta {
+  animation-delay: 400ms;
+}
+
+.vutkala-hero .hero-description {
+  animation-delay: 500ms;
+}
+
+.vutkala-hero .hero-actions {
+  animation-delay: 620ms;
+}
+
+/* Buttons feel responsive without becoming flashy. */
+.vutkala-hero .hero-button {
+  transition:
+    transform 260ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 260ms ease,
+    background 260ms ease,
+    border-color 260ms ease;
+}
+
+.vutkala-hero .hero-button:hover {
+  transform: translateY(-3px);
+}
+
+.vutkala-hero .hero-button__arrow {
+  transition: transform 260ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.vutkala-hero .hero-button--primary:hover .hero-button__arrow,
+.vutkala-hero .hero-button--text:hover span {
+  transform: translateX(5px);
+}
+
+/* Navigation controls */
+.vutkala-hero .hero-control {
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 220ms ease;
+}
+
+.vutkala-hero .hero-control:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+.vutkala-hero .hero-indicator {
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.vutkala-hero .hero-indicator:hover {
+  transform: translateX(-2px);
+}
+
+/* ==========================================================================
+   KEYFRAMES
+   ========================================================================== */
+
+@keyframes vutkalaHeroOverlayReveal {
+  from {
+    opacity: 0.55;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes vutkalaHeroImageDrift {
+  from {
+    transform: scale(1.015) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale(1.055) translate3d(-0.35%, -0.15%, 0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE TYPOGRAPHY
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .vutkala-hero .hero-title {
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+  }
+
+  .vutkala-hero .hero-description {
+    font-weight: 400;
+    line-height: 1.58;
+    letter-spacing: 0;
+  }
+
+  .vutkala-hero .hero-button {
+    font-weight: 600;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .vutkala-hero .hero-background__overlay,
+  .vutkala-hero .hero-background__slide--active .hero-background__image,
+  .vutkala-hero .hero-content,
+  .vutkala-hero .hero-title,
+  .vutkala-hero .hero-label,
+  .vutkala-hero .hero-meta,
+  .vutkala-hero .hero-description,
+  .vutkala-hero .hero-actions {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .vutkala-hero .hero-button,
+  .vutkala-hero .hero-control,
+  .vutkala-hero .hero-indicator {
+    transition: none !important;
   }
 }

@@ -1,9 +1,6 @@
-/* =========================================================
-   VUTKALA GLOBAL
-   PAGE 03 — OUR WAY OF WORKING
-========================================================= */
 
 .our-way-section {
+  --our-way-font: "Manrope", var(--font-primary, var(--vg-font-primary, sans-serif));
   --navy: #071426;
   --navy-soft: #0d1c30;
   --orange: #ff7a21;
@@ -24,6 +21,11 @@
   overflow: hidden;
 
   isolation: isolate;
+
+  font-family: var(--our-way-font);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -278,11 +280,7 @@
 .our-way-heading {
   margin: 0;
 
-  font-family:
-    "Bodoni Moda",
-    "Didot",
-    Georgia,
-    serif;
+ font-family: var(--our-way-font);
 
   font-size:
     clamp(
@@ -291,9 +289,9 @@
       72px
     );
 
-  font-weight: 500;
+  font-weight: 800;
 
-  line-height: 0.88;
+  line-height: 0.98;
 
   letter-spacing: -0.05em;
 
@@ -380,10 +378,7 @@
 
   margin: 0;
 
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
+ font-family: var(--our-way-font);
 
   font-size: 14px;
 
@@ -596,10 +591,7 @@
 .our-way-item-content h3 {
   margin: 0;
 
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
+font-family: var(--our-way-font);
 
   font-size: 15px;
 
@@ -624,10 +616,7 @@
     0
     0;
 
-  font-family:
-    "Manrope",
-    Arial,
-    sans-serif;
+font-family: var(--our-way-font);
 
   font-size: 13px;
 
@@ -965,4 +954,4 @@
     transition: none !important;
   }
 
-}
+}\n\n/* =========================================================\n   VUTKALA TYPOGRAPHY + PREMIUM MOTION ENHANCEMENTS\n   ========================================================= */\n\n.our-way-section,\n.our-way-section h1,\n.our-way-section h2,\n.our-way-section h3,\n.our-way-section h4,\n.our-way-section p,\n.our-way-section span,\n.our-way-section small {\n  font-family: var(--our-way-font);\n}\n\n.our-way-heading {\n  font-family: var(--our-way-font);\n  font-weight: 800;\n  line-height: 0.98;\n  letter-spacing: -0.045em;\n  text-rendering: optimizeLegibility;\n  text-wrap: balance;\n}\n\n.our-way-intro-copy p {\n  font-family: var(--our-way-font);\n  font-weight: 400;\n  line-height: 1.65;\n  letter-spacing: -0.005em;\n  text-wrap: pretty;\n}\n\n.our-way-item-content h3 {\n  font-family: var(--our-way-font);\n  font-weight: 700;\n  letter-spacing: 0.04em;\n}\n\n.our-way-item-content p {\n  font-family: var(--our-way-font);\n  font-weight: 400;\n  line-height: 1.6;\n}\n\n.our-way-number,\n.our-way-label,\n.our-way-top-right,\n.our-way-kicker,\n.our-way-item-number,\n.our-way-flow,\n.our-way-bottom {\n  font-family: var(--our-way-font);\n}\n\n.our-way-section::before {\n  animation: ourWayGlowTop 9s ease-in-out infinite alternate;\n}\n\n.our-way-section::after {\n  animation: ourWayGlowBottom 11s ease-in-out infinite alternate;\n}\n\n.our-way-item {\n  transition: opacity 700ms ease, transform 800ms cubic-bezier(.22,1,.36,1), border-color 300ms ease, background-color 300ms ease;\n}\n\n.our-way-item:hover {\n  transform: translateY(-4px);\n}\n\n.our-way-item-icon,\n.our-way-item-arrow {\n  will-change: transform;\n}\n\n.our-way-section--visible .our-way-item:nth-child(1) { transition-delay: 700ms; }\n.our-way-section--visible .our-way-item:nth-child(2) { transition-delay: 820ms; }\n.our-way-section--visible .our-way-item:nth-child(3) { transition-delay: 940ms; }\n.our-way-section--visible .our-way-item:nth-child(4) { transition-delay: 1060ms; }\n\n@keyframes ourWayGlowTop {\n  from { transform: translate3d(0,0,0) scale(1); }\n  to { transform: translate3d(-18px,14px,0) scale(1.04); }\n}\n\n@keyframes ourWayGlowBottom {\n  from { transform: translate3d(0,0,0) scale(1); }\n  to { transform: translate3d(20px,-12px,0) scale(1.05); }\n}\n\n@media (max-width: 767px) {\n  .our-way-heading {\n    font-weight: 800;\n    line-height: 1.02;\n    letter-spacing: -0.04em;\n  }\n\n  .our-way-intro-copy p {\n    font-size: 13px;\n    line-height: 1.65;\n  }\n\n  .our-way-item-content h3 { font-weight: 700; }\n  .our-way-item:hover { transform: none; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .our-way-section::before,\n  .our-way-section::after { animation: none !important; }\n  .our-way-item:hover { transform: none !important; }\n}\n

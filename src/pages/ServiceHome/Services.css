@@ -10,29 +10,21 @@
 ========================================================= */
 
 .services-page {
-  --services-navy:
-    #071525;
+  --services-navy: var(--vg-color-navy);
 
-  --services-navy-light:
-    #0b1b2d;
+  --services-navy-light: var(--vg-color-navy-2);
 
-  --services-pink:
-    #f72568;
+  --services-pink: var(--vg-color-pink);
 
-  --services-orange:
-    #ff7a21;
+  --services-orange: var(--vg-color-orange);
 
-  --services-white:
-    #ffffff;
+  --services-white: var(--vg-color-white);
 
-  --services-off-white:
-    #faf9f7;
+  --services-off-white: var(--vg-color-surface);
 
-  --services-text:
-    #182333;
+  --services-text: var(--vg-color-text);
 
-  --services-muted:
-    #687586;
+  --services-muted: var(--vg-color-muted);
 
   --services-border:
     rgba(
@@ -50,19 +42,8 @@
       0.14
     );
 
-  --services-display:
-    "Bodoni Moda",
-    "Didot",
-    "Bodoni MT",
-    Georgia,
-    serif;
-
-  --services-body:
-    "Manrope",
-    "Inter",
-    "Segoe UI",
-    Arial,
-    sans-serif;
+  --services-display: var(--vg-font-primary);
+  --services-body: var(--vg-font-primary);
 
   width: 100%;
 
@@ -182,7 +163,7 @@
     34px;
 
   height:
-    1px;
+    5px;
 
   flex:
     0 0 auto;
@@ -649,23 +630,21 @@
    HERO
    =========================================================
 ========================================================= */
+/* =========================================================
+   SERVICES HERO — FULL VIEWPORT
+   ========================================================= */
 
-.services-page
-.services-hero {
-  position:
-    relative;
+.services-page .services-hero {
+  position: relative;
 
-  min-height:
-    680px;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
 
-  display:
-    flex;
+  display: flex;
+  align-items: center;
 
-  align-items:
-    center;
-
-  overflow:
-    hidden;
+  overflow: hidden;
 
   background:
     linear-gradient(
@@ -675,8 +654,7 @@
       #06121f 100%
     );
 
-  color:
-    var(--services-white);
+  color: var(--services-white);
 }
 
 
@@ -1755,10 +1733,43 @@
     -0.045em;
 }
 
+/* =========================================================
+   ANIMATED ORANGE → PINK TEXT
+   ========================================================= */
+
 .services-page
 .services-introduction-title span {
-  color:
-    var(--services-muted);
+  background: linear-gradient(
+    90deg,
+    var(--services-orange),
+    var(--services-pink),
+    var(--services-orange)
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: servicesTitleGradient 4s ease-in-out infinite;
+}
+
+
+@keyframes servicesTitleGradient {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
 }
 
 
@@ -1807,7 +1818,7 @@
     var(--services-body);
 
   font-size:
-    15px;
+    20px;
 
   line-height:
     1.75;
@@ -4957,3 +4968,6 @@
   }
 
 }
+
+
+

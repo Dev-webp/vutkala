@@ -1,700 +1,40 @@
-/* =========================================================
-   VUTKALA GLOBAL
-   INDUSTRIES PAGE
-   PREMIUM EDITORIAL / COMPACT VERSION
 
-   ALL CSS IS SCOPED TO .industries-page
-========================================================= */
-/* =========================================================
-   VUTKALA INDUSTRIES
-   FINAL VISUAL FIX
-   ---------------------------------------------------------
-   1. Capabilities clearly visible
-   2. Capabilities larger
-   3. Description slightly larger
-   4. Text/image gap dramatically reduced
-   5. Image uses its complete column
-   6. Mobile spacing reduced
-   7. Existing animations preserved for title/content/image
-========================================================= */
-
-
-/* =========================================================
-   DESKTOP INDUSTRY SECTION
-========================================================= */
-
-.industries-page .industry-section {
-  min-height: 430px;
-  padding: 60px 0;
-  overflow: visible;
-}
-
-
-/* =========================================================
-   INDUSTRY GRID
-   IMPORTANT:
-   48% text + 52% image gives the image more usable space.
-   No artificial gap.
-========================================================= */
-
-.industries-page .industry-section__grid {
-  display: grid;
-
-  grid-template-columns:
-    48% 52%;
-
-  align-items: center;
-
-  column-gap: 0;
-  row-gap: 0;
-
-  width: 100%;
-}
-
-
-/* =========================================================
-   TEXT COLUMN
-========================================================= */
-
-.industries-page .industry-section__content {
-  width: 100%;
-  min-width: 0;
-
-  padding-right: 12px;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-   Slightly larger than current 14px
-========================================================= */
-
-.industries-page .industry-section__description {
-  max-width: 540px;
-
-  margin-top: 18px;
-
-  font-size: 15px;
-
-  line-height: 1.65;
-}
-
-
-/* =========================================================
-   CAPABILITIES CONTAINER
-========================================================= */
-
-.industries-page .industry-section__capabilities {
-  width: 100%;
-
-  max-width: 620px;
-
-  margin-top: 18px;
-}
-
-
-/* =========================================================
-   CAPABILITIES LABEL
-========================================================= */
-
-.industries-page .industry-section__capabilities-label {
-  display: block;
-
-  margin-bottom: 8px;
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-
-  letter-spacing: 0.15em;
-
-  /*
-     Force label visible.
-     This prevents the animation state from
-     making it disappear.
-  */
-  opacity: 1 !important;
-
-  transform: none !important;
-}
-
-
-/* =========================================================
-   CAPABILITY GRID
-========================================================= */
-
-.industries-page .industry-section__capability-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  width: 100%;
-
-  max-width: 620px;
-
-  column-gap: 18px;
-
-  row-gap: 8px;
-}
-
-
-/* =========================================================
-   CAPABILITY ITEM
-========================================================= */
-/* =========================================================
-   INDUSTRY CAPABILITIES
-========================================================= */
-
-.industries-page .industry-capability {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  min-height: 42px;
-
-  font-family: var(--vutkala-body);
-
-  font-size: 15px;
-
-  font-weight: 500;
-
-  line-height: 1.4;
-
-  color: var(--vutkala-navy);
-
-  white-space: normal;
-}
-
-
-/* CAPABILITY DOT */
-
-.industries-page .industry-capability__dot {
-  width: 6px;
-  height: 6px;
-
-  flex: 0 0 6px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-}
-
-/* =========================================================
-   CAPABILITY DOT
-========================================================= */
-
-.industries-page .industry-capability__dot {
-  width: 5px;
-  height: 5px;
-
-  min-width: 5px;
-  min-height: 5px;
-
-  flex: 0 0 5px;
-
-  border-radius: 50%;
-
-  background:
-    var(--vutkala-orange);
-}
-
-
-/* =========================================================
-   CONTACT BUTTON
-========================================================= */
-
-.industries-page .industry-contact-button {
-  margin-top: 18px;
-}
-
-
-/* =========================================================
-   IMAGE COLUMN
-========================================================= */
-
-.industries-page .industry-section__visual {
-  width: 100%;
-
-  min-width: 0;
-
-  /*
-     Remove unnecessary positioning space.
-  */
-  padding: 0;
-
-  margin: 0;
-}
-
-
-/* =========================================================
-   IMAGE WRAPPER
-   THIS IS THE BIG GAP FIX
-========================================================= */
-
-.industries-page .industry-section__image-wrap {
-  position: relative;
-
-  width: 100%;
-
-  /*
-     Remove the old 520px limitation.
-  */
-  max-width: none;
-
-  height:
-    clamp(
-      280px,
-      23vw,
-      340px
-    );
-
-  margin: 0;
-
-  overflow: hidden;
-
-  background:
-    var(--vutkala-navy);
-}
-
-
-/* =========================================================
-   IMAGE RIGHT
-   Text LEFT → Image RIGHT
-
-   Image starts immediately after text column.
-========================================================= */
-
-.industries-page
-.industry-section--image-right
-.industry-section__visual {
-  padding-left: 0;
-  margin-left: 0;
-}
-
-
-.industries-page
-.industry-section--image-right
-.industry-section__image-wrap {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-/* =========================================================
-   IMAGE LEFT
-   Image LEFT → Text RIGHT
-
-   Image also stays close to text.
-========================================================= */
-
-.industries-page
-.industry-section--image-left
-.industry-section__visual {
-  padding-right: 0;
-  margin-right: 0;
-}
-
-
-.industries-page
-.industry-section--image-left
-.industry-section__image-wrap {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-/* =========================================================
-   IMAGE
-========================================================= */
-
-.industries-page .industry-section__image {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1024px) {
-
-  .industries-page .industry-section__grid {
-    grid-template-columns:
-      48% 52%;
-
-    column-gap: 0;
-  }
-
-
-  .industries-page .industry-section__content {
-    padding-right: 8px;
-  }
-
-
-  .industries-page .industry-section__description {
-    font-size: 14px;
-  }
-
-
-  .industries-page .industry-section__capability-grid {
-    max-width: 100%;
-
-    column-gap: 12px;
-
-    row-gap: 2px;
-  }
-
-
-  .industries-page .industry-capability {
-    font-size: 13px;
-
-    min-height: 28px;
-  }
-
-
-  .industries-page .industry-section__image-wrap {
-    max-width: none;
-
-    height: 300px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 767px) {
-
-  .industries-page .industry-section {
-    min-height: auto;
-
-    padding:
-      50px
-      0
-      52px;
-
-    overflow: visible;
-  }
-
-
-  /* -----------------------------------------
-     TEXT → IMAGE
-     Reduce original 25px gap to 8px
-  ----------------------------------------- */
-
-  .industries-page .industry-section__grid {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-
-    width: 100%;
-  }
-
-
-  .industries-page .industry-section__content {
-    width: 100%;
-
-    padding-right: 0;
-  }
-
-
-  .industries-page .industry-section__visual {
-    width: 100%;
-
-    padding: 0;
-  }
-
-
-  /* -----------------------------------------
-     DESCRIPTION
-  ----------------------------------------- */
-
-  .industries-page .industry-section__description {
-    max-width: 100%;
-
-    margin-top: 15px;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-  }
-
-
-  /* -----------------------------------------
-     CAPABILITIES
-  ----------------------------------------- */
-
-  .industries-page .industry-section__capabilities {
-    width: 100%;
-
-    max-width: 100%;
-
-    margin-top: 17px;
-  }
-
-
-  .industries-page .industry-section__capabilities-label {
-    margin-bottom: 7px;
-
-    font-size: 10px;
-
-    opacity: 1 !important;
-
-    transform: none !important;
-  }
-
-
-  /* -----------------------------------------
-     KEEP TWO COLUMNS
-  ----------------------------------------- */
-
-  .industries-page .industry-section__capability-grid {
-    display: grid;
-
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    width: 100%;
-
-    max-width: 100%;
-
-    column-gap: 10px;
-
-    row-gap: 2px;
-  }
-
-
-  /* -----------------------------------------
-     CAPABILITY TEXT
-  ----------------------------------------- */
-
-  .industries-page .industry-capability {
-    min-height: 28px;
-
-    font-size: 15px;
-
-    line-height: 1.35;
-
-    white-space: normal;
-
-    opacity: 1 !important;
-
-    transform: none !important;
-  }
-
-
-  /* -----------------------------------------
-     IMAGE
-     Much closer to text
-  ----------------------------------------- */
-
-  .industries-page .industry-section__image-wrap {
-    width: 100%;
-
-    max-width: none;
-
-    height: 230px;
-
-    margin: 0;
-  }
-
-
-  /* -----------------------------------------
-     Remove animation translation
-     that can visually create extra movement
-  ----------------------------------------- */
-
-  .industries-page
-  .industry-section--image-right
-  .industry-section__visual,
-
-  .industries-page
-  .industry-section--image-left
-  .industry-section__visual {
-    margin: 0;
-
-    padding: 0;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-  .industries-page .industry-section {
-    padding:
-      45px
-      0
-      48px;
-  }
-
-
-  /* -----------------------------------------
-     Keep image very close to text
-  ----------------------------------------- */
-
-  .industries-page .industry-section__grid {
-    gap: 2px;
-  }
-
-
-  /* -----------------------------------------
-     DESCRIPTION
-  ----------------------------------------- */
-
-  .industries-page .industry-section__description {
-    font-size: 14px;
-
-    line-height: 1.6;
-  }
-
-
-  /* -----------------------------------------
-     CAPABILITIES
-  ----------------------------------------- */
-
-  .industries-page .industry-section__capability-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .industries-page .industry-capability {
-    min-height: 27px;
-
-    font-size: 13px;
-  }
-
-
-  /* -----------------------------------------
-     IMAGE
-  ----------------------------------------- */
-
-  .industries-page .industry-section__image-wrap {
-    height: 215px;
-
-    margin: 0;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 390px) {
-
-  .industries-page .industry-section__description {
-    font-size: 13.5px;
-  }
-
-
-  .industries-page .industry-capability {
-    font-size: 13px;
-  }
-
-
-  .industries-page .industry-section__image-wrap {
-    height: 205px;
-  }
-}
-
-/* =========================================================
-   TOKENS
-========================================================= */
-
+/* ---------------------------------------------------------
+   1. TOKENS
+--------------------------------------------------------- */
 .industries-page {
-  --vutkala-navy: #071426;
-  --vutkala-orange: #ff7a21;
-  --vutkala-pink: #f72568;
-  --vutkala-light: #fbfaf8;
-  --vutkala-white: #ffffff;
-  --vutkala-muted: #66758a;
+  --vutkala-navy: var(--vg-color-navy);
+  --vutkala-navy-2: var(--vg-color-navy-2);
+  --vutkala-orange: var(--vg-color-orange);
+  --vutkala-pink: var(--vg-color-pink);
+  --vutkala-light: var(--vg-color-surface);
+  --vutkala-white: var(--vg-color-white);
+  --vutkala-muted: var(--vg-color-muted);
+  --vutkala-muted-dark: #aab6c5;
 
-  --vutkala-light-border:
-    rgba(7, 20, 38, 0.12);
+  --vutkala-light-border: rgba(7, 20, 38, 0.12);
+  --vutkala-dark-border: rgba(255, 255, 255, 0.14);
 
-  --vutkala-dark-border:
-    rgba(255, 255, 255, 0.15);
+  --vutkala-display: var(--vg-font-primary);
+  --vutkala-body: var(--vg-font-primary);
 
-  --vutkala-display:
-    "Bodoni Moda",
-    "Didot",
-    "Bodoni MT",
-    Georgia,
-    serif;
-
-  --vutkala-body:
-    "Manrope",
-    Arial,
-    sans-serif;
+  --ease-premium: var(--vg-ease);
 
   width: 100%;
-
   min-height: 100vh;
-
   overflow-x: hidden;
-
-  background:
-    var(--vutkala-light);
-
-  color:
-    var(--vutkala-navy);
+  background: var(--vutkala-light);
+  color: var(--vutkala-navy);
 }
 
-
-/* =========================================================
-   SCOPED BOX SIZING
-========================================================= */
-
+/* ---------------------------------------------------------
+   2. RESET / BASE
+--------------------------------------------------------- */
 .industries-page *,
 .industries-page *::before,
 .industries-page *::after {
   box-sizing: border-box;
 }
-
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.industries-page
-.industries-container {
-  width:
-    min(
-      calc(100% - 10vw),
-      1440px
-    );
-
-  margin:
-    0 auto;
-}
-
-
-/* =========================================================
-   SCOPED BASIC RESET
-========================================================= */
 
 .industries-page h1,
 .industries-page h2,
@@ -705,4098 +45,1325 @@
 
 .industries-page a {
   color: inherit;
-
   text-decoration: none;
 }
 
 .industries-page button {
   font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
-
-.industries-page
-.industries-eyebrow {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    0.18em;
-
-  text-transform:
-    uppercase;
-}
-
-.industries-page
-.industries-eyebrow__line {
-  width:
-    34px;
-
-  height:
-    1px;
-
-  flex:
-    0 0 auto;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-}
-
-.industries-page
-.industries-eyebrow--light {
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.82
-    );
-}
-
-
-/* =========================================================
-   GRADIENT
-========================================================= */
-
-.industries-page
-.industries-approach__gradient,
-.industries-page
-.global-reach__gradient {
-  background:
-    linear-gradient(
-      100deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-
-  -webkit-background-clip:
-    text;
-
-  background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  color:
-    transparent;
-}
-
-
-/* =========================================================
-   =========================================================
-   HERO
-   =========================================================
-========================================================= */
-
-.industries-page
-.industries-hero {
-  position:
-    relative;
-
-  min-height:
-    65vh;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  padding:
-    120px
-    0
-    55px;
-
-  overflow:
-    hidden;
-
-  background:
-    var(--vutkala-light);
-}
-
-
-/* =========================================================
-   HERO GRID
-========================================================= */
-
-.industries-page
-.industries-hero__grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    54% 46%;
-
-  align-items:
-    center;
-
-  gap:
-    42px;
-}
-
-
-/* =========================================================
-   HERO CONTENT
-========================================================= */
-
-.industries-page
-.industries-hero__content {
-  min-width:
-    0;
-}
-
-
-/* =========================================================
-   HERO EYEBROW
-========================================================= */
-
-.industries-page
-.industries-hero__eyebrow {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(25px);
-
-  transition:
-    opacity 700ms ease 0ms,
-    transform 700ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 0ms;
-}
-
-.industries-page
-.industries-hero--visible
-.industries-hero__eyebrow {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.industries-hero__eyebrow span:last-child {
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.18em;
-}
-
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
-
-.industries-page
-.industries-hero__title {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  margin:
-    20px
-    0
-    0;
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    clamp(
-      44px,
-      4.7vw,
-      68px
-    );
-
-  font-weight:
-    400;
-
-  line-height:
-    0.88;
-
-  letter-spacing:
-    -0.045em;
-}
-
-
-/* =========================================================
-   HERO TITLE LINES
-========================================================= */
-
-.industries-page
-.industries-hero__title-line {
-  opacity:
-    0;
-
-  transform:
-    translateY(25px);
-
-  transition:
-    opacity 700ms ease,
-    transform 700ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industries-hero--visible
-.industries-hero__title-line {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.industries-hero__title-line:nth-child(1) {
-  transition-delay:
-    100ms;
-}
-
-.industries-page
-.industries-hero__title-line:nth-child(2) {
-  transition-delay:
-    120ms;
-}
-
-.industries-page
-.industries-hero__title-line:nth-child(3) {
-  transition-delay:
-    140ms;
-}
-
-.industries-page
-.industries-hero__title-line--navy {
-  color:
-    var(--vutkala-navy);
-}
-
-.industries-page
-.industries-hero__title-line--orange {
-  color:
-    var(--vutkala-orange);
-}
-
-.industries-page
-.industries-hero__title-line--gradient {
-  background:
-    linear-gradient(
-      100deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-
-  -webkit-background-clip:
-    text;
-
-  background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
-
-  color:
-    transparent;
-}
-
-
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
-
-.industries-page
-.industries-hero__description {
-  max-width:
-    520px;
-
-  margin:
-    22px
-    0
-    0;
-
-  color:
-    var(--vutkala-muted);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    14px;
-
-  line-height:
-    1.65;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(25px);
-
-  transition:
-    opacity 700ms ease 200ms,
-    transform 700ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 200ms;
-}
-
-.industries-page
-.industries-hero--visible
-.industries-hero__description {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   HERO EXPLORE
-========================================================= */
-
-.industries-page
-.industries-hero__explore {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  margin-top:
-    22px;
-
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.14em;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(25px);
-
-  transition:
-    opacity 700ms ease 300ms,
-    transform 700ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 300ms,
-    color 250ms ease;
-}
-
-.industries-page
-.industries-hero--visible
-.industries-hero__explore {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.industries-hero__explore:hover {
-  color:
-    var(--vutkala-orange);
-}
-
-
-/* =========================================================
-   HERO ARROW
-========================================================= */
-
-.industries-page
-.industry-arrow {
-  width:
-    16px;
-
-  height:
-    16px;
-
-  transition:
-    transform 300ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industries-hero__explore:hover
-.industry-arrow--down {
-  transform:
-    translateY(3px);
-}
-
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.industries-page
-.industries-hero__visual {
-  width:
-    100%;
-
-  opacity:
-    0;
-
-  transform:
-    translateX(60px);
-
-  transition:
-    opacity 750ms ease 150ms,
-    transform 750ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 150ms;
-}
-
-.industries-page
-.industries-hero--visible
-.industries-hero__visual {
-  opacity:
-    1;
-
-  transform:
-    translateX(0);
-}
-
-
-/* =========================================================
-   HERO IMAGE WRAP
-========================================================= */
-
-.industries-page
-.industries-hero__image-wrap {
-  position:
-    relative;
-
-  width:
-    100%;
-
-  height:
-    clamp(
-      300px,
-      25vw,
-      360px
-    );
-
-  overflow:
-    hidden;
-
-  background:
-    var(--vutkala-navy);
-}
-
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.industries-page
-.industries-hero__image {
-  width:
-    100%;
-
-  height:
-    100%;
-
-  display:
-    block;
-
-  object-fit:
-    cover;
-
-  filter:
-    saturate(0.86);
-
-  transition:
-    transform 900ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industries-hero__image-wrap:hover
-.industries-hero__image {
-  transform:
-    scale(1.025);
-}
-
-
-/* =========================================================
-   HERO PLACEHOLDER
-========================================================= */
-
-.industries-page
-.industries-hero__image-placeholder {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-start;
-
-  justify-content:
-    flex-end;
-
-  padding:
-    24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #071426,
-      #182a43
-    );
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.72
-    );
-}
-
-.industries-page
-.industries-hero__image-placeholder span {
-  margin-bottom:
-    8px;
-
-  color:
-    var(--vutkala-orange);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    8px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.18em;
-}
-
-.industries-page
-.industries-hero__image-placeholder strong {
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    25px;
-
-  font-weight:
-    400;
-}
-
-
-/* =========================================================
-   HERO OVERLAY
-========================================================= */
-
-.industries-page
-.industries-hero__image-overlay {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(
-        7,
-        20,
-        38,
-        0.05
-      ),
-      rgba(
-        7,
-        20,
-        38,
-        0.32
-      )
-    );
-
-  pointer-events:
-    none;
-}
-
-
-/* =========================================================
-   HERO IMAGE META
-========================================================= */
-
-.industries-page
-.industries-hero__image-meta {
-  position:
-    absolute;
-
-  left:
-    18px;
-
-  right:
-    18px;
-
-  bottom:
-    16px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.76
-    );
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    7px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.14em;
-}
-
-
-/* =========================================================
-   =========================================================
-   COMPACT INDUSTRY INDEX
-   =========================================================
-========================================================= */
-
-.industries-page
-.industry-index {
-  padding:
-    28px
-    0
-    30px;
-
-  background:
-    var(--vutkala-light);
-
-  scroll-margin-top:
-    70px;
-}
-
-
-/* =========================================================
-   INDEX HEADER
-========================================================= */
-
-.industries-page
-.industry-index__header {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    space-between;
-
-  gap:
-    25px;
-
-  margin-bottom:
-    12px;
-}
-
-.industries-page
-.industry-index__header p {
-  margin:
-    0;
-
-  color:
-    var(--vutkala-muted);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    10px;
-}
-
-
-/* =========================================================
-   INDEX GRID
-========================================================= */
-
-.industries-page
-.industry-index__grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
-
-  border-top:
-    1px solid
-    var(--vutkala-light-border);
-
-  border-left:
-    1px solid
-    var(--vutkala-light-border);
-}
-
-
-/* =========================================================
-   INDEX ITEM
-========================================================= */
-
-.industries-page
-.industry-index__item {
-  position:
-    relative;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    32px
-    1fr
-    18px;
-
-  align-items:
-    center;
-
-  min-height:
-    38px;
-
-  padding:
-    0
-    10px;
-
-  border-right:
-    1px solid
-    var(--vutkala-light-border);
-
-  border-bottom:
-    1px solid
-    var(--vutkala-light-border);
-
-  overflow:
-    hidden;
-}
-
-
-/* =========================================================
-   INDEX NUMBER
-========================================================= */
-
-.industries-page
-.industry-index__number {
-  color:
-    var(--vutkala-muted);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.08em;
-
-  transition:
-    color 250ms ease;
-}
-
-
-/* =========================================================
-   INDEX NAME
-========================================================= */
-
-.industries-page
-.industry-index__name {
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    13px;
-
-  font-weight:
-    600;
-
-  white-space:
-    nowrap;
-
-  overflow:
-    hidden;
-
-  text-overflow:
-    ellipsis;
-
-  transition:
-    color 250ms ease,
-    transform 300ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-
-/* =========================================================
-   INDEX ARROW
-========================================================= */
-
-.industries-page
-.industry-index__arrow {
-  justify-self:
-    end;
-
-  color:
-    var(--vutkala-muted);
-
-  font-size:
-    13px;
-
-  transition:
-    color 250ms ease,
-    transform 300ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-
-/* =========================================================
-   INDEX GRADIENT BORDER
-========================================================= */
-
-.industries-page
-.industry-index__line {
-  position:
-    absolute;
-
-  left:
-    0;
-
-  bottom:
-    0;
-
-  width:
-    100%;
-
-  height:
-    1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-
-  transform:
-    translateX(-101%);
-
-  transition:
-    transform 350ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-
-/* =========================================================
-   INDEX HOVER
-========================================================= */
-
-.industries-page
-.industry-index__item:hover
-.industry-index__number {
-  color:
-    var(--vutkala-pink);
-}
-
-.industries-page
-.industry-index__item:hover
-.industry-index__name {
-  color:
-    var(--vutkala-orange);
-
-  transform:
-    translateX(3px);
-}
-
-.industries-page
-.industry-index__item:hover
-.industry-index__arrow {
-  color:
-    var(--vutkala-pink);
-
-  transform:
-    translateX(3px);
-}
-
-.industries-page
-.industry-index__item:hover
-.industry-index__line {
-  transform:
-    translateX(0);
-}
-
-
-/* =========================================================
-   =========================================================
-   INDUSTRY SECTIONS
-   =========================================================
-========================================================= */
-
-.industries-page
-.industry-section {
-  position:
-    relative;
-
-  min-height:
-    430px;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  padding:
-    60px
-    0;
-
-  scroll-margin-top:
-    70px;
-
-  overflow:
-    hidden;
-}
-
-
-/* =========================================================
-   DARK
-========================================================= */
-
-.industries-page
-.industry-section--dark {
-  background:
-    var(--vutkala-navy);
-
-  color:
-    var(--vutkala-white);
-}
-
-
-/* =========================================================
-   LIGHT
-========================================================= */
-
-.industries-page
-.industry-section--light {
-  background:
-    var(--vutkala-light);
-
-  color:
-    var(--vutkala-navy);
-}
-
-
-/* =========================================================
-   GRID
-========================================================= */
-
-.industries-page
-.industry-section__grid {
-  display: grid;
-
-  grid-template-columns:
-    54%
-    46%;
-
-  align-items: center;
-
-  gap: 0;
-}
-
-
-/* =========================================================
-   IMAGE LEFT
-========================================================= */
-
-.industries-page
-.industry-section--image-left
-.industry-section__content {
-  order:
-    2;
-}
-
-.industries-page
-.industry-section--image-left
-.industry-section__visual {
-  order:
-    1;
-}
-
-
-/* =========================================================
-   IMAGE RIGHT
-========================================================= */
-
-.industries-page
-.industry-section--image-right
-.industry-section__content {
-  order:
-    1;
-}
-
-.industries-page
-.industry-section--image-right
-.industry-section__visual {
-  order:
-    2;
-}
-
-
-/* =========================================================
-   TEXT DIRECTION
-========================================================= */
-
-/*
-   TEXT LEFT → starts LEFT
-*/
-
-.industries-page
-.industry-section--image-right
-.industry-section__content {
-  opacity:
-    0;
-
-  transform:
-    translateX(-50px);
-
-  transition:
-    opacity 750ms ease,
-    transform 750ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-
-/*
-   TEXT RIGHT → starts RIGHT
-*/
-
-.industries-page
-.industry-section--image-left
-.industry-section__content {
-  opacity:
-    0;
-
-  transform:
-    translateX(50px);
-
-  transition:
-    opacity 750ms ease,
-    transform 750ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-
-/* =========================================================
-   IMAGE OPPOSITE DIRECTION
-========================================================= */
-
-/*
-   TEXT LEFT
-   IMAGE RIGHT
-*/
-
-.industries-page
-.industry-section--image-right
-.industry-section__visual {
-  opacity:
-    0;
-
-  transform:
-    translateX(60px)
-    scale(0.98);
-
-  transition:
-    opacity 800ms ease 80ms,
-    transform 800ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 80ms;
-}
-
-
-/*
-   IMAGE LEFT
-   TEXT RIGHT
-*/
-
-.industries-page
-.industry-section--image-left
-.industry-section__visual {
-  opacity:
-    0;
-
-  transform:
-    translateX(-60px)
-    scale(0.98);
-
-  transition:
-    opacity 800ms ease 80ms,
-    transform 800ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 80ms;
-}
-
-
-/* =========================================================
-   VISIBLE
-========================================================= */
-
-.industries-page
-.industry-section--visible
-.industry-section__content,
-.industries-page
-.industry-section--visible
-.industry-section__visual {
-  opacity:
-    1;
-
-  transform:
-    translateX(0)
-    scale(1);
-}
-
-
-/* =========================================================
-   INDUSTRY META
-========================================================= */
-
-.industries-page
-.industry-section__meta {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    9px;
-
-  margin-bottom:
-    16px;
-}
-
-
-/* =========================================================
-   META NUMBER
-========================================================= */
-
-.industries-page
-.industry-section__number {
-  color:
-    var(--vutkala-pink);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.12em;
-}
-
-
-/* =========================================================
-   META LINE
-========================================================= */
-
-.industries-page
-.industry-section__meta-line {
-  width:
-    28px;
-
-  height:
-    1px;
-
-  background:
-    var(--vutkala-orange);
-}
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
-
-.industries-page
-.industry-section__eyebrow {
-  color:
-    var(--vutkala-orange);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    8px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.13em;
-}
-
-
-/* =========================================================
-   EDITORIAL STAGGER
-========================================================= */
-
-.industries-page
-.industry-section__meta > * {
-  opacity:
-    0;
-
-  transform:
-    translateY(12px);
-
-  transition:
-    opacity 500ms ease,
-    transform 500ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__meta > * {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__number {
-  transition-delay:
-    0ms;
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__meta-line {
-  transition-delay:
-    40ms;
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__eyebrow {
-  transition-delay:
-    70ms;
-}
-
-
-/* =========================================================
-   TITLE
-========================================================= */
-
-.industries-page
-.industry-section__title {
-  max-width:
-    620px;
-
-  margin:
-    0;
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    clamp(
-      32px,
-      3.5vw,
-      52px
-    );
-
-  font-weight:
-    400;
-
-  line-height:
-    0.91;
-
-  letter-spacing:
-    -0.04em;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(18px);
-
-  transition:
-    opacity 650ms ease 130ms,
-    transform 650ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 130ms;
-}
-
-.industries-page
-.industry-section--dark
-.industry-section__title {
-  color:
-    var(--vutkala-white);
-}
-
-.industries-page
-.industry-section--light
-.industry-section__title {
-  color:
-    var(--vutkala-navy);
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__title {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-.industries-page
-.industry-section__description {
-  max-width:
-    500px;
-
-  margin:
-    18px
-    0
-    0;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    14px;
-
-  line-height:
-    1.6;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(14px);
-
-  transition:
-    opacity 600ms ease 200ms,
-    transform 600ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 200ms;
-}
-
-.industries-page
-.industry-section--dark
-.industry-section__description {
-  color:
-    #aab6c5;
-}
-
-.industries-page
-.industry-section--light
-.industry-section__description {
-  color:
-    var(--vutkala-muted);
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__description {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   CAPABILITIES
-========================================================= */
-
-.industries-page
-.industry-section__capabilities {
-  margin-top:
-    21px;
-}
-
-.industries-page
-.industry-section__capabilities-label {
-  margin-bottom:
-    7px;
-
-  color:
-    currentColor;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    8px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.14em;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(10px);
-
-  transition:
-    opacity 550ms ease 270ms,
-    transform 550ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 270ms;
-}
-
-.industries-page
-.industry-section--visible
-.industry-section__capabilities-label {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   CAPABILITY GRID
-========================================================= */
-
-.industries-page
-.industry-section__capability-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
-
-  max-width:
-    580px;
-
-  column-gap:
-    25px;
-
-  row-gap:
-    0;
-}
-
-
-/* =========================================================
-   CAPABILITY ITEM
-========================================================= */
-
-.industries-page
-.industry-capability {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    7px;
-
-  min-height:
-    25px;
-
-  color:
-    currentColor;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    11px;
-
-  line-height:
-    1.3;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(10px);
-
-  transition:
-    opacity 450ms ease var(--capability-delay),
-    transform 450ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) var(--capability-delay);
-}
-
-.industries-page
-.industry-section--visible
-.industry-capability {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   CAPABILITY DOT
-========================================================= */
-
-.industries-page
-.industry-capability__dot {
-  width:
-    3px;
-
-  height:
-    3px;
-
-  flex:
-    0 0 auto;
-
-  border-radius:
-    50%;
-
-  background:
-    var(--vutkala-orange);
-}
-
-
-/* =========================================================
-   CONTACT BUTTON
-========================================================= */
-
-.industries-page
-.industry-contact-button {
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  gap:
-    10px;
-
-  margin-top:
-    20px;
-
-  padding:
-    10px
-    17px;
-
-  border:
-    1px solid;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  line-height:
-    1;
-
-  letter-spacing:
-    0.11em;
-
-  opacity:
-    0;
-
-  transform:
-    translateY(12px);
-
-  transition:
-    opacity 550ms ease 340ms,
-    transform 550ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 340ms,
-    background 300ms ease,
-    border-color 300ms ease,
-    color 300ms ease;
-}
-
-.industries-page
-.industry-section--visible
-.industry-contact-button {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-
-/* =========================================================
-   DARK BUTTON
-========================================================= */
-
-.industries-page
-.industry-section--dark
-.industry-contact-button {
-  border-color:
-    rgba(
-      255,
-      255,
-      255,
-      0.32
-    );
-
-  color:
-    var(--vutkala-white);
-}
-
-.industries-page
-.industry-section--dark
-.industry-contact-button:hover {
-  border-color:
-    transparent;
-
-  color:
-    var(--vutkala-white);
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-}
-
-
-/* =========================================================
-   LIGHT BUTTON
-========================================================= */
-
-.industries-page
-.industry-section--light
-.industry-contact-button {
-  border-color:
-    rgba(
-      7,
-      20,
-      38,
-      0.18
-    );
-
-  color:
-    var(--vutkala-navy);
-}
-
-.industries-page
-.industry-section--light
-.industry-contact-button:hover {
-  border-color:
-    transparent;
-
-  color:
-    var(--vutkala-white);
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
-    );
-}
-
-
-/* =========================================================
-   BUTTON ARROW
-========================================================= */
-
-.industries-page
-.industry-contact-button__arrow {
-  transition:
-    transform 300ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industry-contact-button:hover
-.industry-contact-button__arrow {
-  transform:
-    translateX(4px);
-}
-
-
-/* =========================================================
-   INDUSTRY IMAGE
-========================================================= */
-
-.industries-page
-.industry-section__image-wrap {
-  position:
-    relative;
-
-  width:
-    100%;
-
-  max-width:
-    520px;
-
-  height:
-    clamp(
-      280px,
-      23vw,
-      340px
-    );
-
-  overflow:
-    hidden;
-
-  background:
-    var(--vutkala-navy);
-}
-
-.industries-page
-.industry-section--image-right
-.industry-section__image-wrap {
-  margin-left:
-    auto;
-}
-
-.industries-page
-.industry-section--image-left
-.industry-section__image-wrap {
-  margin-right:
-    auto;
-}
-
-
-/* =========================================================
-   IMAGE
-========================================================= */
-
-.industries-page
-.industry-section__image {
-  display:
-    block;
-
-  width:
-    100%;
-
-  height:
-    100%;
-
-  object-fit:
-    cover;
-
-  filter:
-    saturate(0.84);
-
-  transition:
-    transform 900ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.industry-section__image-wrap:hover
-.industry-section__image {
-  transform:
-    scale(1.025);
-}
-
-
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
-
-.industries-page
-.industry-section__image-placeholder {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    flex-start;
-
-  justify-content:
-    flex-end;
-
-  padding:
-    24px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #071426,
-      #182a43
-    );
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.75
-    );
-}
-
-.industries-page
-.industry-section__image-placeholder span {
-  margin-bottom:
-    7px;
-
-  color:
-    var(--vutkala-orange);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.15em;
-}
-
-.industries-page
-.industry-section__image-placeholder strong {
-  max-width:
-    300px;
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    30px;
-
-  font-weight:
-    400;
-
-  line-height:
-    0.9;
-}
-
-
-/* =========================================================
-   IMAGE OVERLAY
-========================================================= */
-
-.industries-page
-.industry-section__image-overlay {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  background:
-    linear-gradient(
-      135deg,
-      transparent,
-      rgba(
-        7,
-        20,
-        38,
-        0.25
-      )
-    );
-
-  pointer-events:
-    none;
-}
-
-
-/* =========================================================
-   IMAGE INDEX
-========================================================= */
-
-.industries-page
-.industry-section__image-index {
-  position:
-    absolute;
-
-  top:
-    16px;
-
-  left:
-    17px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.78
-    );
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.14em;
-}
-
-
-/* =========================================================
-   =========================================================
-   OUR APPROACH
-   =========================================================
-========================================================= */
-
-.industries-page
-.industries-approach {
-  padding:
-    65px
-    0
-    70px;
-
-  background:
-    var(--vutkala-navy);
-
-  color:
-    var(--vutkala-white);
-
-  overflow:
-    hidden;
-}
-
-
-/* =========================================================
-   APPROACH TITLE
-========================================================= */
-
-.industries-page
-.industries-approach__title {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  margin:
-    19px
-    0
-    0;
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    clamp(
-      40px,
-      4vw,
-      58px
-    );
-
-  font-weight:
-    400;
-
-  line-height:
-    0.9;
-
-  letter-spacing:
-    -0.04em;
-}
-
-
-/* =========================================================
-   APPROACH DESCRIPTION
-========================================================= */
-
-.industries-page
-.industries-approach__description {
-  max-width:
-    600px;
-
-  margin:
-    19px
-    0
-    0;
-
-  color:
-    #aab6c5;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.6;
-}
-
-
-/* =========================================================
-   APPROACH ROWS
-========================================================= */
-
-.industries-page
-.industries-approach__rows {
-  margin-top:
-    38px;
-
-  border-top:
-    1px solid
-    var(--vutkala-dark-border);
-}
-
-.industries-page
-.approach-row {
-  display:
-    grid;
-
-  grid-template-columns:
-    42px
-    0.6fr
-    1fr
-    24px;
-
-  align-items:
-    center;
-
-  min-height:
-    62px;
-
-  border-bottom:
-    1px solid
-    var(--vutkala-dark-border);
-
-  opacity:
-    0;
-
-  transform:
-    translateY(20px);
-
-  transition:
-    opacity 550ms ease var(--approach-delay),
-    transform 550ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) var(--approach-delay);
-}
-
-.industries-page
-.industries-approach--visible
-.approach-row {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.approach-row__number {
-  color:
-    var(--vutkala-pink);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.12em;
-}
-
-.industries-page
-.approach-row h3 {
-  margin:
-    0;
-
-  color:
-    var(--vutkala-white);
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    25px;
-
-  font-weight:
-    400;
-}
-
-.industries-page
-.approach-row p {
-  margin:
-    0;
-
-  color:
-    #aab6c5;
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    11px;
-
-  line-height:
-    1.45;
-}
-
-.industries-page
-.approach-row__arrow {
-  justify-self:
-    end;
-
-  color:
-    var(--vutkala-orange);
-
-  font-size:
-    17px;
-}
-
-
-/* =========================================================
-   =========================================================
-   GLOBAL REACH
-   =========================================================
-========================================================= */
-
-.industries-page
-.global-reach {
-  padding:
-    65px
-    0
-    65px;
-
-  background:
-    var(--vutkala-light);
-
-  color:
-    var(--vutkala-navy);
-
-  overflow:
-    hidden;
-}
-
-
-/* =========================================================
-   GLOBAL GRID
-========================================================= */
-
-.industries-page
-.global-reach__grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    45%
-    55%;
-
-  align-items:
-    center;
-
-  gap:
-    45px;
-}
-
-
-/* =========================================================
-   GLOBAL CONTENT
-========================================================= */
-
-.industries-page
-.global-reach__content {
-  opacity:
-    0;
-
-  transform:
-    translateX(-50px);
-
-  transition:
-    opacity 750ms ease,
-    transform 750ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      );
-}
-
-.industries-page
-.global-reach--visible
-.global-reach__content {
-  opacity:
-    1;
-
-  transform:
-    translateX(0);
-}
-
-
-/* =========================================================
-   GLOBAL TITLE
-========================================================= */
-
-.industries-page
-.global-reach__title {
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  margin:
-    20px
-    0
-    0;
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    clamp(
-      40px,
-      4vw,
-      58px
-    );
-
-  font-weight:
-    400;
-
-  line-height:
-    0.9;
-
-  letter-spacing:
-    -0.04em;
-}
-
-
-/* =========================================================
-   GLOBAL DESCRIPTION
-========================================================= */
-
-.industries-page
-.global-reach__description {
-  max-width:
-    470px;
-
-  margin:
-    19px
-    0
-    0;
-
-  color:
-    var(--vutkala-muted);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.6;
-}
-
-
-/* =========================================================
-   GLOBAL VISUAL
-========================================================= */
-
-.industries-page
-.global-reach__visual {
-  opacity:
-    0;
-
-  transform:
-    translateX(60px)
-    scale(0.98);
-
-  transition:
-    opacity 800ms ease 100ms,
-    transform 800ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) 100ms;
-}
-
-.industries-page
-.global-reach--visible
-.global-reach__visual {
-  opacity:
-    1;
-
-  transform:
-    translateX(0)
-    scale(1);
-}
-
-
-/* =========================================================
-   MAP
-========================================================= */
-
-.industries-page
-.global-map {
-  position:
-    relative;
-
-  width:
-    100%;
-
-  height:
-    clamp(
-      280px,
-      23vw,
-      340px
-    );
-
-  overflow:
-    hidden;
-
-  background:
-    #f1f0ed;
-}
-
-
-/* =========================================================
-   MAP GRID
-========================================================= */
-
-.industries-page
-.global-map__grid {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  opacity:
-    0.45;
-
-  background:
-    linear-gradient(
-      rgba(
-        7,
-        20,
-        38,
-        0.035
-      ) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(
-        7,
-        20,
-        38,
-        0.035
-      ) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    34px
-    34px;
-}
-
-
-/* =========================================================
-   MAP SVG
-========================================================= */
-
-.industries-page
-.global-map__svg {
-  position:
-    absolute;
-
-  inset:
-    0;
-
-  width:
-    100%;
-
-  height:
-    100%;
-}
-
-
-/* =========================================================
-   MAP LINES
-========================================================= */
-
-.industries-page
-.global-map__line {
-  fill:
-    none;
-
-  stroke:
-    rgba(
-      247,
-      37,
-      104,
-      0.27
-    );
-
-  stroke-width:
-    1;
-
-  stroke-dasharray:
-    5 7;
-
-  animation:
-    vutkalaMapFlow
-    7s
-    linear
-    infinite;
-}
-
-@keyframes vutkalaMapFlow {
-  to {
-    stroke-dashoffset:
-      -80;
-  }
-}
-
-
-/* =========================================================
-   MAP NODES
-========================================================= */
-
-.industries-page
-.global-map__node {
-  fill:
-    var(--vutkala-orange);
-
-  stroke:
-    rgba(
-      255,
-      122,
-      33,
-      0.12
-    );
-
-  stroke-width:
-    8;
-
-  transform-box:
-    fill-box;
-
-  transform-origin:
-    center;
-
-  animation:
-    vutkalaMapPulse
-    3s
-    ease-in-out
-    infinite;
-}
-
-.industries-page
-.global-map__node--center {
-  fill:
-    var(--vutkala-pink);
-}
-
-@keyframes vutkalaMapPulse {
-  0%,
-  100% {
-    opacity:
-      0.75;
-
-    transform:
-      scale(0.86);
-  }
-
-  50% {
-    opacity:
-      1;
-
-    transform:
-      scale(1.08);
-  }
-}
-
-
-/* =========================================================
-   MAP CENTER
-========================================================= */
-
-.industries-page
-.global-map__center {
-  position:
-    absolute;
-
-  top:
-    50%;
-
-  left:
-    50%;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  width:
-    88px;
-
-  height:
-    88px;
-
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
-
-  border:
-    1px solid
-    rgba(
-      7,
-      20,
-      38,
-      0.14
-    );
-
-  border-radius:
-    50%;
-
-  background:
-    rgba(
-      251,
-      250,
-      248,
-      0.86
-    );
-}
-
-.industries-page
-.global-map__center span {
-  margin-bottom:
-    4px;
-
-  color:
-    var(--vutkala-orange);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    6px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.17em;
-}
-
-.industries-page
-.global-map__center strong {
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-display);
-
-  font-size:
-    20px;
-
-  font-weight:
-    400;
-}
-
-
-/* =========================================================
-   GLOBAL LIST
-========================================================= */
-
-.industries-page
-.global-reach__list {
-  display:
-    grid;
-
-  grid-template-columns:
-    repeat(
-      4,
-      1fr
-    );
-
-  margin-top:
-    26px;
-
-  border-top:
-    1px solid
-    var(--vutkala-light-border);
-
-  border-left:
-    1px solid
-    var(--vutkala-light-border);
-}
-
-.industries-page
-.global-reach__item {
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  gap:
-    8px;
-
-  min-height:
-    42px;
-
-  padding:
-    0
-    10px;
-
-  border-right:
-    1px solid
-    var(--vutkala-light-border);
-
-  border-bottom:
-    1px solid
-    var(--vutkala-light-border);
-
-  opacity:
-    0;
-
-  transform:
-    translateY(10px);
-
-  transition:
-    opacity 450ms ease var(--region-delay),
-    transform 450ms
-      cubic-bezier(
-        0.22,
-        1,
-        0.36,
-        1
-      ) var(--region-delay);
-}
-
-.industries-page
-.global-reach--visible
-.global-reach__item {
-  opacity:
-    1;
-
-  transform:
-    translateY(0);
-}
-
-.industries-page
-.global-reach__item span {
-  color:
-    var(--vutkala-orange);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    8px;
-
-  font-weight:
-    700;
-}
-
-.industries-page
-.global-reach__item strong {
-  color:
-    var(--vutkala-navy);
-
-  font-family:
-    var(--vutkala-body);
-
-  font-size:
-    10px;
-
-  font-weight:
-    600;
-}
-
-
-/* =========================================================
-   =========================================================
-   TABLET
-   =========================================================
-========================================================= */
-
-@media (max-width: 1024px) {
-
-  .industries-page
-  .industries-container {
-    width:
-      calc(100% - 56px);
-  }
-
-  .industries-page
-  .industries-hero__grid {
-    gap:
-      32px;
-  }
-
-  .industries-page
-  .industry-section__grid {
-    gap:
-      0;
-  }
-
-  .industries-page
-.industry-section--dark
-.industry-capability {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 767px) {
-
-  /* -------------------------------------------------------
-     CONTAINER
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industries-container {
-    width:
-      calc(100% - 40px);
-  }
-
-
-  /* -------------------------------------------------------
-     HERO
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industries-hero {
-    min-height:
-      auto;
-
-    padding:
-      88px
-      0
-      48px;
-  }
-
-  .industries-page
-  .industries-hero__grid {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    gap:
-      30px;
-  }
-
-  .industries-page
-  .industries-hero__title {
-    font-size:
-      clamp(
-        36px,
-        9vw,
-        48px
-      );
-  }
-
-  .industries-page
-  .industries-hero__description {
-    max-width:
-      100%;
-
-    font-size:
-      13px;
-  }
-
-  .industries-page
-  .industries-hero__image-wrap {
-    height:
-      230px;
-  }
-
-
-  /* -------------------------------------------------------
-     INDEX
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-index {
-    padding:
-      24px
-      0
-      25px;
-  }
-
-  .industries-page
-  .industry-index__header {
-    display:
-      block;
-
-    margin-bottom:
-      10px;
-  }
-
-  .industries-page
-  .industry-index__header p {
-    margin-top:
-      8px;
-
-    font-size:
-      9px;
-  }
-
-  .industries-page
-  .industry-index__grid {
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
-  }
-
-  .industries-page
-  .industry-index__item {
-    min-height:
-      40px;
-  }
-
-  .industries-page
-  .industry-index__name {
-    font-size:
-      12px;
-  }
-
-
-  /* -------------------------------------------------------
-     INDUSTRIES
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-section {
-    min-height:
-      auto;
-
-    padding:
-      50px
-      0
-      52px;
-  }
-
-  .industries-page
-  .industry-section__grid {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    gap:
-      25px;
-  }
-
-  /*
-     Mobile order:
-     text
-     image
-  */
-
-  .industries-page
-  .industry-section--image-left
-  .industry-section__content,
-  .industries-page
-  .industry-section--image-left
-  .industry-section__visual,
-  .industries-page
-  .industry-section--image-right
-  .industry-section__content,
-  .industries-page
-  .industry-section--image-right
-  .industry-section__visual {
-    order:
-      initial;
-  }
-
-  .industries-page
-  .industry-section__content {
-    width:
-      100%;
-  }
-
-  .industries-page
-  .industry-section__visual {
-    width:
-      100%;
-  }
-
-  /* -------------------------------------------------------
-     MOBILE ANIMATION
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-section--image-right
-  .industry-section__content {
-    transform:
-      translateX(-25px);
-  }
-
-  .industries-page
-  .industry-section--image-left
-  .industry-section__content {
-    transform:
-      translateX(25px);
-  }
-
-  .industries-page
-  .industry-section--image-right
-  .industry-section__visual {
-    transform:
-      translateX(25px)
-      scale(0.99);
-  }
-
-  .industries-page
-  .industry-section--image-left
-  .industry-section__visual {
-    transform:
-      translateX(-25px)
-      scale(0.99);
-  }
-
-  .industries-page
-  .industry-section--visible
-  .industry-section__content,
-  .industries-page
-  .industry-section--visible
-  .industry-section__visual {
-    transform:
-      translateX(0)
-      scale(1);
-  }
-
-
-  /* -------------------------------------------------------
-     MOBILE IMAGE
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-section__image-wrap {
-    width:
-      100%;
-
-    max-width:
-      none;
-
-    height:
-      230px;
-  }
-
-
-  /* -------------------------------------------------------
-     MOBILE TITLE
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-section__title {
-    font-size:
-      clamp(
-        28px,
-        8vw,
-        40px
-      );
-  }
-
-  .industries-page
-  .industry-section__description {
-    font-size:
-      13px;
-  }
-
-
-  /* -------------------------------------------------------
-     MOBILE CAPABILITIES
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industry-section__capability-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-  .industries-page
-  .industry-capability {
-    min-height:
-      25px;
-
-    font-size:
-      11px;
-  }
-
-
-  /* -------------------------------------------------------
-     APPROACH
-  ------------------------------------------------------- */
-
-  .industries-page
-  .industries-approach {
-    padding:
-      55px
-      0
-      60px;
-  }
-
-  .industries-page
-  .industries-approach__title {
-    font-size:
-      clamp(
-        36px,
-        9vw,
-        46px
-      );
-  }
-
-  .industries-page
-  .industries-approach__description {
-    font-size:
-      12px;
-  }
-
-  .industries-page
-  .industries-approach__rows {
-    margin-top:
-      30px;
-  }
-
-  .industries-page
-  .approach-row {
-    grid-template-columns:
-      32px
-      1fr
-      20px;
-
-    min-height:
-      auto;
-
-    padding:
-      15px
-      0;
-  }
-
-  .industries-page
-  .approach-row h3 {
-    font-size:
-      22px;
-  }
-
-  .industries-page
-  .approach-row p {
-    grid-column:
-      2 / 3;
-
-    margin-top:
-      5px;
-
-    font-size:
-      10px;
-  }
-
-  .industries-page
-  .approach-row__arrow {
-    grid-column:
-      3;
-
-    grid-row:
-      1;
-  }
-
-
-  /* -------------------------------------------------------
-     GLOBAL
-  ------------------------------------------------------- */
-
-  .industries-page
-  .global-reach {
-    padding:
-      55px
-      0
-      58px;
-  }
-
-  .industries-page
-  .global-reach__grid {
-    display:
-      flex;
-
-    flex-direction:
-      column;
-
-    gap:
-      28px;
-  }
-
-  .industries-page
-  .global-reach__title {
-    font-size:
-      clamp(
-        36px,
-        9vw,
-        46px
-      );
-  }
-
-  .industries-page
-  .global-map {
-    height:
-      235px;
-  }
-
-  .industries-page
-  .global-reach__list {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-  .industries-page
-  .industries-container {
-    width:
-      calc(100% - 32px);
-  }
-
-  .industries-page
-  .industries-hero {
-    padding-top:
-      82px;
-  }
-
-  .industries-page
-  .industries-hero__image-wrap {
-    height:
-      215px;
-  }
-
-  .industries-page
-  .industry-section {
-    padding:
-      48px
-      0
-      50px;
-  }
-
-  .industries-page
-  .industry-section__image-wrap {
-    height:
-      215px;
-  }
-
-  .industries-page
-  .industry-index__name {
-    font-size:
-      11px;
-  }
-
-  .industries-page
-  .global-reach__list {
-    grid-template-columns:
-      1fr;
-  }
-
-}
-
-
-/* =========================================================
-   390px
-========================================================= */
-
-@media (max-width: 390px) {
-
-  .industries-page
-  .industries-container {
-    width:
-      calc(100% - 28px);
-  }
-
-  .industries-page
-  .industries-hero__title {
-    font-size:
-      34px;
-  }
-
-  .industries-page
-  .industry-index__item {
-    grid-template-columns:
-      27px
-      1fr
-      15px;
-
-    padding:
-      0
-      7px;
-  }
-
-  .industries-page
-  .industry-index__name {
-    font-size:
-      10px;
-  }
-
-  .industries-page
-  .industry-section__title {
-    font-size:
-      29px;
-  }
-
-  .industries-page
-  .industry-section__image-wrap {
-    height:
-      205px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .industries-page *,
-  .industries-page *::before,
-  .industries-page *::after {
-    animation:
-      none !important;
-
-    transition:
-      none !important;
-
-    scroll-behavior:
-      auto !important;
-  }
-
-
-  .industries-page
-  .industries-hero__eyebrow,
-  .industries-page
-  .industries-hero__title-line,
-  .industries-page
-  .industries-hero__description,
-  .industries-page
-  .industries-hero__explore,
-  .industries-page
-  .industries-hero__visual,
-  .industries-page
-  .industry-section__content,
-  .industries-page
-  .industry-section__visual,
-  .industries-page
-  .industry-section__meta > *,
-  .industries-page
-  .industry-section__title,
-  .industries-page
-  .industry-section__description,
-  .industries-page
-  .industry-section__capabilities-label,
-  .industries-page
-  .industry-capability,
-  .industries-page
-  .industry-contact-button,
-  .industries-page
-  .approach-row,
-  .industries-page
-  .global-reach__content,
-  .industries-page
-  .global-reach__visual,
-  .industries-page
-  .global-reach__item {
-    opacity:
-      1 !important;
-
-    transform:
-      none !important;
-  }
-
-}
-
-
-/* =========================================================
-   VUTKALA INDUSTRIES
-   BALANCED IMAGE / CONTENT ALIGNMENT
-========================================================= */
-
-
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
 
 .industries-page .industries-container {
-  width: calc(100% - 50px);
-
-  max-width: 1500px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding: 0;
+  width: min(calc(100% - 8vw), 1480px);
+  margin: 0 auto;
 }
 
-
-/* =========================================================
-   INDUSTRY GRID
-========================================================= */
-
-.industries-page .industry-section__grid {
-  display: grid;
-
-  /*
-   * Equal columns.
-   */
-  grid-template-columns: 1fr 1fr;
-
-  /*
-   * Small controlled separation.
-   */
-  column-gap: 30px;
-
+.industries-page .industries-eyebrow {
+  display: flex;
   align-items: center;
-
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
+  gap: 10px;
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vutkala-navy);
 }
 
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.industries-page .industry-section__content {
-  width: 100%;
-
-  max-width: 560px;
-
-  margin: 0;
-
-  padding: 0;
+.industries-page .industries-eyebrow--light {
+  color: rgba(255, 255, 255, 0.85);
 }
 
-
-/* =========================================================
-   IMAGE
-========================================================= */
-
-.industries-page .industry-section__visual {
-  width: 100%;
-
-  max-width: 100%;
-
-  margin: 0;
-
-  padding: 0;
+.industries-page .industries-eyebrow__line {
+  width: 34px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: linear-gradient(90deg, var(--vutkala-orange), var(--vutkala-pink));
 }
 
+.industries-page .industries-approach__gradient,
+.industries-page .global-reach__gradient {
+  background: linear-gradient(100deg, var(--vutkala-orange), var(--vutkala-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.industries-page .industry-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 300ms var(--ease-premium);
+}
 
 /* =========================================================
-   IMAGE WRAPPER
+   3. HERO — BASE
 ========================================================= */
-
-.industries-page .industry-section__image-wrap {
+.industries-page .industries-hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 92vh;
+  overflow: hidden;
+  background: var(--vutkala-navy);
+  color: var(--vutkala-white);
+}
 
-  width: 100%;
-
-  max-width: 100%;
-
-  margin: 0;
-
-  padding: 0;
-
+/* =========================================================
+   4. HERO — BACKGROUND
+========================================================= */
+.industries-page .industries-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
 }
 
-
-/* =========================================================
-   IMAGE
-========================================================= */
-
-.industries-page .industry-section__image {
-  display: block;
-
+.industries-page .industries-hero__background-image {
   width: 100%;
   height: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  object-fit: cover;
-}
-
-
-/* =========================================================
-   IMAGE RIGHT
-   CONTENT → IMAGE
-========================================================= */
-
-.industries-page
-.industry-section--image-right
-.industry-section__content {
-  grid-column: 1;
-  grid-row: 1;
-
-  justify-self: start;
-
-  width: 100%;
-}
-
-
-.industries-page
-.industry-section--image-right
-.industry-section__visual {
-  grid-column: 2;
-  grid-row: 1;
-
-  justify-self: end;
-
-  width: 100%;
-}
-
-
-/* =========================================================
-   IMAGE LEFT
-   IMAGE → CONTENT
-========================================================= */
-
-.industries-page
-.industry-section--image-left
-.industry-section__visual {
-  grid-column: 1;
-  grid-row: 1;
-
-  justify-self: start;
-
-  width: 100%;
-}
-
-
-.industries-page
-.industry-section--image-left
-.industry-section__content {
-  grid-column: 2;
-  grid-row: 1;
-
-  justify-self: end;
-
-  width: 100%;
-}
-
-
-/* =========================================================
-   CAPABILITIES
-========================================================= */
-
-.industries-page
-.industry-section__capabilities {
-  width: 100%;
-
-  max-width: 560px;
-
-  margin-top: 30px;
-
-  padding: 0;
-}
-
-
-/* =========================================================
-   CAPABILITIES HEADING
-========================================================= */
-
-.industries-page
-.industry-section__capabilities-label {
   display: block;
-
-  margin-bottom: 15px;
-
-  font-family: var(--vutkala-body);
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-
-  color: var(--vutkala-navy);
+  object-fit: cover;
+  object-position: 78% center;
+  transform: scale(1.08);
+  transition: transform 1600ms var(--ease-premium);
+  will-change: transform;
 }
 
-
-.industries-page
-.industry-section--dark
-.industry-section__capabilities-label {
-  color: rgba(255, 255, 255, 0.9);
+.industries-page .industries-hero--visible .industries-hero__background-image {
+  transform: scale(1);
 }
-
 
 /* =========================================================
-   CAPABILITY GRID
+   5. HERO — OVERLAY
+   Darkest on the left (for text), fading toward the globe.
 ========================================================= */
-
-.industries-page
-.industry-section__capability-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  column-gap: 30px;
-
-  row-gap: 8px;
-
-  width: 100%;
-
-  margin: 0;
-
-  padding: 0;
-}
-
-
-/* =========================================================
-   CAPABILITY ITEM
-========================================================= */
-
-.industries-page
-.industry-capability {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  min-height: 42px;
-
-  margin: 0;
-
-  padding: 0;
-
-  font-family: var(--vutkala-body);
-
-  font-size: 15px;
-
-  font-weight: 500;
-
-  line-height: 1.4;
-
-  color: var(--vutkala-navy);
-}
-
-
-.industries-page
-.industry-section--dark
-.industry-capability {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-
-/* =========================================================
-   DOT
-========================================================= */
-
-.industries-page
-.industry-capability__dot {
-  width: 6px;
-  height: 6px;
-
-  flex: 0 0 6px;
-
-  border-radius: 50%;
-
+.industries-page .industries-hero__background-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
     linear-gradient(
-      135deg,
-      var(--vutkala-orange),
-      var(--vutkala-pink)
+      90deg,
+      rgba(2, 9, 28, 0.97) 0%,
+      rgba(2, 9, 28, 0.9) 20%,
+      rgba(2, 9, 28, 0.62) 40%,
+      rgba(2, 9, 28, 0.22) 58%,
+      rgba(2, 9, 28, 0.02) 74%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(2, 9, 28, 0.55) 0%,
+      rgba(2, 9, 28, 0) 22%
     );
 }
 
-
-/* =========================================================
-   IMPORTANT
-   REMOVE ALL OLD IMAGE MARGINS / PADDINGS
-========================================================= */
-
-.industries-page
-.industry-section__visual,
-
-.industries-page
-.industry-section__content,
-
-.industries-page
-.industry-section__image-wrap {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+.industries-page .industries-hero__ambient-glow {
+  position: absolute;
+  z-index: 1;
+  top: 12%;
+  right: 6%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 122, 33, 0.14) 0%,
+    rgba(247, 37, 104, 0.08) 45%,
+    rgba(247, 37, 104, 0) 72%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 1400ms ease 300ms;
 }
 
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1400px) {
-
-  .industries-page .industries-container {
-    width: calc(100% - 50px);
-
-    max-width: 1500px;
-  }
-
-  .industries-page .industry-section__grid {
-    column-gap: 30px;
-  }
-
+.industries-page .industries-hero--visible .industries-hero__ambient-glow {
+  opacity: 1;
 }
 
+/* =========================================================
+   6. HERO — CONTENT
+========================================================= */
+.industries-page .industries-hero__container {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100% - 8vw), 1480px);
+  margin: 0 auto;
+  padding: 140px 0 96px;
+}
+
+.industries-page .industries-hero__content {
+  max-width: 620px;
+}
 
 /* =========================================================
-   LAPTOP
+   7. HERO — TYPOGRAPHY
 ========================================================= */
+.industries-page .industries-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms var(--ease-premium);
+}
 
+.industries-page .industries-hero--visible .industries-hero__eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .industries-hero__eyebrow-line {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--vutkala-orange), var(--vutkala-pink));
+}
+
+.industries-page .industries-hero__eyebrow span:last-child {
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.industries-page .industries-hero__title {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0 0;
+  font-family: var(--vutkala-display);
+  font-size: clamp(42px, 5.4vw, 78px);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.industries-page .industries-hero__title-line {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 750ms ease, transform 750ms var(--ease-premium);
+}
+
+.industries-page .industries-hero--visible .industries-hero__title-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .industries-hero__title-line:nth-child(1) { transition-delay: 120ms; }
+.industries-page .industries-hero__title-line:nth-child(2) { transition-delay: 200ms; }
+.industries-page .industries-hero__title-line:nth-child(3) { transition-delay: 280ms; }
+.industries-page .industries-hero__title-line:nth-child(4) { transition-delay: 360ms; }
+
+.industries-page .industries-hero__title-line--white {
+  color: var(--vutkala-white);
+}
+
+.industries-page .industries-hero__title-line--gradient {
+  background: linear-gradient(100deg, var(--vutkala-orange), var(--vutkala-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.industries-page .industries-hero__dot {
+  color: var(--vutkala-pink);
+  -webkit-text-fill-color: var(--vutkala-pink);
+}
+
+.industries-page .industries-hero__description {
+  max-width: 480px;
+  margin: 26px 0 0;
+  font-family: var(--vutkala-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease 440ms, transform 700ms var(--ease-premium) 440ms;
+}
+
+.industries-page .industries-hero--visible .industries-hero__description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   8. HERO — CTA
+========================================================= */
+.industries-page .industries-hero__explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 34px;
+  padding: 16px 26px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--vutkala-orange), var(--vutkala-pink));
+  color: var(--vutkala-white);
+  font-family: var(--vutkala-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease 540ms, transform 700ms var(--ease-premium) 540ms,
+    filter 250ms ease, transform 250ms ease;
+}
+
+.industries-page .industries-hero--visible .industries-hero__explore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .industries-hero__explore:hover {
+  filter: brightness(1.08);
+}
+
+.industries-page .industries-hero__explore-arrow {
+  transition: transform 300ms var(--ease-premium);
+}
+
+.industries-page .industries-hero__explore:hover .industries-hero__explore-arrow {
+  transform: translateX(4px);
+}
+
+/* Hero meta strip */
+.industries-page .industries-hero__meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 64px;
+  font-family: var(--vutkala-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  transition: opacity 700ms ease 620ms;
+}
+
+.industries-page .industries-hero--visible .industries-hero__meta {
+  opacity: 1;
+}
+
+.industries-page .industries-hero__meta-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Scroll indicator */
+.industries-page .industries-hero__scroll {
+  position: absolute;
+  z-index: 2;
+  left: min(calc(4vw), 60px);
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transition: opacity 700ms ease 700ms, color 250ms ease;
+}
+
+.industries-page .industries-hero--visible .industries-hero__scroll {
+  opacity: 1;
+}
+
+.industries-page .industries-hero__scroll:hover {
+  color: var(--vutkala-white);
+}
+
+.industries-page .industries-hero__scroll-text {
+  font-family: var(--vutkala-body);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.industries-page .industries-hero__scroll-line {
+  width: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.industries-page .industries-hero__scroll-arrow {
+  display: inline-block;
+  animation: vutkalaScrollBob 1800ms ease-in-out infinite;
+}
+
+/* =========================================================
+   9. HERO — ANIMATION KEYFRAMES
+========================================================= */
+@keyframes vutkalaScrollBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* =========================================================
+   10. INDUSTRY INDEX
+========================================================= */
+.industries-page .industry-index {
+  padding: 60px 0 64px;
+  background: var(--vutkala-light);
+  scroll-margin-top: 70px;
+}
+
+.industries-page .industry-index__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.industries-page .industry-index__header p {
+  margin: 0;
+  color: var(--vutkala-muted);
+  font-family: var(--vutkala-body);
+  font-size: 13px;
+}
+
+.industries-page .industry-index__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--vutkala-light-border);
+  border-left: 1px solid var(--vutkala-light-border);
+}
+
+.industries-page .industry-index__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr 20px;
+  align-items: center;
+  min-height: 64px;
+  padding: 0 20px;
+  border-right: 1px solid var(--vutkala-light-border);
+  border-bottom: 1px solid var(--vutkala-light-border);
+  overflow: hidden;
+}
+
+.industries-page .industry-index__number {
+  color: var(--vutkala-muted);
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: color 250ms ease;
+}
+
+.industries-page .industry-index__name {
+  color: var(--vutkala-navy);
+  font-family: var(--vutkala-body);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 250ms ease, transform 300ms var(--ease-premium);
+}
+
+.industries-page .industry-index__arrow {
+  justify-self: end;
+  color: var(--vutkala-muted);
+  font-size: 15px;
+  transition: color 250ms ease, transform 300ms var(--ease-premium);
+}
+
+.industries-page .industry-index__line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--vutkala-orange), var(--vutkala-pink));
+  transform: translateX(-101%);
+  transition: transform 350ms var(--ease-premium);
+}
+
+.industries-page .industry-index__item:hover .industry-index__number { color: var(--vutkala-pink); }
+.industries-page .industry-index__item:hover .industry-index__name { color: var(--vutkala-orange); transform: translateX(4px); }
+.industries-page .industry-index__item:hover .industry-index__arrow { color: var(--vutkala-pink); transform: translateX(4px); }
+.industries-page .industry-index__item:hover .industry-index__line { transform: translateX(0); }
+
+/* =========================================================
+   11. INDUSTRY SECTIONS (single, consolidated definition)
+========================================================= */
+.industries-page .industry-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 460px;
+  padding: 72px 0;
+  scroll-margin-top: 70px;
+  overflow: hidden;
+}
+
+.industries-page .industry-section--dark {
+  background: var(--vutkala-navy);
+  color: var(--vutkala-white);
+}
+
+.industries-page .industry-section--light {
+  background: var(--vutkala-light);
+  color: var(--vutkala-navy);
+}
+
+.industries-page .industry-section__grid {
+  display: grid;
+  grid-template-columns: minmax(380px, 1fr) minmax(380px, 1fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 64px);
+  width: 100%;
+}
+
+.industries-page .industry-section--image-left .industry-section__content { order: 2; }
+.industries-page .industry-section--image-left .industry-section__visual { order: 1; }
+.industries-page .industry-section--image-right .industry-section__content { order: 1; }
+.industries-page .industry-section--image-right .industry-section__visual { order: 2; }
+
+.industries-page .industry-section__content {
+  max-width: 560px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 750ms ease, transform 750ms var(--ease-premium);
+}
+
+.industries-page .industry-section--image-left .industry-section__content { transform: translateX(40px); }
+
+.industries-page .industry-section__visual {
+  opacity: 0;
+  transform: translateX(40px) scale(0.98);
+  transition: opacity 800ms ease 80ms, transform 800ms var(--ease-premium) 80ms;
+}
+
+.industries-page .industry-section--image-left .industry-section__visual { transform: translateX(-40px) scale(0.98); }
+
+.industries-page .industry-section--visible .industry-section__content,
+.industries-page .industry-section--visible .industry-section__visual {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Meta */
+.industries-page .industry-section__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.industries-page .industry-section__number {
+  color: var(--vutkala-pink);
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.industries-page .industry-section__meta-line {
+  width: 30px;
+  height: 1px;
+  background: var(--vutkala-orange);
+}
+
+.industries-page .industry-section__eyebrow {
+  color: var(--vutkala-orange);
+  font-family: var(--vutkala-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+/* Title / description */
+.industries-page .industry-section__title {
+  max-width: 620px;
+  font-family: var(--vutkala-display);
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.industries-page .industry-section--dark .industry-section__title { color: var(--vutkala-white); }
+.industries-page .industry-section--light .industry-section__title { color: var(--vutkala-navy); }
+
+.industries-page .industry-section__description {
+  max-width: 500px;
+  margin: 18px 0 0;
+  font-family: var(--vutkala-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.industries-page .industry-section--dark .industry-section__description { color: var(--vutkala-muted-dark); }
+.industries-page .industry-section--light .industry-section__description { color: var(--vutkala-muted); }
+
+/* =========================================================
+   12. CAPABILITIES CARDS
+========================================================= */
+.industries-page .industry-section__capabilities {
+  margin-top: 26px;
+  max-width: 560px;
+}
+
+.industries-page .industry-section__capabilities-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: currentColor;
+}
+
+.industries-page .industry-section__capability-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 10px;
+}
+
+.industries-page .industry-capability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  font-family: var(--vutkala-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: currentColor;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 450ms ease var(--capability-delay),
+    transform 450ms var(--ease-premium) var(--capability-delay);
+}
+
+.industries-page .industry-section--dark .industry-capability { color: rgba(255, 255, 255, 0.88); }
+
+.industries-page .industry-section--visible .industry-capability {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .industry-capability__dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vutkala-orange), var(--vutkala-pink));
+}
+
+/* Contact button */
+.industries-page .industry-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 13px 22px;
+  border: 1px solid;
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: background 300ms ease, border-color 300ms ease, color 300ms ease;
+}
+
+.industries-page .industry-section--dark .industry-contact-button {
+  border-color: rgba(255, 255, 255, 0.32);
+  color: var(--vutkala-white);
+}
+
+.industries-page .industry-section--light .industry-contact-button {
+  border-color: rgba(7, 20, 38, 0.2);
+  color: var(--vutkala-navy);
+}
+
+.industries-page .industry-contact-button:hover {
+  border-color: transparent;
+  color: var(--vutkala-white);
+  background: linear-gradient(90deg, var(--vutkala-orange), var(--vutkala-pink));
+}
+
+.industries-page .industry-contact-button__arrow {
+  transition: transform 300ms var(--ease-premium);
+}
+
+.industries-page .industry-contact-button:hover .industry-contact-button__arrow {
+  transform: translateX(4px);
+}
+
+/* Industry visual */
+.industries-page .industry-section__image-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 26vw, 420px);
+  overflow: hidden;
+  background: var(--vutkala-navy);
+}
+
+.industries-page .industry-section__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.9);
+  transition: transform 900ms var(--ease-premium);
+}
+
+.industries-page .industry-section__image-wrap:hover .industry-section__image {
+  transform: scale(1.03);
+}
+
+.industries-page .industry-section__image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 28px;
+  background: linear-gradient(135deg, var(--vutkala-navy), var(--vutkala-navy-2));
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.industries-page .industry-section__image-placeholder span {
+  margin-bottom: 8px;
+  color: var(--vutkala-orange);
+  font-family: var(--vutkala-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.industries-page .industry-section__image-placeholder strong {
+  max-width: 320px;
+  font-family: var(--vutkala-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.industries-page .industry-section__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(2, 9, 28, 0.3));
+  pointer-events: none;
+}
+
+.industries-page .industry-section__image-index {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--vutkala-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* =========================================================
+   13. APPROACH SECTION
+========================================================= */
+.industries-page .industries-approach {
+  padding: 90px 0 96px;
+  background: var(--vutkala-navy);
+  color: var(--vutkala-white);
+  overflow: hidden;
+}
+
+.industries-page .industries-approach__title {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0 0;
+  font-family: var(--vutkala-display);
+  font-size: clamp(40px, 4.4vw, 64px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.industries-page .industries-approach__description {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: var(--vutkala-muted-dark);
+  font-family: var(--vutkala-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.industries-page .industries-approach__rows {
+  margin-top: 48px;
+  border-top: 1px solid var(--vutkala-dark-border);
+}
+
+.industries-page .approach-row {
+  display: grid;
+  grid-template-columns: 48px 0.6fr 1fr 24px;
+  align-items: center;
+  min-height: 78px;
+  border-bottom: 1px solid var(--vutkala-dark-border);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 550ms ease var(--approach-delay),
+    transform 550ms var(--ease-premium) var(--approach-delay);
+}
+
+.industries-page .industries-approach--visible .approach-row {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .approach-row__number {
+  color: var(--vutkala-pink);
+  font-family: var(--vutkala-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.industries-page .approach-row h3 {
+  margin: 0;
+  color: var(--vutkala-white);
+  font-family: var(--vutkala-display);
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.industries-page .approach-row p {
+  margin: 0;
+  color: var(--vutkala-muted-dark);
+  font-family: var(--vutkala-body);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.industries-page .approach-row__arrow {
+  justify-self: end;
+  color: var(--vutkala-orange);
+  font-size: 19px;
+}
+
+/* =========================================================
+   14. GLOBAL REACH SECTION
+========================================================= */
+.industries-page .global-reach {
+  padding: 90px 0 90px;
+  background: var(--vutkala-light);
+  color: var(--vutkala-navy);
+  overflow: hidden;
+}
+
+.industries-page .global-reach__grid {
+  display: grid;
+  grid-template-columns: minmax(340px, 45%) 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.industries-page .global-reach__content {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 750ms ease, transform 750ms var(--ease-premium);
+}
+
+.industries-page .global-reach--visible .global-reach__content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.industries-page .global-reach__title {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0 0;
+  font-family: var(--vutkala-display);
+  font-size: clamp(40px, 4.4vw, 64px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.industries-page .global-reach__description {
+  max-width: 480px;
+  margin: 22px 0 0;
+  color: var(--vutkala-muted);
+  font-family: var(--vutkala-body);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.industries-page .global-reach__visual {
+  opacity: 0;
+  transform: translateX(50px) scale(0.98);
+  transition: opacity 800ms ease 100ms, transform 800ms var(--ease-premium) 100ms;
+}
+
+.industries-page .global-reach--visible .global-reach__visual {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.industries-page .global-map {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 25vw, 400px);
+  overflow: hidden;
+  background: #f1f0ed;
+}
+
+.industries-page .global-map__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.45;
+  background:
+    linear-gradient(rgba(2, 9, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 9, 28, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.industries-page .global-map__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.industries-page .global-map__line {
+  fill: none;
+  stroke: rgba(247, 37, 104, 0.3);
+  stroke-width: 1;
+  stroke-dasharray: 5 7;
+  animation: vutkalaMapFlow 7s linear infinite;
+}
+
+@keyframes vutkalaMapFlow {
+  to { stroke-dashoffset: -80; }
+}
+
+.industries-page .global-map__node {
+  fill: var(--vutkala-orange);
+  stroke: rgba(255, 122, 33, 0.12);
+  stroke-width: 8;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: vutkalaMapPulse 3s ease-in-out infinite;
+}
+
+.industries-page .global-map__node--center { fill: var(--vutkala-pink); }
+
+@keyframes vutkalaMapPulse {
+  0%, 100% { opacity: 0.75; transform: scale(0.86); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.industries-page .global-map__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(2, 9, 28, 0.14);
+  border-radius: 50%;
+  background: rgba(251, 250, 248, 0.88);
+}
+
+.industries-page .global-map__center span {
+  margin-bottom: 4px;
+  color: var(--vutkala-orange);
+  font-family: var(--vutkala-body);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.industries-page .global-map__center strong {
+  color: var(--vutkala-navy);
+  font-family: var(--vutkala-display);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.industries-page .global-reach__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 32px;
+  border-top: 1px solid var(--vutkala-light-border);
+  border-left: 1px solid var(--vutkala-light-border);
+}
+
+.industries-page .global-reach__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 14px;
+  border-right: 1px solid var(--vutkala-light-border);
+  border-bottom: 1px solid var(--vutkala-light-border);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 450ms ease var(--region-delay),
+    transform 450ms var(--ease-premium) var(--region-delay);
+}
+
+.industries-page .global-reach--visible .global-reach__item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industries-page .global-reach__item span {
+  color: var(--vutkala-orange);
+  font-family: var(--vutkala-body);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.industries-page .global-reach__item strong {
+  color: var(--vutkala-navy);
+  font-family: var(--vutkala-body);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   15. RESPONSIVE
+========================================================= */
 @media (max-width: 1200px) {
-
-  .industries-page .industries-container {
-    width: calc(100% - 60px);
-  }
-
-  .industries-page .industry-section__grid {
-    column-gap: 40px;
-  }
-
-  .industries-page .industry-section__content {
-    max-width: 520px;
-  }
-
+  .industries-page .industries-hero__container { padding: 120px 0 88px; }
 }
-
-
-/* =========================================================
-   TABLET
-========================================================= */
 
 @media (max-width: 1024px) {
+  .industries-page .industries-container { width: calc(100% - 56px); }
+  .industries-page .industries-hero { min-height: 78vh; }
+  .industries-page .industries-hero__background-image { object-position: 68% center; }
+  .industries-page .industries-hero__container { width: calc(100% - 56px); padding: 100px 0 72px; }
+  .industries-page .industry-section__grid { gap: 32px; }
+}
 
-  .industries-page .industries-container {
-    width: calc(100% - 50px);
+@media (max-width: 900px) {
+  .industries-page .industries-hero__background-overlay {
+    background:
+      linear-gradient(180deg, rgba(2, 9, 28, 0.5) 0%, rgba(2, 9, 28, 0.85) 62%, rgba(2, 9, 28, 0.97) 100%),
+      linear-gradient(90deg, rgba(2, 9, 28, 0.9) 0%, rgba(2, 9, 28, 0.55) 60%, rgba(2, 9, 28, 0.25) 100%);
+  }
+}
+
+@media (max-width: 767px) {
+  .industries-page .industries-container { width: calc(100% - 40px); }
+
+  /* Hero: image behaves as a full-bleed backdrop, text sits low & readable */
+  .industries-page .industries-hero {
+    min-height: 100vh;
+    align-items: flex-end;
+  }
+  .industries-page .industries-hero__background-image { object-position: 62% center; }
+  .industries-page .industries-hero__container { padding: 90px 0 64px; }
+  .industries-page .industries-hero__content { max-width: 100%; }
+  .industries-page .industries-hero__title { font-size: clamp(38px, 10vw, 52px); }
+  .industries-page .industries-hero__description { max-width: 100%; font-size: 14px; }
+  .industries-page .industries-hero__scroll { display: none; }
+
+  .industries-page .industry-index { padding: 44px 0 46px; }
+  .industries-page .industry-index__header { display: block; }
+  .industries-page .industry-index__header p { margin-top: 10px; font-size: 11px; }
+  .industries-page .industry-index__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .industries-page .industry-index__name { font-size: 13px; }
+
+  .industries-page .industry-section { min-height: auto; padding: 56px 0; }
+  .industries-page .industry-section__grid { display: flex; flex-direction: column; gap: 28px; }
+  .industries-page .industry-section--image-left .industry-section__content,
+  .industries-page .industry-section--image-left .industry-section__visual,
+  .industries-page .industry-section--image-right .industry-section__content,
+  .industries-page .industry-section--image-right .industry-section__visual {
+    order: initial;
+    max-width: 100%;
+    transform: translateY(20px);
+  }
+  .industries-page .industry-section--visible .industry-section__content,
+  .industries-page .industry-section--visible .industry-section__visual {
+    transform: translateY(0);
+  }
+  .industries-page .industry-section__image-wrap { height: 260px; }
+  .industries-page .industry-section__title { font-size: clamp(28px, 8vw, 40px); }
+  .industries-page .industry-section__capability-grid { grid-template-columns: 1fr; }
+
+  .industries-page .industries-approach { padding: 60px 0 64px; }
+  .industries-page .industries-approach__title { font-size: clamp(34px, 9vw, 46px); }
+  .industries-page .approach-row { grid-template-columns: 34px 1fr 20px; min-height: auto; padding: 18px 0; }
+  .industries-page .approach-row p { grid-column: 2 / 3; margin-top: 6px; font-size: 11px; }
+  .industries-page .approach-row__arrow { grid-column: 3; grid-row: 1; }
+
+  .industries-page .global-reach { padding: 60px 0 62px; }
+  .industries-page .global-reach__grid { display: flex; flex-direction: column; gap: 32px; }
+  .industries-page .global-map { height: 260px; }
+  .industries-page .global-reach__list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .industries-page .industries-container { width: calc(100% - 32px); }
+  .industries-page .industries-hero__explore { width: 100%; justify-content: center; }
+  .industries-page .industry-section__image-wrap { height: 220px; }
+  .industries-page .global-reach__list { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   16. REDUCED MOTION
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .industries-page *,
+  .industries-page *::before,
+  .industries-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 
-  .industries-page .industry-section__grid {
-    grid-template-columns: 1fr 1fr;
+  .industries-page .industries-hero__eyebrow,
+  .industries-page .industries-hero__title-line,
+  .industries-page .industries-hero__description,
+  .industries-page .industries-hero__explore,
+  .industries-page .industries-hero__meta,
+  .industries-page .industries-hero__scroll,
+  .industries-page .industries-hero__background-image,
+  .industries-page .industries-hero__ambient-glow,
+  .industries-page .industry-section__content,
+  .industries-page .industry-section__visual,
+  .industries-page .industry-capability,
+  .industries-page .approach-row,
+  .industries-page .global-reach__content,
+  .industries-page .global-reach__visual,
+  .industries-page .global-reach__item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
-    column-gap: 30px;
+
+
+/* =========================================================
+   FINAL MOBILE UPDATE — INDUSTRY CONTENT 2 × 2
+   Keep the industry sections compact and side-by-side on phones.
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* Keep the industry section itself compact */
+  .industries-page .industry-section {
+    min-height: auto;
+    padding: 42px 0;
+  }
+
+  /*
+    IMPORTANT:
+    Do NOT stack the industry image + content vertically.
+    Keep them in a 2-column layout on mobile.
+  */
+  .industries-page .industry-section__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    align-items: center;
+    gap: 14px !important;
+    width: 100%;
+  }
+
+  /* Keep the original alternating image/content order */
+  .industries-page .industry-section--image-left .industry-section__content {
+    order: 2;
+    transform: translateX(20px);
+  }
+
+  .industries-page .industry-section--image-left .industry-section__visual {
+    order: 1;
+    transform: translateX(-20px) scale(.98);
+  }
+
+  .industries-page .industry-section--image-right .industry-section__content {
+    order: 1;
+    transform: translateX(-20px);
+  }
+
+  .industries-page .industry-section--image-right .industry-section__visual {
+    order: 2;
+    transform: translateX(20px) scale(.98);
+  }
+
+  .industries-page .industry-section--visible .industry-section__content,
+  .industries-page .industry-section--visible .industry-section__visual {
+    transform: translateX(0) scale(1);
+  }
+
+  /* Smaller image so the 2-column layout feels balanced */
+  .industries-page .industry-section__image-wrap {
+    width: 100%;
+    height: 190px;
   }
 
   .industries-page .industry-section__content {
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
   }
 
-  .industries-page
-  .industry-section__capabilities {
-    max-width: 100%;
+  .industries-page .industry-section__meta {
+    gap: 7px;
+    margin-bottom: 10px;
   }
 
-  .industries-page
-  .industry-section__capabilities-label {
+  .industries-page .industry-section__number {
+    font-size: 9px;
+  }
+
+  .industries-page .industry-section__meta-line {
+    width: 18px;
+  }
+
+  .industries-page .industry-section__eyebrow {
+    font-size: 8px;
+    letter-spacing: .10em;
+  }
+
+  .industries-page .industry-section__title {
+    font-size: clamp(22px, 6vw, 32px);
+    line-height: .96;
+    letter-spacing: -.025em;
+  }
+
+  .industries-page .industry-section__description {
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /*
+    Capabilities also stay 2 × 2 instead of becoming
+    a long one-column list.
+  */
+  .industries-page .industry-section__capabilities {
+    margin-top: 14px;
+  }
+
+  .industries-page .industry-section__capabilities-label {
+    margin-bottom: 7px;
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
+
+  .industries-page .industry-section__capability-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 8px;
+    row-gap: 4px;
+  }
+
+  .industries-page .industry-capability {
+    min-height: 25px;
+    gap: 6px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .industries-page .industry-capability__dot {
+    width: 4px;
+    height: 4px;
+    flex: 0 0 4px;
+  }
+
+  .industries-page .industry-contact-button {
+    margin-top: 14px;
+    padding: 9px 12px;
+    gap: 7px;
+    font-size: 8px;
+    letter-spacing: .08em;
+  }
+
+  .industries-page .industry-contact-button__arrow {
+    font-size: 10px;
+  }
+
+  .industries-page .industry-section__image-index {
+    top: 10px;
+    left: 10px;
+    font-size: 8px;
+  }
+
+  .industries-page .industry-section__image-placeholder {
+    padding: 14px;
+  }
+
+  .industries-page .industry-section__image-placeholder span {
+    margin-bottom: 5px;
+    font-size: 7px;
+  }
+
+  .industries-page .industry-section__image-placeholder strong {
+    max-width: 150px;
+    font-size: 19px;
+  }
+}
+
+/* Slightly larger phones: give the 2 × 2 industry layout more room */
+@media (min-width: 481px) and (max-width: 767px) {
+  .industries-page .industry-section {
+    padding: 50px 0;
+  }
+
+  .industries-page .industry-section__grid {
+    gap: 20px !important;
+  }
+
+  .industries-page .industry-section__image-wrap {
+    height: 230px;
+  }
+
+  .industries-page .industry-section__title {
+    font-size: clamp(25px, 5vw, 36px);
+  }
+
+  .industries-page .industry-section__description {
     font-size: 12px;
   }
 
   .industries-page .industry-capability {
-    min-height: 40px;
-
-    font-size: 14px;
+    font-size: 10px;
   }
-
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 767px) {
-
-  .industries-page .industries-container {
-    width: calc(100% - 40px);
-
-    max-width: none;
-  }
-
+/* Very small phones: preserve 2 columns without overflow */
+@media (max-width: 380px) {
   .industries-page .industry-section__grid {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 25px;
-
-    width: 100%;
+    gap: 10px !important;
   }
 
-  .industries-page .industry-section__content {
-    width: 100%;
-
-    max-width: none;
-
-    order: 1;
+  .industries-page .industry-section__image-wrap {
+    height: 165px;
   }
 
-  .industries-page .industry-section__visual {
-    width: 100%;
-
-    max-width: none;
-
-    order: 2;
+  .industries-page .industry-section__title {
+    font-size: 20px;
   }
 
-  .industries-page
-  .industry-section__image-wrap {
-    width: 100%;
-
-    height: 230px;
+  .industries-page .industry-section__description {
+    font-size: 10px;
   }
 
-  .industries-page
-  .industry-section__capabilities {
-    max-width: none;
-
-    margin-top: 25px;
+  .industries-page .industry-capability {
+    font-size: 8px;
   }
 
-  .industries-page
-  .industry-section__capabilities-label {
-    font-size: 12px;
-
-    margin-bottom: 12px;
+  .industries-page .industry-contact-button {
+    padding: 8px 9px;
+    font-size: 7px;
   }
-
-  .industries-page
-  .industry-section__capability-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    column-gap: 15px;
-
-    row-gap: 7px;
-  }
-
-  .industries-page
-  .industry-capability {
-    min-height: 40px;
-
-    font-size: 14px;
-  }
-
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-  .industries-page .industries-container {
-    width: calc(100% - 32px);
-  }
-
-  .industries-page .industry-section__grid {
-    gap: 20px;
-  }
-
-  .industries-page
-  .industry-section__capability-grid {
-    grid-template-columns: 1fr;
-
-    row-gap: 4px;
-  }
-
-  .industries-page
-  .industry-capability {
-    min-height: 38px;
-
-    font-size: 14px;
-  }
-
-  .industries-page
-  .industry-section__image-wrap {
-    height: 215px;
-  }
-
-}
-
-

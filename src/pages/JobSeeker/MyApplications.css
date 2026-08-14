@@ -1,0 +1,1052 @@
+/* =========================================================
+   VUTKAL GLOBAL
+   JOB SEEKER — MY APPLICATIONS
+   ========================================================= */
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.applications-page {
+  width: 100%;
+  min-height: calc(100vh - 78px);
+
+  padding: 48px 6% 80px;
+
+  box-sizing: border-box;
+
+  background: #f7f9fc;
+
+  color: #071d3b;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.applications-header {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto 38px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+.applications-header > div {
+  min-width: 0;
+}
+
+
+.applications-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #e85d8f;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+
+.applications-header h1 {
+  margin: 0;
+
+  color: #071d3b;
+
+  font-size: clamp(32px, 4vw, 46px);
+
+  line-height: 1.08;
+
+  font-weight: 800;
+
+  letter-spacing: -1.5px;
+}
+
+
+.applications-header p {
+  max-width: 580px;
+
+  margin: 13px 0 0;
+
+  color: #6b7280;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FIND JOBS BUTTON
+   ========================================================= */
+
+.applications-find-btn {
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 0 21px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #e85d8f 0%,
+    #f28a54 100%
+  );
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 22px rgba(232, 93, 143, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.applications-find-btn:hover {
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(232, 93, 143, 0.25);
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.applications-error {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto 25px;
+
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #f3c5ce;
+
+  border-radius: 10px;
+
+  background: #fff5f6;
+
+  color: #b42318;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.applications-stats {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto 38px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+.application-stat-card {
+  min-height: 125px;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border: 1px solid #e6eaf0;
+
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 22px rgba(7, 29, 59, 0.035);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.application-stat-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #dce2ea;
+
+  box-shadow:
+    0 12px 30px rgba(7, 29, 59, 0.07);
+}
+
+
+.application-stat-card span {
+  color: #98a2b3;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.application-stat-card strong {
+  display: block;
+
+  margin-top: 15px;
+
+  color: #071d3b;
+
+  font-size: 34px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   MAIN APPLICATION SECTION
+   ========================================================= */
+
+.applications-section {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e6eaf0;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 28px rgba(7, 29, 59, 0.035);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.applications-section-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 22px;
+
+  margin-bottom: 8px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+
+.applications-section-header .applications-eyebrow {
+  margin-bottom: 7px;
+}
+
+
+.applications-section-header h2 {
+  margin: 0;
+
+  color: #071d3b;
+
+  font-size: 23px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.applications-empty {
+  min-height: 340px;
+
+  padding: 55px 30px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  text-align: center;
+}
+
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(232, 93, 143, 0.12),
+      rgba(242, 138, 84, 0.12)
+    );
+
+  color: #e85d8f;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
+.applications-empty h3 {
+  margin: 0 0 10px;
+
+  color: #071d3b;
+
+  font-size: 21px;
+
+  font-weight: 800;
+}
+
+
+.applications-empty p {
+  max-width: 450px;
+
+  margin: 0 0 24px;
+
+  color: #7b8491;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+.applications-empty-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 43px;
+
+  padding: 0 19px;
+
+  border-radius: 9px;
+
+  background: #071d3b;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.applications-empty-btn:hover {
+  background: #102d52;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   APPLICATION LIST
+   ========================================================= */
+
+.applications-list {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   APPLICATION CARD
+   ========================================================= */
+
+.application-card {
+  width: 100%;
+
+  min-height: 105px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 1.4fr)
+    minmax(180px, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 25px;
+
+  border: 1px solid #e8ecf1;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.application-card:hover {
+  border-color: #dce2e9;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 26px rgba(7, 29, 59, 0.06);
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.application-company {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+.application-company-logo {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e85d8f,
+      #f28a54
+    );
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(232, 93, 143, 0.15);
+}
+
+
+.application-company > div:last-child {
+  min-width: 0;
+}
+
+
+.application-company h3 {
+  overflow: hidden;
+
+  margin: 0 0 5px;
+
+  color: #071d3b;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+.application-company p {
+  overflow: hidden;
+
+  margin: 0;
+
+  color: #7b8491;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   APPLICATION DETAILS
+   ========================================================= */
+
+.application-details {
+  min-width: 0;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.application-details span {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 28px;
+
+  padding: 0 9px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+
+  background: #f5f7fa;
+
+  color: #667085;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.application-right {
+  min-width: 145px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.application-status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 27px;
+
+  padding: 0 11px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+/* NEW */
+
+.application-status.new {
+  background: #eef4ff;
+
+  color: #356ae6;
+}
+
+
+/* SHORTLISTED */
+
+.application-status.shortlisted {
+  background: #ecfdf3;
+
+  color: #16804a;
+}
+
+
+/* REJECTED */
+
+.application-status.rejected {
+  background: #fff1f3;
+
+  color: #d92d48;
+}
+
+
+/* INTERVIEW */
+
+.application-status.interview,
+.application-status.interviewed {
+  background: #fff6e8;
+
+  color: #c66a08;
+}
+
+
+/* HIRED */
+
+.application-status.hired {
+  background: #eafbf2;
+
+  color: #087443;
+}
+
+
+/* PENDING */
+
+.application-status.pending {
+  background: #f3f4f6;
+
+  color: #667085;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.application-date {
+  color: #98a2b3;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   VIEW JOB BUTTON
+   ========================================================= */
+
+.application-view-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 32px;
+
+  padding: 0 11px;
+
+  border: 1px solid #dfe4eb;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #071d3b;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.application-view-btn:hover {
+  border-color: #071d3b;
+
+  background: #071d3b;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.applications-loading {
+  width: 100%;
+  min-height: 55vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  color: #667085;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .applications-page {
+    padding: 40px 4% 65px;
+  }
+
+
+  .applications-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .application-card {
+    grid-template-columns:
+      minmax(220px, 1.3fr)
+      minmax(160px, 1fr)
+      auto;
+
+    gap: 18px;
+  }
+
+
+  .application-details span {
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .applications-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .applications-find-btn {
+    align-self: flex-start;
+  }
+
+
+  .applications-section {
+    padding: 24px;
+  }
+
+
+  .application-card {
+    grid-template-columns:
+      1fr auto;
+
+    gap: 18px;
+  }
+
+
+  .application-company {
+    grid-column: 1;
+  }
+
+
+  .application-details {
+    grid-column: 1;
+  }
+
+
+  .application-right {
+    grid-column: 2;
+
+    grid-row: 1 / span 2;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .applications-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 30px 16px 55px;
+  }
+
+
+  .applications-header {
+    margin-bottom: 28px;
+  }
+
+
+  .applications-header h1 {
+    font-size: 32px;
+
+    letter-spacing: -1px;
+  }
+
+
+  .applications-header p {
+    font-size: 13px;
+  }
+
+
+  .applications-find-btn {
+    width: 100%;
+  }
+
+
+  .applications-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .application-stat-card {
+    min-height: 105px;
+
+    padding: 18px;
+  }
+
+
+  .application-stat-card strong {
+    font-size: 28px;
+  }
+
+
+  .applications-section {
+    padding: 18px;
+
+    border-radius: 14px;
+  }
+
+
+  .applications-section-header {
+    padding-bottom: 18px;
+  }
+
+
+  .applications-section-header h2 {
+    font-size: 20px;
+  }
+
+
+  .application-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 16px;
+
+    padding: 17px;
+  }
+
+
+  .application-company {
+    width: 100%;
+  }
+
+
+  .application-details {
+    width: 100%;
+  }
+
+
+  .application-right {
+    width: 100%;
+
+    min-width: 0;
+
+    align-items: flex-start;
+
+    padding-top: 13px;
+
+    border-top: 1px solid #edf0f4;
+  }
+
+
+  .application-date {
+    text-align: left;
+  }
+
+
+  .application-view-btn {
+    width: 100%;
+
+    margin-top: 3px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .applications-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .applications-header h1 {
+    font-size: 28px;
+  }
+
+
+  .applications-stats {
+    gap: 8px;
+  }
+
+
+  .application-stat-card {
+    padding: 15px;
+  }
+
+
+  .application-stat-card span {
+    font-size: 8px;
+  }
+
+
+  .application-stat-card strong {
+    font-size: 25px;
+  }
+
+
+  .applications-section {
+    padding: 14px;
+  }
+
+
+  .application-company-logo {
+    width: 43px;
+    height: 43px;
+
+    font-size: 16px;
+  }
+
+}

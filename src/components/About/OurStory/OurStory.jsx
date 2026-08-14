@@ -7,7 +7,7 @@ import {
   Sparkles
 } from "lucide-react";
 
-import StoryImage from "../../../assets/About/hero.png"
+import StoryImage from "../../../assets/About/story.png"
 
 import "./OurStory.css";
 

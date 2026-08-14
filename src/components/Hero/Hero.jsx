@@ -2,18 +2,24 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Hero.css";
 
+import hero1 from "../../assets/Hero/hero1.png";
+import hero2 from "../../assets/Hero/hero2.png";
+import hero3 from "../../assets/Hero/hero3.png";
+import hero4 from "../../assets/Hero/hero4.png";
+import hero5 from "../../assets/Hero/hero5.png";
+
 /*
 |--------------------------------------------------------------------------
 | VUTKALA GLOBAL — PREMIUM HERO SLIDER
 |--------------------------------------------------------------------------
 |
-| Slide order:
+| Slide order (final approved story):
 |
-| 1. Cinematic Enterprise
-| 2. Premium Corporate
-| 3. Global Workforce
-| 4. Editorial
-| 5. Human + Technology
+| 1. Identity            — Cinematic
+| 2. Talent               — Workforce
+| 3. Technology           — Editorial
+| 4. Business Growth      — Corporate
+| 5. Global Reach         — Human + Technology
 |
 | Every slide automatically changes every 3 seconds.
 |
@@ -25,7 +31,7 @@ const TRANSITION_DURATION = 950;
 const slides = [
   /*
   |--------------------------------------------------------------------------
-  | SLIDE 1 — CINEMATIC ENTERPRISE
+  | SLIDE 1 — IDENTITY (CINEMATIC)
   |--------------------------------------------------------------------------
   */
 
@@ -37,115 +43,78 @@ const slides = [
 
     title: (
       <>
-        Connecting Businesses
+        People and Technology.
         <br />
-        with <span>Talent & Technology.</span>
+        <span>United for Business.</span>
       </>
     ),
 
     description:
-      "Empowering organizations with talent, technology, and innovation to build a stronger future.",
+      "We bring exceptional talent and smart technology together to help organizations move forward.",
 
-    image: "/assets/hero/hero-5-cinematic.webp",
+    image: hero1,
 
     alt:
-      "Business leaders in a premium city office overlooking a skyline",
+      "Diverse professionals collaborating in a premium global office",
 
     objectPosition: "center center",
   },
 
   /*
   |--------------------------------------------------------------------------
-  | SLIDE 2 — PREMIUM CORPORATE
+  | SLIDE 2 — TALENT (WORKFORCE)
   |--------------------------------------------------------------------------
   */
 
   {
     id: 2,
-    type: "corporate",
+    type: "workforce",
 
-    label: "VUTKALA GLOBAL",
+    label: "TALENT SOLUTIONS",
 
     title: (
       <>
-        Build.
+        The Right People,
         <br />
-        Scale.
-        <br />
-        <span>Transform.</span>
+        <span>Placed with Purpose.</span>
       </>
     ),
 
     description:
-      "Building technology solutions, connecting exceptional talent, and helping businesses transform with confidence.",
+      "We match exceptional professionals with organizations that need their skills — locally and across borders.",
 
-    image: "/assets/hero/hero-1-corporate.webp",
+    image:hero2,
 
     alt:
-      "Modern corporate office overlooking a city at sunset",
+      "Professional working closely with a colleague in a modern office",
 
     objectPosition: "center center",
   },
 
   /*
   |--------------------------------------------------------------------------
-  | SLIDE 3 — GLOBAL WORKFORCE
+  | SLIDE 3 — TECHNOLOGY (EDITORIAL)
   |--------------------------------------------------------------------------
   */
 
   {
     id: 3,
-    type: "workforce",
-
-    label: "GLOBAL WORKFORCE SOLUTIONS",
-
-    title: (
-      <>
-        Connecting Talent.
-        <br />
-        <span>Creating Opportunities.</span>
-      </>
-    ),
-
-    description:
-      "We connect exceptional people with the opportunities and businesses that help them thrive.",
-
-    image: "/assets/hero/hero-2-workforce.webp",
-
-    alt:
-      "Professional team collaborating in a modern office",
-
-    objectPosition: "center center",
-  },
-
-  /*
-  |--------------------------------------------------------------------------
-  | SLIDE 4 — EDITORIAL
-  |--------------------------------------------------------------------------
-  */
-
-  {
-    id: 4,
     type: "editorial",
 
-    label: "VUTKALA GLOBAL",
+    label: "TECHNOLOGY SOLUTIONS",
 
     title: (
       <>
-        THINK.
+        Smart Systems.
         <br />
-        <span>INNOVATE.</span>
-        <br />
-        DELIVER.
+        <span>Real Business Results.</span>
       </>
     ),
 
-    meta: "Talent • Technology • Growth",
-
     description:
-      "Ideas that inspire. Solutions that create impact.",
+      "We design and deliver technology that solves practical problems — not just ideas on a slide.",
 
-    image: "/assets/hero/hero-3-editorial.webp",
+    image: hero3,
 
     alt:
       "Contemporary glass architecture representing technology and innovation",
@@ -155,7 +124,38 @@ const slides = [
 
   /*
   |--------------------------------------------------------------------------
-  | SLIDE 5 — HUMAN + TECHNOLOGY
+  | SLIDE 4 — BUSINESS GROWTH (CORPORATE)
+  |--------------------------------------------------------------------------
+  */
+
+  {
+    id: 4,
+    type: "corporate",
+
+    label: "BUSINESS GROWTH",
+
+    title: (
+      <>
+        Complex Challenges.
+        <br />
+        <span>Clear Solutions.</span>
+      </>
+    ),
+
+    description:
+      "When talent and technology work together, businesses solve problems faster and grow with confidence.",
+
+    image: hero4,
+
+    alt:
+      "Modern corporate office overlooking a city at sunset",
+
+    objectPosition: "center center",
+  },
+
+  /*
+  |--------------------------------------------------------------------------
+  | SLIDE 5 — GLOBAL REACH (HUMAN + TECHNOLOGY)
   |--------------------------------------------------------------------------
   */
 
@@ -163,23 +163,23 @@ const slides = [
     id: 5,
     type: "human-tech",
 
-    label: "PEOPLE + TECHNOLOGY",
+    label: "INTERNATIONAL REACH",
 
     title: (
       <>
-        Connecting People.
+        Opportunity,
         <br />
-        Powering <span>Technology.</span>
+        <span>Without Borders.</span>
       </>
     ),
 
     description:
-      "Better people. Better technology. Stronger businesses.",
+      "From local expertise to international reach, Vutkala connects people and organizations across the world.",
 
-    image: "/assets/hero/hero-4-human-tech.webp",
+    image: hero5,
 
     alt:
-      "Business professional surrounded by a subtle digital technology network",
+      "Professional connected within a global digital network",
 
     objectPosition: "65% center",
   },

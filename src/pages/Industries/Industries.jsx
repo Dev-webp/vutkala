@@ -1,7 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import industriesHeroImage from "../../assets/industries/hero.png";
 import "./Industries.css";
 
+
+
+
+
+import technologyImage from "../../assets/industries/technology.png";
+import financeImage from "../../assets/industries/bank.png";
+import healthcareImage from "../../assets/industries/health.png";
+import manufacturingImage from "../../assets/industries/manf.png";
+import retailImage from "../../assets/industries/retail.png";
+import educationImage from "../../assets/industries/edutech.png";
+import telecommunicationsImage from "../../assets/industries/tele.png";
+import logisticsImage from "../../assets/industries/logistic.png";
+
+
+const industryImages = {
+  technology: technologyImage,
+  finance: financeImage,
+  healthcare: healthcareImage,
+  manufacturing: manufacturingImage,
+  retail: retailImage,
+  education: educationImage,
+  telecommunications: telecommunicationsImage,
+  logistics: logisticsImage,
+};
 /*
 |--------------------------------------------------------------------------
 | IMPORTANT
@@ -22,16 +47,6 @@ import "./Industries.css";
    Keep your existing image paths here.
 ========================================================= */
 
-const industryImages = {
-  technology: "",
-  finance: "",
-  healthcare: "",
-  manufacturing: "",
-  retail: "",
-  education: "",
-  telecommunications: "",
-  logistics: "",
-};
 
 
 /* =========================================================
@@ -355,13 +370,18 @@ const useScrollReveal = ({
    HERO
 ========================================================= */
 
+/* =========================================================
+   INDUSTRIES HERO
+   VUTKALA GLOBAL — CINEMATIC DIGITAL GLOBE
+========================================================= */
+
 const IndustriesHero = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setVisible(true);
-    }, 80);
+    }, 120);
 
     return () => {
       window.clearTimeout(timer);
@@ -371,9 +391,7 @@ const IndustriesHero = () => {
   const scrollToIndex = (event) => {
     event.preventDefault();
 
-    const target = document.getElementById(
-      "industry-index"
-    );
+    const target = document.getElementById("industry-index");
 
     if (!target) return;
 
@@ -386,106 +404,132 @@ const IndustriesHero = () => {
   return (
     <section
       className={`industries-hero ${
-        visible
-          ? "industries-hero--visible"
-          : ""
+        visible ? "industries-hero--visible" : ""
       }`}
+      aria-labelledby="industries-hero-title"
     >
-      <div className="industries-container">
+      {/* =====================================================
+          CINEMATIC HERO IMAGE
+      ===================================================== */}
 
-        <div className="industries-hero__grid">
+      <div className="industries-hero__background">
+        <img
+          src={industriesHeroImage}
+          alt="Vutkala Global Technologies connected digital globe representing industries worldwide"
+          className="industries-hero__background-image"
+          fetchPriority="high"
+        />
 
-          {/* LEFT */}
+        <div className="industries-hero__background-overlay" />
+        <div className="industries-hero__ambient-glow" />
+      </div>
 
-          <div className="industries-hero__content">
+      {/* =====================================================
+          HERO CONTENT
+      ===================================================== */}
 
-            <div className="industries-hero__eyebrow">
-              <span className="industries-eyebrow__line" />
+      <div className="industries-hero__container">
+        <div className="industries-hero__content">
 
-              <span>INDUSTRIES</span>
-            </div>
+          {/* EYEBROW */}
 
+          <div className="industries-hero__eyebrow">
+            <span className="industries-hero__eyebrow-line" />
 
-            <h1 className="industries-hero__title">
+            <span>INDUSTRIES</span>
+          </div>
 
-              <span className="industries-hero__title-line industries-hero__title-line--navy">
-                EXPERTISE THAT
-              </span>
+          {/* TITLE */}
 
-              <span className="industries-hero__title-line industries-hero__title-line--orange">
-                UNDERSTANDS
-              </span>
+          <h1
+            id="industries-hero-title"
+            className="industries-hero__title"
+          >
+            <span className="industries-hero__title-line industries-hero__title-line--white">
+              WHERE
+            </span>
 
-              <span className="industries-hero__title-line industries-hero__title-line--gradient">
-                YOUR WORLD.
-              </span>
+            <span className="industries-hero__title-line industries-hero__title-line--gradient">
+              INDUSTRIES
+            </span>
 
-            </h1>
+            <span className="industries-hero__title-line industries-hero__title-line--white">
+              MEET THE
+            </span>
 
+            <span className="industries-hero__title-line industries-hero__title-line--white">
+              FUTURE
+              <span className="industries-hero__dot">.</span>
+            </span>
+          </h1>
 
-            <p className="industries-hero__description">
-              Different industries face different challenges.
-              We bring people, technology and industry expertise
-              together to help organizations move forward.
-            </p>
+          {/* DESCRIPTION */}
 
+          <p className="industries-hero__description">
+            Across technology, finance, healthcare, manufacturing
+            and beyond, we connect industry expertise with the
+            people and technology shaping what&apos;s next.
+          </p>
 
-            <a
-              href="#industry-index"
-              className="industries-hero__explore"
-              onClick={scrollToIndex}
+          {/* CTA */}
+
+          <a
+            href="#industry-index"
+            className="industries-hero__explore"
+            onClick={scrollToIndex}
+            aria-label="Explore industries"
+          >
+            <span>EXPLORE INDUSTRIES</span>
+
+            <span
+              className="industries-hero__explore-arrow"
+              aria-hidden="true"
             >
-              <span>EXPLORE INDUSTRIES</span>
-
-              <Arrow direction="down" />
-            </a>
-
-          </div>
-
-
-          {/* RIGHT IMAGE */}
-
-          <div className="industries-hero__visual">
-
-            <div className="industries-hero__image-wrap">
-
-              {industryImages.technology ? (
-                <img
-                  src={industryImages.technology}
-                  alt="Technology and industry"
-                  className="industries-hero__image"
-                />
-              ) : (
-                <div
-                  className="industries-hero__image-placeholder"
-                  aria-hidden="true"
-                >
-                  <span>VUTKALA GLOBAL</span>
-
-                  <strong>
-                    PEOPLE · TECHNOLOGY · INDUSTRY
-                  </strong>
-                </div>
-              )}
-
-              <div className="industries-hero__image-overlay" />
-
-              <div className="industries-hero__image-meta">
-                <span>VUTKALA GLOBAL</span>
-
-                <span>08 SECTORS</span>
-              </div>
-
-            </div>
-
-          </div>
-
+              →
+            </span>
+          </a>
         </div>
 
+        {/* =================================================
+            HERO META
+        ================================================= */}
+
+        <div className="industries-hero__meta">
+          <span>VUTKALA GLOBAL TECHNOLOGIES</span>
+
+          <span className="industries-hero__meta-divider" />
+
+          <span>08 INDUSTRIES</span>
+        </div>
+
+        {/* =================================================
+            SCROLL INDICATOR
+        ================================================= */}
+
+        <button
+          type="button"
+          className="industries-hero__scroll"
+          onClick={scrollToIndex}
+          aria-label="Scroll to industries"
+        >
+          <span className="industries-hero__scroll-text">
+            SCROLL TO EXPLORE
+          </span>
+
+          <span className="industries-hero__scroll-line" />
+
+          <span
+            className="industries-hero__scroll-arrow"
+            aria-hidden="true"
+          >
+            ↓
+          </span>
+        </button>
       </div>
     </section>
   );
 };
+
 
 
 /* =========================================================
@@ -1071,7 +1115,7 @@ const Industries = () => {
 
         Example:
 
-        <Navbar />
+
       */}
 
       <main>

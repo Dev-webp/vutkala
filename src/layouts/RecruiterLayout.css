@@ -1,0 +1,13 @@
+.recruiter-layout {
+  min-height: 100vh;
+  background: #f6f8fc;
+}
+
+.recruiter-main {
+  width: 100%;
+  min-height: calc(100vh - 76px);
+
+  background: #f6f8fc;
+
+  box-sizing: border-box;
+}

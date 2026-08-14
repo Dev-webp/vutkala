@@ -1,0 +1,763 @@
+/* =========================================================
+   VUTKAL GLOBAL
+   JOB SEEKER NAVBAR
+   Premium / Responsive / Production Ready
+   ========================================================= */
+
+:root {
+  --js-navy: #071d3b;
+  --js-navy-dark: #04152d;
+  --js-text: #344054;
+  --js-muted: #98a2b3;
+  --js-border: #e6eaf0;
+  --js-soft: #f6f8fb;
+
+  --js-pink: #e85d8f;
+  --js-orange: #f28a54;
+
+  --js-gradient: linear-gradient(
+    135deg,
+    #e85d8f 0%,
+    #f28a54 100%
+  );
+
+  --js-shadow:
+    0 8px 30px rgba(7, 29, 59, 0.07);
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.jobseeker-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 78px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 42px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-bottom: 1px solid var(--js-border);
+
+  box-shadow: var(--js-shadow);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.jobseeker-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  text-decoration: none;
+
+  color: var(--js-navy);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.jobseeker-brand:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.brand-main {
+  font-size: 23px;
+  line-height: 1;
+
+  font-weight: 850;
+
+  letter-spacing: -1px;
+
+  color: var(--js-navy);
+}
+
+.brand-sub {
+  font-size: 9px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  background: var(--js-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.jobseeker-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  margin-left: auto;
+  margin-right: 34px;
+}
+
+.jobseeker-nav-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 42px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  color: var(--js-text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.jobseeker-nav-link:hover {
+  color: var(--js-navy);
+
+  background: var(--js-soft);
+
+  transform: translateY(-1px);
+}
+
+.jobseeker-nav-link.active {
+  color: var(--js-navy);
+
+  background: #eef2f7;
+}
+
+.jobseeker-nav-link.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 5px;
+
+  width: 18px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background: var(--js-gradient);
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.jobseeker-navbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   USER PROFILE
+   ========================================================= */
+
+.jobseeker-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.jobseeker-avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--js-gradient);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 16px rgba(232, 93, 143, 0.2);
+}
+
+.jobseeker-user-info {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.jobseeker-user-name {
+  display: block;
+
+  max-width: 140px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  color: var(--js-navy);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.jobseeker-user-role {
+  display: block;
+
+  color: var(--js-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+
+/* =========================================================
+   LOGOUT BUTTON
+   ========================================================= */
+
+.jobseeker-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 39px;
+
+  padding: 0 16px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: var(--js-gradient);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 18px rgba(232, 93, 143, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.jobseeker-logout-btn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.03);
+
+  box-shadow:
+    0 9px 24px rgba(232, 93, 143, 0.28);
+}
+
+.jobseeker-logout-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.jobseeker-menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  border: 1px solid var(--js-border);
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.jobseeker-menu-button:hover {
+  background: var(--js-soft);
+
+  border-color: #d8dee8;
+}
+
+.jobseeker-menu-button span {
+  display: block;
+
+  width: 18px;
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: var(--js-navy);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.jobseeker-menu-button.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.jobseeker-menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.jobseeker-menu-button.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE AUTH
+   ========================================================= */
+
+.mobile-auth {
+  display: none;
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+   ========================================================= */
+
+.jobseeker-brand:focus-visible,
+.jobseeker-nav-link:focus-visible,
+.jobseeker-logout-btn:focus-visible,
+.jobseeker-menu-button:focus-visible,
+.mobile-logout:focus-visible {
+  outline: 3px solid rgba(232, 93, 143, 0.25);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1150px) {
+
+  .jobseeker-navbar {
+    padding: 0 26px;
+  }
+
+  .jobseeker-nav {
+    margin-right: 20px;
+  }
+
+  .jobseeker-nav-link {
+    padding: 0 10px;
+
+    font-size: 12px;
+  }
+
+  .jobseeker-user-info {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .jobseeker-navbar {
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+
+  /* Hide desktop navigation */
+
+  .jobseeker-nav {
+    position: absolute;
+
+    top: calc(100% + 10px);
+
+    left: 14px;
+    right: 14px;
+
+    margin: 0;
+
+    padding: 14px;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 4px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    border: 1px solid var(--js-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+      0 20px 50px rgba(7, 29, 59, 0.13);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+
+  /* Open mobile menu */
+
+  .jobseeker-nav.is-open {
+    display: flex;
+  }
+
+
+  /* Mobile links */
+
+  .jobseeker-nav-link {
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    justify-content: flex-start;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+  }
+
+  .jobseeker-nav-link.active {
+    background: #f1f4f8;
+  }
+
+  .jobseeker-nav-link.active::after {
+    display: none;
+  }
+
+
+  /* Hide desktop user */
+
+  .jobseeker-user {
+    display: none;
+  }
+
+
+  /* Hide desktop logout */
+
+  .jobseeker-logout-btn {
+    display: none;
+  }
+
+
+  /* Show hamburger */
+
+  .jobseeker-menu-button {
+    display: flex;
+  }
+
+
+  /* Mobile authentication */
+
+  .mobile-auth {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #edf0f4;
+  }
+
+  .mobile-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+  }
+
+  .mobile-user > div:last-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+  }
+
+  .mobile-user strong {
+    max-width: 160px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: var(--js-navy);
+
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .mobile-user span {
+    color: var(--js-muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+  }
+
+  .mobile-user .jobseeker-avatar {
+    width: 36px;
+    height: 36px;
+
+    font-size: 13px;
+  }
+
+
+  /* Mobile logout */
+
+  .mobile-logout {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 38px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--js-gradient);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+      0 5px 15px rgba(232, 93, 143, 0.18);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .jobseeker-navbar {
+    height: 68px;
+
+    padding: 0 16px;
+  }
+
+  .brand-main {
+    font-size: 21px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .jobseeker-nav {
+    top: calc(100% + 8px);
+
+    left: 10px;
+    right: 10px;
+
+    padding: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .jobseeker-navbar {
+    height: 64px;
+
+    padding: 0 13px;
+  }
+
+  .brand-main {
+    font-size: 19px;
+  }
+
+  .brand-sub {
+    font-size: 7px;
+
+    letter-spacing: 1.2px;
+  }
+
+  .jobseeker-menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .jobseeker-nav {
+    left: 7px;
+    right: 7px;
+
+    padding: 10px;
+  }
+
+  .mobile-auth {
+    align-items: flex-start;
+  }
+
+  .mobile-user strong {
+    max-width: 120px;
+  }
+
+  .mobile-logout {
+    padding: 0 12px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+  .jobseeker-navbar {
+    padding: 0 10px;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .jobseeker-nav {
+    left: 5px;
+    right: 5px;
+  }
+
+}

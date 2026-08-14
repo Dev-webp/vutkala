@@ -1,130 +1,433 @@
-import "./Footer.css";
-import logo from "../../assets/vjcvutkal.jpeg";
+
+import React from "react";
 
 import {
-  FaFacebookF,
   FaLinkedinIn,
+  FaFacebookF,
   FaInstagram,
-  FaTwitter,
-  FaPhoneAlt,
-  FaEnvelope,
+  FaYoutube,
   FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
 } from "react-icons/fa";
 
-function Footer() {
+import { FiArrowUpRight } from "react-icons/fi";
+
+import "./Footer.css";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const companyLinks = [
+    { label: "About Us", path: "/about" },
+    { label: "Why Vutkala", path: "/why-vutkala" },
+    { label: "Leadership", path: "/leadership" },
+    { label: "Careers", path: "/careers" },
+    { label: "News & Insights", path: "/news" },
+  ];
+
+  const serviceLinks = [
+    { label: "IT Staffing", path: "/services/it-staffing" },
+    {
+      label: "Workforce Solutions",
+      path: "/services/workforce-solutions",
+    },
+    {
+      label: "Technology Solutions",
+      path: "/services/technology-solutions",
+    },
+    {
+      label: "Digital Transformation",
+      path: "/services/digital-transformation",
+    },
+    {
+      label: "Consulting",
+      path: "/services/consulting",
+    },
+  ];
+
+  const industryLinks = [
+    {
+      label: "IT & Technology",
+      path: "/industries/it-technology",
+    },
+    {
+      label: "Manufacturing",
+      path: "/industries/manufacturing",
+    },
+    {
+      label: "Healthcare",
+      path: "/industries/healthcare",
+    },
+    {
+      label: "BFSI",
+      path: "/industries/bfsi",
+    },
+    {
+      label: "Education",
+      path: "/industries/education",
+    },
+  ];
+
+  const resourceLinks = [
+    { label: "Blog", path: "/blog" },
+    { label: "Case Studies", path: "/case-studies" },
+    { label: "Whitepapers", path: "/whitepapers" },
+    { label: "FAQs", path: "/faqs" },
+    { label: "Events", path: "/events" },
+  ];
+
+  const socialLinks = [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/",
+      icon: FaLinkedinIn,
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/",
+      icon: FaFacebookF,
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: FaInstagram,
+    },
+    {
+      label: "YouTube",
+      href: "https://www.youtube.com/",
+      icon: FaYoutube,
+    },
+  ];
+
   return (
-    <footer className="footer">
+    <footer className="vutkala-footer">
+
+      {/* TOP BRAND LINE */}
+      <div className="footer-gradient-line" />
+
+      {/* DECORATIVE BACKGROUND */}
+      <div
+        className="footer-decoration footer-decoration-one"
+        aria-hidden="true"
+      />
+
+      <div
+        className="footer-decoration footer-decoration-two"
+        aria-hidden="true"
+      />
 
       <div className="footer-container">
 
-        {/* Left */}
+        {/* =================================================
+            MAIN FOOTER
+        ================================================== */}
 
-        <div className="footer-about">
+        <div className="footer-main">
 
-          <img src={logo} alt="Vutkala Global" />
+          {/* BRAND */}
+          <div className="footer-brand">
 
-          <p>
-            Vutkala Global connects businesses with exceptional talent and
-            delivers innovative technology solutions across the USA and India.
-          </p>
+            <a
+              href="/"
+              className="footer-logo-link"
+              aria-label="Vutkala Global Technologies"
+            >
+              <img
+                src="/assets/logo.png"
+                alt="Vutkala Global Technologies"
+                className="footer-logo"
+              />
+            </a>
 
-          <div className="footer-social">
+            <p className="footer-description">
+              We connect people, technology and opportunity to help
+              organizations build future-ready teams, solve real
+              challenges and achieve meaningful business outcomes.
+            </p>
 
-            <a href="#"><FaFacebookF /></a>
+            {/* SOCIAL MEDIA */}
 
-            <a href="#"><FaLinkedinIn /></a>
+            <div className="footer-socials">
 
-            <a href="#"><FaInstagram /></a>
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
 
-            <a href="#"><FaTwitter /></a>
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-social"
+                    aria-label={social.label}
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
+
+            </div>
+          </div>
+
+
+          {/* COMPANY */}
+
+          <FooterColumn
+            title="Company"
+            links={companyLinks}
+          />
+
+
+          {/* SERVICES */}
+
+          <FooterColumn
+            title="Our Services"
+            links={serviceLinks}
+          />
+
+
+          {/* INDUSTRIES */}
+
+          <FooterColumn
+            title="Industries"
+            links={industryLinks}
+          />
+
+
+          {/* RESOURCES */}
+
+          <FooterColumn
+            title="Resources"
+            links={resourceLinks}
+          />
+
+
+          {/* CONTACT */}
+
+          <div className="footer-contact">
+
+            <h3 className="footer-column-title">
+              Get In Touch
+            </h3>
+
+
+            {/* LOCATION */}
+
+            <div className="footer-contact-item">
+
+              <div
+                className="footer-contact-icon"
+                aria-hidden="true"
+              >
+                <FaMapMarkerAlt size={15} />
+              </div>
+
+              <div>
+
+                <span className="footer-contact-label">
+                  Location
+                </span>
+
+                <p>
+                  Your Vutkala office address
+                </p>
+
+              </div>
+
+            </div>
+
+
+            {/* EMAIL */}
+
+            <div className="footer-contact-item">
+
+              <div
+                className="footer-contact-icon"
+                aria-hidden="true"
+              >
+                <FaEnvelope size={15} />
+              </div>
+
+              <div>
+
+                <span className="footer-contact-label">
+                  Email
+                </span>
+
+                <a href="mailto:info@vutkalaglobal.com">
+                  info@vutkalaglobal.com
+                </a>
+
+              </div>
+
+            </div>
+
+
+            {/* PHONE */}
+
+            <div className="footer-contact-item">
+
+              <div
+                className="footer-contact-icon"
+                aria-hidden="true"
+              >
+                <FaPhoneAlt size={14} />
+              </div>
+
+              <div>
+
+                <span className="footer-contact-label">
+                  Phone
+                </span>
+
+                <a href="tel:+910000000000">
+                  +91 00000 00000
+                </a>
+
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* Company */}
 
-        <div className="footer-links">
+        {/* =================================================
+            CTA
+        ================================================== */}
 
-          <h4>Company</h4>
+        <div className="footer-cta">
 
-          <a href="/">Home</a>
+          <div className="footer-cta-content">
 
-          <a href="/about">About</a>
+            <span className="footer-cta-eyebrow">
+              LET&apos;S BUILD WHAT COMES NEXT
+            </span>
 
-          <a href="/jobs">Jobs</a>
+            <h2>
+              Ready to move your
+              <span> business forward?</span>
+            </h2>
 
-          <a href="/contact">Contact</a>
+          </div>
 
-        </div>
 
-        {/* Services */}
+          <a
+            href="/contact"
+            className="footer-cta-button"
+          >
+            Contact Us
 
-        <div className="footer-links">
-
-          <h4>Services</h4>
-
-          <a href="/">Technology Services</a>
-
-          <a href="/">Workforce Solutions</a>
-
-          <a href="/">Consulting</a>
-
-          <a href="/">Digital Transformation</a>
-
-        </div>
-
-        {/* Resources */}
-
-        <div className="footer-links">
-
-          <h4>Resources</h4>
-
-          <a href="/">Privacy Policy</a>
-
-          <a href="/">Terms & Conditions</a>
-
-          <a href="/">FAQ</a>
-
-          <a href="/">Support</a>
+            <FiArrowUpRight
+              size={18}
+              strokeWidth={1.8}
+            />
+          </a>
 
         </div>
 
-        {/* Contact */}
 
-        <div className="footer-contact">
+        {/* DIVIDER */}
 
-          <h4>Contact</h4>
+        <div className="footer-divider" />
 
-          <p>
-            <FaMapMarkerAlt />
-            Hyderabad, India
+
+        {/* =================================================
+            BOTTOM
+        ================================================== */}
+
+        <div className="footer-bottom">
+
+          <p className="footer-copyright">
+            © {currentYear} Vutkala Global Technologies.
+            All rights reserved.
           </p>
 
-          <p>
-            <FaPhoneAlt />
-            +91 98765 43210
-          </p>
 
-          <p>
-            <FaEnvelope />
-            info@vutkalaglobal.com
-          </p>
+          <div className="footer-legal">
+
+            <a href="/privacy-policy">
+              Privacy Policy
+            </a>
+
+            <span
+              className="footer-legal-separator"
+              aria-hidden="true"
+            >
+              |
+            </span>
+
+            <a href="/terms-of-use">
+              Terms of Use
+            </a>
+
+            <span
+              className="footer-legal-separator"
+              aria-hidden="true"
+            >
+              |
+            </span>
+
+            <a href="/sitemap">
+              Sitemap
+            </a>
+
+          </div>
 
         </div>
-
-      </div>
-
-      <div className="footer-bottom">
-
-        <p>
-          © {new Date().getFullYear()} Vutkala Global. All Rights Reserved.
-        </p>
 
       </div>
 
     </footer>
   );
-}
+};
+
+
+/* =========================================================
+   FOOTER COLUMN
+========================================================= */
+
+const FooterColumn = ({ title, links }) => {
+  return (
+    <div className="footer-column">
+
+      <h3 className="footer-column-title">
+        {title}
+      </h3>
+
+      <nav aria-label={title}>
+
+        <ul className="footer-links">
+
+          {links.map((link) => (
+            <li key={link.label}>
+
+              <a href={link.path}>
+
+                <span>
+                  {link.label}
+                </span>
+
+                <FiArrowUpRight
+                  className="footer-link-arrow"
+                  size={13}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+
+              </a>
+
+            </li>
+          ))}
+
+        </ul>
+
+      </nav>
+
+    </div>
+  );
+};
 
 export default Footer;

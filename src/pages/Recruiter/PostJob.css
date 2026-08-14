@@ -1,0 +1,581 @@
+/* =========================================================
+   VUTKALA RECRUITER — POST JOB
+   ========================================================= */
+
+.post-job-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 42px 40px 70px;
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.post-job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 34px;
+}
+
+.post-job-eyebrow {
+  display: inline-block;
+  margin-bottom: 9px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+
+  color: #e85d8f;
+}
+
+.post-job-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+
+  color: #061b49;
+}
+
+.post-job-header p {
+  margin: 10px 0 0;
+
+  max-width: 620px;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #6d7482;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.post-job-form {
+  width: 100%;
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+  position: relative;
+
+  margin-bottom: 24px;
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7ebf2;
+  border-radius: 16px;
+
+  box-shadow:
+    0 5px 20px rgba(6, 27, 73, 0.04);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.form-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  margin-bottom: 28px;
+}
+
+.form-section-number {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #e85d8f,
+    #f28a54
+  );
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.form-section-header h2 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 750;
+
+  color: #061b49;
+}
+
+.form-section-header p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  color: #858c99;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px 20px;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.form-group label {
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #dfe4ec;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* INPUT */
+
+.form-group input,
+.form-group select {
+  height: 48px;
+
+  padding: 0 14px;
+}
+
+
+/* TEXTAREA */
+
+.form-group textarea {
+  min-height: 150px;
+
+  padding: 14px;
+
+  line-height: 1.6;
+
+  resize: vertical;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a7adb8;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.form-group select {
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #e85d8f;
+
+  background: #fffafd;
+
+  box-shadow:
+    0 0 0 3px rgba(232, 93, 143, 0.10);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #cbd2dc;
+}
+
+
+/* =========================================================
+   HELP TEXT
+   ========================================================= */
+
+.input-help {
+  margin-top: 7px;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  color: #8a919d;
+}
+
+
+/* =========================================================
+   SALARY INPUTS
+   ========================================================= */
+
+#salary_min,
+#salary_max {
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   FORM MESSAGES
+   ========================================================= */
+
+.form-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 18px 0;
+
+  padding: 13px 16px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-message span {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+/* SUCCESS */
+
+.form-message.success {
+  border: 1px solid #ccebdc;
+
+  background: #f1fbf6;
+
+  color: #19734a;
+}
+
+.form-message.success span {
+  background: #2e9d69;
+
+  color: #ffffff;
+}
+
+
+/* ERROR */
+
+.form-message.error {
+  border: 1px solid #f3cccc;
+
+  background: #fff5f5;
+
+  color: #b42318;
+}
+
+.form-message.error span {
+  background: #d64545;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 26px;
+}
+
+
+/* =========================================================
+   POST BUTTON
+   ========================================================= */
+
+.post-job-btn {
+  min-width: 170px;
+  height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #061b49 0%,
+    #0d2e6b 100%
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(6, 27, 73, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.post-job-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 24px rgba(6, 27, 73, 0.24);
+}
+
+.post-job-btn:active {
+  transform: translateY(0);
+}
+
+.post-job-btn:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.65;
+
+  transform: none;
+
+  box-shadow:
+    0 5px 12px rgba(6, 27, 73, 0.10);
+}
+
+
+/* =========================================================
+   BUTTON ARROW
+   ========================================================= */
+
+.post-job-arrow {
+  font-size: 19px;
+  line-height: 1;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.post-job-btn:hover .post-job-arrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .post-job-page {
+    padding: 32px 24px 60px;
+  }
+
+  .post-job-header h1 {
+    font-size: 30px;
+  }
+
+  .form-section {
+    padding: 25px;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .post-job-page {
+    padding: 25px 16px 50px;
+  }
+
+  .post-job-header {
+    margin-bottom: 25px;
+  }
+
+  .post-job-header h1 {
+    font-size: 27px;
+  }
+
+  .post-job-header p {
+    font-size: 14px;
+  }
+
+  .form-section {
+    padding: 20px 17px;
+
+    border-radius: 13px;
+  }
+
+  .form-section-header {
+    gap: 12px;
+
+    margin-bottom: 22px;
+  }
+
+  .form-section-number {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 8px;
+  }
+
+  .form-section-header h2 {
+    font-size: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  .post-job-btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .post-job-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .form-section {
+    padding: 18px 14px;
+  }
+
+  .post-job-header h1 {
+    font-size: 24px;
+  }
+
+}
