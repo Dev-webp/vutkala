@@ -26,12 +26,12 @@ const infoCards = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    lines: ["+91 91000 12345", "Mon - Fri 9:00 AM - 6:00 PM"],
+    lines: ["+91 9705007000", "Mon - Fri 9:00 AM - 6:00 PM"],
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    lines: ["info@vutkalaglobal.com", "We reply within 24 hours"],
+    lines: ["admin@vutkalaglobal.com", "We reply within 24 hours"],
   },
   {
     icon: <FaMapMarkerAlt />,
@@ -57,8 +57,8 @@ const infoCards = [
       "Vengal Rao Nagar, Sanjeeva Reddy Nagar,",
       "Hyderabad, Telangana 500038",
     ],
-    phone: "+91 91000 12345",
-    email: "hyderabad@vutkalaglobal.com",
+    phone: "+91 9705007000",
+    email: "admin@vutkalaglobal.com",
 
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Ground+Floor+Sundari+Reddy+Bhavan+62%2FA+X+Road+Vengal+Rao+Nagar+Sanjeeva+Reddy+Nagar+Hyderabad+Telangana+500038",
@@ -77,7 +77,7 @@ const infoCards = [
     ],
 
     phone: "+1 304-814-3494",
-    email: "usa@vutkalaglobal.com",
+    email: "admin@vutkalaglobal.com",
 
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=7901+4th+St+N+%238668+St+Petersburg+FL+33702",

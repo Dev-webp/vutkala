@@ -1,8 +1,8 @@
-import "./Navbar.css";
+import { useState } from "react";
 import Logo from "./Logo";
 import NavigationMenu from "./NavigationMenu";
 import AuthButtons from "./AuthButtons";
-import { useState } from "react";
+import "./Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +26,17 @@ function Navbar() {
 
       <button
         type="button"
-        className={`menu-toggle ${isMenuOpen ? "open" : ""}`}
-        onClick={() => setIsMenuOpen((prev) => !prev)}
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        className={`menu-toggle ${
+          isMenuOpen ? "open" : ""
+        }`}
+        onClick={() =>
+          setIsMenuOpen((prev) => !prev)
+        }
+        aria-label={
+          isMenuOpen
+            ? "Close menu"
+            : "Open menu"
+        }
         aria-expanded={isMenuOpen}
       >
         <span />

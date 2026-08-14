@@ -106,6 +106,7 @@ function Hire() {
   const [submitError, setSubmitError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [referenceNumber, setReferenceNumber] = useState("");
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   /* -------------------- Field helpers -------------------- */
 
@@ -272,6 +273,7 @@ function Hire() {
     setSubmitted(false);
     setReferenceNumber("");
     setCurrentStep(1);
+    setIsFormOpen(false);
   };
 
   /* -------------------- Shared render helpers -------------------- */
@@ -978,54 +980,122 @@ function Hire() {
   if (submitted) {
     return (
       <div className="vh-page">
-        <div className="vh-success">
-          <div className="vh-success-card">
-            <span className="vh-success-check" aria-hidden="true">
-              &#10003;
+        <section className="vh-hire-hero">
+          <div className="vh-hire-hero__overlay" />
+
+          <div className="vh-hire-hero__content">
+            <span className="vh-hire-hero__eyebrow">
+              VUTKAL GLOBAL TECHNOLOGIES
             </span>
-            <h1 className="vh-success-title">Hiring Request Received</h1>
-            <p className="vh-success-copy">
-              Thank you for contacting VUTKAL Global. We&apos;ve received your hiring
-              requirement. Our recruitment team will review the details and contact you
-              shortly.
+            <div className="vh-hire-hero__line" />
+            <h1>
+              CONNECTING TALENT.
+              <br />
+              <span>CREATING OPPORTUNITY.</span>
+            </h1>
+            <p>
+              Build stronger teams with exceptional talent.
+              Tell us what you need, and we&apos;ll help you find
+              the right people for the right opportunity.
             </p>
+          </div>
 
-            <div className="vh-reference">
-              <span>Reference</span>
-              <strong>{referenceNumber || "Pending"}</strong>
-            </div>
+          <div className="vh-hire-hero__bottom">
+            <span>HIRE TALENT</span>
+            <span>VUTKAL GLOBAL</span>
+          </div>
+        </section>
 
-            <div className="vh-next-steps">
-              <p className="vh-next-steps-title">What happens next?</p>
-              <div className="vh-next-steps-grid">
-                <div className="vh-next-step">
-                  <span>01</span>
-                  <p>Our team reviews your requirement.</p>
+        <div className="vh-drawer-overlay">
+          <aside
+            className="vh-drawer vh-drawer--success"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Hiring request submitted"
+          >
+            <button
+              type="button"
+              className="vh-drawer-close"
+              onClick={resetForm}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            <div className="vh-success">
+              <div className="vh-success-card">
+                <span className="vh-success-check" aria-hidden="true">
+                  &#10003;
+                </span>
+
+                <span className="vh-success-eyebrow">
+                  REQUEST RECEIVED
+                </span>
+
+                <h1 className="vh-success-title">
+                  Hiring Request
+                  <br />
+                  Received.
+                </h1>
+
+                <p className="vh-success-copy">
+                  Thank you for contacting VUTKAL Global. We&apos;ve received
+                  your hiring requirement. Our recruitment team will review
+                  the details and contact you shortly.
+                </p>
+
+                <div className="vh-reference">
+                  <span>Reference</span>
+                  <strong>{referenceNumber || "Pending"}</strong>
                 </div>
-                <div className="vh-next-step">
-                  <span>02</span>
-                  <p>A recruitment specialist contacts you.</p>
+
+                <div className="vh-next-steps">
+                  <p className="vh-next-steps-title">What happens next?</p>
+
+                  <div className="vh-next-steps-grid">
+                    <div className="vh-next-step">
+                      <span>01</span>
+                      <p>Our team reviews your requirement.</p>
+                    </div>
+                    <div className="vh-next-step">
+                      <span>02</span>
+                      <p>A recruitment specialist contacts you.</p>
+                    </div>
+                    <div className="vh-next-step">
+                      <span>03</span>
+                      <p>We discuss your hiring requirement.</p>
+                    </div>
+                    <div className="vh-next-step">
+                      <span>04</span>
+                      <p>Candidate sourcing begins.</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="vh-next-step">
-                  <span>03</span>
-                  <p>We discuss your hiring requirement.</p>
-                </div>
-                <div className="vh-next-step">
-                  <span>04</span>
-                  <p>Candidate sourcing begins.</p>
+
+                <div className="vh-success-actions">
+                  <a href="/" className="vh-btn-primary">
+                    Back to VUTKAL
+                  </a>
+
+                  <button
+                    type="button"
+                    className="vh-btn-text"
+                    onClick={() => {
+                      setFormData({ ...EMPTY_FORM });
+                      setErrors({});
+                      setSubmitError("");
+                      setSubmitted(false);
+                      setReferenceNumber("");
+                      setCurrentStep(1);
+                      setIsFormOpen(true);
+                    }}
+                  >
+                    Submit another request
+                  </button>
                 </div>
               </div>
             </div>
-
-            <div className="vh-success-actions">
-              <a href="/" className="vh-btn-primary">
-                Back to VUTKAL
-              </a>
-              <button type="button" className="vh-btn-text" onClick={resetForm}>
-                Submit another request
-              </button>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
     );
@@ -1037,118 +1107,242 @@ function Hire() {
 
   return (
     <div className="vh-page">
-      <div className="vh-layout">
-        <aside className="vh-aside">
-          <div className="vh-aside-top">
-            <div className="vh-logo">
-              <span className="vh-logo-mark" aria-hidden="true">
-                V
-              </span>
-              <span className="vh-logo-text">
-                VUTKAL <strong>GLOBAL</strong>
-                <small>TECHNOLOGIES</small>
-              </span>
-            </div>
+      <section className="vh-hire-hero">
+        <div className="vh-hire-hero__overlay" />
 
-            <span className="vh-aside-rule" aria-hidden="true" />
+        <div className="vh-hire-hero__content">
+          <span className="vh-hire-hero__eyebrow">
+            VUTKAL GLOBAL TECHNOLOGIES
+          </span>
 
-            <h2 className="vh-aside-title">
-              Let&apos;s build the right team, <span>together.</span>
-            </h2>
-            <p className="vh-aside-copy">
-              Fill in the details and our team will connect with you shortly.
-            </p>
-          </div>
+          <div className="vh-hire-hero__line" />
 
-          <div className="vh-aside-visual" aria-hidden="true">
-            <svg viewBox="0 0 400 220" className="vh-skyline-svg">
-              <rect x="10" y="90" width="30" height="130" />
-              <rect x="50" y="60" width="26" height="160" />
-              <rect x="86" y="110" width="24" height="110" />
-              <rect x="120" y="40" width="30" height="180" />
-              <rect x="160" y="80" width="22" height="140" />
-              <rect x="192" y="20" width="34" height="200" />
-              <rect x="236" y="70" width="24" height="150" />
-              <rect x="270" y="100" width="28" height="120" />
-              <rect x="308" y="50" width="26" height="170" />
-              <rect x="344" y="95" width="30" height="125" />
-            </svg>
-          </div>
+          <h1>
+            CONNECTING TALENT.
+            <br />
+            <span>CREATING OPPORTUNITY.</span>
+          </h1>
 
-          <div className="vh-aside-badge">
-            <span className="vh-aside-badge-icon" aria-hidden="true">
-              &#128737;
-            </span>
-            <div>
-              <p className="vh-aside-badge-title">Your hiring partner for growth and success.</p>
-              <p className="vh-aside-badge-copy">
-                We connect great companies with exceptional talent.
-              </p>
-            </div>
-          </div>
-        </aside>
+          <p>
+            Build stronger teams with exceptional talent.
+            Tell us what you need, and we&apos;ll help you find
+            the right people for the right opportunity.
+          </p>
 
-        <main className="vh-main">
-          <div className="vh-progress" role="tablist" aria-label="Hiring request steps">
-            {STEP_META.map((step, index) => {
-              const state =
-                step.id < currentStep ? "done" : step.id === currentStep ? "active" : "upcoming";
-              return (
-                <React.Fragment key={step.id}>
-                  <div className={"vh-progress-item vh-progress-item--" + state}>
-                    <span className="vh-progress-dot">
-                      {state === "done" ? "\u2713" : String(step.id).padStart(2, "0")}
-                    </span>
-                    <span className="vh-progress-label">{step.label}</span>
-                  </div>
-                  {index < STEP_META.length - 1 && (
-                    <span
-                      className={
-                        "vh-progress-line " + (step.id < currentStep ? "vh-progress-line--done" : "")
-                      }
-                    />
-                  )}
-                </React.Fragment>
-              );
-            })}
-          </div>
+          <button
+            type="button"
+            className="vh-hire-hero__button"
+            onClick={() => {
+              setIsFormOpen(true);
+              setCurrentStep(1);
+              setErrors({});
+              setSubmitError("");
+            }}
+          >
+            <span>READY TO HIRE</span>
+            <strong aria-hidden="true">→</strong>
+          </button>
+        </div>
 
-          <div className="vh-step-header">
-            <span className="vh-step-number">{stepTitles[currentStep].number}</span>
-            <div>
-              <h1 className="vh-step-title">{stepTitles[currentStep].title}</h1>
-              <p className="vh-step-sub">{stepTitles[currentStep].sub}</p>
-            </div>
-          </div>
+        <div className="vh-hire-hero__bottom">
+          <span>HIRE TALENT</span>
+          <span>CONNECTING PEOPLE • BUILDING TEAMS</span>
+        </div>
+      </section>
 
-          <div className="vh-form-body">{stepContent()}</div>
+      {isFormOpen && (
+        <div
+          className="vh-drawer-overlay"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget && !loading) {
+              setIsFormOpen(false);
+            }
+          }}
+        >
+          <aside
+            className="vh-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Hire talent form"
+          >
+            <div className="vh-drawer-header">
+              <div>
+                <span className="vh-drawer-eyebrow">VUTKAL GLOBAL</span>
+                <h2>Let&apos;s build your team.</h2>
+                <p>Tell us about the talent you need.</p>
+              </div>
 
-          <div className="vh-nav">
-            {currentStep > 1 ? (
-              <button type="button" className="vh-btn-outline" onClick={goBack}>
-                <span aria-hidden="true">&#8592;</span> Back
-              </button>
-            ) : (
-              <span />
-            )}
-
-            {currentStep < 3 ? (
-              <button type="button" className="vh-btn-primary" onClick={goNext}>
-                Continue <span aria-hidden="true">&#8594;</span>
-              </button>
-            ) : (
               <button
                 type="button"
-                className="vh-btn-primary"
-                onClick={handleSubmit}
-                disabled={loading}
+                className="vh-drawer-close"
+                onClick={() => {
+                  if (!loading) setIsFormOpen(false);
+                }}
+                aria-label="Close hiring form"
               >
-                {loading ? "Submitting Request..." : "Submit Hiring Request \u2192"}
+                ×
               </button>
-            )}
-          </div>
-        </main>
-      </div>
+            </div>
+
+            <div className="vh-drawer-body">
+              <div className="vh-layout">
+                <aside className="vh-aside">
+                  <div className="vh-aside-top">
+                    <div className="vh-logo">
+                      <span className="vh-logo-mark" aria-hidden="true">V</span>
+                      <span className="vh-logo-text">
+                        VUTKAL <strong>GLOBAL</strong>
+                        <small>TECHNOLOGIES</small>
+                      </span>
+                    </div>
+
+                    <span className="vh-aside-rule" aria-hidden="true" />
+
+                    <h2 className="vh-aside-title">
+                      Let&apos;s build the right team, <span>together.</span>
+                    </h2>
+
+                    <p className="vh-aside-copy">
+                      Fill in the details and our team will connect with you shortly.
+                    </p>
+                  </div>
+
+                  <div className="vh-aside-visual" aria-hidden="true">
+                    <svg viewBox="0 0 400 220" className="vh-skyline-svg">
+                      <rect x="10" y="90" width="30" height="130" />
+                      <rect x="50" y="60" width="26" height="160" />
+                      <rect x="86" y="110" width="24" height="110" />
+                      <rect x="120" y="40" width="30" height="180" />
+                      <rect x="160" y="80" width="22" height="140" />
+                      <rect x="192" y="20" width="34" height="200" />
+                      <rect x="236" y="70" width="24" height="150" />
+                      <rect x="270" y="100" width="28" height="120" />
+                      <rect x="308" y="50" width="26" height="170" />
+                      <rect x="344" y="95" width="30" height="125" />
+                    </svg>
+                  </div>
+
+                  <div className="vh-aside-badge">
+                    <span className="vh-aside-badge-icon" aria-hidden="true">
+                      &#128737;
+                    </span>
+                    <div>
+                      <p className="vh-aside-badge-title">
+                        Your hiring partner for growth and success.
+                      </p>
+                      <p className="vh-aside-badge-copy">
+                        We connect great companies with exceptional talent.
+                      </p>
+                    </div>
+                  </div>
+                </aside>
+
+                <main className="vh-main">
+                  <div
+                    className="vh-progress"
+                    role="tablist"
+                    aria-label="Hiring request steps"
+                  >
+                    {STEP_META.map((step, index) => {
+                      const state =
+                        step.id < currentStep
+                          ? "done"
+                          : step.id === currentStep
+                            ? "active"
+                            : "upcoming";
+
+                      return (
+                        <React.Fragment key={step.id}>
+                          <div className={"vh-progress-item vh-progress-item--" + state}>
+                            <span className="vh-progress-dot">
+                              {state === "done"
+                                ? "\u2713"
+                                : String(step.id).padStart(2, "0")}
+                            </span>
+                            <span className="vh-progress-label">{step.label}</span>
+                          </div>
+
+                          {index < STEP_META.length - 1 && (
+                            <span
+                              className={
+                                "vh-progress-line " +
+                                (step.id < currentStep
+                                  ? "vh-progress-line--done"
+                                  : "")
+                              }
+                            />
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
+                  </div>
+
+                  <div className="vh-step-header">
+                    <span className="vh-step-number">
+                      {stepTitles[currentStep].number}
+                    </span>
+                    <div>
+                      <h1 className="vh-step-title">
+                        {stepTitles[currentStep].title}
+                      </h1>
+                      <p className="vh-step-sub">
+                        {stepTitles[currentStep].sub}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="vh-form-body">
+                    {stepContent()}
+                  </div>
+
+                  {submitError && (
+                    <div className="vh-submit-error" role="alert">
+                      {submitError}
+                    </div>
+                  )}
+
+                  <div className="vh-nav">
+                    {currentStep > 1 ? (
+                      <button
+                        type="button"
+                        className="vh-btn-outline"
+                        onClick={goBack}
+                        disabled={loading}
+                      >
+                        <span aria-hidden="true">&#8592;</span> Back
+                      </button>
+                    ) : (
+                      <span />
+                    )}
+
+                    {currentStep < 3 ? (
+                      <button
+                        type="button"
+                        className="vh-btn-primary"
+                        onClick={goNext}
+                        disabled={loading}
+                      >
+                        Continue <span aria-hidden="true">&#8594;</span>
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="vh-btn-primary"
+                        onClick={handleSubmit}
+                        disabled={loading}
+                      >
+                        {loading
+                          ? "Submitting Request..."
+                          : "Submit Hiring Request \u2192"}
+                      </button>
+                    )}
+                  </div>
+                </main>
+              </div>
+            </div>
+          </aside>
+        </div>
+      )}
     </div>
   );
 }

@@ -255,8 +255,8 @@ const Footer = () => {
                   Email
                 </span>
 
-                <a href="mailto:info@vutkalaglobal.com">
-                  info@vutkalaglobal.com
+                <a href="mailtoadmin@vutkalaglobal.com">
+                  admin@vutkalaglobal.com
                 </a>
 
               </div>

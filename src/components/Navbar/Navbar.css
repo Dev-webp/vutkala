@@ -1,11 +1,7 @@
 /* =========================================================
-   NAVBAR
-   VUTKALA GLOBAL — PROFESSIONAL CORPORATE NAVIGATION
-   ========================================================= */
-
-
-/* =========================================================
-   RESET
+   VUTKALA GLOBAL
+   PREMIUM NAVBAR
+   NAVY + ORANGE + PINK
    ========================================================= */
 
 .navbar,
@@ -15,7 +11,23 @@
 
 
 /* =========================================================
-   NAVBAR
+   VARIABLES
+   ========================================================= */
+
+.navbar {
+  --navy: #071426;
+  --white: #ffffff;
+  --muted-white: rgba(255, 255, 255, 0.72);
+
+  --orange: #ff7a21;
+  --pink: #f72568;
+
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   MAIN NAVBAR
    ========================================================= */
 
 .navbar {
@@ -27,38 +39,27 @@
   transform: translateX(-50%);
 
   width: min(94%, 1440px);
-  height: 82px;
+
+  height: 96px;
+
+  padding: 0 32px;
 
   display: flex;
   align-items: center;
 
-  padding: 0 30px;
+  background: rgba(7, 20, 38, 0.97);
 
-  background: rgba(255, 255, 255, 0.94);
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(7, 29, 59, 0.08);
+  border: 1px solid var(--border);
 
   border-radius: 18px;
 
   box-shadow:
-    0 10px 30px rgba(7, 29, 59, 0.07),
-    0 2px 8px rgba(7, 29, 59, 0.04);
+    0 16px 45px rgba(0, 0, 0, 0.22);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   z-index: 1000;
-
-  transition:
-    box-shadow 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.navbar:hover {
-  box-shadow:
-    0 16px 40px rgba(7, 29, 59, 0.1),
-    0 3px 10px rgba(7, 29, 59, 0.05);
 }
 
 
@@ -67,7 +68,7 @@
    ========================================================= */
 
 .brand-logo {
-  width: 220px;
+  width: 240px;
   height: 100%;
 
   display: flex;
@@ -83,23 +84,32 @@
   display: block;
 
   width: auto;
-  height: 62px;
+  height: 82px;
 
-  max-width: 190px;
+  max-width: 215px;
 
   object-fit: contain;
 
+  filter:
+    drop-shadow(
+      0 4px 12px
+      rgba(255, 122, 33, 0.15)
+    );
+
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    transform 300ms ease,
+    filter 300ms ease;
 }
 
 .brand-logo:hover .brand-logo__image {
-  transform: translateY(-1px);
-  opacity: 0.94;
+  transform: scale(1.03);
+
+  filter:
+    drop-shadow(
+      0 5px 18px
+      rgba(247, 37, 104, 0.25)
+    );
 }
-
-
 /* =========================================================
    NAVIGATION
    ========================================================= */
@@ -107,11 +117,13 @@
 .nav-links {
   flex: 1;
 
+  min-width: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 30px;
+  gap: 28px;
 
   margin: 0;
   padding: 0;
@@ -119,23 +131,35 @@
   list-style: none;
 }
 
+
 .nav-links li {
   list-style: none;
 }
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
 
 .nav-links a {
   position: relative;
 
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
-  height: 42px;
+  height: 48px;
 
   padding: 0 2px;
 
-  color: #344054;
+  color: var(--muted-white);
+
+  font-family:
+    "Manrope",
+    sans-serif;
 
   font-size: 14px;
+
   font-weight: 600;
 
   letter-spacing: -0.01em;
@@ -145,19 +169,26 @@
   white-space: nowrap;
 
   transition:
-    color 0.25s ease;
+    color 220ms ease,
+    transform 220ms ease;
 }
+
 
 .nav-links a:hover {
-  color: #071d3b;
+  color: var(--white);
+
+  transform: translateY(-1px);
 }
+
 
 .nav-links a.active {
-  color: #071d3b;
+  color: #ffffff;
 }
 
 
-/* Active underline */
+/* =========================================================
+   ACTIVE INDICATOR
+   ========================================================= */
 
 .nav-links a::after {
   content: "";
@@ -165,24 +196,34 @@
   position: absolute;
 
   left: 50%;
-  bottom: 3px;
+  bottom: 4px;
 
   width: 0;
   height: 2px;
 
   transform: translateX(-50%);
 
-  background: #071d3b;
-
   border-radius: 999px;
 
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange),
+      var(--pink)
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(247, 37, 104, 0.35);
+
   transition:
-    width 0.25s ease;
+    width 260ms ease;
 }
+
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-  width: 22px;
+  width: 26px;
 }
 
 
@@ -192,9 +233,26 @@
 
 .nav-buttons {
   display: flex;
+
   align-items: center;
 
+  justify-content: flex-end;
+
+  gap: 10px;
+
   flex-shrink: 0;
+
+  white-space: nowrap;
+}
+
+
+/* Keep existing AuthButtons functionality */
+
+.nav-buttons a,
+.nav-buttons button {
+  font-family:
+    "Manrope",
+    sans-serif;
 }
 
 
@@ -205,10 +263,11 @@
 .menu-toggle {
   display: none;
 
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
@@ -216,25 +275,35 @@
 
   margin-left: 10px;
 
-  color: #071d3b;
+  color: #ffffff;
 
-  background: #f5f7fa;
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
-  border: 1px solid #e5eaf0;
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
 
   border-radius: 10px;
 
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease;
 }
+
 
 .menu-toggle span {
   display: block;
 
-  width: 18px;
+  width: 20px;
   height: 2px;
 
   background: currentColor;
@@ -242,28 +311,31 @@
   border-radius: 999px;
 
   transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.menu-toggle:hover {
-  background: #eef2f7;
-  border-color: #d8e0ea;
+    transform 250ms ease,
+    opacity 200ms ease;
 }
 
 
-/* Animated X */
+/* =========================================================
+   MOBILE X
+   ========================================================= */
 
 .menu-toggle.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform:
+    translateY(7px)
+    rotate(45deg);
 }
+
 
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 
+
 .menu-toggle.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
 }
 
 
@@ -272,68 +344,112 @@
    ========================================================= */
 
 @media (max-width: 1200px) {
+
   .navbar {
     width: calc(100% - 40px);
 
     padding: 0 24px;
   }
 
-  .brand-logo {
-    width: 190px;
-  }
-
-  .brand-logo__image {
-    max-width: 175px;
-    height: 58px;
-  }
-
   .nav-links {
-    gap: 21px;
+    gap: 20px;
   }
 
   .nav-links a {
     font-size: 13px;
   }
+
+}
+@media (max-width: 1200px) {
+  .brand-logo {
+    width: 200px;
+  }
+
+  .brand-logo__image {
+    height: 74px;
+    max-width: 185px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .brand-logo {
+    width: 175px;
+  }
+
+  .brand-logo__image {
+    height: 68px;
+    max-width: 165px;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand-logo {
+    width: auto;
+    flex: 1;
+  }
+
+  .brand-logo__image {
+    height: 62px;
+    max-width: 155px;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-logo__image {
+    height: 58px;
+    max-width: 145px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-logo__image {
+    height: 52px;
+    max-width: 135px;
+  }
 }
 
 
 /* =========================================================
-   TABLET / SMALL DESKTOP
+   SMALL DESKTOP
    ========================================================= */
 
 @media (max-width: 1050px) {
+
   .navbar {
-    height: 76px;
+    height: 88px;
 
     padding: 0 20px;
   }
 
   .brand-logo {
-    width: 170px;
+    width: 155px;
   }
 
   .brand-logo__image {
-    max-width: 155px;
-    height: 54px;
+    height: 62px;
+
+    max-width: 145px;
   }
 
   .nav-links {
-    gap: 16px;
+    gap: 13px;
   }
 
   .nav-links a {
     font-size: 12px;
   }
+
 }
 
 
 /* =========================================================
-   MOBILE / TABLET NAVIGATION
+   MOBILE
    ========================================================= */
 
 @media (max-width: 900px) {
+
   .navbar {
-    height: 72px;
+    height: 82px;
 
     width: calc(100% - 28px);
 
@@ -342,16 +458,24 @@
     border-radius: 16px;
   }
 
+
   .brand-logo {
     width: auto;
 
     flex: 1;
   }
 
+
   .brand-logo__image {
-    height: 50px;
-    max-width: 155px;
+    height: 58px;
+
+    max-width: 145px;
   }
+
+
+  /* =========================
+     MOBILE NAV
+  ========================= */
 
   .nav-links {
     position: absolute;
@@ -364,38 +488,57 @@
     width: 100%;
 
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
 
-    gap: 3px;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 4px;
 
     padding: 10px;
 
-    background: rgba(255, 255, 255, 0.97);
+    background:
+      rgba(
+        7,
+        20,
+        38,
+        0.98
+      );
 
     backdrop-filter: blur(20px);
+
     -webkit-backdrop-filter: blur(20px);
 
-    border: 1px solid rgba(7, 29, 59, 0.08);
+    border:
+      1px solid
+      rgba(
+        255,
+        255,
+        255,
+        0.1
+      );
 
     border-radius: 16px;
 
     box-shadow:
-      0 20px 45px rgba(7, 29, 59, 0.12);
+      0 20px 50px
+      rgba(0, 0, 0, 0.3);
 
     opacity: 0;
+
     visibility: hidden;
 
-    transform: translateY(-8px);
+    transform:
+      translateY(-8px);
 
     pointer-events: none;
 
     transition:
-      opacity 0.25s ease,
-      visibility 0.25s ease,
-      transform 0.25s ease;
+      opacity 250ms ease,
+      visibility 250ms ease,
+      transform 250ms ease;
   }
+
 
   .nav-links.active {
     opacity: 1;
@@ -407,36 +550,62 @@
     pointer-events: auto;
   }
 
+
   .nav-links li {
     width: 100%;
   }
 
+
   .nav-links a {
     width: 100%;
-    height: 48px;
 
-    padding: 0 15px;
+    height: 50px;
+
+    padding: 0 16px;
+
+    justify-content: flex-start;
 
     border-radius: 10px;
 
     font-size: 14px;
   }
 
+
   .nav-links a:hover {
-    background: #f5f7fa;
+    background:
+      rgba(
+        255,
+        255,
+        255,
+        0.06
+      );
+
+    transform: none;
   }
 
-  .nav-links a.active {
-    background: #eef3f8;
-  }
 
   .nav-links a::after {
     display: none;
   }
 
+
+  /* =========================
+     AUTH HIDDEN
+  ========================= */
+
+  .nav-buttons {
+    display: none;
+  }
+
+
+  /* =========================
+     MENU
+  ========================= */
+
   .menu-toggle {
     display: flex;
   }
+
 }
 
 
@@ -445,56 +614,73 @@
    ========================================================= */
 
 @media (max-width: 600px) {
+
   .navbar {
     top: 12px;
 
     width: calc(100% - 24px);
 
-    height: 68px;
+    height: 76px;
 
     padding: 0 12px;
-
-    border-radius: 14px;
   }
+
 
   .brand-logo__image {
-    height: 46px;
+    height: 54px;
 
-    max-width: 140px;
+    max-width: 135px;
   }
+
 
   .menu-toggle {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
-  .nav-buttons {
-    margin-left: 8px;
-  }
 }
 
 
 /* =========================================================
-   EXTRA SMALL MOBILE
+   EXTRA SMALL
    ========================================================= */
 
 @media (max-width: 420px) {
+
   .navbar {
     width: calc(100% - 18px);
 
     padding: 0 10px;
   }
 
+
   .brand-logo__image {
-    height: 42px;
+    height: 50px;
 
     max-width: 125px;
   }
 
-  .menu-toggle {
-    width: 38px;
-    height: 38px;
 
-    margin-left: 6px;
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
   }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar *,
+  .navbar *::before,
+  .navbar *::after {
+    transition-duration: 1ms !important;
+
+    animation-duration: 1ms !important;
+  }
+
 }
