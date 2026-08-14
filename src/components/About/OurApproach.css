@@ -954,4 +954,193 @@ font-family: var(--our-way-font);
     transition: none !important;
   }
 
-}\n\n/* =========================================================\n   VUTKALA TYPOGRAPHY + PREMIUM MOTION ENHANCEMENTS\n   ========================================================= */\n\n.our-way-section,\n.our-way-section h1,\n.our-way-section h2,\n.our-way-section h3,\n.our-way-section h4,\n.our-way-section p,\n.our-way-section span,\n.our-way-section small {\n  font-family: var(--our-way-font);\n}\n\n.our-way-heading {\n  font-family: var(--our-way-font);\n  font-weight: 800;\n  line-height: 0.98;\n  letter-spacing: -0.045em;\n  text-rendering: optimizeLegibility;\n  text-wrap: balance;\n}\n\n.our-way-intro-copy p {\n  font-family: var(--our-way-font);\n  font-weight: 400;\n  line-height: 1.65;\n  letter-spacing: -0.005em;\n  text-wrap: pretty;\n}\n\n.our-way-item-content h3 {\n  font-family: var(--our-way-font);\n  font-weight: 700;\n  letter-spacing: 0.04em;\n}\n\n.our-way-item-content p {\n  font-family: var(--our-way-font);\n  font-weight: 400;\n  line-height: 1.6;\n}\n\n.our-way-number,\n.our-way-label,\n.our-way-top-right,\n.our-way-kicker,\n.our-way-item-number,\n.our-way-flow,\n.our-way-bottom {\n  font-family: var(--our-way-font);\n}\n\n.our-way-section::before {\n  animation: ourWayGlowTop 9s ease-in-out infinite alternate;\n}\n\n.our-way-section::after {\n  animation: ourWayGlowBottom 11s ease-in-out infinite alternate;\n}\n\n.our-way-item {\n  transition: opacity 700ms ease, transform 800ms cubic-bezier(.22,1,.36,1), border-color 300ms ease, background-color 300ms ease;\n}\n\n.our-way-item:hover {\n  transform: translateY(-4px);\n}\n\n.our-way-item-icon,\n.our-way-item-arrow {\n  will-change: transform;\n}\n\n.our-way-section--visible .our-way-item:nth-child(1) { transition-delay: 700ms; }\n.our-way-section--visible .our-way-item:nth-child(2) { transition-delay: 820ms; }\n.our-way-section--visible .our-way-item:nth-child(3) { transition-delay: 940ms; }\n.our-way-section--visible .our-way-item:nth-child(4) { transition-delay: 1060ms; }\n\n@keyframes ourWayGlowTop {\n  from { transform: translate3d(0,0,0) scale(1); }\n  to { transform: translate3d(-18px,14px,0) scale(1.04); }\n}\n\n@keyframes ourWayGlowBottom {\n  from { transform: translate3d(0,0,0) scale(1); }\n  to { transform: translate3d(20px,-12px,0) scale(1.05); }\n}\n\n@media (max-width: 767px) {\n  .our-way-heading {\n    font-weight: 800;\n    line-height: 1.02;\n    letter-spacing: -0.04em;\n  }\n\n  .our-way-intro-copy p {\n    font-size: 13px;\n    line-height: 1.65;\n  }\n\n  .our-way-item-content h3 { font-weight: 700; }\n  .our-way-item:hover { transform: none; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .our-way-section::before,\n  .our-way-section::after { animation: none !important; }\n  .our-way-item:hover { transform: none !important; }\n}\n
+}\n\n
+
+
+
+
+/* =========================================================
+   VUTKALA TYPOGRAPHY + PREMIUM MOTION ENHANCEMENTS
+   ========================================================= */
+
+.our-way-section,
+.our-way-section h1,
+.our-way-section h2,
+.our-way-section h3,
+.our-way-section h4,
+.our-way-section p,
+.our-way-section span,
+.our-way-section small {
+  font-family: var(--our-way-font);
+}
+
+.our-way-heading {
+  font-family: var(--our-way-font);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-rendering: optimizeLegibility;
+  text-wrap: balance;
+}
+
+.our-way-intro-copy p {
+  font-family: var(--our-way-font);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  text-wrap: pretty;
+}
+
+.our-way-item-content h3 {
+  font-family: var(--our-way-font);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.our-way-item-content p {
+  font-family: var(--our-way-font);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.our-way-number,
+.our-way-label,
+.our-way-top-right,
+.our-way-kicker,
+.our-way-item-number,
+.our-way-flow,
+.our-way-bottom {
+  font-family: var(--our-way-font);
+}
+
+.our-way-section::before {
+  animation:
+    ourWayGlowTop
+    9s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.our-way-section::after {
+  animation:
+    ourWayGlowBottom
+    11s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.our-way-item {
+  transition:
+    opacity 700ms ease,
+    transform 800ms cubic-bezier(.22, 1, .36, 1),
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.our-way-item:hover {
+  transform: translateY(-4px);
+}
+
+.our-way-item-icon,
+.our-way-item-arrow {
+  will-change: transform;
+}
+
+.our-way-section--visible
+.our-way-item:nth-child(1) {
+  transition-delay: 700ms;
+}
+
+.our-way-section--visible
+.our-way-item:nth-child(2) {
+  transition-delay: 820ms;
+}
+
+.our-way-section--visible
+.our-way-item:nth-child(3) {
+  transition-delay: 940ms;
+}
+
+.our-way-section--visible
+.our-way-item:nth-child(4) {
+  transition-delay: 1060ms;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes ourWayGlowTop {
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(-18px, 14px, 0)
+      scale(1.04);
+  }
+}
+
+@keyframes ourWayGlowBottom {
+  from {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  to {
+    transform:
+      translate3d(20px, -12px, 0)
+      scale(1.05);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .our-way-heading {
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .our-way-intro-copy p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .our-way-item-content h3 {
+    font-weight: 700;
+  }
+
+  .our-way-item:hover {
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .our-way-section::before,
+  .our-way-section::after {
+    animation: none !important;
+  }
+
+  .our-way-item:hover {
+    transform: none !important;
+  }
+}
