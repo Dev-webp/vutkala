@@ -21,14 +21,33 @@
 .about-hero__background {
   position: absolute;
   inset: 0;
+
   z-index: -3;
-  background-image: url("../../assets/About/about-hero.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+
+  overflow: hidden;
+
+  background: #171717;
+
   transform: scale(1.01);
+
   will-change: transform;
-  animation: aboutHeroImageIn 1200ms cubic-bezier(.22,1,.36,1) both;
+
+  animation:
+    aboutHeroImageIn
+    1200ms
+    cubic-bezier(.22, 1, .36, 1)
+    both;
+}
+
+.about-hero__background img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center center;
 }
 
 .about-hero__overlay {
@@ -455,6 +474,21 @@
     background-position: 68% center;
   }
 }
+
+
+@media (max-width: 767px) {
+  .about-hero__background img {
+    object-position: 63% center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero__background img {
+    object-position: 68% center;
+  }
+}
+
+
 
 @media (prefers-reduced-motion: reduce) {
   .about-hero *,

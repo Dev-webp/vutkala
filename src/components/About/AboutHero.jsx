@@ -42,7 +42,7 @@ export default function AboutHero() {
         visible ? "about-hero--visible" : ""
       }`}
     >
-      {/* BACKGROUND IMAGE */}
+      {/* ONE BACKGROUND IMAGE */}
 
       <div className="about-hero__background">
         <img
@@ -51,55 +51,43 @@ export default function AboutHero() {
         />
       </div>
 
-      {/* IMAGE OVERLAY */}
+      {/* OVERLAY */}
 
       <div className="about-hero__overlay" />
 
       {/* CONTENT */}
 
       <div className="about-hero__container">
-
         <div className="about-hero__content">
-
-          {/* EYEBROW */}
 
           <div className="about-hero__eyebrow">
             <span className="about-hero__eyebrow-line" />
             ABOUT VUTKALA
           </div>
 
-
-          {/* HEADING */}
-
           <h1 className="about-hero__title">
-
             <span className="about-hero__title-line">
               PEOPLE.
             </span>
-            <br/>
+
+            <br />
 
             <span className="about-hero__title-line">
               TECHNOLOGY.
             </span>
-             <br/>
+
+            <br />
 
             <span className="about-hero__title-line about-hero__title-line--accent">
               POSSIBILITY.
             </span>
-
           </h1>
-
-
-          {/* DESCRIPTION */}
 
           <p className="about-hero__description">
             We bring together exceptional people,
             technology and expertise to help
             organizations move forward.
           </p>
-
-
-          {/* ACTION */}
 
           <button
             type="button"
@@ -114,12 +102,7 @@ export default function AboutHero() {
           </button>
 
         </div>
-
       </div>
-
-
-      {/* BOTTOM META */}
-
     </section>
   );
 }
