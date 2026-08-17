@@ -1184,30 +1184,121 @@
    MOBILE
 ========================================================= */
 
+/* =========================================================
+   MOBILE TEXT COLLISION FIX
+   KEEP ORIGINAL DESIGN / LAYOUT
+   ========================================================= */
+
 @media (max-width: 767px) {
 
-  .why-vutkala {
-    min-height: auto;
+  /* Keep the original diagram */
+  .why-vutkala__diagram {
+    height: 430px;
+    margin-top: 18px;
   }
 
-  .why-vutkala__inner {
-    min-height: auto;
-
-    padding:
-      55px
-      20px
-      40px;
+  /* Keep all four points in their original absolute design */
+  .why-point {
+    position: absolute;
+    width: 135px;
   }
 
-  .why-vutkala__eyebrow {
-    font-size: 8px;
-
-    margin-bottom: 19px;
+  /* PEOPLE */
+  .why-point--people {
+    left: 0;
+    top: 35px;
+    text-align: left;
   }
 
-  
+  /* TECHNOLOGY */
+  .why-point--technology {
+    right: 0;
+    top: 35px;
+    text-align: right;
+  }
+
+  /* EXPERTISE */
+  .why-point--expertise {
+    left: 0;
+    top: 245px;
+    text-align: left;
+  }
+
+  /* PARTNERSHIP */
+  .why-point--partnership {
+    right: 0;
+    top: 245px;
+    text-align: right;
+  }
+
+
+  /* Keep the center hub */
+  .why-vutkala__hub {
+    width: 145px;
+    height: 145px;
+
+    left: 50%;
+    top: 205px;
+  }
+
+
+  /* Smaller title — same visual style */
+  .why-point h3 {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .why-point h4 {
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 7px 0 5px;
+  }
+
+
+  /* The important collision fix */
+  .why-point p {
+    max-width: 135px;
+
+    font-size: 10px;
+    line-height: 1.55;
+
+    margin-top: 0;
+  }
+
+  /* Right-side paragraphs stay aligned right */
+  .why-point--technology p,
+  .why-point--partnership p {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+
+  /* Keep icon size/style */
+  .why-point__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .why-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  /* Keep original heading style */
+  .why-vutkala__heading {
+    font-size: clamp(34px, 9vw, 42px);
+    line-height: 1.03;
+  }
+
+
+  /* Give the intro enough breathing room before diagram */
+  .why-vutkala__intro {
+    margin-top: 20px;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
 }
-
 /* =========================================================
    REDUCED MOTION
 ========================================================= */

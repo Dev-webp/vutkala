@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/jobs";
-
+const API = "/api/jobs";
 
 // =====================================================
 // GET ALL JOBS
@@ -14,31 +13,21 @@ const API = "http://localhost:5000/api/jobs";
 // getJobs("?industry=Healthcare")
 // =====================================================
 
-export const getJobs = async (
-  queryString = ""
-) => {
-  return await axios.get(
-    `${API}${queryString}`,
-    {
-      withCredentials: true,
-    }
-  );
+export const getJobs = async (queryString = "") => {
+  return await axios.get(`${API}${queryString}`, {
+    withCredentials: true,
+  });
 };
-
 
 // =====================================================
 // GET SINGLE JOB
 // =====================================================
 
 export const getJob = async (id) => {
-  return await axios.get(
-    `${API}/${id}`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`${API}/${id}`, {
+    withCredentials: true,
+  });
 };
-
 
 // =====================================================
 // CREATE JOB
@@ -46,34 +35,21 @@ export const getJob = async (id) => {
 // =====================================================
 
 export const createJob = async (data) => {
-  return await axios.post(
-    API,
-    data,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.post(API, data, {
+    withCredentials: true,
+  });
 };
-
 
 // =====================================================
 // UPDATE JOB
 // RECRUITER / ADMIN
 // =====================================================
 
-export const updateJob = async (
-  id,
-  data
-) => {
-  return await axios.put(
-    `${API}/${id}`,
-    data,
-    {
-      withCredentials: true,
-    }
-  );
+export const updateJob = async (id, data) => {
+  return await axios.put(`${API}/${id}`, data, {
+    withCredentials: true,
+  });
 };
-
 
 // =====================================================
 // ARCHIVE / DELETE JOB
@@ -81,14 +57,10 @@ export const updateJob = async (
 // =====================================================
 
 export const deleteJob = async (id) => {
-  return await axios.delete(
-    `${API}/${id}`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.delete(`${API}/${id}`, {
+    withCredentials: true,
+  });
 };
-
 
 // =====================================================
 // GET MY JOBS
@@ -96,10 +68,7 @@ export const deleteJob = async (id) => {
 // =====================================================
 
 export const getMyJobs = async () => {
-  return await axios.get(
-    `${API}/my`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`${API}/my`, {
+    withCredentials: true,
+  });
 };

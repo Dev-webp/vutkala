@@ -1,26 +1,15 @@
 import axios from "axios";
 
-const API =
-  "http://localhost:5000/api/organizations";
+const API = "/api/organizations";
 
 export const getMyOrganization = async () => {
-  return await axios.get(
-    `${API}/my`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`${API}/my`, {
+    withCredentials: true,
+  });
 };
 
-
-export const updateMyOrganization = async (
-  data
-) => {
-  return await axios.put(
-    `${API}/my`,
-    data,
-    {
-      withCredentials: true,
-    }
-  );
+export const updateMyOrganization = async (data) => {
+  return await axios.put(`${API}/my`, data, {
+    withCredentials: true,
+  });
 };

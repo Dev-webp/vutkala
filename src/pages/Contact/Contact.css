@@ -2654,3 +2654,203 @@ transform:scale(1.12);
 }
 
 
+/* ============================================================= */
+/* Mobile - Floating Info Cards */
+/* ============================================================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: auto;
+    padding: 120px 20px 70px;
+    overflow: visible;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__heading {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero__description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Floating cards */
+  .info-cards {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    margin-top: 50px;
+
+    padding: 0 5px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .info-card {
+    width: 100%;
+    padding: 20px 18px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    border-radius: 16px;
+  }
+
+  .info-card__icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 0.95rem;
+  }
+
+  .info-card__text h4 {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+
+  .info-card__text p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+}
+
+/* =========================================================
+   VUTKALA PREMIUM SCROLL REVEAL
+   ========================================================= */
+
+.contact-page .scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.contact-page .scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   LEFT REVEAL
+   ========================================================= */
+
+.contact-page .scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-70px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.contact-page .scroll-reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   RIGHT REVEAL
+   ========================================================= */
+
+.contact-page .scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(70px);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.contact-page .scroll-reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   SCALE REVEAL
+   ========================================================= */
+
+.contact-page .scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.contact-page .scroll-reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* =========================================================
+   STAGGER DELAYS
+   ========================================================= */
+
+.contact-page .delay-1 {
+  transition-delay: 100ms;
+}
+
+.contact-page .delay-2 {
+  transition-delay: 200ms;
+}
+
+.contact-page .delay-3 {
+  transition-delay: 300ms;
+}
+
+.contact-page .delay-4 {
+  transition-delay: 400ms;
+}
+
+.contact-page .delay-5 {
+  transition-delay: 500ms;
+}
+
+.contact-page .delay-6 {
+  transition-delay: 600ms;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-page .scroll-reveal,
+  .contact-page .scroll-reveal-left,
+  .contact-page .scroll-reveal-right,
+  .contact-page .scroll-reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

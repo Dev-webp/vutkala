@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../../services/api";
 import "./FindOpportunities.css";
 
 /* =========================================================
@@ -709,32 +710,27 @@ const handleSubmit = async (event) => {
       "Sending request to candidate API..."
     );
 
-    const response = await fetch(
-      "http://localhost:5000/api/candidate-interests",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
+   const response = await api.post(
+  "/candidate-interests",
+  data
+);
 
     console.log(
       "Candidate API status:",
       response.status
     );
 
-    const result = await response.json();
-
     console.log(
-      "Candidate API response:",
-      result
-    );
+  "Candidate API status:",
+  response.status
+);
 
-    if (!response.ok) {
-      throw new Error(
-        result.message ||
-          "Failed to submit profile."
-      );
-    }
+const result = response.data;
+
+console.log(
+  "Candidate API response:",
+  result
+);
 
     console.log(
       "Candidate submitted successfully."

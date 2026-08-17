@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import "./Register.css";
 import { sendRegisterOTP } from "../../services/authService.js";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaLock,
+  FaBuilding,
+} from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -11,17 +19,14 @@ const Register = () => {
   // =========================================================
 
   const [formData, setFormData] = useState({
-    // Personal details
     fullName: "",
     email: "",
     phone: "",
     password: "",
     confirmPassword: "",
 
-    // Account role
     role: "JOB_SEEKER",
 
-    // Organization details
     companyName: "",
     companyEmail: "",
     companyPhone: "",
@@ -103,7 +108,9 @@ const Register = () => {
         !formData.city.trim() ||
         !formData.country.trim()
       ) {
-        setError("Please fill all required organization details.");
+        setError(
+          "Please fill all required organization details."
+        );
         return;
       }
     }
@@ -120,12 +127,9 @@ const Register = () => {
       console.log("Backend response:", response.data);
 
       setSuccess(
-        response.data.message || "OTP sent successfully."
+        response.data.message ||
+          "OTP sent successfully."
       );
-
-      // =====================================================
-      // GO TO OTP VERIFICATION
-      // =====================================================
 
       navigate("/verify-otp", {
         state: formData,
@@ -148,240 +152,563 @@ const Register = () => {
   };
 
   // =========================================================
-  // JSX
+  // UI
   // =========================================================
 
   return (
-    <div className="register-container">
+    <div className="register-page">
 
-      <div className="register-card">
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
 
-        <h1>Create Account</h1>
+      <div className="register-bg" />
+      <div className="register-overlay" />
 
-        <p>
-          Register as a Job Seeker or Recruiter
-        </p>
+      {/* =====================================================
+          MAIN CONTENT
+      ===================================================== */}
 
-        <form onSubmit={handleSubmit}>
+      <div className="register-content">
 
-          {/* =================================================
-              PERSONAL DETAILS
-          ================================================= */}
+        {/* ===================================================
+            BRAND SIDE
+        =================================================== */}
 
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-          />
+        <div className="register-brand">
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-          />
+          <span className="register-eyebrow">
+            VUTKALA GLOBAL
+          </span>
 
-          <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-          />
+          <h1>
+            Tech. Talent.
+            <br />
+            <span>Transformation.</span>
+          </h1>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-          />
+          <p>
+            Connect with people, technology and
+            opportunities that create meaningful
+            growth and lasting impact.
+          </p>
 
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
+          <div className="register-brand-line" />
 
-          {/* =================================================
-              ROLE
-          ================================================= */}
+          <div className="register-brand-points">
+            <span>PEOPLE</span>
+            <span>TECHNOLOGY</span>
+            <span>OPPORTUNITY</span>
+          </div>
 
-          <div className="role-section">
+        </div>
 
-            <label>
 
-              <input
-                type="radio"
-                name="role"
-                value="JOB_SEEKER"
-                checked={formData.role === "JOB_SEEKER"}
-                onChange={handleChange}
-              />
+        {/* ===================================================
+            REGISTER CARD
+        =================================================== */}
 
-              Job Seeker
+        <div className="register-card">
 
-            </label>
+          {/* CARD HEADER */}
 
-            <label>
+          <div className="register-card-header">
 
-              <input
-                type="radio"
-                name="role"
-                value="RECRUITER"
-                checked={formData.role === "RECRUITER"}
-                onChange={handleChange}
-              />
+            <span className="register-card-eyebrow">
+              GET STARTED
+            </span>
 
-              Recruiter
+            <h2>
+              Create <span>Account</span>
+            </h2>
 
-            </label>
+            <p>
+              Join Vutkala and start your journey with us.
+            </p>
 
           </div>
 
+
           {/* =================================================
-              RECRUITER ORGANIZATION DETAILS
-              ONLY DISPLAY FOR RECRUITER
+              FORM
           ================================================= */}
 
-          {formData.role === "RECRUITER" && (
-            <div className="organization-section">
+          <form onSubmit={handleSubmit}>
 
-              <h2>Organization Details</h2>
+            {/* =================================================
+                PERSONAL DETAILS
+            ================================================= */}
 
-              <p className="organization-description">
-                Provide your organization information for admin
-                verification.
-              </p>
+            <div className="register-field">
 
-              <input
-                type="text"
-                name="companyName"
-                placeholder="Company Name *"
-                value={formData.companyName}
-                onChange={handleChange}
-              />
+              <label htmlFor="fullName">
+                Full Name
+              </label>
 
-              <input
-                type="email"
-                name="companyEmail"
-                placeholder="Company Email *"
-                value={formData.companyEmail}
-                onChange={handleChange}
-              />
+              <div className="register-input-wrap">
 
-              <input
-                type="text"
-                name="companyPhone"
-                placeholder="Company Phone *"
-                value={formData.companyPhone}
-                onChange={handleChange}
-              />
+                <FaUser className="register-input-icon" />
 
-              <input
-                type="url"
-                name="website"
-                placeholder="Company Website"
-                value={formData.website}
-                onChange={handleChange}
-              />
+                <input
+                  id="fullName"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                />
 
-              <input
-                type="text"
-                name="industry"
-                placeholder="Industry *"
-                value={formData.industry}
-                onChange={handleChange}
-              />
-
-              <input
-                type="text"
-                name="companySize"
-                placeholder="Company Size *"
-                value={formData.companySize}
-                onChange={handleChange}
-              />
-
-              <input
-                type="text"
-                name="address"
-                placeholder="Company Address *"
-                value={formData.address}
-                onChange={handleChange}
-              />
-
-              <input
-                type="text"
-                name="city"
-                placeholder="City *"
-                value={formData.city}
-                onChange={handleChange}
-              />
-
-              <input
-                type="text"
-                name="country"
-                placeholder="Country *"
-                value={formData.country}
-                onChange={handleChange}
-              />
-
-              <textarea
-                name="description"
-                placeholder="Company Description"
-                value={formData.description}
-                onChange={handleChange}
-                rows={4}
-              />
+              </div>
 
             </div>
-          )}
 
-          {/* =================================================
-              ERROR
-          ================================================= */}
 
-          {error && (
-            <p className="error">
-              {error}
-            </p>
-          )}
+            {/* EMAIL */}
 
-          {/* =================================================
-              SUCCESS
-          ================================================= */}
+            <div className="register-field">
 
-          {success && (
-            <p className="success">
-              {success}
-            </p>
-          )}
+              <label htmlFor="email">
+                Email Address
+              </label>
 
-          {/* =================================================
-              REGISTER BUTTON
-          ================================================= */}
+              <div className="register-input-wrap">
 
-          <button type="submit">
-            Register
-          </button>
+                <FaEnvelope className="register-input-icon" />
 
-          {/* =================================================
-              LOGIN LINK
-          ================================================= */}
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
 
-          <p>
-            Already have an account?{" "}
-            <Link to="/login">
-              Login
-            </Link>
-          </p>
+              </div>
 
-        </form>
+            </div>
+
+
+            {/* PHONE */}
+
+            <div className="register-field">
+
+              <label htmlFor="phone">
+                Phone Number
+              </label>
+
+              <div className="register-input-wrap">
+
+                <FaPhone className="register-input-icon" />
+
+                <input
+                  id="phone"
+                  type="text"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* PASSWORD ROW */}
+
+            <div className="register-form-row">
+
+              <div className="register-field">
+
+                <label htmlFor="password">
+                  Password
+                </label>
+
+                <div className="register-input-wrap">
+
+                  <FaLock className="register-input-icon" />
+
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div className="register-field">
+
+                <label htmlFor="confirmPassword">
+                  Confirm Password
+                </label>
+
+                <div className="register-input-wrap">
+
+                  <FaLock className="register-input-icon" />
+
+                  <input
+                    id="confirmPassword"
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm password"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                ROLE
+            ================================================= */}
+
+            <div className="register-field">
+
+              <label>
+                Register As
+              </label>
+
+              <div className="role-section">
+
+                <label
+                  className={
+                    formData.role === "JOB_SEEKER"
+                      ? "role-active"
+                      : ""
+                  }
+                >
+
+                  <input
+                    type="radio"
+                    name="role"
+                    value="JOB_SEEKER"
+                    checked={
+                      formData.role === "JOB_SEEKER"
+                    }
+                    onChange={handleChange}
+                  />
+
+                  <span>
+                    Job Seeker
+                  </span>
+
+                </label>
+
+
+                <label
+                  className={
+                    formData.role === "RECRUITER"
+                      ? "role-active"
+                      : ""
+                  }
+                >
+
+                  <input
+                    type="radio"
+                    name="role"
+                    value="RECRUITER"
+                    checked={
+                      formData.role === "RECRUITER"
+                    }
+                    onChange={handleChange}
+                  />
+
+                  <span>
+                    Recruiter
+                  </span>
+
+                </label>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                RECRUITER ORGANIZATION
+            ================================================= */}
+
+            {formData.role === "RECRUITER" && (
+
+              <div className="organization-section">
+
+                <div className="organization-header">
+
+                  <div className="organization-icon">
+                    <FaBuilding />
+                  </div>
+
+                  <div>
+                    <h3>
+                      Organization Details
+                    </h3>
+
+                    <p>
+                      Provide your organization information
+                      for admin verification.
+                    </p>
+                  </div>
+
+                </div>
+
+
+                <div className="register-field">
+
+                  <label>
+                    Company Name *
+                  </label>
+
+                  <input
+                    type="text"
+                    name="companyName"
+                    placeholder="Company Name"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+
+                <div className="register-form-row">
+
+                  <div className="register-field">
+
+                    <label>
+                      Company Email *
+                    </label>
+
+                    <input
+                      type="email"
+                      name="companyEmail"
+                      placeholder="Company Email"
+                      value={formData.companyEmail}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+
+                  <div className="register-field">
+
+                    <label>
+                      Company Phone *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="companyPhone"
+                      placeholder="Company Phone"
+                      value={formData.companyPhone}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+                </div>
+
+
+                <div className="register-form-row">
+
+                  <div className="register-field">
+
+                    <label>
+                      Industry *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="industry"
+                      placeholder="Industry"
+                      value={formData.industry}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+
+                  <div className="register-field">
+
+                    <label>
+                      Company Size *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="companySize"
+                      placeholder="Company Size"
+                      value={formData.companySize}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+                </div>
+
+
+                <div className="register-field">
+
+                  <label>
+                    Website
+                  </label>
+
+                  <input
+                    type="url"
+                    name="website"
+                    placeholder="https://company.com"
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+
+                <div className="register-field">
+
+                  <label>
+                    Address *
+                  </label>
+
+                  <input
+                    type="text"
+                    name="address"
+                    placeholder="Company Address"
+                    value={formData.address}
+                    onChange={handleChange}
+                  />
+
+                </div>
+
+
+                <div className="register-form-row">
+
+                  <div className="register-field">
+
+                    <label>
+                      City *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="city"
+                      placeholder="City"
+                      value={formData.city}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+
+                  <div className="register-field">
+
+                    <label>
+                      Country *
+                    </label>
+
+                    <input
+                      type="text"
+                      name="country"
+                      placeholder="Country"
+                      value={formData.country}
+                      onChange={handleChange}
+                    />
+
+                  </div>
+
+                </div>
+
+
+                <div className="register-field">
+
+                  <label>
+                    Company Description
+                  </label>
+
+                  <textarea
+                    name="description"
+                    placeholder="Tell us about your organization"
+                    value={formData.description}
+                    onChange={handleChange}
+                    rows={4}
+                  />
+
+                </div>
+
+              </div>
+
+            )}
+
+
+            {/* =================================================
+                ERROR
+            ================================================= */}
+
+            {error && (
+              <p className="register-message register-error">
+                {error}
+              </p>
+            )}
+
+
+            {/* =================================================
+                SUCCESS
+            ================================================= */}
+
+            {success && (
+              <p className="register-message register-success">
+                {success}
+              </p>
+            )}
+
+
+            {/* =================================================
+                REGISTER
+            ================================================= */}
+
+            <button
+              type="submit"
+              className="register-submit"
+            >
+
+              <span>
+                Create Account
+              </span>
+
+              <FaArrowRight />
+
+            </button>
+
+
+            {/* =================================================
+                LOGIN
+            ================================================= */}
+
+            <div className="register-login">
+
+              <span>
+                Already have an account?
+              </span>
+
+              <Link to="/login">
+                Login
+                <FaArrowRight />
+              </Link>
+
+            </div>
+
+          </form>
+
+        </div>
 
       </div>
 

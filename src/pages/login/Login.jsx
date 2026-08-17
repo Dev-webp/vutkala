@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaArrowRight, FaLock, FaEnvelope } from "react-icons/fa";
 
 import { useAuth } from "../../context/AuthContext";
 
@@ -19,7 +20,6 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
-
   // =====================================================
   // INPUT CHANGE
   // =====================================================
@@ -31,7 +31,6 @@ const Login = () => {
     });
   };
 
-
   // =====================================================
   // LOGIN
   // =====================================================
@@ -42,128 +41,71 @@ const Login = () => {
     setError("");
     setSuccess("");
 
-
-    // Validate
     if (!formData.email || !formData.password) {
       setError("Please enter email and password.");
       return;
     }
 
-
     try {
       setLoading(true);
 
-
-      // Call AuthContext login
       const response = await login(formData);
 
-      console.log(
-        "Login response:",
-        response.data
-      );
+      console.log("Login response:", response.data);
 
-
-      // Login failed
       if (!response.data.success) {
         setError(
-          response.data.message ||
-            "Login failed."
+          response.data.message || "Login failed."
         );
-
         return;
       }
 
-
-      // Logged-in user
       const user = response.data.user;
 
-      console.log(
-        "Logged-in user:",
-        user
-      );
+      console.log("Logged-in user:", user);
 
-
-      setSuccess(
-        "Login successful."
-      );
-
+      setSuccess("Login successful.");
 
       // =================================================
       // ROLE-BASED REDIRECT
       // =================================================
 
       if (user.role === "ADMIN") {
-
-        navigate(
-          "/admin/dashboard",
-          {
-            replace: true,
-          }
-        );
-
-      } else if (
-        user.role === "RECRUITER"
-      ) {
-
-        navigate(
-          "/recruiter",
-          {
-            replace: true,
-          }
-        );
-
-      } else if (
-        user.role === "JOB_SEEKER"
-      ) {
-
-        navigate(
-          "/seeker",
-          {
-            replace: true,
-          }
-        );
-
+        navigate("/admin/dashboard", {
+          replace: true,
+        });
+      } else if (user.role === "RECRUITER") {
+        navigate("/recruiter", {
+          replace: true,
+        });
+      } else if (user.role === "JOB_SEEKER") {
+        navigate("/seeker", {
+          replace: true,
+        });
       } else {
-
-        navigate(
-          "/",
-          {
-            replace: true,
-          }
-        );
-
+        navigate("/", {
+          replace: true,
+        });
       }
 
     } catch (error) {
-
-      console.error(
-        "Login error:",
-        error
-      );
-
+      console.error("Login error:", error);
 
       if (error.response) {
-
         setError(
           error.response.data.message ||
             "Login failed."
         );
-
       } else {
-
         setError(
           "Unable to connect to the server."
         );
-
       }
 
     } finally {
-
       setLoading(false);
-
     }
   };
-
 
   // =====================================================
   // UI
@@ -172,95 +114,197 @@ const Login = () => {
   return (
     <div className="login-page">
 
-      <div className="login-card">
+      {/* =================================================
+          BACKGROUND
+      ================================================= */}
 
-        <h1>
-          Login
-        </h1>
+      <div className="login-bg" />
+      <div className="login-overlay" />
 
-        <p>
-          Welcome Back
-        </p>
+      {/* =================================================
+          MAIN CONTENT
+      ================================================= */}
 
+      <div className="login-content">
 
-        <form
-          onSubmit={handleSubmit}
-        >
+        {/* BRAND SIDE */}
 
-          {/* EMAIL */}
+        <div className="login-brand">
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            disabled={loading}
-          />
+          <span className="login-eyebrow">
+            VUTKALA GLOBAL TECHNOLOGIES
+          </span>
 
+          <h1>
+            Connecting Talent.
+            <br />
+            <span>Creating Opportunity.</span>
+          </h1>
 
-          {/* PASSWORD */}
+          <p>
+            Connect with people, technology and
+            opportunities that move businesses forward.
+          </p>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-            disabled={loading}
-          />
+          <div className="login-brand-line" />
 
+          <div className="login-brand-points">
+            <span>PEOPLE</span>
+            <span>TECHNOLOGY</span>
+            <span>OPPORTUNITY</span>
+          </div>
 
-          {/* ERROR */}
-
-          {error && (
-            <p className="error">
-              {error}
-            </p>
-          )}
-
-
-          {/* SUCCESS */}
-
-          {success && (
-            <p className="success">
-              {success}
-            </p>
-          )}
-
-
-          {/* LOGIN BUTTON */}
-
-          <button
-            type="submit"
-            disabled={loading}
-          >
-            {loading
-              ? "Logging in..."
-              : "Login"}
-          </button>
-
-        </form>
+        </div>
 
 
         {/* =================================================
-            LINKS
+            LOGIN CARD
         ================================================= */}
 
-        <div className="login-links">
+        <div className="login-card">
 
-          <Link to="/forgot">
-            Forgot Password?
-          </Link>
+          {/* CARD HEADER */}
+
+          <div className="login-card-header">
+
+            <span className="login-card-eyebrow">
+              WELCOME BACK
+            </span>
+
+            <h2>
+              Sign <span>In</span>
+            </h2>
+
+            <p>
+              Login to continue to your Vutkala account.
+            </p>
+
+          </div>
 
 
-          <p>
-            Don't have an account?{" "}
+          {/* FORM */}
+
+          <form onSubmit={handleSubmit}>
+
+            {/* EMAIL */}
+
+            <div className="login-input-group">
+
+              <label htmlFor="email">
+                Email Address
+              </label>
+
+              <div className="login-input-wrap">
+
+                <FaEnvelope className="login-input-icon" />
+
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={loading}
+                  autoComplete="email"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* PASSWORD */}
+
+            <div className="login-input-group">
+
+              <div className="login-label-row">
+
+                <label htmlFor="password">
+                  Password
+                </label>
+
+                <Link to="/forgot">
+                  Forgot Password?
+                </Link>
+
+              </div>
+
+              <div className="login-input-wrap">
+
+                <FaLock className="login-input-icon" />
+
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  disabled={loading}
+                  autoComplete="current-password"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* ERROR */}
+
+            {error && (
+              <div className="login-message login-error">
+                {error}
+              </div>
+            )}
+
+
+            {/* SUCCESS */}
+
+            {success && (
+              <div className="login-message login-success">
+                {success}
+              </div>
+            )}
+
+
+            {/* LOGIN BUTTON */}
+
+            <button
+              type="submit"
+              className="login-submit"
+              disabled={loading}
+            >
+
+              <span>
+                {loading
+                  ? "Logging in..."
+                  : "Login"}
+              </span>
+
+              {!loading && (
+                <FaArrowRight />
+              )}
+
+            </button>
+
+          </form>
+
+
+          {/* REGISTER */}
+
+          <div className="login-register">
+
+            <span>
+              Don't have an account?
+            </span>
 
             <Link to="/register">
-              Register
+              Create an account
+              <FaArrowRight />
             </Link>
-          </p>
+
+          </div>
 
         </div>
 

@@ -131,6 +131,33 @@ const services = [
 
 export default function Contact() {
 
+useEffect(() => {
+  const elements = document.querySelectorAll(".scroll-reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+
+          // Animate only once
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -80px 0px",
+    }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+
+  return () => observer.disconnect();
+}, []);
+
+
+
   useEffect(() => {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -331,7 +358,7 @@ const handleSubmit = async (e) => {
         {/* Floating info cards */}
         <div className="info-cards ">
           {infoCards.map((card) => (
-            <div className="info-card" key={card.title}>
+            <div className="info-card scroll-reveal delay" key={card.title}>
               <div className="info-card__icon">{card.icon}</div>
               <div className="info-card__text">
                 <h4>{card.title}</h4>
@@ -347,104 +374,141 @@ const handleSubmit = async (e) => {
       {/* ---------------------------------------------------------- */}
       {/* Contact form + image                                       */}
       {/* ---------------------------------------------------------- */}
-      <section className="contact-section fade-up" id="contact-form">
-        <div className="contact-section__inner">
-          <div className="contact-form-wrap">
-            <h2>
-              Send Us a <span className="text-accent">Message</span>
-            </h2>
-            <div className="heading-underline" />
+  <section className="contact-section" id="contact-form">
+  <div className="contact-section__inner">
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full Name *"
-                  value={form.fullName}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address *"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+    {/* =====================================================
+        CONTACT FORM
+        ===================================================== */}
+    <div
+      className="contact-form-wrap contact-scroll-reveal contact-reveal-left"
+    >
+      <h2>
+        Send Us <span className="text-accent">a Message</span>
+      </h2>
 
-              <div className="form-row">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number *"
-                  value={form.phone}
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Company Name"
-                  value={form.company}
-                  onChange={handleChange}
-                />
-              </div>
+      <div className="heading-underline" />
 
-              <select
-                name="service"
-                value={form.service}
-                onChange={handleChange}
-                className="form-select"
-              >
-                <option value="">Service Required</option>
-                {services.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
+      <form className="contact-form" onSubmit={handleSubmit}>
 
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={form.subject}
-                onChange={handleChange}
-              />
+        {/* Full Name + Email */}
+        <div className="form-row">
 
-              <textarea
-                name="message"
-                placeholder="Your Message *"
-                rows={5}
-                value={form.message}
-                onChange={handleChange}
-                required
-              />
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name *"
+            value={form.fullName}
+            onChange={handleChange}
+            required
+          />
 
-              <button type="submit" className="btn btn--primary btn--full">
-                Send Message <FaPaperPlane />
-              </button>
-            </form>
-          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address *"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-          <div className="contact-image-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80"
-              alt="Modern corporate office interior"
-            />
-          </div>
         </div>
-      </section>
+
+
+        {/* Phone + Company */}
+        <div className="form-row">
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number *"
+            value={form.phone}
+            onChange={handleChange}
+            required
+          />
+
+          <input
+            type="text"
+            name="company"
+            placeholder="Company Name"
+            value={form.company}
+            onChange={handleChange}
+          />
+
+        </div>
+
+
+        {/* Service */}
+        <select
+          name="service"
+          value={form.service}
+          onChange={handleChange}
+          className="form-select"
+        >
+          <option value="">Service Required</option>
+
+          {services.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
+        </select>
+
+
+        {/* Subject */}
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={form.subject}
+          onChange={handleChange}
+        />
+
+
+        {/* Message */}
+        <textarea
+          name="message"
+          placeholder="Your Message *"
+          rows={5}
+          value={form.message}
+          onChange={handleChange}
+          required
+        />
+
+
+        {/* Submit */}
+        <button
+          type="submit"
+          className="btn btn--primary btn--full"
+        >
+          Send Message <FaPaperPlane />
+        </button>
+
+      </form>
+    </div>
+
+
+    {/* =====================================================
+        CONTACT IMAGE
+        ===================================================== */}
+    <div
+      className="contact-image-wrap contact-scroll-reveal contact-reveal-right"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80"
+        alt="Modern corporate office interior"
+      />
+    </div>
+
+  </div>
+</section>
 
       {/* ---------------------------------------------------------- */}
       {/* Global Offices                                              */}
       {/* ---------------------------------------------------------- */}
-      <section className="offices-section fade-up">
+      <section className="offices-section scroll-reveal fade-up">
         <div className="section-heading">
-          <h2>
+          <h2 className="sectionheadingh2" id="sectionheadingh2">
             Our <span className="text-accent">Global</span> Offices
           </h2>
           <div className="heading-underline heading-underline--center" />
