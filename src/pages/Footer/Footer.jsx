@@ -341,7 +341,7 @@ const Footer = () => {
         <div className="footer-bottom">
 
           <p className="footer-copyright">
-            © {currentYear} Vutkala Global Technologies.
+            © {currentYear} Vutkala Global Inc.
             All rights reserved.
           </p>
 

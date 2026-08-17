@@ -117,7 +117,7 @@ function AboutValues() {
         <div className="av-right" ref={statsRef}>
           <StatCard
             icon={<FaRocket />}
-            value="2019"
+            value="2026"
             label="Founded"
             note="A small team with a big vision."
             shouldStart={inView}
@@ -126,7 +126,7 @@ function AboutValues() {
           />
           <StatCard
             icon={<FiUsers />}
-            value={150}
+            value={50}
             suffix="+"
             label="Clients"
             note="Across startups to enterprises."
@@ -135,7 +135,7 @@ function AboutValues() {
           />
           <StatCard
             icon={<FiTarget />}
-            value={500}
+            value={100}
             suffix="+"
             label="Projects"
             note="Delivered successfully across industries."

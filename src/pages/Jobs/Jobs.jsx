@@ -1042,22 +1042,7 @@ const handleSubmit = async (event) => {
               <span>→</span>
             </button>
 
-            <button
-              type="button"
-              onClick={() =>
-                formRef.current?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                })
-              }
-              className="vg-find-how-button"
-            >
-              <span className="vg-find-play">
-                ▶
-              </span>
-
-              HOW IT WORKS
-            </button>
+           
 
           </div>
 
@@ -1105,7 +1090,7 @@ const handleSubmit = async (event) => {
             <p>
               Share your experience, interests
               and career preferences with
-              Vutkala Global Technologies.
+              Vutkala Global Inc.
             </p>
 
             <div className="vg-find-context-meta">

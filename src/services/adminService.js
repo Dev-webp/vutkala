@@ -1,23 +1,17 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/admin";
+const API = "/api/admin";
 
 export const getPendingRecruiters = async () => {
-  return await axios.get(
-    `${API}/recruiters/pending`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`${API}/recruiters/pending`, {
+    withCredentials: true,
+  });
 };
 
 export const getRecruiter = async (id) => {
-  return await axios.get(
-    `${API}/recruiters/${id}`,
-    {
-      withCredentials: true,
-    }
-  );
+  return await axios.get(`${API}/recruiters/${id}`, {
+    withCredentials: true,
+  });
 };
 
 export const approveRecruiter = async (id) => {

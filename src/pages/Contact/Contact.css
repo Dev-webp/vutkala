@@ -383,118 +383,316 @@ font-family: var(--contact-font);
 /* ============================================================== */
 /*  Global offices                                                  */
 /* ============================================================== */
-
 .offices-section {
+  position: relative;
+  overflow: hidden;
+
   padding: 100px 8%;
-  background: var(--bg-soft);
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255, 138, 0, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 85%,
+      rgba(255, 45, 85, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #06152f 0%,
+      #081a38 55%,
+      #041127 100%
+    );
+
+  color: #ffffff;
 }
 
+
+/* =========================
+   OFFICE GRID
+   ========================= */
+
 .offices-grid {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
   gap: 28px;
 }
 
+
+/* =========================
+   OFFICE CARD
+   ========================= */
+
 .office-card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
+  position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  transition: var(--transition);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.10),
+      rgba(255, 255, 255, 0.045)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
+
 
 .office-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-card);
+
+  border-color:
+    rgba(255, 138, 0, 0.45);
+
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(255, 75, 55, 0.08);
 }
+
+
+/* =========================
+   IMAGE
+   ========================= */
 
 .office-card__image {
   position: relative;
+
   height: 190px;
+
   overflow: hidden;
+
+  background: #071832;
 }
+
+
+.office-card__image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(3, 12, 30, 0.7) 100%
+    );
+
+  pointer-events: none;
+}
+
 
 .office-card__image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  transition: var(--transition);
+
+  transition:
+    transform 0.7s cubic-bezier(.22, 1, .36, 1);
 }
+
 
 .office-card:hover .office-card__image img {
   transform: scale(1.08);
 }
 
+
+/* =========================
+   BADGE
+   ========================= */
+
 .office-card__badge {
   position: absolute;
+
   top: 16px;
   left: 16px;
+
+  z-index: 2;
+
   background: var(--gradient-brand);
-  color: var(--white);
+
+  color: #ffffff;
+
   font-size: 0.7rem;
+
   font-weight: 700;
+
   letter-spacing: 0.5px;
+
   padding: 5px 14px;
+
   border-radius: 50px;
+
+  box-shadow:
+    0 8px 20px rgba(255, 45, 85, 0.2);
 }
+
+
+/* =========================
+   CARD BODY
+   ========================= */
 
 .office-card__body {
   padding: 24px 22px 26px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.025),
+      rgba(255,255,255,0)
+    );
 }
+
 
 .office-card__body h3 {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
-  font-size: 1.15rem;
-  font-weight: 700;
+
   margin-bottom: 12px;
+
+  color: #ffffff;
+
+  font-size: 1.15rem;
+
+  font-weight: 650;
+
+  letter-spacing: -0.01em;
 }
+
+
+/* =========================
+   OFFICE ICON
+   ========================= */
 
 .office-card__icon {
-  color: var(--orange-2);
+  color: #ff8a00;
+
   font-size: 1.2rem;
-}
 
-.office-card__address {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-.office-card__contact {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.office-card__contact svg {
-  color: var(--orange-1);
   flex-shrink: 0;
 }
 
+
+/* =========================
+   ADDRESS
+   ========================= */
+
+.office-card__address {
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+
+  margin-bottom: 12px;
+}
+
+
+/* =========================
+   PHONE / EMAIL
+   ========================= */
+
+.office-card__contact {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 0.88rem;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  margin-bottom: 8px;
+}
+
+
+.office-card__contact svg {
+  color: #ff7045;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   DIRECTIONS
+   ========================= */
+
 .office-card__link {
   display: inline-flex;
+
   align-items: center;
+
   gap: 6px;
+
   margin-top: 10px;
+
   font-size: 0.88rem;
+
   font-weight: 700;
-  color: var(--orange-2);
+
+  color: #ff8a00;
+
   text-decoration: none;
-  transition: var(--transition);
+
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
 }
+
 
 .office-card__link:hover {
   gap: 10px;
+
+  color: #ff4f55;
 }
 
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .offices-section {
+    padding: 70px 5%;
+  }
+
+  .offices-grid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    max-width: 500px;
+  }
+
+  .office-card__image {
+    height: 210px;
+  }
+}
 /* ============================================================== */
 /*  Map section                                                     */
 /* ============================================================== */
@@ -1828,6 +2026,10 @@ transform:scale(1.12);
   transform: translateY(0);
 }
 
+#sectionheadingh2{
+  color:white;
+}
+
 
 /* =========================================================
    VUTKALA GLOBAL OFFICES — BRAND MAP
@@ -2450,3 +2652,5 @@ transform:scale(1.12);
   }
 
 }
+
+

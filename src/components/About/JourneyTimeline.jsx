@@ -10,31 +10,31 @@ function JourneyTimeline() {
 
   const milestones = [
     {
-      year: "2019",
+      year: "2026",
       title: "Founded",
       desc: "Started with a vision to connect USA & India talent.",
       icon: <FaRocket />,
     },
     {
-      year: "2020",
+      year: "2026",
       title: "First Enterprise Client",
       desc: "Delivered technology solutions for leading US businesses.",
       icon: <FiUsers />,
     },
     {
-      year: "2021",
+      year: "2026",
       title: "USA Expansion",
       desc: "Built stronger partnerships with American enterprises.",
       icon: <FiGlobe />,
     },
     {
-      year: "2022",
+      year: "2026",
       title: "India Delivery Center",
       desc: "Scaled engineering teams in India.",
       icon: <FiHome />,
     },
     {
-      year: "2024",
+      year: "2026",
       title: "Global Technology Partner",
       desc: "Trusted by enterprises across USA and India.",
       icon: <FiTarget />,

@@ -68,7 +68,7 @@ function Footer() {
 
         <div className="footer-divider" />
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2026 Vutkala Global Technologies.</p>
+          <p className="footer-copyright">© 2026 Vutkala Global Inc.</p>
           <div className="footer-legal" aria-label="Legal links">
             <span>Privacy Policy</span><span aria-hidden="true">|</span><span>Terms of Use</span><span aria-hidden="true">|</span><span>Sitemap</span>
           </div>
