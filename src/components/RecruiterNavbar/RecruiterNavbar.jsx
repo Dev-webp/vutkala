@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
@@ -12,8 +12,12 @@ function RecruiterNavbar() {
 
   const { user, logout } = useAuth();
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const handleLogout = async () => {
     try {
+      setMenuOpen(false);
+
       await logout();
 
       navigate("/login", {
@@ -24,16 +28,27 @@ function RecruiterNavbar() {
     }
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className="recruiter-navbar">
 
-      {/* LEFT */}
+      {/* =====================================================
+          NAVBAR INNER
+      ===================================================== */}
 
-      <div className="recruiter-navbar-left">
+      <div className="recruiter-navbar-inner">
+
+        {/* =================================================
+            LOGO
+        ================================================= */}
 
         <NavLink
           to="/recruiter"
           className="recruiter-brand"
+          onClick={closeMenu}
         >
           <img
             src={logo}
@@ -42,15 +57,19 @@ function RecruiterNavbar() {
         </NavLink>
 
 
+        {/* =================================================
+            DESKTOP NAVIGATION
+        ================================================= */}
+
         <nav className="recruiter-nav-links">
 
           <NavLink
             to="/recruiter"
             end
             className={({ isActive }) =>
-              isActive
-                ? "recruiter-nav-link active"
-                : "recruiter-nav-link"
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
             }
           >
             Dashboard
@@ -60,9 +79,9 @@ function RecruiterNavbar() {
           <NavLink
             to="/recruiter/my-jobs"
             className={({ isActive }) =>
-              isActive
-                ? "recruiter-nav-link active"
-                : "recruiter-nav-link"
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
             }
           >
             My Jobs
@@ -72,9 +91,9 @@ function RecruiterNavbar() {
           <NavLink
             to="/recruiter/post-job"
             className={({ isActive }) =>
-              isActive
-                ? "recruiter-nav-link active"
-                : "recruiter-nav-link"
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
             }
           >
             Post Job
@@ -84,9 +103,9 @@ function RecruiterNavbar() {
           <NavLink
             to="/recruiter/applications"
             className={({ isActive }) =>
-              isActive
-                ? "recruiter-nav-link active"
-                : "recruiter-nav-link"
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
             }
           >
             Applications
@@ -96,9 +115,9 @@ function RecruiterNavbar() {
           <NavLink
             to="/recruiter/company-profile"
             className={({ isActive }) =>
-              isActive
-                ? "recruiter-nav-link active"
-                : "recruiter-nav-link"
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
             }
           >
             Company Profile
@@ -106,42 +125,186 @@ function RecruiterNavbar() {
 
         </nav>
 
-      </div>
+
+        {/* =================================================
+            RIGHT SIDE
+        ================================================= */}
+
+        <div className="recruiter-navbar-right">
+
+          {/* USER */}
+
+          <div className="recruiter-user">
+
+            <div className="recruiter-avatar">
+              {user?.fullName
+                ? user.fullName
+                    .charAt(0)
+                    .toUpperCase()
+                : "R"}
+            </div>
 
 
-      {/* RIGHT */}
+            <div className="recruiter-user-info">
 
-      <div className="recruiter-navbar-right">
+              <span className="recruiter-user-name">
+                {user?.fullName || "Recruiter"}
+              </span>
 
-        <div className="recruiter-user">
+              <span className="recruiter-user-role">
+                Recruiter
+              </span>
 
-          <div className="recruiter-avatar">
-            {user?.fullName
-              ? user.fullName
-                  .charAt(0)
-                  .toUpperCase()
-              : "R"}
+            </div>
+
           </div>
 
 
-          <div className="recruiter-user-info">
+          {/* WEBSITE */}
 
-            <span className="recruiter-user-name">
-              {user?.fullName || "Recruiter"}
-            </span>
+          <button
+            type="button"
+            className="recruiter-website-btn"
+            onClick={() => {
+              closeMenu();
+              navigate("/");
+            }}
+          >
+            Website
+          </button>
 
-            <span className="recruiter-user-role">
-              Recruiter
-            </span>
 
-          </div>
+          {/* LOGOUT */}
+
+          <button
+            type="button"
+            className="recruiter-logout-btn"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
 
         </div>
 
 
+        {/* =================================================
+            MOBILE MENU BUTTON
+        ================================================= */}
+
         <button
           type="button"
-          className="recruiter-logout-btn"
+          className={`recruiter-menu-toggle ${
+            menuOpen ? "open" : ""
+          }`}
+          onClick={() =>
+            setMenuOpen((previous) => !previous)
+          }
+          aria-label={
+            menuOpen
+              ? "Close navigation"
+              : "Open navigation"
+          }
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+      </div>
+
+
+      {/* =====================================================
+          MOBILE NAVIGATION
+      ===================================================== */}
+
+      <div
+        className={`recruiter-mobile-menu ${
+          menuOpen ? "open" : ""
+        }`}
+      >
+
+        <NavLink
+          to="/recruiter"
+          end
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          Dashboard
+        </NavLink>
+
+
+        <NavLink
+          to="/recruiter/my-jobs"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          My Jobs
+        </NavLink>
+
+
+        <NavLink
+          to="/recruiter/post-job"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          Post Job
+        </NavLink>
+
+
+        <NavLink
+          to="/recruiter/applications"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          Applications
+        </NavLink>
+
+
+        <NavLink
+          to="/recruiter/company-profile"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          Company Profile
+        </NavLink>
+
+
+        <button
+          type="button"
+          className="recruiter-mobile-link recruiter-mobile-website"
+          onClick={() => {
+            closeMenu();
+            navigate("/");
+          }}
+        >
+          Website
+        </button>
+
+
+        <button
+          type="button"
+          className="recruiter-mobile-logout"
           onClick={handleLogout}
         >
           Logout

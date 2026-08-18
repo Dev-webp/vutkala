@@ -1,4 +1,3 @@
-
 import React, {
   useEffect,
   useState,
@@ -46,6 +45,17 @@ function JobDetails() {
   const [loading, setLoading] = useState(true);
 
   const [error, setError] = useState("");
+
+
+  // =====================================================
+  // RESUME MODAL STATE
+  // =====================================================
+
+  const [showResumeModal, setShowResumeModal] =
+    useState(false);
+
+  const [resumeFile, setResumeFile] =
+    useState(null);
 
 
   // =====================================================
@@ -415,17 +425,206 @@ function JobDetails() {
 
 
   // =====================================================
+  // OPEN RESUME MODAL
+  // =====================================================
+
+  const openResumeModal = () => {
+
+    // -------------------------------------------------
+    // NOT LOGGED IN
+    // -------------------------------------------------
+
+    if (!user) {
+
+      navigate(
+        "/login",
+        {
+          state: {
+            from:
+              `/seeker/jobs/${id}`,
+          },
+        }
+      );
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // WRONG ROLE
+    // -------------------------------------------------
+
+    if (
+      user.role !== "JOB_SEEKER"
+    ) {
+
+      setApplicationError(
+        "Only Job Seekers can apply for jobs."
+      );
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // CLEAR OLD STATE
+    // -------------------------------------------------
+
+    setApplicationError("");
+
+    setApplicationMessage("");
+
+    setResumeFile(null);
+
+
+    // -------------------------------------------------
+    // OPEN MODAL
+    // -------------------------------------------------
+
+    setShowResumeModal(true);
+
+  };
+
+
+  // =====================================================
+  // CLOSE RESUME MODAL
+  // =====================================================
+
+  const closeResumeModal = () => {
+
+    if (applying) {
+      return;
+    }
+
+    setShowResumeModal(false);
+
+    setResumeFile(null);
+
+    setApplicationError("");
+
+  };
+
+
+  // =====================================================
+  // HANDLE RESUME FILE SELECTION
+  // =====================================================
+
+  const handleResumeChange = (event) => {
+
+    const file =
+      event.target.files?.[0];
+
+
+    if (!file) {
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // MAXIMUM SIZE = 5 MB
+    // -------------------------------------------------
+
+    const maxSize =
+      5 * 1024 * 1024;
+
+
+    if (file.size > maxSize) {
+
+      setResumeFile(null);
+
+      setApplicationError(
+        "Resume must be 5 MB or smaller."
+      );
+
+      event.target.value = "";
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // ALLOWED EXTENSIONS
+    // -------------------------------------------------
+
+    const allowedExtensions = [
+      ".pdf",
+      ".doc",
+      ".docx",
+    ];
+
+
+    const extension =
+      file.name
+        .substring(
+          file.name.lastIndexOf(".")
+        )
+        .toLowerCase();
+
+
+    if (
+      !allowedExtensions.includes(
+        extension
+      )
+    ) {
+
+      setResumeFile(null);
+
+      setApplicationError(
+        "Only PDF, DOC and DOCX files are allowed."
+      );
+
+      event.target.value = "";
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // VALID FILE
+    // -------------------------------------------------
+
+    setApplicationError("");
+
+    setResumeFile(file);
+
+  };
+
+
+  // =====================================================
   // APPLY FOR JOB
   // =====================================================
 
   const handleApply = async () => {
 
-    // Prevent duplicate click
+    // -------------------------------------------------
+    // PREVENT DOUBLE CLICK
+    // -------------------------------------------------
 
     if (
       applying ||
       alreadyApplied
     ) {
+
+      return;
+
+    }
+
+
+    // -------------------------------------------------
+    // RESUME REQUIRED
+    // -------------------------------------------------
+
+    if (!resumeFile) {
+
+      setApplicationError(
+        "Please upload your resume before submitting."
+      );
 
       return;
 
@@ -441,9 +640,14 @@ function JobDetails() {
       setApplicationError("");
 
 
+      // -------------------------------------------------
+      // SEND JOB ID + RESUME
+      // -------------------------------------------------
+
       const response =
         await applyForJob({
           job_id: id,
+          resume: resumeFile,
         });
 
 
@@ -463,6 +667,14 @@ function JobDetails() {
         );
 
         setApplicationError("");
+
+        // Close popup
+
+        setShowResumeModal(false);
+
+        // Clear selected file
+
+        setResumeFile(null);
 
       }
 
@@ -500,6 +712,10 @@ function JobDetails() {
         setApplicationMessage("");
 
         setApplicationError("");
+
+        setShowResumeModal(false);
+
+        setResumeFile(null);
 
         return;
 
@@ -1136,7 +1352,7 @@ function JobDetails() {
                       ERROR MESSAGE
                   ============================================= */}
 
-                  {applicationError && (
+                  {applicationError && !showResumeModal && (
 
                     <div className="application-error">
 
@@ -1158,55 +1374,7 @@ function JobDetails() {
                       applying ||
                       checkingApplication
                     }
-                    onClick={() => {
-
-
-                      // -------------------------------------------
-                      // NOT LOGGED IN
-                      // -------------------------------------------
-
-                      if (!user) {
-
-                        navigate(
-                          "/login",
-                          {
-                            state: {
-                              from:
-                                `/seeker/jobs/${id}`,
-                            },
-                          }
-                        );
-
-                        return;
-
-                      }
-
-
-                      // -------------------------------------------
-                      // WRONG ROLE
-                      // -------------------------------------------
-
-                      if (
-                        user.role !==
-                        "JOB_SEEKER"
-                      ) {
-
-                        setApplicationError(
-                          "Only Job Seekers can apply for jobs."
-                        );
-
-                        return;
-
-                      }
-
-
-                      // -------------------------------------------
-                      // APPLY
-                      // -------------------------------------------
-
-                      handleApply();
-
-                    }}
+                    onClick={openResumeModal}
                   >
 
                     {checkingApplication
@@ -1324,11 +1492,219 @@ function JobDetails() {
 
             </div>
 
+
           </aside>
 
         </div>
 
+
       </div>
+
+
+      {/* =====================================================
+          RESUME UPLOAD MODAL
+      ===================================================== */}
+
+      {showResumeModal && (
+
+        <div
+          className="resume-modal-overlay"
+          onClick={(event) => {
+
+            if (
+              event.target === event.currentTarget
+            ) {
+
+              closeResumeModal();
+
+            }
+
+          }}
+        >
+
+          <div className="resume-modal">
+
+
+            {/* =================================================
+                CLOSE BUTTON
+            ================================================= */}
+
+            <button
+              type="button"
+              className="resume-modal-close"
+              onClick={closeResumeModal}
+              disabled={applying}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+
+            {/* =================================================
+                MODAL HEADER
+            ================================================= */}
+
+            <div className="resume-modal-header">
+
+              <span className="resume-modal-label">
+                APPLICATION
+              </span>
+
+              <h2>
+                Apply for this job
+              </h2>
+
+              <p>
+                Upload your resume to submit
+                your application.
+              </p>
+
+            </div>
+
+
+            {/* =================================================
+                RESUME UPLOAD
+            ================================================= */}
+
+            <div className="resume-upload-area">
+
+              <div className="resume-upload-icon">
+                📄
+              </div>
+
+
+              <h3>
+                Upload your resume
+              </h3>
+
+
+              <p>
+                PDF, DOC or DOCX · Maximum 5 MB
+              </p>
+
+
+              <label
+                htmlFor="resume-upload"
+                className="resume-upload-button"
+              >
+                Choose Resume
+              </label>
+
+
+              <input
+                id="resume-upload"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                hidden
+                onChange={handleResumeChange}
+              />
+
+
+              {/* =================================================
+                  SELECTED RESUME
+              ================================================= */}
+
+              {resumeFile && (
+
+                <div className="selected-resume">
+
+                  <span>
+                    📄
+                  </span>
+
+
+                  <div>
+
+                    <strong>
+                      {resumeFile.name}
+                    </strong>
+
+                    <small>
+                      {(
+                        resumeFile.size /
+                        1024 /
+                        1024
+                      ).toFixed(2)}{" "}
+                      MB
+                    </small>
+
+                  </div>
+
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setResumeFile(null);
+                      setApplicationError("");
+                    }}
+                    disabled={applying}
+                    aria-label="Remove resume"
+                  >
+                    ×
+                  </button>
+
+                </div>
+
+              )}
+
+            </div>
+
+
+            {/* =================================================
+                MODAL ERROR
+            ================================================= */}
+
+            {applicationError && (
+
+              <div className="application-error">
+
+                {applicationError}
+
+              </div>
+
+            )}
+
+
+            {/* =================================================
+                MODAL ACTIONS
+            ================================================= */}
+
+            <div className="resume-modal-actions">
+
+              <button
+                type="button"
+                className="resume-cancel-btn"
+                disabled={applying}
+                onClick={closeResumeModal}
+              >
+                Cancel
+              </button>
+
+
+              <button
+                type="button"
+                className="resume-submit-btn"
+                disabled={
+                  !resumeFile ||
+                  applying
+                }
+                onClick={handleApply}
+              >
+
+                {applying
+                  ? "Submitting..."
+                  : "Submit Application"}
+
+              </button>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      )}
 
     </div>
 

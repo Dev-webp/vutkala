@@ -1,13 +1,24 @@
+/* =========================================================
+   RECRUITER DASHBOARD LAYOUT
+   ========================================================= */
+
 .recruiter-layout {
   min-height: 100vh;
+  width: 100%;
+
   background: #f6f8fc;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .recruiter-main {
   width: 100%;
-  min-height: calc(100vh - 76px);
+  min-height: calc(100vh - 82px);
 
   background: #f6f8fc;
 
   box-sizing: border-box;
+
+  overflow-x: hidden;
 }

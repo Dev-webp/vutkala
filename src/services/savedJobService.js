@@ -1,21 +1,21 @@
 import axios from "axios";
 
-const API = "/api/saved-jobs";
+const savedJobsApi = axios.create({
+  baseURL: "/api/saved-jobs",
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 // =====================================================
 // SAVE JOB
 // =====================================================
 
 export const saveJob = async (jobId) => {
-  return await axios.post(
-    API,
-    {
-      job_id: jobId,
-    },
-    {
-      withCredentials: true,
-    }
-  );
+  return await savedJobsApi.post("/", {
+    job_id: jobId,
+  });
 };
 
 // =====================================================
@@ -23,9 +23,7 @@ export const saveJob = async (jobId) => {
 // =====================================================
 
 export const removeSavedJob = async (jobId) => {
-  return await axios.delete(`${API}/${jobId}`, {
-    withCredentials: true,
-  });
+  return await savedJobsApi.delete(`/${jobId}`);
 };
 
 // =====================================================
@@ -33,9 +31,7 @@ export const removeSavedJob = async (jobId) => {
 // =====================================================
 
 export const getSavedJobs = async () => {
-  return await axios.get(API, {
-    withCredentials: true,
-  });
+  return await savedJobsApi.get("/");
 };
 
 // =====================================================
@@ -43,7 +39,5 @@ export const getSavedJobs = async () => {
 // =====================================================
 
 export const checkSavedJob = async (jobId) => {
-  return await axios.get(`${API}/check/${jobId}`, {
-    withCredentials: true,
-  });
+  return await savedJobsApi.get(`/check/${jobId}`);
 };

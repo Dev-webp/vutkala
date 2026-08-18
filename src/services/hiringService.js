@@ -1,9 +1,17 @@
 import axios from "axios";
 
-const API = "/api/hiring-requests";
+const hiringApi = axios.create({
+  baseURL: "/api/hiring-requests",
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// =====================================================
+// SUBMIT HIRING REQUEST
+// =====================================================
 
 export const submitHiringRequest = async (data) => {
-  return await axios.post(API, data, {
-    withCredentials: true,
-  });
+  return await hiringApi.post("/", data);
 };

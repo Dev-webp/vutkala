@@ -1,31 +1,7 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-
-import JobSeekerNavbar from "../components/JobSeeker/JobSeekerNavbar";
-
-import "./JobSeekerLayout.css";
+import AuthenticatedLayout from "./AuthenticatedLayout";
 
 function JobSeekerLayout() {
-  return (
-    <div className="jobseeker-layout">
-
-      {/* ================================
-          JOB SEEKER NAVBAR
-      ================================= */}
-
-      <JobSeekerNavbar />
-
-
-      {/* ================================
-          PAGE CONTENT
-      ================================= */}
-
-      <main className="jobseeker-main">
-        <Outlet />
-      </main>
-
-    </div>
-  );
+  return <AuthenticatedLayout role="JOB_SEEKER" />;
 }
 
 export default JobSeekerLayout;

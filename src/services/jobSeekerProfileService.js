@@ -1,23 +1,25 @@
 import axios from "axios";
 
-const API = "/api/job-seeker/profile";
+const profileApi = axios.create({
+  baseURL: "/api/job-seeker/profile",
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 // =====================================================
-// GET PROFILE
+// GET MY PROFILE
 // =====================================================
 
 export const getMyProfile = async () => {
-  return await axios.get(API, {
-    withCredentials: true,
-  });
+  return await profileApi.get("/");
 };
 
 // =====================================================
-// UPDATE PROFILE
+// UPDATE MY PROFILE
 // =====================================================
 
 export const updateMyProfile = async (data) => {
-  return await axios.put(API, data, {
-    withCredentials: true,
-  });
+  return await profileApi.put("/", data);
 };

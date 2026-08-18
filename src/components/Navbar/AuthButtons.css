@@ -130,7 +130,25 @@
   align-items: center;
 
   gap: 10px;
+
+  text-decoration: none;
 }
+
+.my-account-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 17px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.my-account-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: #ffffff; }
 
 
 /* =========================================================
@@ -318,6 +336,8 @@
   .logout-btn {
     height: 40px !important;
   }
+
+  .my-account-btn { height: 40px; padding: 0 13px; }
 }
 
 
@@ -364,6 +384,8 @@
 
     padding: 0 !important;
   }
+
+  .my-account-btn { display: none; }
 
   .logout-btn span {
     display: none;

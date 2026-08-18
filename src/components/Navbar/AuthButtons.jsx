@@ -23,9 +23,15 @@ function AuthButtons() {
     const firstLetter =
       user.fullName?.charAt(0).toUpperCase() || "U";
 
+    const accountPath = {
+      JOB_SEEKER: "/seeker",
+      RECRUITER: "/recruiter",
+      ADMIN: "/admin/dashboard",
+    }[user.role] || "/";
+
     return (
       <div className="auth-buttons logged-in">
-        <div className="user-profile">
+        <NavLink to={accountPath} className="user-profile" aria-label="Open My Account">
           <div className="user-avatar">
             {firstLetter}
           </div>
@@ -39,7 +45,11 @@ function AuthButtons() {
               {user.fullName}
             </span>
           </div>
-        </div>
+        </NavLink>
+
+        <NavLink to={accountPath} className="my-account-btn">
+          My Account
+        </NavLink>
 
         <button
           type="button"

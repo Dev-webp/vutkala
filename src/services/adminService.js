@@ -1,35 +1,50 @@
 import axios from "axios";
 
-const API = "/api/admin";
+const API =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+const adminApi = axios.create({
+  baseURL: `${API}/api/admin`,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// =====================================================
+// GET PENDING RECRUITERS
+// =====================================================
 
 export const getPendingRecruiters = async () => {
-  return await axios.get(`${API}/recruiters/pending`, {
-    withCredentials: true,
-  });
+  return await adminApi.get("/recruiters/pending");
 };
+
+// =====================================================
+// GET RECRUITER
+// =====================================================
 
 export const getRecruiter = async (id) => {
-  return await axios.get(`${API}/recruiters/${id}`, {
-    withCredentials: true,
-  });
+  return await adminApi.get(`/recruiters/${id}`);
 };
 
+// =====================================================
+// APPROVE RECRUITER
+// =====================================================
+
 export const approveRecruiter = async (id) => {
-  return await axios.put(
-    `${API}/recruiters/${id}/approve`,
-    {},
-    {
-      withCredentials: true,
-    }
+  return await adminApi.put(
+    `/recruiters/${id}/approve`,
+    {}
   );
 };
 
+// =====================================================
+// REJECT RECRUITER
+// =====================================================
+
 export const rejectRecruiter = async (id) => {
-  return await axios.put(
-    `${API}/recruiters/${id}/reject`,
-    {},
-    {
-      withCredentials: true,
-    }
+  return await adminApi.put(
+    `/recruiters/${id}/reject`,
+    {}
   );
 };

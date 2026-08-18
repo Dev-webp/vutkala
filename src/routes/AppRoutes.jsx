@@ -36,6 +36,7 @@ import RoleProtectedRoute from "./RoleProtectedRoute";
 import PublicLayout from "../layouts/PublicLayout";
 import RecruiterLayout from "../layouts/RecruiterLayout";
 import JobSeekerLayout from "../layouts/JobSeekerLayout";
+import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 
 // =====================================================
 // ADMIN
@@ -318,7 +319,11 @@ function AppRoutes() {
 
           <Route
             path="/admin/dashboard"
-            element={<AdminDashboard />}
+            element={
+              <AuthenticatedLayout role="ADMIN">
+                <AdminDashboard />
+              </AuthenticatedLayout>
+            }
           />
 
         </Route>

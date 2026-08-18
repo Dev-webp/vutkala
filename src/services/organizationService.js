@@ -1,15 +1,25 @@
 import axios from "axios";
 
-const API = "/api/organizations";
+const organizationApi = axios.create({
+  baseURL: "/api/organizations",
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+// =====================================================
+// GET MY ORGANIZATION
+// =====================================================
 
 export const getMyOrganization = async () => {
-  return await axios.get(`${API}/my`, {
-    withCredentials: true,
-  });
+  return await organizationApi.get("/my");
 };
 
+// =====================================================
+// UPDATE MY ORGANIZATION
+// =====================================================
+
 export const updateMyOrganization = async (data) => {
-  return await axios.put(`${API}/my`, data, {
-    withCredentials: true,
-  });
+  return await organizationApi.put("/my", data);
 };

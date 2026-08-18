@@ -1,10 +1,11 @@
 /* =========================================================
    VUTKALA GLOBAL
-   PREMIUM RESET PASSWORD PAGE
+   PREMIUM OTP VERIFICATION PAGE
    NAVY + ORANGE + PINK
    ========================================================= */
 
-.reset-page {
+.verify-page {
+
   --navy: #071426;
   --navy-light: #0d1d34;
 
@@ -19,6 +20,7 @@
   position: relative;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -29,6 +31,7 @@
     sans-serif;
 
   background: var(--navy);
+
 }
 
 
@@ -36,18 +39,22 @@
    BACKGROUND
    ========================================================= */
 
-.reset-bg {
+.verify-bg {
+
   position: absolute;
 
   inset: 0;
 
   background:
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85")
+    url(
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=85"
+    )
     center / cover no-repeat;
 
   transform: scale(1.03);
 
   z-index: 0;
+
 }
 
 
@@ -55,12 +62,14 @@
    OVERLAY
    ========================================================= */
 
-.reset-overlay {
+.verify-overlay {
+
   position: absolute;
 
   inset: 0;
 
   background:
+
     radial-gradient(
       circle at 15% 30%,
       rgba(255, 122, 33, 0.20),
@@ -81,6 +90,7 @@
     );
 
   z-index: 1;
+
 }
 
 
@@ -88,16 +98,17 @@
    CONTENT
    ========================================================= */
 
-.reset-content {
+.verify-content {
 
   position: relative;
 
   z-index: 2;
 
-  width: min(
-    1180px,
-    calc(100% - 48px)
-  );
+  width:
+    min(
+      1180px,
+      calc(100% - 48px)
+    );
 
   display: grid;
 
@@ -115,10 +126,10 @@
 
 
 /* =========================================================
-   BRAND SIDE
+   BRAND
    ========================================================= */
 
-.reset-brand {
+.verify-brand {
 
   max-width: 600px;
 
@@ -127,7 +138,7 @@
 }
 
 
-.reset-eyebrow {
+.verify-eyebrow {
 
   display: inline-flex;
 
@@ -150,7 +161,7 @@
 }
 
 
-.reset-eyebrow::before {
+.verify-eyebrow::before {
 
   content: "";
 
@@ -168,15 +179,16 @@
 }
 
 
-.reset-brand h1 {
+.verify-brand h1 {
 
   margin: 0;
 
-  font-size: clamp(
-    42px,
-    5vw,
-    68px
-  );
+  font-size:
+    clamp(
+      42px,
+      5vw,
+      68px
+    );
 
   font-weight: 700;
 
@@ -187,7 +199,7 @@
 }
 
 
-.reset-brand h1 span {
+.verify-brand h1 span {
 
   background:
     linear-gradient(
@@ -208,7 +220,7 @@
 }
 
 
-.reset-brand p {
+.verify-brand p {
 
   max-width: 500px;
 
@@ -229,7 +241,7 @@
 }
 
 
-.reset-brand-line {
+.verify-brand-line {
 
   width: 70px;
 
@@ -249,7 +261,7 @@
 }
 
 
-.reset-brand-points {
+.verify-brand-points {
 
   display: flex;
 
@@ -280,7 +292,7 @@
    CARD
    ========================================================= */
 
-.reset-card {
+.verify-card {
 
   width: 100%;
 
@@ -315,7 +327,7 @@
     );
 
   animation:
-    resetCardIn
+    verifyCardIn
     700ms
     cubic-bezier(
       0.22,
@@ -328,7 +340,7 @@
 }
 
 
-@keyframes resetCardIn {
+@keyframes verifyCardIn {
 
   from {
 
@@ -357,14 +369,14 @@
    CARD HEADER
    ========================================================= */
 
-.reset-card-header {
+.verify-card-header {
 
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 
 }
 
 
-.reset-card-eyebrow {
+.verify-card-eyebrow {
 
   color: var(--orange);
 
@@ -379,10 +391,56 @@
 }
 
 
-.reset-card-header h2 {
+.verify-icon {
+
+  width: 46px;
+
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 14px;
+
+  margin-bottom: 14px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--orange),
+      var(--pink)
+    );
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      247,
+      37,
+      104,
+      0.20
+    );
+
+}
+
+
+.verify-icon svg {
+
+  font-size: 18px;
+
+}
+
+
+.verify-card-header h2 {
 
   margin:
-    8px
+    0
     0
     8px;
 
@@ -399,7 +457,7 @@
 }
 
 
-.reset-card-header h2 span {
+.verify-card-header h2 span {
 
   background:
     linear-gradient(
@@ -419,7 +477,7 @@
 }
 
 
-.reset-card-header p {
+.verify-card-header p {
 
   margin: 0;
 
@@ -433,17 +491,76 @@
 
 
 /* =========================================================
+   EMAIL DISPLAY
+   ========================================================= */
+
+.verify-email {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 42px;
+
+  margin-bottom: 22px;
+
+  padding:
+    0
+    13px;
+
+  color: var(--navy);
+
+  background: #f7f9fc;
+
+  border:
+    1px solid
+    #e1e7ef;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+.verify-email svg {
+
+  flex-shrink: 0;
+
+  color: var(--orange);
+
+  font-size: 13px;
+
+}
+
+
+.verify-email span {
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+}
+
+
+/* =========================================================
    INPUT
    ========================================================= */
 
-.reset-input-group {
+.verify-input-group {
 
   margin-bottom: 20px;
 
 }
 
 
-.reset-input-group label {
+.verify-input-group label {
 
   display: block;
 
@@ -458,48 +575,21 @@
 }
 
 
-.reset-input-wrap {
-
-  position: relative;
-
-}
-
-
-.reset-input-icon {
-
-  position: absolute;
-
-  left: 15px;
-
-  top: 50%;
-
-  transform:
-    translateY(-50%);
-
-  color: #8b98a9;
-
-  font-size: 13px;
-
-  pointer-events: none;
-
-}
-
-
-.reset-input-wrap input {
+.verify-input-group input {
 
   width: 100%;
 
-  height: 50px;
+  height: 54px;
 
   padding:
     0
-    15px
-    0
-    43px;
+    16px;
 
-  background: #f7f9fc;
+  box-sizing: border-box;
 
   color: var(--navy);
+
+  background: #f7f9fc;
 
   border:
     1px solid
@@ -511,7 +601,13 @@
 
   font-family: inherit;
 
-  font-size: 13px;
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.35em;
+
+  text-align: center;
 
   transition:
     border-color 220ms ease,
@@ -521,14 +617,20 @@
 }
 
 
-.reset-input-wrap input::placeholder {
+.verify-input-group input::placeholder {
 
-  color: #9aa6b5;
+  color: #a2adbb;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 0;
 
 }
 
 
-.reset-input-wrap input:focus {
+.verify-input-group input:focus {
 
   background: #ffffff;
 
@@ -546,7 +648,7 @@
 }
 
 
-.reset-input-wrap input:disabled {
+.verify-input-group input:disabled {
 
   opacity: 0.65;
 
@@ -559,7 +661,7 @@
    MESSAGES
    ========================================================= */
 
-.reset-message {
+.verify-message {
 
   padding:
     11px
@@ -576,7 +678,7 @@
 }
 
 
-.reset-error {
+.verify-error {
 
   color: #c62828;
 
@@ -600,7 +702,7 @@
 }
 
 
-.reset-success {
+.verify-success {
 
   color: #218838;
 
@@ -625,10 +727,10 @@
 
 
 /* =========================================================
-   BUTTON
+   VERIFY BUTTON
    ========================================================= */
 
-.reset-submit {
+.verify-submit {
 
   width: 100%;
 
@@ -681,7 +783,7 @@
 }
 
 
-.reset-submit:hover:not(:disabled) {
+.verify-submit:hover:not(:disabled) {
 
   transform:
     translateY(-2px);
@@ -698,7 +800,7 @@
 }
 
 
-.reset-submit:disabled {
+.verify-submit:disabled {
 
   opacity: 0.7;
 
@@ -707,7 +809,7 @@
 }
 
 
-.reset-submit svg {
+.verify-submit svg {
 
   font-size: 11px;
 
@@ -717,7 +819,7 @@
 }
 
 
-.reset-submit:hover:not(:disabled) svg {
+.verify-submit:hover:not(:disabled) svg {
 
   transform:
     translateX(4px);
@@ -729,7 +831,7 @@
    BACK TO LOGIN
    ========================================================= */
 
-.reset-back {
+.verify-back {
 
   display: flex;
 
@@ -754,7 +856,7 @@
 }
 
 
-.reset-back button {
+.verify-back a {
 
   display: inline-flex;
 
@@ -762,33 +864,28 @@
 
   gap: 7px;
 
-  padding: 0;
-
   color: var(--navy);
-
-  background: transparent;
-
-  border: none;
-
-  font-family: inherit;
 
   font-size: 12px;
 
   font-weight: 800;
 
-  cursor: pointer;
+  text-decoration: none;
+
+  transition:
+    color 200ms ease;
 
 }
 
 
-.reset-back button:hover {
+.verify-back a:hover {
 
   color: var(--pink);
 
 }
 
 
-.reset-back button svg {
+.verify-back a svg {
 
   font-size: 10px;
 
@@ -798,7 +895,7 @@
 }
 
 
-.reset-back button:hover svg {
+.verify-back a:hover svg {
 
   transform:
     translateX(3px);
@@ -812,7 +909,7 @@
 
 @media (max-width: 950px) {
 
-  .reset-content {
+  .verify-content {
 
     grid-template-columns:
       1fr
@@ -823,7 +920,7 @@
   }
 
 
-  .reset-brand h1 {
+  .verify-brand h1 {
 
     font-size: 46px;
 
@@ -838,7 +935,7 @@
 
 @media (max-width: 768px) {
 
-  .reset-page {
+  .verify-page {
 
     min-height: 100svh;
 
@@ -847,7 +944,7 @@
   }
 
 
-  .reset-content {
+  .verify-content {
 
     width:
       min(
@@ -865,14 +962,14 @@
   }
 
 
-  .reset-brand {
+  .verify-brand {
 
     display: none;
 
   }
 
 
-  .reset-card {
+  .verify-card {
 
     padding:
       30px
@@ -883,14 +980,14 @@
   }
 
 
-  .reset-card-header {
+  .verify-card-header {
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 
   }
 
 
-  .reset-card-header h2 {
+  .verify-card-header h2 {
 
     font-size: 30px;
 
@@ -905,7 +1002,7 @@
 
 @media (max-width: 420px) {
 
-  .reset-content {
+  .verify-content {
 
     width:
       calc(100% - 24px);
@@ -915,7 +1012,7 @@
   }
 
 
-  .reset-card {
+  .verify-card {
 
     padding:
       27px
@@ -926,21 +1023,23 @@
   }
 
 
-  .reset-card-header h2 {
+  .verify-card-header h2 {
 
     font-size: 28px;
 
   }
 
 
-  .reset-input-wrap input {
+  .verify-input-group input {
 
-    height: 48px;
+    height: 50px;
+
+    font-size: 18px;
 
   }
 
 
-  .reset-submit {
+  .verify-submit {
 
     height: 50px;
 
@@ -955,15 +1054,15 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .reset-card {
+  .verify-card {
 
     animation: none;
 
   }
 
 
-  .reset-submit,
-  .reset-input-wrap input {
+  .verify-submit,
+  .verify-input-group input {
 
     transition: none;
 

@@ -696,7 +696,7 @@ const handleSubmit = async (e) => {
       {/* ---------------------------------------------------------- */}
       {/* FAQ                                                         */}
       {/* ---------------------------------------------------------- */}
-      <section className="faq-section fade-up">
+      <section className="faq-section scrol-reveal fade-up">
         <div className="section-heading">
           <h2>
             Frequently Asked <span className="text-accent">Questions</span>

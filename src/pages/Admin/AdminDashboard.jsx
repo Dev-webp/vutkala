@@ -4,6 +4,7 @@ import {
   approveRecruiter,
   rejectRecruiter,
 } from "../../services/adminService";
+import "./AdminDashboard.css";
 
 function AdminDashboard() {
   const [recruiters, setRecruiters] = useState([]);
@@ -124,8 +125,7 @@ function AdminDashboard() {
   if (loading) {
     return (
       <div className="admin-dashboard">
-        <h1>Admin Dashboard</h1>
-        <p>Loading pending recruiters...</p>
+        <div className="admin-dashboard__header"><div><span>PLATFORM ADMINISTRATION</span><h2>Admin Dashboard</h2><p>Loading pending recruiters...</p></div></div>
       </div>
     );
   }
@@ -133,11 +133,7 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
 
-      <h1>Admin Dashboard</h1>
-
-      <p>
-        Review and manage recruiter applications.
-      </p>
+      <header className="admin-dashboard__header"><div><span>PLATFORM ADMINISTRATION</span><h2>Admin Dashboard</h2><p>Review and manage recruiter applications.</p></div><div className="admin-dashboard__metric"><strong>{recruiters.length}</strong><span>Pending reviews</span></div></header>
 
       {error && (
         <p className="error">
@@ -145,7 +141,7 @@ function AdminDashboard() {
         </p>
       )}
 
-      <div className="admin-section">
+      <section className="admin-section">
 
         <h2>
           Pending Recruiters
@@ -256,7 +252,7 @@ function AdminDashboard() {
           </div>
         )}
 
-      </div>
+      </section>
 
     </div>
   );

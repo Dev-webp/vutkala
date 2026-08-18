@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { verifyRegisterOTP } from "../../services/authService";
 import "./VerifyOTP.css";
-
+ 
 const VerifyOTP = () => {
 
   const [otp, setOtp] = useState("");
