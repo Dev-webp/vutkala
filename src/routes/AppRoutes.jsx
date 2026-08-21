@@ -45,7 +45,7 @@ import AdminLayout from "../pages/Admin/AdminLayout";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
 import AdminUsers from "../pages/Admin/AdminUsers";
 import AdminApprovals from "../pages/Admin/AdminApprovals";
-import AdminJobs from "../pages/admin/AdminJobs";
+import AdminJobs from "../pages/Admin/AdminJobs";
 import AdminApplications from "../pages/Admin/AdminApplications";
 
 import AdminCandidates from "../pages/Admin/AdminCandidates";
