@@ -36,13 +36,20 @@ import RoleProtectedRoute from "./RoleProtectedRoute";
 import PublicLayout from "../layouts/PublicLayout";
 import RecruiterLayout from "../layouts/RecruiterLayout";
 import JobSeekerLayout from "../layouts/JobSeekerLayout";
-import AuthenticatedLayout from "../layouts/AuthenticatedLayout";
 
 // =====================================================
 // ADMIN
 // =====================================================
-
+import AdminCompanies from "../pages/Admin/AdminCompanies";
+import AdminLayout from "../pages/Admin/AdminLayout";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
+import AdminUsers from "../pages/Admin/AdminUsers";
+import AdminApprovals from "../pages/Admin/AdminApprovals";
+import AdminJobs from "../pages/admin/AdminJobs";
+import AdminApplications from "../pages/Admin/AdminApplications";
+
+import AdminCandidates from "../pages/Admin/AdminCandidates";
+
 
 // =====================================================
 // RECRUITER
@@ -54,6 +61,11 @@ import MyJobs from "../pages/Recruiter/MyJobs";
 import EditJob from "../pages/Recruiter/EditJob";
 import Application from "../pages/Recruiter/Applications";
 import CompanyProfile from "../pages/Recruiter/CompanyProfile";
+import ContactCandidate from "../pages/Recruiter/ContactCandidate";
+
+// Candidate Search + Profile
+import FindCandidates from "../pages/Recruiter/FindCandidates";
+import CandidateProfile from "../pages/Recruiter/CandidateProfile";
 
 // =====================================================
 // JOB SEEKER
@@ -115,7 +127,6 @@ function AppRoutes() {
           element={<Industries />}
         />
 
-
         {/* =================================================
             AUTHENTICATION
         ================================================= */}
@@ -167,69 +178,52 @@ function AppRoutes() {
           }
         >
 
-          {/* ===============================================
+          {/* =================================================
               JOB SEEKER LAYOUT
 
               /seeker
-          =============================================== */}
+          ================================================= */}
 
           <Route
             path="/seeker"
             element={<JobSeekerLayout />}
           >
 
-            {/* =============================================
-                DASHBOARD
-
-                URL:
-                /seeker
-            ============================================= */}
-
+            {/* Dashboard */}
             <Route
               index
               element={<JobSeekerDashboard />}
             />
 
-
-            {/* =============================================
-                FIND JOBS
-
-                URL:
-                /seeker/jobs
-            ============================================= */}
-
+            {/* Find Jobs */}
             <Route
               path="jobs"
               element={<FindJobs />}
             />
 
-             <Route
-    path="applications"
-    element={<MyApplications />}
-  />
-
-
-            {/* =============================================
-                JOB DETAILS
-
-                URL:
-                /seeker/jobs/:id
-            ============================================= */}
-
+            {/* Job Details */}
             <Route
               path="jobs/:id"
               element={<JobDetails />}
             />
 
-                <Route
-  path="saved-jobs"
-  element={<SavedJobs />}
-/>
+            {/* My Applications */}
+            <Route
+              path="applications"
+              element={<MyApplications />}
+            />
 
-<Route
-  path="profile"
-  element={<MyProfile />}
-/>
+            {/* Saved Jobs */}
+            <Route
+              path="saved-jobs"
+              element={<SavedJobs />}
+            />
+
+            {/* My Profile */}
+            <Route
+              path="profile"
+              element={<MyProfile />}
+            />
 
           </Route>
 
@@ -253,7 +247,12 @@ function AppRoutes() {
             element={<RecruiterLayout />}
           >
 
-            {/* Dashboard */}
+            {/* =================================================
+                RECRUITER DASHBOARD
+
+                URL:
+                /recruiter
+            ================================================= */}
 
             <Route
               index
@@ -261,7 +260,12 @@ function AppRoutes() {
             />
 
 
-            {/* My Jobs */}
+            {/* =================================================
+                MY JOBS
+
+                URL:
+                /recruiter/my-jobs
+            ================================================= */}
 
             <Route
               path="my-jobs"
@@ -269,7 +273,12 @@ function AppRoutes() {
             />
 
 
-            {/* Post Job */}
+            {/* =================================================
+                POST JOB
+
+                URL:
+                /recruiter/post-job
+            ================================================= */}
 
             <Route
               path="post-job"
@@ -277,7 +286,12 @@ function AppRoutes() {
             />
 
 
-            {/* Edit Job */}
+            {/* =================================================
+                EDIT JOB
+
+                URL:
+                /recruiter/jobs/edit/:id
+            ================================================= */}
 
             <Route
               path="jobs/edit/:id"
@@ -285,7 +299,25 @@ function AppRoutes() {
             />
 
 
-            {/* Applications */}
+            {/* =================================================
+                CONTACT CANDIDATE
+
+                URL:
+                /recruiter/candidates/:id/contact
+            ================================================= */}
+
+            <Route
+              path="candidates/:id/contact"
+              element={<ContactCandidate />}
+            />
+
+
+            {/* =================================================
+                APPLICATIONS
+
+                URL:
+                /recruiter/applications
+            ================================================= */}
 
             <Route
               path="applications"
@@ -293,11 +325,42 @@ function AppRoutes() {
             />
 
 
-            {/* Company Profile */}
+            {/* =================================================
+                COMPANY PROFILE
+
+                URL:
+                /recruiter/company-profile
+            ================================================= */}
 
             <Route
               path="company-profile"
               element={<CompanyProfile />}
+            />
+
+
+            {/* =================================================
+                FIND CANDIDATES
+
+                URL:
+                /recruiter/candidates
+            ================================================= */}
+
+            <Route
+              path="candidates"
+              element={<FindCandidates />}
+            />
+
+
+            {/* =================================================
+                CANDIDATE PROFILE
+
+                URL:
+                /recruiter/candidates/:id
+            ================================================= */}
+
+            <Route
+              path="candidates/:id"
+              element={<CandidateProfile />}
             />
 
           </Route>
@@ -308,27 +371,96 @@ function AppRoutes() {
         {/* =================================================
             ADMIN
         ================================================= */}
+      <Route
+  element={
+    <RoleProtectedRoute
+      allowedRoles={["ADMIN"]}
+    />
+  }
+>
 
-        <Route
-          element={
-            <RoleProtectedRoute
-              allowedRoles={["ADMIN"]}
-            />
-          }
-        >
+  <Route
+    path="/admin"
+    element={<AdminLayout />}
+  >
 
-          <Route
-            path="/admin/dashboard"
-            element={
-              <AuthenticatedLayout role="ADMIN">
-                <AdminDashboard />
-              </AuthenticatedLayout>
-            }
-          />
+    {/* =================================================
+        ADMIN DASHBOARD
 
-        </Route>
+        URLs:
+        /admin
+        /admin/dashboard
+    ================================================= */}
 
-      </Route>
+    <Route
+      index
+      element={<AdminDashboard />}
+    />
+
+<Route
+  path="companies"
+  element={<AdminCompanies />}
+/>
+
+    <Route
+      path="dashboard"
+      element={<AdminDashboard />}
+    />
+
+
+    {/* =================================================
+        ADMIN JOBS
+
+        URL:
+        /admin/jobs
+    ================================================= */}
+
+    <Route
+      path="jobs"
+      element={<AdminJobs />}
+    />
+
+<Route
+  path="applications"
+  element={<AdminApplications />}
+/>
+
+
+<Route
+  path="/admin/candidates"
+  element={<AdminCandidates />}
+/>
+
+    {/* =================================================
+        ADMIN USERS
+
+        URL:
+        /admin/users
+    ================================================= */}
+
+    <Route
+      path="users"
+      element={<AdminUsers />}
+    />
+
+
+    {/* =================================================
+        ADMIN APPROVALS
+
+        URL:
+        /admin/approvals
+    ================================================= */}
+
+    <Route
+      path="approvals"
+      element={<AdminApprovals />}
+    />
+
+  </Route>
+
+</Route>
+
+      </Route> {/* CLOSE ProtectedRoute */}
 
     </Routes>
   );

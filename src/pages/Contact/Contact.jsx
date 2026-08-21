@@ -12,6 +12,7 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import hyderabad from "../../assets/hyderabad.png"
+import usaOffice from "../../assets/usaOffice.png"
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
 import { submitContactForm } from "../../services/contactService";
@@ -66,8 +67,7 @@ const infoCards = [
 
     {
     badge: "USA",
-    image:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80",
+    image:usaOffice,
 
     name: "St. Petersburg, USA",
 
@@ -506,54 +506,73 @@ const handleSubmit = async (e) => {
       {/* ---------------------------------------------------------- */}
       {/* Global Offices                                              */}
       {/* ---------------------------------------------------------- */}
-      <section className="offices-section scroll-reveal fade-up">
-        <div className="section-heading">
-          <h2 className="sectionheadingh2" id="sectionheadingh2">
-            Our <span className="text-accent">Global</span> Offices
-          </h2>
-          <div className="heading-underline heading-underline--center" />
+<section className="offices-section scroll-reveal fade-up">
+
+  <div className="section-heading">
+
+    <h2 className="sectionheadingh2" id="sectionheadingh2">
+      Our <span className="text-accent">Global</span> Offices
+    </h2>
+
+  </div>
+
+  <div className="offices-grid">
+
+    {offices.map((office) => (
+      <div className="office-card" key={office.name}>
+
+        <div className="office-card__image">
+          <img
+            src={office.image}
+            alt={office.name}
+          />
+
+          <span className="office-card__badge">
+            {office.badge}
+          </span>
         </div>
 
-        <div className="offices-grid">
-          {offices.map((office) => (
-            <div className="office-card" key={office.name}>
-              <div className="office-card__image">
-                <img src={office.image} alt={office.name} />
-                <span className="office-card__badge">{office.badge}</span>
-              </div>
-              <div className="office-card__body">
-                <h3>
-                  <HiOutlineOfficeBuilding className="office-card__icon" />
-                  {office.name}
-                </h3>
-                <p className="office-card__address">
-                  {office.address.map((line, i) => (
-                    <React.Fragment key={i}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-                <p className="office-card__contact">
-                  <FaPhoneAlt /> {office.phone}
-                </p>
-                <p className="office-card__contact">
-                  <FaEnvelope /> {office.email}
-                </p>
-                <a
-  href={office.mapUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="office-card__link"
->
-  Directions <FaChevronRight />
-</a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        <div className="office-card__body">
 
+          <h3>
+            <HiOutlineOfficeBuilding className="office-card__icon" />
+            {office.name}
+          </h3>
+
+          <p className="office-card__address">
+            {office.address.map((line, i) => (
+              <React.Fragment key={i}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
+
+          <p className="office-card__contact">
+            <FaPhoneAlt /> {office.phone}
+          </p>
+
+          <p className="office-card__contact">
+            <FaEnvelope /> {office.email}
+          </p>
+
+          <a
+            href={office.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="office-card__link"
+          >
+            Directions <FaChevronRight />
+          </a>
+
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+
+</section>
       {/* ---------------------------------------------------------- */}
       {/* Map                                                         */}
       {/* ---------------------------------------------------------- */}

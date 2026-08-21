@@ -1,0 +1,1241 @@
+/* =========================================================
+   ADMIN APPROVALS PAGE
+========================================================= */
+
+.admin-approvals-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 30px 34px 40px;
+  box-sizing: border-box;
+  background: #f5f7fb;
+  color: #17233b;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.admin-approvals-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.admin-approvals-heading > div {
+  min-width: 0;
+}
+
+.admin-approvals-heading span {
+  display: block;
+  margin-bottom: 7px;
+  color: #8a97aa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.admin-approvals-heading h2 {
+  margin: 0;
+  color: #0b1f3a;
+  font-size: 29px;
+  line-height: 1.2;
+  font-weight: 750;
+}
+
+.admin-approvals-heading p {
+  margin: 8px 0 0;
+  color: #718096;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.admin-approvals-refresh {
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid #dce3ed;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #233451;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.05);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-approvals-refresh:hover {
+  background: #fff7f9;
+  border-color: #ff5a7d;
+  color: #e52d5b;
+  box-shadow: 0 5px 14px rgba(11, 31, 58, 0.08);
+  transform: translateY(-1px);
+}
+
+.admin-approvals-refresh:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   APPROVAL COUNT
+========================================================= */
+
+.admin-approval-count {
+  width: fit-content;
+  min-width: 130px;
+  margin-bottom: 18px;
+  padding: 12px 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #e3e8f0;
+  border-radius: 10px;
+  background: #ffffff;
+
+  box-shadow: 0 3px 12px rgba(11, 31, 58, 0.04);
+}
+
+.admin-approval-count strong {
+  color: #f0446a;
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 750;
+}
+
+.admin-approval-count span {
+  color: #6d7b91;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.admin-approvals-card {
+  width: 100%;
+  overflow: hidden;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 14px;
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 20px rgba(11, 31, 58, 0.055);
+}
+
+
+/* =========================================================
+   APPROVAL LIST
+========================================================= */
+
+.admin-approvals-list {
+  width: 100%;
+}
+
+
+/* =========================================================
+   APPROVAL ITEM
+========================================================= */
+
+.admin-approval-item {
+  min-height: 96px;
+  padding: 18px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  border-bottom: 1px solid #edf1f5;
+  box-sizing: border-box;
+
+  transition:
+    background 0.2s ease;
+}
+
+.admin-approval-item:last-child {
+  border-bottom: 0;
+}
+
+.admin-approval-item:hover {
+  background: #fbfcfe;
+}
+
+
+/* =========================================================
+   USER INFORMATION
+========================================================= */
+
+.admin-approval-user {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* =========================================================
+   USER AVATAR
+========================================================= */
+
+.admin-approval-avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 750;
+
+  box-shadow:
+    0 5px 14px rgba(255, 45, 104, 0.18);
+}
+
+
+/* =========================================================
+   USER DETAILS
+========================================================= */
+
+.admin-approval-user > div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-approval-user strong {
+  overflow: hidden;
+
+  color: #17233b;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-approval-user span {
+  margin-top: 3px;
+
+  overflow: hidden;
+
+  color: #65748a;
+  font-size: 13px;
+  line-height: 1.4;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-approval-user small {
+  margin-top: 5px;
+
+  color: #99a4b4;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin-approval-actions {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================================================
+   COMMON ACTION BUTTON
+========================================================= */
+
+.admin-approval-actions button {
+  min-width: 78px;
+  height: 37px;
+  padding: 0 13px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-approval-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.admin-approval-actions button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   REVIEW BUTTON
+========================================================= */
+
+.admin-approval-review {
+  border: 1px solid #d9e1ec;
+  background: #ffffff;
+  color: #31425d;
+}
+
+.admin-approval-review:hover {
+  border-color: #9eacc0;
+  background: #f7f9fc;
+  color: #162a46;
+
+  box-shadow:
+    0 4px 10px rgba(11, 31, 58, 0.07);
+}
+
+
+/* =========================================================
+   APPROVE BUTTON
+========================================================= */
+
+.admin-approval-approve {
+  border: 1px solid rgba(255, 111, 72, 0.25);
+
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 10px rgba(255, 45, 104, 0.14);
+}
+
+.admin-approval-approve:hover {
+  box-shadow:
+    0 6px 15px rgba(255, 45, 104, 0.22);
+}
+
+
+/* =========================================================
+   REJECT BUTTON
+========================================================= */
+
+.admin-approval-reject {
+  border: 1px solid #f0cfd5;
+  background: #fff7f8;
+  color: #d83d5b;
+}
+
+.admin-approval-reject:hover {
+  border-color: #e77a91;
+  background: #fff0f3;
+  color: #c72d4c;
+
+  box-shadow:
+    0 4px 10px rgba(216, 61, 91, 0.09);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.admin-approvals-empty {
+  min-height: 330px;
+  padding: 45px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.admin-approvals-empty > div {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 104, 0.12),
+    rgba(255, 138, 0, 0.12)
+  );
+
+  color: #f04b69;
+
+  font-size: 25px;
+  font-weight: 750;
+}
+
+.admin-approvals-empty h3 {
+  margin: 0;
+
+  color: #17233b;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.admin-approvals-empty p {
+  margin: 8px 0 0;
+
+  color: #7b8798;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LOADING STATE
+========================================================= */
+
+.admin-approvals-loading {
+  min-height: 330px;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: #68778d;
+  font-size: 14px;
+  font-weight: 550;
+
+  box-shadow:
+    0 5px 20px rgba(11, 31, 58, 0.05);
+}
+
+
+/* =========================================================
+   ERROR STATE
+========================================================= */
+
+.admin-approvals-error {
+  min-height: 300px;
+  padding: 40px 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #f0d8dd;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 20px rgba(11, 31, 58, 0.05);
+}
+
+.admin-approvals-error h2 {
+  margin: 0;
+
+  color: #17233b;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.admin-approvals-error p {
+  max-width: 550px;
+  margin: 10px 0 20px;
+
+  color: #788598;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-approvals-error button {
+  min-height: 40px;
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 13px rgba(255, 45, 104, 0.16);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-approvals-error button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 17px rgba(255, 45, 104, 0.23);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.admin-approvals-page button:focus-visible {
+  outline: 3px solid rgba(255, 45, 104, 0.22);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .admin-approvals-page {
+    padding: 25px 24px 35px;
+  }
+
+  .admin-approval-item {
+    align-items: flex-start;
+  }
+
+  .admin-approval-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .admin-approvals-page {
+    padding: 20px 15px 30px;
+  }
+
+  .admin-approvals-heading {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .admin-approvals-heading h2 {
+    font-size: 24px;
+  }
+
+  .admin-approvals-refresh {
+    width: 100%;
+  }
+
+  .admin-approval-count {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .admin-approval-item {
+    padding: 18px 16px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .admin-approval-user {
+    width: 100%;
+  }
+
+  .admin-approval-actions {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+  }
+
+  .admin-approval-actions button {
+    width: 100%;
+    min-width: 0;
+    padding: 0 7px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .admin-approvals-page {
+    padding: 16px 11px 25px;
+  }
+
+  .admin-approvals-heading h2 {
+    font-size: 21px;
+  }
+
+  .admin-approvals-heading p {
+    font-size: 13px;
+  }
+
+  .admin-approval-avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 10px;
+  }
+
+  .admin-approval-user strong {
+    font-size: 14px;
+  }
+
+  .admin-approval-user span {
+    font-size: 12px;
+  }
+
+  .admin-approval-user small {
+    font-size: 10px;
+  }
+
+  .admin-approval-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-approval-actions button {
+    height: 39px;
+  }
+}
+
+
+/* =========================================================
+   COMPLETE DETAILS MODAL
+========================================================= */
+
+.admin-approval-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 5000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(4, 14, 30, 0.68);
+
+  backdrop-filter: blur(5px);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.admin-approval-modal {
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.admin-approval-modal-header {
+  min-height: 82px;
+
+  padding: 18px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #e8edf3;
+
+  background: #ffffff;
+
+  flex-shrink: 0;
+}
+
+.admin-approval-modal-header span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8b98aa;
+
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+.admin-approval-modal-header h2 {
+  margin: 0;
+
+  color: #0b1f3a;
+
+  font-size: 24px;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.admin-approval-modal-close {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: #f4f6f9;
+
+  color: #66758a;
+
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.admin-approval-modal-close:hover {
+  background: #fff0f3;
+  color: #e23b60;
+}
+
+
+/* =========================================================
+   MODAL BODY
+========================================================= */
+
+.admin-approval-modal-body {
+  padding: 25px;
+
+  overflow-y: auto;
+
+  flex: 1;
+}
+
+
+/* =========================================================
+   DETAIL SECTION
+========================================================= */
+
+.admin-detail-section {
+  margin-bottom: 25px;
+
+  padding: 20px;
+
+  border: 1px solid #e5eaf1;
+  border-radius: 12px;
+
+  background: #fbfcfe;
+}
+
+.admin-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.admin-detail-section-title {
+  margin-bottom: 18px;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #e4e9f0;
+}
+
+.admin-detail-section-title h3 {
+  margin: 0;
+
+  color: #102744;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DETAIL GRID
+========================================================= */
+
+.admin-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 17px 20px;
+}
+
+
+/* =========================================================
+   DETAIL FIELD
+========================================================= */
+
+.admin-detail-field {
+  min-width: 0;
+
+  padding: 13px 14px;
+
+  border: 1px solid #e7ebf1;
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+.admin-detail-field-wide {
+  grid-column: 1 / -1;
+}
+
+.admin-detail-field label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #8995a7;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+.admin-detail-field strong {
+  display: block;
+
+  overflow-wrap: anywhere;
+
+  color: #26364e;
+
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.admin-detail-field p {
+  margin: 0;
+
+  color: #53647a;
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   WEBSITE
+========================================================= */
+
+.admin-detail-field a {
+  display: block;
+
+  overflow-wrap: anywhere;
+
+  color: #e83b63;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.admin-detail-field a:hover {
+  color: #ff7b00;
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.admin-approval-modal-footer {
+  min-height: 72px;
+
+  padding: 14px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  border-top: 1px solid #e8edf3;
+
+  background: #ffffff;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   FOOTER BUTTONS
+========================================================= */
+
+.admin-approval-modal-footer button {
+  min-height: 40px;
+
+  padding: 0 17px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-approval-modal-footer button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.admin-modal-cancel-button {
+  border: 1px solid #d9e1eb;
+
+  background: #ffffff;
+
+  color: #53647a;
+}
+
+.admin-modal-cancel-button:hover {
+  background: #f6f8fb;
+}
+
+
+/* =========================================================
+   REJECT
+========================================================= */
+
+.admin-modal-reject-button {
+  border: 1px solid #efcbd3;
+
+  background: #fff6f8;
+
+  color: #d43c5a;
+}
+
+.admin-modal-reject-button:hover {
+  background: #ffedf1;
+
+  box-shadow:
+    0 4px 12px rgba(212, 60, 90, 0.1);
+}
+
+
+/* =========================================================
+   APPROVE
+========================================================= */
+
+.admin-modal-approve-button {
+  border: 0;
+
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(255, 45, 104, 0.18);
+}
+
+.admin-modal-approve-button:hover {
+  box-shadow:
+    0 7px 18px rgba(255, 45, 104, 0.26);
+}
+
+
+/* =========================================================
+   MODAL LOADING
+========================================================= */
+
+.admin-approval-modal-loading {
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #68778d;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MODAL ERROR
+========================================================= */
+
+.admin-approval-modal-error {
+  min-height: 300px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.admin-approval-modal-error h3 {
+  margin: 0;
+
+  color: #17233b;
+
+  font-size: 19px;
+}
+
+.admin-approval-modal-error p {
+  max-width: 500px;
+
+  margin: 9px 0 20px;
+
+  color: #7a8799;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-approval-modal-error button {
+  min-height: 40px;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   MODAL SCROLLBAR
+========================================================= */
+
+.admin-approval-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-approval-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-approval-modal-body::-webkit-scrollbar-thumb {
+  background: #ccd4df;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+  .admin-approval-modal-overlay {
+    padding: 15px;
+  }
+
+  .admin-approval-modal {
+    max-height: 94vh;
+  }
+
+  .admin-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-detail-field-wide {
+    grid-column: auto;
+  }
+
+  .admin-approval-modal-header {
+    padding: 16px 18px;
+  }
+
+  .admin-approval-modal-body {
+    padding: 18px;
+  }
+
+  .admin-detail-section {
+    padding: 16px;
+  }
+
+  .admin-approval-modal-footer {
+    padding: 12px 18px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .admin-approval-modal-overlay {
+    padding: 8px;
+  }
+
+  .admin-approval-modal {
+    max-height: 96vh;
+
+    border-radius: 12px;
+  }
+
+  .admin-approval-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .admin-approval-modal-footer {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .admin-modal-cancel-button {
+    grid-column: 1 / -1;
+  }
+
+  .admin-modal-reject-button,
+  .admin-modal-approve-button {
+    width: 100%;
+  }
+}

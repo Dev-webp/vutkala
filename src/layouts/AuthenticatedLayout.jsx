@@ -16,6 +16,7 @@ import {
   Menu,
   ShieldCheck,
   UserRound,
+  UsersRound,
   X,
 } from "lucide-react";
 
@@ -34,7 +35,7 @@ const navigation = {
   ADMIN: [
     {
       label: "Dashboard",
-      to: "/admin/dashboard",
+      to: "/Admin/dashboard",
       icon: LayoutDashboard,
     },
   ],
@@ -60,6 +61,11 @@ const navigation = {
       label: "Applications",
       to: "/recruiter/applications",
       icon: ClipboardList,
+    },
+    {
+      label: "Find Candidates",
+      to: "/recruiter/candidates",
+      icon: UsersRound,
     },
     {
       label: "Company Profile",
@@ -214,7 +220,7 @@ function AuthenticatedLayout({ role, children }) {
       <Link
         to={
           role === "ADMIN"
-            ? "/admin/dashboard"
+            ? "/Admin/dashboard"
             : links[0]?.to || "/"
         }
         className="authenticated-brand"

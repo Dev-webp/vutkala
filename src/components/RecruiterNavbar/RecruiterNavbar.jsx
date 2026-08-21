@@ -8,14 +8,22 @@ import logo from "../../assets/vjcvutkal.jpeg";
 import "./RecruiterNavbar.css";
 
 function RecruiterNavbar() {
+
   const navigate = useNavigate();
 
   const { user, logout } = useAuth();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+
+  /* =====================================================
+     LOGOUT
+  ===================================================== */
+
   const handleLogout = async () => {
+
     try {
+
       setMenuOpen(false);
 
       await logout();
@@ -23,16 +31,30 @@ function RecruiterNavbar() {
       navigate("/login", {
         replace: true,
       });
+
     } catch (error) {
-      console.error("Logout error:", error);
+
+      console.error(
+        "Logout error:",
+        error
+      );
+
     }
+
   };
+
+
+  /* =====================================================
+     CLOSE MENU
+  ===================================================== */
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
+
   return (
+
     <header className="recruiter-navbar">
 
       {/* =====================================================
@@ -40,6 +62,7 @@ function RecruiterNavbar() {
       ===================================================== */}
 
       <div className="recruiter-navbar-inner">
+
 
         {/* =================================================
             LOGO
@@ -50,10 +73,12 @@ function RecruiterNavbar() {
           className="recruiter-brand"
           onClick={closeMenu}
         >
+
           <img
             src={logo}
             alt="Vutkala Global Technologies"
           />
+
         </NavLink>
 
 
@@ -62,6 +87,9 @@ function RecruiterNavbar() {
         ================================================= */}
 
         <nav className="recruiter-nav-links">
+
+
+          {/* DASHBOARD */}
 
           <NavLink
             to="/recruiter"
@@ -76,6 +104,8 @@ function RecruiterNavbar() {
           </NavLink>
 
 
+          {/* MY JOBS */}
+
           <NavLink
             to="/recruiter/my-jobs"
             className={({ isActive }) =>
@@ -87,6 +117,8 @@ function RecruiterNavbar() {
             My Jobs
           </NavLink>
 
+
+          {/* POST JOB */}
 
           <NavLink
             to="/recruiter/post-job"
@@ -100,6 +132,8 @@ function RecruiterNavbar() {
           </NavLink>
 
 
+          {/* APPLICATIONS */}
+
           <NavLink
             to="/recruiter/applications"
             className={({ isActive }) =>
@@ -111,6 +145,24 @@ function RecruiterNavbar() {
             Applications
           </NavLink>
 
+
+          {/* =================================================
+              FIND CANDIDATES
+          ================================================= */}
+
+          <NavLink
+            to="/recruiter/find-candidates"
+            className={({ isActive }) =>
+              `recruiter-nav-link ${
+                isActive ? "active" : ""
+              }`
+            }
+          >
+            Find Candidates
+          </NavLink>
+
+
+          {/* COMPANY PROFILE */}
 
           <NavLink
             to="/recruiter/company-profile"
@@ -132,27 +184,36 @@ function RecruiterNavbar() {
 
         <div className="recruiter-navbar-right">
 
+
           {/* USER */}
 
           <div className="recruiter-user">
 
             <div className="recruiter-avatar">
+
               {user?.fullName
                 ? user.fullName
                     .charAt(0)
                     .toUpperCase()
                 : "R"}
+
             </div>
 
 
             <div className="recruiter-user-info">
 
               <span className="recruiter-user-name">
-                {user?.fullName || "Recruiter"}
+
+                {user?.fullName ||
+                  "Recruiter"}
+
               </span>
 
+
               <span className="recruiter-user-role">
+
                 Recruiter
+
               </span>
 
             </div>
@@ -166,8 +227,11 @@ function RecruiterNavbar() {
             type="button"
             className="recruiter-website-btn"
             onClick={() => {
+
               closeMenu();
+
               navigate("/");
+
             }}
           >
             Website
@@ -197,18 +261,25 @@ function RecruiterNavbar() {
             menuOpen ? "open" : ""
           }`}
           onClick={() =>
-            setMenuOpen((previous) => !previous)
+            setMenuOpen(
+              (previous) =>
+                !previous
+            )
           }
           aria-label={
             menuOpen
               ? "Close navigation"
               : "Open navigation"
           }
-          aria-expanded={menuOpen}
+          aria-expanded={
+            menuOpen
+          }
         >
+
           <span />
           <span />
           <span />
+
         </button>
 
       </div>
@@ -224,6 +295,9 @@ function RecruiterNavbar() {
         }`}
       >
 
+
+        {/* DASHBOARD */}
+
         <NavLink
           to="/recruiter"
           end
@@ -238,6 +312,8 @@ function RecruiterNavbar() {
         </NavLink>
 
 
+        {/* MY JOBS */}
+
         <NavLink
           to="/recruiter/my-jobs"
           onClick={closeMenu}
@@ -250,6 +326,8 @@ function RecruiterNavbar() {
           My Jobs
         </NavLink>
 
+
+        {/* POST JOB */}
 
         <NavLink
           to="/recruiter/post-job"
@@ -264,6 +342,8 @@ function RecruiterNavbar() {
         </NavLink>
 
 
+        {/* APPLICATIONS */}
+
         <NavLink
           to="/recruiter/applications"
           onClick={closeMenu}
@@ -276,6 +356,25 @@ function RecruiterNavbar() {
           Applications
         </NavLink>
 
+
+        {/* =================================================
+            FIND CANDIDATES
+        ================================================= */}
+
+        <NavLink
+          to="/recruiter/find-candidates"
+          onClick={closeMenu}
+          className={({ isActive }) =>
+            `recruiter-mobile-link ${
+              isActive ? "active" : ""
+            }`
+          }
+        >
+          Find Candidates
+        </NavLink>
+
+
+        {/* COMPANY PROFILE */}
 
         <NavLink
           to="/recruiter/company-profile"
@@ -290,17 +389,24 @@ function RecruiterNavbar() {
         </NavLink>
 
 
+        {/* WEBSITE */}
+
         <button
           type="button"
           className="recruiter-mobile-link recruiter-mobile-website"
           onClick={() => {
+
             closeMenu();
+
             navigate("/");
+
           }}
         >
           Website
         </button>
 
+
+        {/* LOGOUT */}
 
         <button
           type="button"
@@ -313,7 +419,9 @@ function RecruiterNavbar() {
       </div>
 
     </header>
+
   );
+
 }
 
 export default RecruiterNavbar;

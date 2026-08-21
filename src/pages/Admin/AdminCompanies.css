@@ -1,0 +1,1119 @@
+/* =========================================================
+   ADMIN COMPANIES
+   Vutkala Global Technologies
+========================================================= */
+
+.admin-companies-page {
+  width: 100%;
+  min-height: 100%;
+  background: #f5f7fb;
+  color: #172033;
+  box-sizing: border-box;
+}
+
+.admin-companies-page *,
+.admin-companies-page *::before,
+.admin-companies-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.admin-companies-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-companies-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.admin-companies-eyebrow {
+  display: inline-block;
+  margin-bottom: 7px;
+  color: #7b8aa3;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.admin-companies-header h1 {
+  margin: 0;
+  color: #101a2e;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.admin-companies-header p {
+  margin: 8px 0 0;
+  color: #718096;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.admin-companies-error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fff5f5;
+  color: #b42318;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admin-companies-error > span {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 800;
+}
+
+.admin-companies-error > div {
+  flex: 1;
+}
+
+.admin-companies-error button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #9f1239;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.admin-companies-error button:hover {
+  background: #fee2e2;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.admin-companies-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.admin-company-stat {
+  min-height: 118px;
+  padding: 20px;
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-company-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 25px rgba(15, 23, 42, 0.07);
+}
+
+.admin-company-stat span {
+  color: #718096;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-company-stat strong {
+  color: #111827;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.admin-companies-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  padding: 16px;
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.035);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.admin-company-search {
+  min-width: 0;
+  flex: 1;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid #dce2ea;
+  border-radius: 10px;
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-company-search:focus-within {
+  border-color: #ff5a7d;
+  box-shadow: 0 0 0 3px rgba(255, 45, 104, 0.08);
+}
+
+.admin-company-search > span {
+  flex-shrink: 0;
+  font-size: 16px;
+  opacity: 0.65;
+}
+
+.admin-company-search input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #1f2937;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.admin-company-search input::placeholder {
+  color: #9aa5b5;
+}
+
+
+/* =========================================================
+   STATUS SELECT
+========================================================= */
+
+.admin-companies-toolbar select {
+  width: 175px;
+  height: 46px;
+  padding: 0 36px 0 13px;
+  border: 1px solid #dce2ea;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #344054;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.admin-companies-toolbar select:focus {
+  border-color: #ff5a7d;
+  box-shadow: 0 0 0 3px rgba(255, 45, 104, 0.08);
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.admin-companies-refresh {
+  height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(255, 45, 104, 0.16);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin-companies-refresh:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 9px 20px rgba(255, 45, 104, 0.22);
+}
+
+.admin-companies-refresh:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+.admin-companies-results-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.admin-companies-results-header > div > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8794a8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin-companies-results-header h2 {
+  margin: 0;
+  color: #182033;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.admin-companies-table-card {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #e5e9ef;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 5px 22px rgba(15, 23, 42, 0.045);
+}
+
+.admin-companies-table {
+  width: 100%;
+  min-width: 1000px;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.admin-companies-table-header {
+  display: grid;
+  grid-template-columns:
+    minmax(250px, 1.7fr)
+    minmax(130px, 0.9fr)
+    minmax(150px, 1fr)
+    minmax(210px, 1.3fr)
+    105px
+    minmax(210px, 1.2fr);
+
+  align-items: center;
+  min-height: 52px;
+  padding: 0 20px;
+  border-bottom: 1px solid #e8ecf1;
+  background: #f8fafc;
+  color: #8491a5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   COMPANY ROW
+========================================================= */
+
+.admin-company-row {
+  display: grid;
+  grid-template-columns:
+    minmax(250px, 1.7fr)
+    minmax(130px, 0.9fr)
+    minmax(150px, 1fr)
+    minmax(210px, 1.3fr)
+    105px
+    minmax(210px, 1.2fr);
+
+  align-items: center;
+  min-height: 88px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #edf0f4;
+  background: #ffffff;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.admin-company-row:last-child {
+  border-bottom: 0;
+}
+
+.admin-company-row:hover {
+  background: #fcfdff;
+}
+
+
+/* =========================================================
+   COMPANY MAIN
+========================================================= */
+
+.admin-company-main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-company-logo {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e4e8ee;
+  border-radius: 11px;
+  background: linear-gradient(
+    135deg,
+    #f4f6fa,
+    #e9edf4
+  );
+  color: #5b6679;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.admin-company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.admin-company-main > div:last-child {
+  min-width: 0;
+}
+
+.admin-company-main h3 {
+  max-width: 230px;
+  margin: 0 0 4px;
+  overflow: hidden;
+  color: #172033;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-company-main p {
+  max-width: 230px;
+  margin: 0;
+  overflow: hidden;
+  color: #8491a5;
+  font-size: 12px;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE CELL
+========================================================= */
+
+.admin-company-cell {
+  min-width: 0;
+  padding-right: 14px;
+  color: #475467;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.admin-company-cell strong {
+  display: block;
+  overflow: hidden;
+  color: #344054;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-company-cell small {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  color: #98a2b3;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-company-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.admin-company-status.approved {
+  border: 1px solid #bbf7d0;
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.admin-company-status.pending {
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.admin-company-status.blocked {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.admin-company-status.rejected {
+  border: 1px solid #fecdd3;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin-company-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.admin-company-actions button {
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.admin-company-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.admin-company-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   VIEW
+========================================================= */
+
+.admin-company-view-btn {
+  border: 1px solid #dbe2eb;
+  background: #ffffff;
+  color: #344054;
+}
+
+.admin-company-view-btn:hover {
+  border-color: #c7d1df;
+  background: #f8fafc;
+  color: #111827;
+}
+
+
+/* =========================================================
+   BLOCK
+========================================================= */
+
+.admin-company-block-btn {
+  border: 1px solid #fed7aa;
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.admin-company-block-btn:hover {
+  border-color: #fdba74;
+  background: #ffedd5;
+}
+
+
+/* =========================================================
+   UNBLOCK
+========================================================= */
+
+.admin-company-unblock-btn {
+  border: 1px solid #bbf7d0;
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.admin-company-unblock-btn:hover {
+  border-color: #86efac;
+  background: #dcfce7;
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.admin-company-delete-btn {
+  border: 1px solid #fecdd3;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.admin-company-delete-btn:hover {
+  border-color: #fda4af;
+  background: #ffe4e6;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.admin-companies-empty {
+  min-height: 320px;
+  padding: 50px 24px;
+  border: 1px solid #e5e9ef;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 5px 22px rgba(15, 23, 42, 0.035);
+}
+
+.admin-companies-empty-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 104, 0.1),
+    rgba(255, 138, 0, 0.12)
+  );
+  font-size: 28px;
+}
+
+.admin-companies-empty h3 {
+  margin: 0 0 7px;
+  color: #182033;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.admin-companies-empty p {
+  max-width: 400px;
+  margin: 0 0 18px;
+  color: #7b8798;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.admin-companies-empty button {
+  min-height: 40px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(
+    135deg,
+    #ff2d68,
+    #ff8a00
+  );
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255, 45, 104, 0.15);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.admin-companies-loading {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.admin-companies-spinner {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border: 4px solid #e5e9ef;
+  border-top-color: #ff2d68;
+  border-right-color: #ff8a00;
+  border-radius: 50%;
+  animation: adminCompaniesSpin 0.8s linear infinite;
+}
+
+.admin-companies-loading h2 {
+  margin: 0 0 6px;
+  color: #172033;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.admin-companies-loading p {
+  margin: 0;
+  color: #8491a5;
+  font-size: 13px;
+}
+
+@keyframes adminCompaniesSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   COMPANY MODAL OVERLAY
+========================================================= */
+
+.admin-company-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  padding: 30px;
+  background: rgba(7, 18, 36, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   COMPANY MODAL
+========================================================= */
+
+.admin-company-modal {
+  width: 100%;
+  max-width: 720px;
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.admin-company-modal-header {
+  min-height: 92px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9edf2;
+  background: #ffffff;
+}
+
+.admin-company-modal-header span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8995a8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.admin-company-modal-header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.admin-company-modal-header button {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 9px;
+  background: #f3f5f8;
+  color: #667085;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.admin-company-modal-header button:hover {
+  background: #e9edf2;
+  color: #111827;
+}
+
+
+/* =========================================================
+   MODAL BODY
+========================================================= */
+
+.admin-company-modal-body {
+  max-height: calc(100vh - 230px);
+  padding: 24px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+
+/* =========================================================
+   MODAL DETAIL
+========================================================= */
+
+.admin-company-detail {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #e8ecf1;
+  border-radius: 11px;
+  background: #fafbfd;
+}
+
+.admin-company-detail > span,
+.admin-company-detail-full > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #8995a8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.admin-company-detail strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #273247;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   FULL DETAIL
+========================================================= */
+
+.admin-company-detail-full {
+  grid-column: 1 / -1;
+  padding: 15px;
+  border: 1px solid #e8ecf1;
+  border-radius: 11px;
+  background: #fafbfd;
+}
+
+.admin-company-detail-full p {
+  margin: 0;
+  color: #526075;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.admin-company-modal-footer {
+  min-height: 72px;
+  padding: 14px 24px;
+  border-top: 1px solid #e9edf2;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.admin-company-modal-footer button {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid #dce2ea;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #344054;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-company-modal-footer button:hover {
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+.admin-companies-table-card::-webkit-scrollbar,
+.admin-company-modal-body::-webkit-scrollbar,
+.admin-company-modal-overlay::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.admin-companies-table-card::-webkit-scrollbar-track,
+.admin-company-modal-body::-webkit-scrollbar-track,
+.admin-company-modal-overlay::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-companies-table-card::-webkit-scrollbar-thumb,
+.admin-company-modal-body::-webkit-scrollbar-thumb,
+.admin-company-modal-overlay::-webkit-scrollbar-thumb {
+  background: #cbd3df;
+  border-radius: 20px;
+}
+
+
+/* =========================================================
+   TABLE RESPONSIVE WRAPPER
+========================================================= */
+
+@media (max-width: 1250px) {
+  .admin-companies-container {
+    padding: 26px;
+  }
+
+  .admin-companies-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-companies-table-card {
+    overflow-x: auto;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+  .admin-companies-container {
+    padding: 22px;
+  }
+
+  .admin-companies-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .admin-company-search {
+    flex-basis: 100%;
+  }
+
+  .admin-companies-toolbar select {
+    flex: 1;
+    width: auto;
+  }
+
+  .admin-companies-refresh {
+    flex-shrink: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .admin-companies-container {
+    padding: 16px;
+  }
+
+  .admin-companies-header {
+    margin-bottom: 20px;
+  }
+
+  .admin-companies-header h1 {
+    font-size: 25px;
+  }
+
+  .admin-companies-header p {
+    font-size: 13px;
+  }
+
+  .admin-companies-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .admin-company-stat {
+    min-height: 100px;
+    padding: 15px;
+  }
+
+  .admin-company-stat strong {
+    font-size: 24px;
+  }
+
+  .admin-company-stat span {
+    font-size: 11px;
+  }
+
+  .admin-companies-toolbar {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .admin-companies-toolbar select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .admin-companies-refresh {
+    padding: 0 13px;
+  }
+
+  .admin-companies-results-header h2 {
+    font-size: 18px;
+  }
+
+  .admin-company-modal-overlay {
+    padding: 12px;
+  }
+
+  .admin-company-modal {
+    max-height: calc(100vh - 24px);
+    border-radius: 14px;
+  }
+
+  .admin-company-modal-header {
+    padding: 17px;
+  }
+
+  .admin-company-modal-body {
+    grid-template-columns: 1fr;
+    padding: 17px;
+  }
+
+  .admin-company-detail-full {
+    grid-column: auto;
+  }
+
+  .admin-company-modal-footer {
+    padding: 12px 17px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .admin-companies-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-companies-toolbar select {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .admin-companies-refresh {
+    width: 100%;
+  }
+}

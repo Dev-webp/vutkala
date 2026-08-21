@@ -12,7 +12,9 @@ import {
   updateApplicationStatus,
 } from "../../services/applicationService";
 
+
 function Applications() {
+
   const [applications, setApplications] = useState([]);
 
   const [search, setSearch] = useState("");
@@ -26,14 +28,21 @@ function Applications() {
   const [selectedApplication, setSelectedApplication] =
     useState(null);
 
+  // Status update loading
+  const [updatingStatusId, setUpdatingStatusId] =
+    useState(null);
+
 
   // =====================================================
   // FETCH APPLICATIONS
   // =====================================================
 
   useEffect(() => {
+
     const fetchApplications = async () => {
+
       try {
+
         setLoading(true);
         setError("");
 
@@ -50,6 +59,7 @@ function Applications() {
         );
 
       } catch (error) {
+
         console.error(
           "Failed to fetch applications:",
           error
@@ -61,11 +71,15 @@ function Applications() {
         );
 
       } finally {
+
         setLoading(false);
+
       }
+
     };
 
     fetchApplications();
+
   }, []);
 
 
@@ -74,6 +88,7 @@ function Applications() {
   // =====================================================
 
   const jobs = useMemo(() => {
+
     return [
       ...new Set(
         applications
@@ -84,6 +99,7 @@ function Applications() {
           .filter(Boolean)
       ),
     ];
+
   }, [applications]);
 
 
@@ -92,7 +108,9 @@ function Applications() {
   // =====================================================
 
   const statusCounts = useMemo(() => {
+
     return {
+
       ALL: applications.length,
 
       NEW: applications.filter(
@@ -119,15 +137,18 @@ function Applications() {
         (application) =>
           application.status === "REJECTED"
       ).length,
+
     };
+
   }, [applications]);
 
 
   // =====================================================
-  // FILTER
+  // FILTER APPLICATIONS
   // =====================================================
 
   const filteredApplications = useMemo(() => {
+
     const searchValue =
       search.toLowerCase().trim();
 
@@ -164,8 +185,10 @@ function Applications() {
           matchesJob &&
           matchesStatus
         );
+
       }
     );
+
   }, [
     applications,
     search,
@@ -179,6 +202,7 @@ function Applications() {
   // =====================================================
 
   const getInitials = (name) => {
+
     return (name || "Candidate")
       .split(" ")
       .map(
@@ -188,6 +212,7 @@ function Applications() {
       .join("")
       .slice(0, 2)
       .toUpperCase();
+
   };
 
 
@@ -196,6 +221,7 @@ function Applications() {
   // =====================================================
 
   const formatDate = (date) => {
+
     if (!date) return "—";
 
     return new Date(date).toLocaleDateString(
@@ -206,6 +232,7 @@ function Applications() {
         year: "numeric",
       }
     );
+
   };
 
 
@@ -214,122 +241,245 @@ function Applications() {
   // =====================================================
 
   const handleStatusNavigation = (status) => {
+
     setStatusFilter(status);
 
-    // Scroll to application table
     setTimeout(() => {
+
       document
         .querySelector(".applications-card")
         ?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
+
     }, 50);
+
   };
 
-const handleViewResume = async (applicationId) => {
-  try {
-    const response = await viewResume(applicationId);
 
-    const url = window.URL.createObjectURL(
-      response.data
-    );
-
-    window.open(url, "_blank");
-  } catch (error) {
-    console.error(
-      "View resume error:",
-      error
-    );
-
-    alert(
-      error.response?.data?.message ||
-        "Unable to open resume."
-    );
-  }
-};
   // =====================================================
-  // LOADING
+  // VIEW RESUME
   // =====================================================
-// =====================================================
-// UPDATE APPLICATION STATUS
-// =====================================================
 
-const handleStatusChange = async (
-  applicationId,
-  newStatus
-) => {
-  try {
-    // Update backend
-    const response =
-      await updateApplicationStatus(
-        applicationId,
-        newStatus
+  const handleViewResume = async (
+    applicationId
+  ) => {
+
+    try {
+
+      const response =
+        await viewResume(applicationId);
+
+      const url =
+        window.URL.createObjectURL(
+          response.data
+        );
+
+      window.open(
+        url,
+        "_blank"
       );
 
-    if (response.data.success) {
+      // Clean up object URL later
+      setTimeout(() => {
 
-      // Update table immediately
-      setApplications((prev) =>
-        prev.map((application) =>
-          String(application.id) ===
-          String(applicationId)
-            ? {
-                ...application,
-                status: newStatus,
-                updated_at:
-                  response.data.application
-                    ?.updated_at ||
-                  application.updated_at,
-              }
-            : application
-        )
+        window.URL.revokeObjectURL(url);
+
+      }, 10000);
+
+    } catch (error) {
+
+      console.error(
+        "View resume error:",
+        error
       );
 
-      // Also update opened profile modal
-      setSelectedApplication((prev) => {
-        if (
-          !prev ||
-          String(prev.id) !==
-            String(applicationId)
-        ) {
-          return prev;
-        }
-
-        return {
-          ...prev,
-          status: newStatus,
-          updated_at:
-            response.data.application
-              ?.updated_at ||
-            prev.updated_at,
-        };
-      });
+      alert(
+        error.response?.data?.message ||
+          "Unable to open resume."
+      );
 
     }
 
-  } catch (error) {
+  };
 
-    console.error(
-      "Update application status error:",
-      error
-    );
 
-    alert(
-      error.response?.data?.message ||
-        "Unable to update application status."
-    );
-  }
-};
+  // =====================================================
+  // UPDATE APPLICATION STATUS
+  // =====================================================
 
+  const handleStatusChange = async (
+    applicationId,
+    newStatus
+  ) => {
+
+    try {
+
+      const application =
+        applications.find(
+          (item) =>
+            item.id === applicationId
+        );
+
+      if (!application) {
+        return;
+      }
+
+
+      const oldStatus =
+        application.status || "NEW";
+
+
+      // Don't update if same status
+      if (oldStatus === newStatus) {
+        return;
+      }
+
+
+      // Confirmation for important status changes
+      const confirmed =
+        window.confirm(
+          `Are you sure you want to change this candidate's status from ${oldStatus} to ${newStatus}?`
+        );
+
+
+      if (!confirmed) {
+        return;
+      }
+
+
+      setUpdatingStatusId(
+        applicationId
+      );
+
+
+      console.log(
+        "UPDATING APPLICATION STATUS:",
+        {
+          applicationId,
+          oldStatus,
+          newStatus,
+        }
+      );
+
+
+      const response =
+        await updateApplicationStatus(
+          applicationId,
+          newStatus
+        );
+
+
+      console.log(
+        "APPLICATION STATUS UPDATED:",
+        response.data
+      );
+
+
+      // =================================================
+      // UPDATE APPLICATION IN STATE
+      // =================================================
+
+      setApplications(
+        (previousApplications) =>
+          previousApplications.map(
+            (item) =>
+              item.id === applicationId
+                ? {
+                    ...item,
+                    status:
+                      newStatus,
+                    updated_at:
+                      new Date().toISOString(),
+                  }
+                : item
+          )
+      );
+
+
+      // =================================================
+      // UPDATE MODAL DATA IF OPEN
+      // =================================================
+
+      setSelectedApplication(
+        (previousApplication) => {
+
+          if (
+            !previousApplication ||
+            previousApplication.id !==
+              applicationId
+          ) {
+
+            return previousApplication;
+
+          }
+
+          return {
+            ...previousApplication,
+            status: newStatus,
+          };
+
+        }
+      );
+
+
+      // =================================================
+      // EMAIL RESULT
+      // =================================================
+
+      if (
+        response.data?.emailSent === true
+      ) {
+
+        alert(
+          `Application status updated to ${newStatus}.\n\nCandidate email sent successfully.`
+        );
+
+      } else {
+
+        alert(
+          `Application status updated to ${newStatus}.`
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Update application status error:",
+        error
+      );
+
+
+      alert(
+        error.response?.data?.message ||
+          "Unable to update application status."
+      );
+
+    } finally {
+
+      setUpdatingStatusId(null);
+
+    }
+
+  };
+
+
+  // =====================================================
+  // LOADING
+  // =====================================================
 
   if (loading) {
+
     return (
+
       <div className="applications-page">
 
         <div className="applications-header">
 
           <div>
+
             <span className="applications-eyebrow">
               RECRUITMENT
             </span>
@@ -342,9 +492,11 @@ const handleStatusChange = async (
               Review and manage candidates
               who applied to your jobs.
             </p>
+
           </div>
 
         </div>
+
 
         <div className="applications-card">
 
@@ -368,7 +520,9 @@ const handleStatusChange = async (
         </div>
 
       </div>
+
     );
+
   }
 
 
@@ -377,7 +531,9 @@ const handleStatusChange = async (
   // =====================================================
 
   return (
+
     <div className="applications-page">
+
 
       {/* =================================================
           HEADER
@@ -402,6 +558,7 @@ const handleStatusChange = async (
 
         </div>
 
+
         <div className="applications-count">
 
           <strong>
@@ -422,6 +579,7 @@ const handleStatusChange = async (
       ================================================= */}
 
       {error && (
+
         <div className="applications-error">
 
           <strong>
@@ -433,6 +591,7 @@ const handleStatusChange = async (
           </p>
 
         </div>
+
       )}
 
 
@@ -440,7 +599,191 @@ const handleStatusChange = async (
           QUICK STATUS NAVIGATION
       ================================================= */}
 
-    {/* STATUS */}
+      <div className="application-status-navigation">
+
+
+        {/* ALL */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "ALL"
+              ? "status-nav-card active"
+              : "status-nav-card"
+          }
+          onClick={() =>
+            handleStatusNavigation("ALL")
+          }
+        >
+
+          <span className="status-nav-label">
+            ALL
+          </span>
+
+          <strong>
+            {statusCounts.ALL}
+          </strong>
+
+          <small>
+            Applications
+          </small>
+
+        </button>
+
+
+        {/* NEW */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "NEW"
+              ? "status-nav-card active new"
+              : "status-nav-card new"
+          }
+          onClick={() =>
+            handleStatusNavigation("NEW")
+          }
+        >
+
+          <span className="status-nav-label">
+            NEW
+          </span>
+
+          <strong>
+            {statusCounts.NEW}
+          </strong>
+
+          <small>
+            New candidates
+          </small>
+
+        </button>
+
+
+        {/* SHORTLISTED */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "SHORTLISTED"
+              ? "status-nav-card active shortlisted"
+              : "status-nav-card shortlisted"
+          }
+          onClick={() =>
+            handleStatusNavigation(
+              "SHORTLISTED"
+            )
+          }
+        >
+
+          <span className="status-nav-label">
+            SHORTLISTED
+          </span>
+
+          <strong>
+            {statusCounts.SHORTLISTED}
+          </strong>
+
+          <small>
+            Shortlisted
+          </small>
+
+        </button>
+
+
+        {/* INTERVIEW */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "INTERVIEW"
+              ? "status-nav-card active interview"
+              : "status-nav-card interview"
+          }
+          onClick={() =>
+            handleStatusNavigation(
+              "INTERVIEW"
+            )
+          }
+        >
+
+          <span className="status-nav-label">
+            INTERVIEW
+          </span>
+
+          <strong>
+            {statusCounts.INTERVIEW}
+          </strong>
+
+          <small>
+            Interviews
+          </small>
+
+        </button>
+
+
+        {/* SELECTED */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "SELECTED"
+              ? "status-nav-card active selected"
+              : "status-nav-card selected"
+          }
+          onClick={() =>
+            handleStatusNavigation(
+              "SELECTED"
+            )
+          }
+        >
+
+          <span className="status-nav-label">
+            SELECTED
+          </span>
+
+          <strong>
+            {statusCounts.SELECTED}
+          </strong>
+
+          <small>
+            Selected
+          </small>
+
+        </button>
+
+
+        {/* REJECTED */}
+
+        <button
+          type="button"
+          className={
+            statusFilter === "REJECTED"
+              ? "status-nav-card active rejected"
+              : "status-nav-card rejected"
+          }
+          onClick={() =>
+            handleStatusNavigation(
+              "REJECTED"
+            )
+          }
+        >
+
+          <span className="status-nav-label">
+            REJECTED
+          </span>
+
+          <strong>
+            {statusCounts.REJECTED}
+          </strong>
+
+          <small>
+            Rejected
+          </small>
+
+        </button>
+
+      </div>
 
 
       {/* =================================================
@@ -448,6 +791,9 @@ const handleStatusChange = async (
       ================================================= */}
 
       <div className="applications-toolbar">
+
+
+        {/* SEARCH */}
 
         <div className="application-search">
 
@@ -460,17 +806,23 @@ const handleStatusChange = async (
             placeholder="Search candidates..."
             value={search}
             onChange={(e) =>
-              setSearch(e.target.value)
+              setSearch(
+                e.target.value
+              )
             }
           />
 
         </div>
 
 
+        {/* JOB FILTER */}
+
         <select
           value={jobFilter}
           onChange={(e) =>
-            setJobFilter(e.target.value)
+            setJobFilter(
+              e.target.value
+            )
           }
         >
 
@@ -479,21 +831,27 @@ const handleStatusChange = async (
           </option>
 
           {jobs.map((job) => (
+
             <option
               key={job}
               value={job}
             >
               {job}
             </option>
+
           ))}
 
         </select>
 
 
+        {/* STATUS FILTER */}
+
         <select
           value={statusFilter}
           onChange={(e) =>
-            setStatusFilter(e.target.value)
+            setStatusFilter(
+              e.target.value
+            )
           }
         >
 
@@ -532,6 +890,9 @@ const handleStatusChange = async (
 
       <div className="applications-card">
 
+
+        {/* TABLE HEADER */}
+
         <div className="applications-table-header">
 
           <span>
@@ -557,51 +918,53 @@ const handleStatusChange = async (
         </div>
 
 
-        {filteredApplications.length === 0 ? (
+        {/* =================================================
+            NO APPLICATIONS
+        ================================================= */}
 
-          <div className="applications-empty">
+      {filteredApplications.length === 0 ? (
 
-            <div className="empty-candidate-icon">
-              +
-            </div>
+  <div className="applications-empty">
 
-            <h3>
-              No applications found
-            </h3>
+    <div className="empty-candidate-icon">
+      +
+    </div>
 
-            <p>
-              {applications.length === 0
-                ? "No candidates have applied to your jobs yet."
-                : "Try changing your filters or search criteria."}
-            </p>
+    <h3>
+      No applications found
+    </h3>
 
-          </div>
+    <p>
+      {applications.length === 0
+        ? "No candidates have applied to your jobs yet."
+        : "Try changing your filters or search criteria."
+      }
+    </p>
 
-        ) : (
+  </div>
 
-    filteredApplications.map(
-  (application) => (
+) : (
+
+  filteredApplications.map((application) => (
 
     <div
       className="application-row"
       key={application.id}
     >
 
-      {/* =================================================
+      {/* ============================================
           CANDIDATE
-      ================================================= */}
+      ============================================ */}
 
       <div className="candidate-cell">
 
         <div className="candidate-avatar">
-
           {getInitials(
             application.candidate_name
           )}
-
         </div>
 
-        <div className="candidate-info">
+        <div>
 
           <h3>
             {application.candidate_name ||
@@ -618,9 +981,9 @@ const handleStatusChange = async (
       </div>
 
 
-      {/* =================================================
+      {/* ============================================
           POSITION
-      ================================================= */}
+      ============================================ */}
 
       <div className="position-cell">
 
@@ -630,9 +993,9 @@ const handleStatusChange = async (
       </div>
 
 
-      {/* =================================================
-          APPLIED DATE
-      ================================================= */}
+      {/* ============================================
+          DATE
+      ============================================ */}
 
       <div className="date-cell">
 
@@ -643,9 +1006,9 @@ const handleStatusChange = async (
       </div>
 
 
-      {/* =================================================
+      {/* ============================================
           STATUS
-      ================================================= */}
+      ============================================ */}
 
       <div className="application-status-cell">
 
@@ -653,12 +1016,19 @@ const handleStatusChange = async (
           value={
             application.status || "NEW"
           }
+
+          disabled={
+            updatingStatusId ===
+            application.id
+          }
+
           onChange={(e) =>
             handleStatusChange(
               application.id,
               e.target.value
             )
           }
+
           className={`application-status-select ${
             (
               application.status ||
@@ -689,12 +1059,22 @@ const handleStatusChange = async (
 
         </select>
 
+
+        {updatingStatusId ===
+          application.id && (
+
+          <small className="status-updating-text">
+            Updating...
+          </small>
+
+        )}
+
       </div>
 
 
-      {/* =================================================
-          ACTIONS
-      ================================================= */}
+      {/* ============================================
+          ACTION
+      ============================================ */}
 
       <div className="application-actions">
 
@@ -727,10 +1107,9 @@ const handleStatusChange = async (
 
     </div>
 
-  )
-)
+  ))
 
-        )}
+)}
 
       </div>
 
@@ -744,7 +1123,9 @@ const handleStatusChange = async (
         <div
           className="candidate-modal-overlay"
           onClick={() =>
-            setSelectedApplication(null)
+            setSelectedApplication(
+              null
+            )
           }
         >
 
@@ -755,7 +1136,10 @@ const handleStatusChange = async (
             }
           >
 
-            {/* MODAL HEADER */}
+
+            {/* =================================================
+                MODAL HEADER
+            ================================================= */}
 
             <div className="candidate-modal-header">
 
@@ -769,6 +1153,7 @@ const handleStatusChange = async (
 
                 </div>
 
+
                 <div>
 
                   <span className="candidate-modal-eyebrow">
@@ -776,13 +1161,17 @@ const handleStatusChange = async (
                   </span>
 
                   <h2>
+
                     {selectedApplication.candidate_name ||
                       "Unknown Candidate"}
+
                   </h2>
 
                   <p>
+
                     {selectedApplication.candidate_email ||
                       "No email available"}
+
                   </p>
 
                 </div>
@@ -794,7 +1183,9 @@ const handleStatusChange = async (
                 type="button"
                 className="candidate-modal-close"
                 onClick={() =>
-                  setSelectedApplication(null)
+                  setSelectedApplication(
+                    null
+                  )
                 }
               >
                 ×
@@ -803,9 +1194,12 @@ const handleStatusChange = async (
             </div>
 
 
-            {/* APPLICATION SUMMARY */}
+            {/* =================================================
+                APPLICATION SUMMARY
+            ================================================= */}
 
             <div className="candidate-profile-grid">
+
 
               <div className="profile-info-card">
 
@@ -814,8 +1208,10 @@ const handleStatusChange = async (
                 </span>
 
                 <strong>
+
                   {selectedApplication.job_title ||
                     "—"}
+
                 </strong>
 
               </div>
@@ -835,10 +1231,15 @@ const handleStatusChange = async (
                     ).toLowerCase()
                   }`}
                 >
+
                   {(
                     selectedApplication.status ||
                     "NEW"
-                  ).replace("_", " ")}
+                  ).replace(
+                    "_",
+                    " "
+                  )}
+
                 </strong>
 
               </div>
@@ -851,9 +1252,11 @@ const handleStatusChange = async (
                 </span>
 
                 <strong>
+
                   {formatDate(
                     selectedApplication.applied_at
                   )}
+
                 </strong>
 
               </div>
@@ -861,7 +1264,93 @@ const handleStatusChange = async (
             </div>
 
 
-            {/* COMPLETE DETAILS */}
+            {/* =================================================
+                CHANGE STATUS FROM MODAL
+            ================================================= */}
+
+            <div className="candidate-details-section">
+
+              <div className="candidate-section-title">
+
+                <span>
+                  APPLICATION
+                </span>
+
+                <h3>
+                  Update Application Status
+                </h3>
+
+              </div>
+
+
+              <div className="modal-status-control">
+
+                <select
+                  value={
+                    selectedApplication.status ||
+                    "NEW"
+                  }
+
+                  disabled={
+                    updatingStatusId ===
+                    selectedApplication.id
+                  }
+
+                  onChange={(e) =>
+                    handleStatusChange(
+                      selectedApplication.id,
+                      e.target.value
+                    )
+                  }
+
+                  className={`application-status-select ${
+                    (
+                      selectedApplication.status ||
+                      "NEW"
+                    ).toLowerCase()
+                  }`}
+                >
+
+                  <option value="NEW">
+                    New
+                  </option>
+
+                  <option value="SHORTLISTED">
+                    Shortlisted
+                  </option>
+
+                  <option value="INTERVIEW">
+                    Interview
+                  </option>
+
+                  <option value="SELECTED">
+                    Selected
+                  </option>
+
+                  <option value="REJECTED">
+                    Rejected
+                  </option>
+
+                </select>
+
+
+                {updatingStatusId ===
+                  selectedApplication.id && (
+
+                  <span className="status-updating-text">
+                    Updating...
+                  </span>
+
+                )}
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                CANDIDATE INFORMATION
+            ================================================= */}
 
             <div className="candidate-details-section">
 
@@ -880,78 +1369,103 @@ const handleStatusChange = async (
 
               <div className="candidate-details-grid">
 
+
                 <div>
+
                   <label>
                     Full Name
                   </label>
 
                   <p>
+
                     {selectedApplication.candidate_name ||
                       "—"}
+
                   </p>
+
                 </div>
 
 
                 <div>
+
                   <label>
                     Email
                   </label>
 
                   <p>
+
                     {selectedApplication.candidate_email ||
                       "—"}
+
                   </p>
+
                 </div>
 
 
                 <div>
+
                   <label>
                     Phone
                   </label>
 
                   <p>
+
                     {selectedApplication.candidate_phone ||
                       selectedApplication.phone ||
                       "—"}
+
                   </p>
+
                 </div>
 
 
                 <div>
+
                   <label>
                     Location
                   </label>
 
                   <p>
+
                     {selectedApplication.location ||
                       selectedApplication.candidate_location ||
                       "—"}
+
                   </p>
+
                 </div>
 
 
                 <div>
+
                   <label>
                     Experience
                   </label>
 
                   <p>
+
                     {selectedApplication.experience ||
                       selectedApplication.experience_years ||
                       "—"}
+
                   </p>
+
                 </div>
 
 
                 <div>
+
                   <label>
                     Education
                   </label>
 
                   <p>
+
                     {selectedApplication.education ||
                       "—"}
+
                   </p>
+
                 </div>
 
               </div>
@@ -959,7 +1473,9 @@ const handleStatusChange = async (
             </div>
 
 
-            {/* SKILLS */}
+            {/* =================================================
+                SKILLS
+            ================================================= */}
 
             {(selectedApplication.skills ||
               selectedApplication.candidate_skills) && (
@@ -978,6 +1494,7 @@ const handleStatusChange = async (
 
                 </div>
 
+
                 <div className="candidate-skills">
 
                   {String(
@@ -985,11 +1502,17 @@ const handleStatusChange = async (
                       selectedApplication.candidate_skills
                   )
                     .split(",")
-                    .map((skill) => (
-                      <span key={skill}>
-                        {skill.trim()}
-                      </span>
-                    ))}
+                    .map(
+                      (skill) => (
+
+                        <span
+                          key={skill}
+                        >
+                          {skill.trim()}
+                        </span>
+
+                      )
+                    )}
 
                 </div>
 
@@ -998,7 +1521,9 @@ const handleStatusChange = async (
             )}
 
 
-            {/* RESUME */}
+            {/* =================================================
+                RESUME
+            ================================================= */}
 
             {(selectedApplication.resume_url ||
               selectedApplication.resume) && (
@@ -1017,22 +1542,27 @@ const handleStatusChange = async (
 
                 </div>
 
-               <button
-  type="button"
-  className="resume-button"
-  onClick={() =>
-    handleViewResume(selectedApplication.id)
-  }
->
-  View Resume →
-</button>
+
+                <button
+                  type="button"
+                  className="resume-button"
+                  onClick={() =>
+                    handleViewResume(
+                      selectedApplication.id
+                    )
+                  }
+                >
+                  View Resume →
+                </button>
 
               </div>
 
             )}
 
 
-            {/* FOOTER */}
+            {/* =================================================
+                FOOTER
+            ================================================= */}
 
             <div className="candidate-modal-footer">
 
@@ -1040,7 +1570,9 @@ const handleStatusChange = async (
                 type="button"
                 className="modal-secondary-button"
                 onClick={() =>
-                  setSelectedApplication(null)
+                  setSelectedApplication(
+                    null
+                  )
                 }
               >
                 Close
@@ -1055,7 +1587,9 @@ const handleStatusChange = async (
       )}
 
     </div>
+
   );
 }
+
 
 export default Applications;

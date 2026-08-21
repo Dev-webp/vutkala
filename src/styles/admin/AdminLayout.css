@@ -1,0 +1,87 @@
+/* =========================================================
+   ADMIN LAYOUT
+========================================================= */
+
+.admin-layout {
+  min-height: 100vh;
+
+  width: 100%;
+
+  background: #f7f8fb;
+}
+
+
+/* =========================================================
+   MAIN AREA
+
+   IMPORTANT:
+   Sidebar is fixed at 288px.
+   Therefore main content MUST start after 288px.
+========================================================= */
+
+.admin-main {
+  min-height: 100vh;
+
+  margin-left: 288px;
+
+  width: calc(100% - 288px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.admin-content {
+  flex: 1;
+
+  width: 100%;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  background: #f7f8fb;
+
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admin-main {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+  }
+
+  .admin-content {
+    padding: 24px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .admin-main {
+    margin-left: 220px;
+
+    width: calc(100% - 220px);
+  }
+
+  .admin-content {
+    padding: 18px;
+  }
+
+}

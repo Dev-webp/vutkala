@@ -1,10 +1,7 @@
 import axios from "axios";
 
-const API =
-  import.meta.env.VITE_API_URL || "http://localhost:5000";
-
 const adminApi = axios.create({
-  baseURL: `${API}/api/admin`,
+  baseURL: "/api/admin",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -32,10 +29,7 @@ export const getRecruiter = async (id) => {
 // =====================================================
 
 export const approveRecruiter = async (id) => {
-  return await adminApi.put(
-    `/recruiters/${id}/approve`,
-    {}
-  );
+  return await adminApi.put(`/recruiters/${id}/approve`, {});
 };
 
 // =====================================================
@@ -43,8 +37,5 @@ export const approveRecruiter = async (id) => {
 // =====================================================
 
 export const rejectRecruiter = async (id) => {
-  return await adminApi.put(
-    `/recruiters/${id}/reject`,
-    {}
-  );
+  return await adminApi.put(`/recruiters/${id}/reject`, {});
 };
